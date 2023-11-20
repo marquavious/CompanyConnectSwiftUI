@@ -11,7 +11,7 @@ import SwiftUI
 struct SwfitUI_Connect_And_CareApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginOnboardingView()
         }
     }
 }

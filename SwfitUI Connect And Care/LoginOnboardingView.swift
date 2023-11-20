@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LoginOnboardingView.swift
 //  SwfitUI Connect And Care
 //
 //  Created by Marquavious Draggon on 11/19/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LoginOnboardingView: View {
     var body: some View {
         ZStack {
             Color(red: 28/255, green: 68/255, blue: 108/255)
@@ -20,14 +20,13 @@ struct ContentView: View {
                                 .fill(Color.red)
                                 .clipped()
                                 .frame(maxWidth:150, maxHeight: 150)
-                            Text("Welcome!")
-                                .foregroundStyle(Color.white)
-                                .fontWeight(.semibold)
-                                .font(.system(size: 26))
-                                .multilineTextAlignment(.center)
-                            Text("Welcome to Connect & Care: Let's change philanthropy together")
-                                .foregroundStyle(Color.white)
-                                .multilineTextAlignment(.center)
+                            Group {
+                                Text("Welcome!")
+                                    .modifier(OnboardingTitleTextViewModifier())
+                                Text("Welcome to Connect & Care: Let's change philanthropy together")
+                                    .modifier(OnboardingSubTitleTextViewModifier())
+                            }
+                            .multilineTextAlignment(.center)
                         }
                     }
                 }
@@ -56,5 +55,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    LoginOnboardingView()
 }

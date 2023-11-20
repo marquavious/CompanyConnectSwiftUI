@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		C05ADEC92B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADEC82B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift */; };
-		C05ADECB2B0AC29D00F5B5ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADECA2B0AC29D00F5B5ED /* ContentView.swift */; };
+		C05ADECB2B0AC29D00F5B5ED /* LoginOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADECA2B0AC29D00F5B5ED /* LoginOnboardingView.swift */; };
 		C05ADECD2B0AC29E00F5B5ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C05ADECC2B0AC29E00F5B5ED /* Assets.xcassets */; };
 		C05ADED02B0AC29E00F5B5ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C05ADECF2B0AC29E00F5B5ED /* Preview Assets.xcassets */; };
+		C05ADED72B0BD9D400F5B5ED /* UserInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADED62B0BD9D400F5B5ED /* UserInputView.swift */; };
+		C05ADED92B0BE31700F5B5ED /* TextViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADED82B0BE31700F5B5ED /* TextViewModifiers.swift */; };
+		C05ADEDB2B0BE96000F5B5ED /* ButtonViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADEDA2B0BE96000F5B5ED /* ButtonViewModifiers.swift */; };
+		C05ADEDD2B0C0F2400F5B5ED /* UserCredentialInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADEDC2B0C0F2400F5B5ED /* UserCredentialInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C05ADEC52B0AC29D00F5B5ED /* SwfitUI Connect And Care.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwfitUI Connect And Care.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05ADEC82B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwfitUI_Connect_And_CareApp.swift; sourceTree = "<group>"; };
-		C05ADECA2B0AC29D00F5B5ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C05ADECA2B0AC29D00F5B5ED /* LoginOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOnboardingView.swift; sourceTree = "<group>"; };
 		C05ADECC2B0AC29E00F5B5ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C05ADECF2B0AC29E00F5B5ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C05ADED62B0BD9D400F5B5ED /* UserInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputView.swift; sourceTree = "<group>"; };
+		C05ADED82B0BE31700F5B5ED /* TextViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewModifiers.swift; sourceTree = "<group>"; };
+		C05ADEDA2B0BE96000F5B5ED /* ButtonViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModifiers.swift; sourceTree = "<group>"; };
+		C05ADEDC2B0C0F2400F5B5ED /* UserCredentialInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentialInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,11 @@
 			isa = PBXGroup;
 			children = (
 				C05ADEC82B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift */,
-				C05ADECA2B0AC29D00F5B5ED /* ContentView.swift */,
+				C05ADECA2B0AC29D00F5B5ED /* LoginOnboardingView.swift */,
+				C05ADED62B0BD9D400F5B5ED /* UserInputView.swift */,
+				C05ADEDC2B0C0F2400F5B5ED /* UserCredentialInput.swift */,
+				C05ADED82B0BE31700F5B5ED /* TextViewModifiers.swift */,
+				C05ADEDA2B0BE96000F5B5ED /* ButtonViewModifiers.swift */,
 				C05ADECC2B0AC29E00F5B5ED /* Assets.xcassets */,
 				C05ADECE2B0AC29E00F5B5ED /* Preview Content */,
 			);
@@ -137,8 +149,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C05ADECB2B0AC29D00F5B5ED /* ContentView.swift in Sources */,
+				C05ADEDB2B0BE96000F5B5ED /* ButtonViewModifiers.swift in Sources */,
+				C05ADED92B0BE31700F5B5ED /* TextViewModifiers.swift in Sources */,
+				C05ADECB2B0AC29D00F5B5ED /* LoginOnboardingView.swift in Sources */,
 				C05ADEC92B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift in Sources */,
+				C05ADEDD2B0C0F2400F5B5ED /* UserCredentialInput.swift in Sources */,
+				C05ADED72B0BD9D400F5B5ED /* UserInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
