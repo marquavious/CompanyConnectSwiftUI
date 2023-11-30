@@ -19,6 +19,8 @@
 		C05ADEDB2B0BE96000F5B5ED /* ButtonViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADEDA2B0BE96000F5B5ED /* ButtonViewModifiers.swift */; };
 		C05ADEFB2B0D2B1E00F5B5ED /* TextFieldViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADEFA2B0D2B1E00F5B5ED /* TextFieldViewModifiers.swift */; };
 		C05ADEFD2B0D2D3C00F5B5ED /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADEFC2B0D2D3C00F5B5ED /* ViewModifiers.swift */; };
+		C071C1652B17F32A00BCFC49 /* NGOMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071C1642B17F32A00BCFC49 /* NGOMapView.swift */; };
+		C071C1672B18077A00BCFC49 /* TestViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071C1662B18077A00BCFC49 /* TestViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		C05ADEDA2B0BE96000F5B5ED /* ButtonViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModifiers.swift; sourceTree = "<group>"; };
 		C05ADEFA2B0D2B1E00F5B5ED /* TextFieldViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModifiers.swift; sourceTree = "<group>"; };
 		C05ADEFC2B0D2D3C00F5B5ED /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		C071C1642B17F32A00BCFC49 /* NGOMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOMapView.swift; sourceTree = "<group>"; };
+		C071C1662B18077A00BCFC49 /* TestViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 				C05ADEC82B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift */,
 				C05ADECA2B0AC29D00F5B5ED /* LoginOnboardingView.swift */,
 				C05ADED62B0BD9D400F5B5ED /* UserInputView.swift */,
+				C071C1642B17F32A00BCFC49 /* NGOMapView.swift */,
 				C05ADED82B0BE31700F5B5ED /* TextViewModifiers.swift */,
 				C05ADEFA2B0D2B1E00F5B5ED /* TextFieldViewModifiers.swift */,
 				C031FD822B0EC9B50041014B /* Waste.swift */,
@@ -79,6 +84,7 @@
 				C031FD842B0ECA7A0041014B /* ViewExtentions.swift */,
 				C05ADECC2B0AC29E00F5B5ED /* Assets.xcassets */,
 				C05ADECE2B0AC29E00F5B5ED /* Preview Content */,
+				C071C1662B18077A00BCFC49 /* TestViewTests.swift */,
 			);
 			path = "SwfitUI Connect And Care";
 			sourceTree = "<group>";
@@ -163,11 +169,13 @@
 			files = (
 				C05ADEDB2B0BE96000F5B5ED /* ButtonViewModifiers.swift in Sources */,
 				C031FD872B0ECAC20041014B /* UserInputData.swift in Sources */,
+				C071C1652B17F32A00BCFC49 /* NGOMapView.swift in Sources */,
 				C05ADEFD2B0D2D3C00F5B5ED /* ViewModifiers.swift in Sources */,
 				C031FD832B0EC9B50041014B /* Waste.swift in Sources */,
 				C031FD852B0ECA7A0041014B /* ViewExtentions.swift in Sources */,
 				C05ADED92B0BE31700F5B5ED /* TextViewModifiers.swift in Sources */,
 				C05ADECB2B0AC29D00F5B5ED /* LoginOnboardingView.swift in Sources */,
+				C071C1672B18077A00BCFC49 /* TestViewTests.swift in Sources */,
 				C05ADEC92B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift in Sources */,
 				C05ADED72B0BD9D400F5B5ED /* UserInputView.swift in Sources */,
 				C05ADEFB2B0D2B1E00F5B5ED /* TextFieldViewModifiers.swift in Sources */,
