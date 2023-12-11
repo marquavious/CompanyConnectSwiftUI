@@ -10,6 +10,7 @@
 		C031FD832B0EC9B50041014B /* Waste.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031FD822B0EC9B50041014B /* Waste.swift */; };
 		C031FD852B0ECA7A0041014B /* ViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031FD842B0ECA7A0041014B /* ViewExtentions.swift */; };
 		C031FD872B0ECAC20041014B /* UserInputData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031FD862B0ECAC20041014B /* UserInputData.swift */; };
+		C050008B2B194B2D00319C64 /* NGOProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C050008A2B194B2D00319C64 /* NGOProfileView.swift */; };
 		C05ADEC92B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADEC82B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift */; };
 		C05ADECB2B0AC29D00F5B5ED /* LoginOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADECA2B0AC29D00F5B5ED /* LoginOnboardingView.swift */; };
 		C05ADECD2B0AC29E00F5B5ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C05ADECC2B0AC29E00F5B5ED /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		C031FD822B0EC9B50041014B /* Waste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waste.swift; sourceTree = "<group>"; };
 		C031FD842B0ECA7A0041014B /* ViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtentions.swift; sourceTree = "<group>"; };
 		C031FD862B0ECAC20041014B /* UserInputData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputData.swift; sourceTree = "<group>"; };
+		C050008A2B194B2D00319C64 /* NGOProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOProfileView.swift; sourceTree = "<group>"; };
 		C05ADEC52B0AC29D00F5B5ED /* SwfitUI Connect And Care.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwfitUI Connect And Care.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05ADEC82B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwfitUI_Connect_And_CareApp.swift; sourceTree = "<group>"; };
 		C05ADECA2B0AC29D00F5B5ED /* LoginOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOnboardingView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				C05ADED62B0BD9D400F5B5ED /* UserInputView.swift */,
 				C071C1642B17F32A00BCFC49 /* NGOMapView.swift */,
 				C05ADED82B0BE31700F5B5ED /* TextViewModifiers.swift */,
+				C050008A2B194B2D00319C64 /* NGOProfileView.swift */,
 				C05ADEFA2B0D2B1E00F5B5ED /* TextFieldViewModifiers.swift */,
 				C031FD822B0EC9B50041014B /* Waste.swift */,
 				C031FD862B0ECAC20041014B /* UserInputData.swift */,
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C050008B2B194B2D00319C64 /* NGOProfileView.swift in Sources */,
 				C05ADEDB2B0BE96000F5B5ED /* ButtonViewModifiers.swift in Sources */,
 				C031FD872B0ECAC20041014B /* UserInputData.swift in Sources */,
 				C071C1652B17F32A00BCFC49 /* NGOMapView.swift in Sources */,

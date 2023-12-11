@@ -8,128 +8,185 @@
 import SwiftUI
 import MapKit
 
-struct MapObject: Identifiable, Hashable {
+struct CompanyObject: Identifiable, Hashable {
     let id = UUID()
     let orginizationName: String
     let coordinate: CLLocationCoordinate2D
 
     public func hash(into hasher: inout Hasher) {
-           return hasher.combine(id)
-       }
+        return hasher.combine(id)
+    }
 
-       public static func == (lhs: MapObject, rhs: MapObject) -> Bool {
-           return lhs.id == rhs.id
-       }
-}
-
-extension CLLocationCoordinate2D: Identifiable {
-    public var id: String {
-        "\(latitude)-\(longitude)"
+    public static func == (lhs: CompanyObject, rhs: CompanyObject) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 
 struct NGOMapView: View {
+    @State var shouldShowListView: Bool = false
+    @State var shouldShowCategoryClearButton: Bool = false
 
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.3810397737797, longitude: -103.08776997243048), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
-
-    let mapObjects = [
-        MapObject(
-            orginizationName: "Cars for Kids",
+    var companies: [CompanyObject] = [
+        CompanyObject(
+            orginizationName: "Cars for Kids 1",
             coordinate: CLLocationCoordinate2D(
-                latitude: 37.3810397737797, longitude: -103.08776997243048
+                latitude: 18.542952, longitude: -72.39234
             )
         ),
-        MapObject(
-            orginizationName: "Cars for Kids",
+        CompanyObject(
+            orginizationName: "Cars for Kids 2",
             coordinate: CLLocationCoordinate2D(
-                latitude: 42.4400292253286, longitude: -101.99633967980964
+                latitude: -22.859839, longitude: -43.267511
             )
         ),
-        MapObject(
-            orginizationName: "Cars for Kids",
+        CompanyObject(
+            orginizationName: "Cars for Kids 3",
             coordinate: CLLocationCoordinate2D(
-                latitude: 38.15224613474516, longitude: -105.74631273626163
+                latitude: 30.053881, longitude: 31.238474
             )
         ),
-        MapObject(
-            orginizationName: "Cars for Kids",
+        CompanyObject(
+            orginizationName: "Cars for Kids 4",
             coordinate: CLLocationCoordinate2D(
-                latitude: 37.381049537797, longitude: -103.08444997243048
+                latitude: 31.771959, longitude: 35.217018
             )
         ),
-        MapObject(
-            orginizationName: "Cars for Kids",
+        CompanyObject(
+            orginizationName: "Cars for Kids 5",
             coordinate: CLLocationCoordinate2D(
-                latitude: 42.44002934553286, longitude: -101.99633967980964
+                latitude: 41.9001, longitude: -71.0898
             )
         ),
-        MapObject(
-            orginizationName: "Cars for Kids",
+        CompanyObject(
+            orginizationName: "Cars for Kids 6",
             coordinate: CLLocationCoordinate2D(
-                latitude: 38.15234233474516, longitude: -105.74631273456163
+                latitude: 43.84864, longitude: 18.35644
             )
-        ),
-
+        )
     ]
 
-    let rows = [
-        GridItem(.flexible())
+    let categories = [
+        Category(name: "Health Care", color: .red),
+        Category(name: "Women's Advancement", color: .teal),
+        Category(name: "Human Rights", color: .purple),
+        Category(name: "Environmental Issues", color: .mint),
+        Category(name: "Community Building", color: .green),
+        Category(name: "Conflict Relief", color: .pink),
+        Category(name: "Veterans", color: .orange),
+        Category(name: "Education", color: .blue),
+        Category(name: "Indigenous Rights", color: .yellow)
     ]
-
-
-    @State private var searchBar: String = "Tim"
 
     var body: some View {
-        TabView {
-            ZStack {
-                Map(coordinateRegion: $region, annotationItems: mapObjects) {
-                    MapPin(coordinate: $0.coordinate)
-                }.edgesIgnoringSafeArea(.top)
-                ScrollViewReader { value in
-                    VStack {
-                        ZStack {
-                            Capsule()
-                                .fill(Color.white)
-                                .shadow(radius: 3)
-//                            TextField("Search Bar", text: $searchBar)
-                        }
-                        .frame(maxWidth: .infinity, maxHeight: 50)
-                        .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
-                        
-                        Spacer()
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHGrid(rows: rows) {
-                                ForEach(mapObjects) { infor in
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .fill(Color.white)
-                                        .frame(width: 250, height: 150)
-                                        .id(infor.id)
-                                        .shadow(radius: 3)
-//                                        .clipped()
-                                        .onTapGesture {
-                                            print("COC", infor.id)
-                                            withAnimation {
-                                                value.scrollTo(infor.id, anchor: .center)
-                                                region = MKCoordinateRegion(center: infor.coordinate, span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
-                                            }
-                                        }
-                                }
-                            }
-                            .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)) // Check
-                            .scrollTargetLayout()
-                        }
-                        .frame(maxHeight: 200)
-                        .scrollTargetBehavior(.viewAligned)
-                    }
+        ZStack {
+            Map {
+                ForEach(companies) { company in
+                    Marker(company.orginizationName, coordinate: company.coordinate)
                 }
-            }.tabItem {
-                Label("Map", systemImage: "globe.americas")
             }
 
-            TestView()
-                .tabItem {
-                    Label("Feed", systemImage: "list.bullet.below.rectangle")
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Image(systemName: shouldShowListView ? "mappin.and.ellipse" : "list.bullet")
+//                      .resizable()
+                      .frame(width: 25, height: shouldShowListView ? 25 : 15)
+                      .padding(15)
+                      .background(Color.white.opacity(0.9))
+                      .clipShape(Circle())
+                      .onTapGesture {
+                          withAnimation {
+                              shouldShowListView.toggle()
+                          }
+                      }
+
+                    Image(systemName: "xmark")
+//                      .resizable()
+                      .frame(
+                        width: shouldShowCategoryClearButton ? 25 : 0,
+                        height: shouldShowCategoryClearButton ? 25 : 0
+                      )
+                      .padding(shouldShowCategoryClearButton ? 15 : 0)
+                      .foregroundColor(.white)
+                      .background(Color.black.opacity(0.7))
+                      .clipShape(Circle())
+                      .transition(.scale)
+                      .onTapGesture {
+                          withAnimation {
+                              print("FF")
+                              shouldShowCategoryClearButton.toggle()
+                          }
+                          // Clear
+
+                      }
+
+                }.padding(EdgeInsets(top: 16, leading: 8, bottom: 0, trailing: shouldShowListView ? 16 : 8))
+
+
+                ZStack {
+                    VStack(spacing: 0) {
+
+                    CategoryFilterScrollViewTwo(categories: categories)
+                       Rectangle()
+                            .fill(Color.gray.opacity(0.3))
+                            .frame(height: 0.7)
+                            .shadow(radius: 1, y: 1)
+
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHGrid(rows: [GridItem(.flexible())]) {
+                                ForEach(companies) { company in
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .fill(Color.white)
+                                            .frame(width: 175, height: 100)
+                                            .id(company.id)
+                                            .shadow(radius: 3)
+                                        Text(company.orginizationName)
+                                            .foregroundColor(.black)
+                                            .font(.title2)
+                                    }
+                                }
+                            }
+                            .scrollTargetLayout()
+                        }
+
+                        .contentMargins(.horizontal, 8)
+                        .frame(maxHeight: shouldShowListView ? 0 : 175)
+                        .opacity(shouldShowListView ? 0: 1)
+                        .clipped()
+                        .scrollTargetBehavior(.viewAligned)
+
+                        // Bottom stack
+                        VStack {
+                            ScrollView(.vertical, showsIndicators: false) {
+                                LazyVGrid(columns: [GridItem(.flexible())]) {
+                                    ForEach(companies) { company in
+                                        ZStack {
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .fill(Color.white)
+                                                .frame(height: 150)
+                                                .id(company.id)
+                                                .shadow(radius: 3)
+                                            Text(company.orginizationName)
+                                                .foregroundColor(.black)
+                                                .font(.title2)
+                                        }
+                                    }
+                                }
+                                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                            }
+                            .contentMargins(.horizontal, 8)
+                            .frame(maxHeight: shouldShowListView ? .infinity : 0)
+                            .opacity(shouldShowListView ? 1: 0)
+                        }
+                    }
                 }
+                .frame(maxHeight: shouldShowListView ? .infinity : 200)
+                .ignoresSafeArea()
+                .background(.regularMaterial)
+            }
+            .ignoresSafeArea()
         }
     }
 }
@@ -138,4 +195,110 @@ struct NGOMapView: View {
     NGOMapView()
 }
 
-//Map()
+struct CompanyGridScrollView: View {
+
+
+    let companies: [CompanyObject]
+
+
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHGrid(rows: [GridItem(.flexible())]) {
+                ForEach(companies) { company in
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(Color.white)
+                            .frame(width: 250, height: 150)
+                            .id(company.id)
+                            .shadow(radius: 3)
+                        Text(company.orginizationName)
+                            .foregroundColor(.black)
+                            .font(.title2)
+                    }
+                }
+            }
+            .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+            .scrollTargetLayout()
+        }
+        .contentMargins(.horizontal, 8)
+        .frame(maxHeight: 150)
+        .scrollTargetBehavior(.viewAligned)
+    }
+}
+
+
+struct CategoryFilterScrollView: View {
+    let categories: [String]
+
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHGrid(rows: [GridItem(.flexible())]) {
+                ForEach(categories, id: \.self) { category in
+                    ZStack {
+                        Capsule(style: .continuous)
+                            .fill(Color.white)
+                            .shadow(radius: 3)
+                            .frame(height: 30)
+                        Text(category)
+                            .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                    }
+                }
+            }
+        }
+        .contentMargins(.horizontal, 8)
+        .frame(maxHeight: 50)
+        .clipped()
+    }
+}
+
+struct Category: Hashable {
+    let name: String
+    let color: Color
+}
+
+struct CategoryFilterScrollViewTwo: View {
+    let categories: [Category]
+
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHGrid(rows: [GridItem(.flexible())]) {
+                ForEach(categories, id: \.self) { category in
+                    ZStack {
+                        RoundButtonView(text: category.name, color: category.color)
+                    }
+                }
+            }
+        }
+        .contentMargins(.horizontal, 8)
+        .frame(maxHeight: 50)
+        .clipped()
+    }
+}
+
+
+
+struct RoundButtonView: View {
+
+    let text: String
+    let color: Color
+
+    @State var isHighlighted: Bool = false
+
+    var body: some View {
+        ZStack {
+            isHighlighted ? color : Color.white
+            Text(text)
+                .fontWeight(.semibold)
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                .foregroundColor(isHighlighted ? .white : Color.black.opacity(0.7))
+        }.onTapGesture {
+            withAnimation(.easeInOut(duration: 0.1)) {
+                isHighlighted.toggle()
+            }
+        }
+        .cornerRadius(8)
+        .frame(height: 30)
+        .clipShape(.capsule)
+        .shadow(radius: isHighlighted ? 0 : 3)
+    }
+}

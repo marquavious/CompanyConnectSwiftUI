@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 /*
 struct TestView: View {
     let rows = [
@@ -36,37 +37,266 @@ struct TestView: View {
 }
  */
 
+/*
 struct TestView: View {
-    let colors: [Color] = [.red, .green, .blue]
+
+    let rows = [
+        GridItem(.flexible())
+    ]
+
+    @State private var isShowing = false
+    var body: some View {
+        Button("Show Sheet") {
+            isShowing.toggle()
+
+
+        }.sheet(isPresented: $isShowing){
+            sheetView
+                .presentationDetents([.height(200), .large])
+        }
+    }
+
+    var sheetView: some View {
+
+        let mapObjects = [
+            MapObject(
+                orginizationName: "Cars for Kids 1",
+                coordinate: CLLocationCoordinate2D(
+                    latitude: 37.3810397737797, longitude: -103.08776997243048
+                )
+            ),
+            MapObject(
+                orginizationName: "Cars for Kids 2",
+                coordinate: CLLocationCoordinate2D(
+                    latitude: 42.4400292253286, longitude: -101.99633967980964
+                )
+            ),
+            MapObject(
+                orginizationName: "Cars for Kids 3",
+                coordinate: CLLocationCoordinate2D(
+                    latitude: 38.15224613474516, longitude: -105.74631273626163
+                )
+            ),
+            MapObject(
+                orginizationName: "Cars for Kids 4",
+                coordinate: CLLocationCoordinate2D(
+                    latitude: 37.381049537797, longitude: -103.08444997243048
+                )
+            ),
+            MapObject(
+                orginizationName: "Cars for Kids 5",
+                coordinate: CLLocationCoordinate2D(
+                    latitude: 42.44002934553286, longitude: -101.99633967980964
+                )
+            ),
+            MapObject(
+                orginizationName: "Cars for Kids 6",
+                coordinate: CLLocationCoordinate2D(
+                    latitude: 38.15234233474516, longitude: -105.74631273456163
+                )
+            )
+        ]
+
+
+        return ZStack {
+
+            VStack(spacing: 0) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHGrid(rows: rows) {
+                        ForEach(0..<5) {
+                            Text("\($0) Categorie")
+                                .background(Color.red)
+                                .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+                        }
+                    }
+                }
+//                            .background(Color.blue)
+                .frame(maxHeight: 50)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHGrid(rows: rows) {
+                        ForEach(mapObjects) { infor in
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color.white)
+                                    .frame(width: 250)
+                                    .id(infor.id)
+                                    .shadow(radius: 3)
+                                    .onTapGesture {
+//                                        withAnimation {
+//                                            value.scrollTo(infor.id, anchor: .center)
+//                                            region = MKCoordinateRegion(center: infor.coordinate, span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+//                                        }
+                                    }
+
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color.blue)
+                                    .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+                                Text(infor.orginizationName)
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    }
+                    .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+                    .scrollTargetLayout()
+                }
+                .frame(maxHeight: 150)
+//                            .background(Color.red)
+                .scrollTargetBehavior(.viewAligned)
+                Spacer()
+            }
+        }
+    }
+}
+*/
+
+struct GridPractice: View {
+    @State var shouldShowListView: Bool = false
+    var companies: [CompanyObject] = [
+        CompanyObject(
+            orginizationName: "Cars for Kids 1",
+            coordinate: CLLocationCoordinate2D(
+                latitude: 37.3810397737797, longitude: -103.08776997243048
+            )
+        ),
+        CompanyObject(
+            orginizationName: "Cars for Kids 2",
+            coordinate: CLLocationCoordinate2D(
+                latitude: 42.4400292253286, longitude: -101.99633967980964
+            )
+        ),
+        CompanyObject(
+            orginizationName: "Cars for Kids 3",
+            coordinate: CLLocationCoordinate2D(
+                latitude: 38.15224613474516, longitude: -105.74631273626163
+            )
+        ),
+        CompanyObject(
+            orginizationName: "Cars for Kids 4",
+            coordinate: CLLocationCoordinate2D(
+                latitude: 37.381049537797, longitude: -103.08444997243048
+            )
+        ),
+        CompanyObject(
+            orginizationName: "Cars for Kids 5",
+            coordinate: CLLocationCoordinate2D(
+                latitude: 42.44002934553286, longitude: -101.99633967980964
+            )
+        ),
+        CompanyObject(
+            orginizationName: "Cars for Kids 6",
+            coordinate: CLLocationCoordinate2D(
+                latitude: 38.15234233474516, longitude: -105.74631273456163
+            )
+        )
+    ]
+
+    let categories = [
+        Category(name: "Health Care", color: .red),
+        Category(name: "Women's Advancement", color: .teal),
+        Category(name: "Human Rights", color: .purple),
+        Category(name: "Environmental Issues", color: .mint),
+        Category(name: "Community Building", color: .green),
+        Category(name: "Conflict Relief", color: .pink),
+        Category(name: "Veterans", color: .orange),
+        Category(name: "Education", color: .blue),
+        Category(name: "Indigenous Rights", color: .yellow)
+    ]
 
     var body: some View {
-        ScrollViewReader { value in
+        ZStack {
+            Color.black.ignoresSafeArea()
+            ZStack {
+                Color.white.ignoresSafeArea()
+                VStack(spacing: 0) {
+                    HStack {
+                        Spacer()
+                        Button("Search") {
+                            withAnimation {
+                                shouldShowListView.toggle()
+                            }
+                        }
+                        .padding()
+                        .buttonStyle(PrimaryButtonStyle())
+                    }
 
-            Button("Jump to #8") {
-                value.scrollTo(8, anchor: .top)
-            }
+                    CategoryFilterScrollViewTwo(categories: categories)
+                   Rectangle()
+                        .fill(Color.gray.opacity(0.3))
+                        .frame(height: 0.7)
+                        .shadow(radius: 1, y: 1)
 
-            ScrollView {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHGrid(rows: [GridItem(.flexible())]) {
+                            ForEach(companies) { company in
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .fill(Color.white)
+                                        .frame(width: 275, height: 150)
+                                        .id(company.id)
+                                        .shadow(radius: 3)
+                                    Text(company.orginizationName)
+                                        .foregroundColor(.black)
+                                        .font(.title2)
+                                }
+                            }
+                        }
+                        .scrollTargetLayout()
+                    }
 
-//                .padding()
+                    .contentMargins(.horizontal, 8)
+                    .frame(maxHeight: shouldShowListView ? 0 : 175)
+                    .opacity(shouldShowListView ? 0: 1)
+                    .clipped()
+                    .scrollTargetBehavior(.viewAligned)
 
-                ForEach(0..<100) { i in
-                    Text("Example \(i)")
-                        .font(.title)
-                        .frame(width: 200, height: 200)
-                        .background(colors[i % colors.count])
-                        .id(i)
+                    // Bottom stack
+                    VStack {
+                        ScrollView(.vertical, showsIndicators: false) {
+                            LazyVGrid(columns: [GridItem(.flexible())]) {
+                                ForEach(companies) { company in
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .fill(Color.white)
+                                            .frame(height: 150)
+                                            .id(company.id)
+                                            .shadow(radius: 3)
+                                        Text(company.orginizationName)
+                                            .foregroundColor(.black)
+                                            .font(.title2)
+                                    }
+                                }
+                            }
+                            .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                        }
+                        .contentMargins(.horizontal, 8)
+                        .frame(maxHeight: shouldShowListView ? .infinity : 0)
+                        .opacity(shouldShowListView ? 1: 0)
+                    }
+
                 }
             }
         }
-//        .frame(height: 350)
     }
 }
 
 
 #Preview {
-    TestView()
+    GridPractice()
+
 }
+
+struct PrimaryButtonStyle: ButtonStyle {
+    let height: CGFloat = 60
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .font(.callout)
+            .frame(maxWidth: .infinity, minHeight: height, maxHeight: height)
+            .foregroundColor(.black)
+            .background(configuration.isPressed ? Color.red : Color.yellow)
+            .cornerRadius(.infinity)
+    }
+}
+
 
 //
 //struct UserInputTextView: View {
@@ -115,3 +345,244 @@ struct TestView: View {
 //                        .modifier(OnboardingSubTitleTextViewModifier())
 //                }
 //                .multilineTextAlignment(.center)
+
+
+
+//
+//struct PullupSearchView: View {
+//
+//
+//}
+
+
+//
+//  NGOMapView.swift
+//  SwfitUI Connect And Care
+//
+//  Created by Marquavious Draggon on 11/29/23.
+//
+
+//import SwiftUI
+//import MapKit
+//
+//struct MapObject: Identifiable, Hashable {
+//    let id = UUID()
+//    let orginizationName: String
+//    let coordinate: CLLocationCoordinate2D
+//
+//    public func hash(into hasher: inout Hasher) {
+//        return hasher.combine(id)
+//    }
+//
+//    public static func == (lhs: MapObject, rhs: MapObject) -> Bool {
+//        return lhs.id == rhs.id
+//    }
+//}
+//
+//extension CLLocationCoordinate2D: Identifiable {
+//    public var id: String {
+//        "\(latitude)-\(longitude)"
+//    }
+//}
+//
+//struct NGOMapView: View {
+//
+//    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.3810397737797, longitude: -103.08776997243048), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+//
+//    public var mapObjects: [MapObject] = [
+//        MapObject(
+//            orginizationName: "Cars for Kids 1",
+//            coordinate: CLLocationCoordinate2D(
+//                latitude: 37.3810397737797, longitude: -103.08776997243048
+//            )
+//        ),
+//        MapObject(
+//            orginizationName: "Cars for Kids 2",
+//            coordinate: CLLocationCoordinate2D(
+//                latitude: 42.4400292253286, longitude: -101.99633967980964
+//            )
+//        ),
+//        MapObject(
+//            orginizationName: "Cars for Kids 3",
+//            coordinate: CLLocationCoordinate2D(
+//                latitude: 38.15224613474516, longitude: -105.74631273626163
+//            )
+//        ),
+//        MapObject(
+//            orginizationName: "Cars for Kids 4",
+//            coordinate: CLLocationCoordinate2D(
+//                latitude: 37.381049537797, longitude: -103.08444997243048
+//            )
+//        ),
+//        MapObject(
+//            orginizationName: "Cars for Kids 5",
+//            coordinate: CLLocationCoordinate2D(
+//                latitude: 42.44002934553286, longitude: -101.99633967980964
+//            )
+//        ),
+//        MapObject(
+//            orginizationName: "Cars for Kids 6",
+//            coordinate: CLLocationCoordinate2D(
+//                latitude: 38.15234233474516, longitude: -105.74631273456163
+//            )
+//        )
+//    ]
+//    let rows = [
+//        GridItem(.flexible())
+//    ]
+//    let categories = [
+//        "Health Care",
+//        "Women's Advancement",
+//        "Human Rights",
+//        "Environmental Issues",
+//        "Community Building",
+//        "Conflict Relief",
+//        "Veterans",
+//        "Education",
+//        "Indigenous Rights"
+//    ]
+//
+//    @State private var searchBar: String = ""
+//
+//    var body: some View {
+//        TabView {
+//            ZStack {
+//                Map(coordinateRegion: $region, annotationItems: mapObjects) {
+//                    MapPin(coordinate: $0.coordinate)
+//                }
+//                .edgesIgnoringSafeArea(.top)
+//
+//                ScrollViewReader { value in
+//                    Spacer()
+//                    HStack {
+//                        Spacer()
+//                        Circle()
+//                            .fill(Color.red)
+//                            .frame(width: 45)
+//                            .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8))
+//                    }
+//                    ZStack {
+//                        VStack(spacing: 0) {
+//                            ScrollView(.horizontal, showsIndicators: false) {
+//                                LazyHGrid(rows: rows) {
+//                                    ForEach(categories, id: \.self) { category in
+//                                        Text(category)
+//                                            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+//                                            .background(Color.white,in: Capsule(style: .continuous))
+//                                            .shadow(radius: 3)
+//                                    }
+//                                }
+//                            }
+//                            .contentMargins(.horizontal, 8)
+//                            .frame(maxHeight: 50)
+//
+//                            ScrollView(.horizontal, showsIndicators: false) {
+//                                LazyHGrid(rows: rows) {
+//                                    ForEach(mapObjects) { infor in
+//                                        ZStack {
+//                                            RoundedRectangle(cornerRadius: 8)
+//                                                .fill(Color.white)
+//                                                .frame(width: 250)
+//                                                .id(infor.id)
+//                                                .shadow(radius: 3)
+//                                                .onTapGesture {
+//                                                    withAnimation {
+//                                                        value.scrollTo(infor.id, anchor: .center)
+//                                                        region = MKCoordinateRegion(center: infor.coordinate, span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+//                                                    }
+//                                                }
+//
+//                                            Text(infor.orginizationName)
+//                                                .foregroundColor(.black)
+//                                                .font(.title2)
+//                                        }
+//                                    }
+//                                }
+//                                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+//                                .scrollTargetLayout()
+//                            }
+//                            .contentMargins(.horizontal, 8)
+//                            .frame(maxHeight: 150)
+//                            .scrollTargetBehavior(.viewAligned)
+//                        }
+//                        .safeAreaPadding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+//                    }
+//                }
+//            }
+//        }.tabItem {
+//            Label("Map", systemImage: "globe.americas")
+//        }
+//    }
+//}
+//
+//#Preview {
+//    NGOMapView()
+//}
+//
+//
+////
+////struct PullupSearchView: View {
+////
+////
+////}
+//
+
+
+//
+//extension CLLocationCoordinate2D: Identifiable {
+//    public var id: String {
+//        "\(latitude)-\(longitude)"
+//    }
+//}
+
+
+
+//ZStack {
+//    Rectangle()
+//        .fill(Color.blue)
+//        .ignoresSafeArea()
+//
+//
+//    VStack {
+//        if shouldShowVerticleScrollingStack {
+//            VStack {
+//                ScrollView(.horizontal , showsIndicators: false) {
+//                    LazyHGrid(rows: gridItems) {
+//                        ForEach(0..<10) { _ in
+//                            Rectangle()
+//                                .fill(Color.green)
+//                                .frame(minWidth: 50)
+//                        }
+//                    }
+//                }
+//                .contentMargins(.horizontal, 8)
+//                .frame(height: shouldShowVerticleScrollingStack ? .infinity : 0)
+//            }
+//        } else {
+//            VStack {
+//
+//                ScrollView(.vertical, showsIndicators: false) {
+//                    LazyVGrid(columns: gridItems) {
+//                        ForEach(0..<10) { _ in
+//                            Rectangle()
+//                                .fill(Color.green)
+//                                .frame(minHeight: 50)
+//                                .shadow(radius: 3)
+//                        }
+//                    }
+//                }
+//                .contentMargins(.horizontal, 8)
+//            }.frame(height: .infinity)
+//        }
+//
+//
+//        Button("Switch") {
+//            withAnimation(.linear(duration: 0.6)) {
+//                shouldShowVerticleScrollingStack.toggle()
+//            }
+//        }
+//        .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+//        .foregroundColor(.white)
+//        .background(.teal, in: Capsule())
+//    }
+//}
