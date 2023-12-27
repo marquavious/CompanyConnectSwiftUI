@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C02C06502B27F01E00600FFA /* CompanyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C064F2B27F01E00600FFA /* CompanyObject.swift */; };
+		C02C06522B27F15B00600FFA /* CategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C06512B27F15B00600FFA /* CategoryObject.swift */; };
 		C031FD832B0EC9B50041014B /* Waste.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031FD822B0EC9B50041014B /* Waste.swift */; };
 		C031FD852B0ECA7A0041014B /* ViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031FD842B0ECA7A0041014B /* ViewExtentions.swift */; };
 		C031FD872B0ECAC20041014B /* UserInputData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031FD862B0ECAC20041014B /* UserInputData.swift */; };
@@ -22,9 +24,13 @@
 		C05ADEFD2B0D2D3C00F5B5ED /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADEFC2B0D2D3C00F5B5ED /* ViewModifiers.swift */; };
 		C071C1652B17F32A00BCFC49 /* NGOMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071C1642B17F32A00BCFC49 /* NGOMapView.swift */; };
 		C071C1672B18077A00BCFC49 /* TestViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071C1662B18077A00BCFC49 /* TestViewTests.swift */; };
+		C09962232B2A9C39001265F5 /* NGOMapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09962222B2A9C39001265F5 /* NGOMapViewViewModel.swift */; };
+		C0A0F8FA2B34223E0096F1E8 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A0F8F92B34223E0096F1E8 /* BlurView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C02C064F2B27F01E00600FFA /* CompanyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyObject.swift; sourceTree = "<group>"; };
+		C02C06512B27F15B00600FFA /* CategoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryObject.swift; sourceTree = "<group>"; };
 		C031FD822B0EC9B50041014B /* Waste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waste.swift; sourceTree = "<group>"; };
 		C031FD842B0ECA7A0041014B /* ViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtentions.swift; sourceTree = "<group>"; };
 		C031FD862B0ECAC20041014B /* UserInputData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputData.swift; sourceTree = "<group>"; };
@@ -41,6 +47,8 @@
 		C05ADEFC2B0D2D3C00F5B5ED /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		C071C1642B17F32A00BCFC49 /* NGOMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOMapView.swift; sourceTree = "<group>"; };
 		C071C1662B18077A00BCFC49 /* TestViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewTests.swift; sourceTree = "<group>"; };
+		C09962222B2A9C39001265F5 /* NGOMapViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOMapViewViewModel.swift; sourceTree = "<group>"; };
+		C0A0F8F92B34223E0096F1E8 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C02C064E2B27F00600600FFA /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				C02C064F2B27F01E00600FFA /* CompanyObject.swift */,
+				C02C06512B27F15B00600FFA /* CategoryObject.swift */,
+				C09962222B2A9C39001265F5 /* NGOMapViewViewModel.swift */,
+				C0A0F8F92B34223E0096F1E8 /* BlurView.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		C05ADEBC2B0AC29D00F5B5ED = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +104,7 @@
 				C05ADEDA2B0BE96000F5B5ED /* ButtonViewModifiers.swift */,
 				C05ADEFC2B0D2D3C00F5B5ED /* ViewModifiers.swift */,
 				C031FD842B0ECA7A0041014B /* ViewExtentions.swift */,
+				C02C064E2B27F00600600FFA /* Objects */,
 				C05ADECC2B0AC29E00F5B5ED /* Assets.xcassets */,
 				C05ADECE2B0AC29E00F5B5ED /* Preview Content */,
 				C071C1662B18077A00BCFC49 /* TestViewTests.swift */,
@@ -174,6 +194,7 @@
 				C05ADEDB2B0BE96000F5B5ED /* ButtonViewModifiers.swift in Sources */,
 				C031FD872B0ECAC20041014B /* UserInputData.swift in Sources */,
 				C071C1652B17F32A00BCFC49 /* NGOMapView.swift in Sources */,
+				C02C06522B27F15B00600FFA /* CategoryObject.swift in Sources */,
 				C05ADEFD2B0D2D3C00F5B5ED /* ViewModifiers.swift in Sources */,
 				C031FD832B0EC9B50041014B /* Waste.swift in Sources */,
 				C031FD852B0ECA7A0041014B /* ViewExtentions.swift in Sources */,
@@ -181,6 +202,9 @@
 				C05ADECB2B0AC29D00F5B5ED /* LoginOnboardingView.swift in Sources */,
 				C071C1672B18077A00BCFC49 /* TestViewTests.swift in Sources */,
 				C05ADEC92B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift in Sources */,
+				C02C06502B27F01E00600FFA /* CompanyObject.swift in Sources */,
+				C0A0F8FA2B34223E0096F1E8 /* BlurView.swift in Sources */,
+				C09962232B2A9C39001265F5 /* NGOMapViewViewModel.swift in Sources */,
 				C05ADED72B0BD9D400F5B5ED /* UserInputView.swift in Sources */,
 				C05ADEFB2B0D2B1E00F5B5ED /* TextFieldViewModifiers.swift in Sources */,
 			);

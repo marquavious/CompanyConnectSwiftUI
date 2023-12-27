@@ -12,7 +12,7 @@ struct SwfitUI_Connect_And_CareApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LoginOnboardingView()
+            MainView()
         }
     }
 }
@@ -32,6 +32,17 @@ class UserInputViewControllerViewModel: ObservableObject {
     }
 }
  */
+
+struct MainView: View {
+    var body: some View {
+        TabView {
+            NGOMapView()
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+        }
+    }
+}
 
 struct UserInputTextField: Hashable {
     let prompt: String
