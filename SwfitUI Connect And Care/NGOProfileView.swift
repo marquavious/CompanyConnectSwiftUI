@@ -311,7 +311,9 @@ struct NGOProfileView: View {
                                                     .padding([.bottom], 8)
                                             }
                                             .padding(8)
+                                            
                                         }
+
                                     }
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
                                     .frame(
@@ -332,7 +334,7 @@ struct NGOProfileView: View {
                     .zIndex(-offset > 80 ? 0 : 1)
                 }
             }
-            .contentMargins(.bottom, 60)
+
             .ignoresSafeArea(.all, edges: .top)
 
             VStack {

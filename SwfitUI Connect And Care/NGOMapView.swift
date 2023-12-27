@@ -54,7 +54,7 @@ struct NGOMapView: View {
 
 
 
-    @State var shouldShowListView: Bool = false
+    @State var shouldShowListView: Bool = true
     @State var shouldLockMap: Bool = false
 
     @State private var presentedNgos: [CompanyObject] = []
@@ -180,14 +180,17 @@ struct RoundButtonView: View {
     var body: some View {
         ZStack {
             colorScheme == .light ? (isHighlighted ? color : Color.white) :
-            (isHighlighted ? color :  Color.clear)
+            (isHighlighted ? color : Color.clear)
+
+            if isHighlighted {
+                colorScheme == .dark ? Color.black.opacity(0.2) : Color.clear
+            }
 
             Text(text)
                 .fontWeight(.medium)
                 .padding([.leading, .trailing], 16)
                 .foregroundColor(
-                    colorScheme == .light ? (isHighlighted ? .white : Color.black.opacity(0.7)) :
-                        (isHighlighted ? .white : Color.white)
+                    colorScheme == .light ? (isHighlighted ? .white : Color.black.opacity(0.7)) : .white
                 )
         }.onTapGesture {
             withAnimation(.easeInOut(duration: 0.1)) {
@@ -220,87 +223,14 @@ struct CompanyHGrid: View {
     @Binding var shouldShowListView: Bool
     var onTapAction: ((CompanyObject) -> Void)
 
-    let cellSize = CGSize(width: 175 * 2, height: 125)
+    let cellSize = CGSize(width: 350, height: 150)
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: [GridItem(.flexible())]) {
                 ForEach(viewModel.presentedCompanies) { company in
-
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(colorScheme == .light ? Color.white : Color.clear)
-                            .shadow(radius: 2)
-
-                        HStack(alignment: .top) {
-
-                            let photoSize = CGSize(width: cellSize.width / 3, height: cellSize.height)
-
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 8)
-                                    .fill(Color.white)
-                                    .frame(maxWidth: photoSize.height)
-
-                                ZStack {
-                                    company.coverImage
-                                        .resizable()
-                                        .frame(width: photoSize.height * 1.2)
-                                        .id(company.id)
-                                        .shadow(radius: 2)
-                                        .clipped()
-                                        .cornerRadius(8)
-
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear]), startPoint: .bottom, endPoint: .top))
-                                        .frame(width: photoSize.height * 1.2)
-                                        .cornerRadius(8)
-                                        .opacity(0.2)
-                                        .overlay {
-                                            HStack {
-                                                VStack {
-                                                    Spacer()
-                                                    RoundedRectangle(cornerRadius: 8)
-                                                        .fill(Color.white)
-                                                        .frame(width: 40, height: 40)
-                                                        .overlay {
-                                                            RoundedRectangle(cornerRadius: 8)
-                                                                .fill(Color.white)
-                                                        }
-                                                }
-                                                Spacer()
-                                            }
-                                            .padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 0))
-                                        }
-                                }
-                            }
-
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text(company.orginizationName)
-                                    .foregroundColor(colorScheme == .light ? .black : .white)
-                                    .font(.title3)
-                                    .fontWeight(.semibold)
-                                Text(company.missionStatement)
-                                    .foregroundColor(colorScheme == .light ? .black : .white)
-                                    .font(.caption2)
-//                                    .fontWeight(.semibold)
-                            }
-
-                        }
-                        .padding(8)
-
-                    }
-                    .padding(3)
-                    .frame(maxWidth: cellSize.width)
-                    .onTapGesture { _ in
-                        onTapAction(company)
-                    }
-                    .overlay {
-                        if colorScheme == .dark {
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.white, style: StrokeStyle(lineWidth: 1))
-                        }
-                    }
-
+                    CompanyCardView(onTapAction: onTapAction, cellSize: cellSize)
+                        .frame(maxWidth: cellSize.width, maxHeight: cellSize.height)
                 }
             }
             .scrollTargetLayout()
@@ -325,78 +255,14 @@ struct CompanyVGrid: View {
     @Binding var shouldShowListView: Bool
     var onTapAction: ((CompanyObject) -> Void)
 
-    let cellSize = CGSize(width: 175 * 2, height: 125)
+    let cellSize = CGSize(width: 350, height: 150)
 
     var body: some View {
         VStack {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: [GridItem(.flexible())]) {
-                    ForEach(viewModel.presentedCompanies) { company in
-                        ZStack {
-                            Color.white
-                                .cornerRadius(8)
-                                .shadow(radius: 2)
-
-                            HStack(alignment: .top) {
-
-                                let photoSize = CGSize(width: cellSize.width / 3, height: cellSize.height)
-
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .fill(Color.white)
-                                        .frame(maxWidth: photoSize.height)
-
-                                    ZStack {
-                                        company.coverImage
-                                            .resizable()
-                                            .frame(width: photoSize.height * 1.2)
-                                            .id(company.id)
-                                            .shadow(radius: 2)
-                                            .clipped()
-                                            .cornerRadius(8)
-
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear]), startPoint: .bottom, endPoint: .top))
-                                            .frame(width: photoSize.height * 1.2)
-                                            .cornerRadius(8)
-                                            .opacity(0.2)
-                                            .overlay {
-                                                HStack {
-                                                    VStack {
-                                                        Spacer()
-                                                        RoundedRectangle(cornerRadius: 8)
-                                                            .fill(Color.white)
-                                                            .frame(width: 40, height: 40)
-                                                            .overlay {
-                                                                RoundedRectangle(cornerRadius: 8)
-                                                                    .fill(Color.white)
-                                                            }
-                                                    }
-                                                    Spacer()
-                                                }
-                                                .padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 0))
-                                            }
-                                    }
-                                }
-
-                                VStack(alignment: .leading, spacing: 8) {
-                                    Text(company.orginizationName)
-                                        .foregroundColor(.black)
-                                        .font(.title3)
-                                        .fontWeight(.semibold)
-                                    Text(company.missionStatement)
-                                        .foregroundColor(.black)
-                                        .font(.caption2)
-                                        .fontWeight(.semibold)
-                                }
-                            }
-                            .padding(8)
-                        }
-                        .frame(maxHeight: 150)
-                        .onTapGesture { _ in
-                            onTapAction(company)
-                        }
-                    }
+                    CompanyCardView(onTapAction: onTapAction, cellSize: cellSize)
+                        .frame(maxHeight: cellSize.height)
                 }
                 .padding(EdgeInsets(top: 16, leading: 8, bottom: 0, trailing: 8))
             }
@@ -472,4 +338,92 @@ struct MapControlPanelView: View {
 
 #Preview {
     NGOMapView()
+}
+
+struct CompanyCardView: View {
+
+    var onTapAction: ((CompanyObject) -> Void)
+    let cellSize: CGSize
+    @EnvironmentObject var viewModel: NGOMapViewViewModel
+    @Environment(\.colorScheme) var colorScheme
+
+    var body: some View {
+        ForEach(viewModel.presentedCompanies) { company in
+            ZStack {
+
+                let backgroundColor = colorScheme == .light ?  Color.white :  Color.clear
+
+                backgroundColor
+                    .cornerRadius(8)
+                    .shadow(radius: 2)
+                    .overlay {
+                        if colorScheme == .dark {
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.white, style: StrokeStyle(lineWidth: 1))
+                        }
+                    }
+
+                HStack(alignment: .top) {
+                    
+                    let photoSize = CGSize(width: cellSize.width / 3, height: cellSize.height)
+
+                            company.coverImage
+                                .resizable()
+                                .frame(width: photoSize.height)
+                                .id(company.id)
+                                .shadow(radius: 2)
+                                .clipped()
+                                .cornerRadius(8)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .frame(width: photoSize.height)
+                                        .cornerRadius(8)
+                                        .opacity(0.3)
+                                        .overlay {
+                                            HStack {
+                                                VStack {
+                                                    Spacer()
+                                                    RoundedRectangle(cornerRadius: 8)
+                                                        .fill(.regularMaterial)
+                                                        .frame(width: 40, height: 40)
+                                                        .overlay {
+//                                                            RoundedRectangle(cornerRadius: 8)
+//                                                                .fill(Color.white)
+//                                                                .padding(4)
+                                                        }
+                                                }
+                                                Spacer()
+                                            }
+                                            .padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 0))
+                                        }
+                                }
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(company.orginizationName)
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(
+                                colorScheme == .light ? Color.black.opacity(0.7) : .white
+                            )
+                        Text(company.missionStatement)
+                            .font(.caption2)
+                            .foregroundColor(
+                                colorScheme == .light ? Color.black.opacity(0.7) : .white
+                            )
+                    }
+                }
+                .padding(8)
+            }
+            .onTapGesture { _ in
+                onTapAction(company)
+            }
+        }
+    }
+}
+
+extension CompanyCardView {
+    func onTap(_ handler: @escaping (CompanyObject) -> Void) -> CompanyCardView {
+        var new = self
+        new.onTapAction = handler
+        return new
+    }
 }
