@@ -2,6 +2,12 @@ import Foundation
 import MapKit
 import SwiftUI
 
+struct User: Identifiable, Hashable {
+    let id = UUID()
+    let name: String
+    let donations: [Donations]
+}
+
 struct CompanyObject: Identifiable, Hashable {
     let id = UUID()
     let logo: Image = generateRadomImage()
@@ -10,7 +16,6 @@ struct CompanyObject: Identifiable, Hashable {
     let category: Category
     let coverImage: Image
     let missionStatement: String
-//    let missionStatement: String
     let team: [TeamMember]
     let briefHistoryObject = generateBriefHistoryObject()
     let projects = ["Projects", "Projects", "Projects"]
@@ -210,3 +215,41 @@ struct BriefHistoryImageObject: Hashable, Identifiable {
     }
 }
 
+struct Donations: Hashable, Identifiable {
+
+    enum PaymentMethod {
+        case creditCard, paypal, applePay
+
+        var displayName: String {
+            switch self {
+            case .creditCard:
+                return "Credit Card"
+            case .paypal:
+                return "PayPal"
+            case .applePay:
+                return "Apple Pay"
+            }
+        }
+    }
+
+    let id = UUID()
+    let amountInCents: Double
+    let company: CompanyObject
+    let date: Date
+    let paymentMethod: PaymentMethod
+
+    func displayAmount() -> String {
+        return "$0.00"
+    }
+
+    static func generateDonations() -> [Donations] {
+        return [
+            Donations(amountInCents: 1000, company: CompanyObject.ceateFakeComapnyList().randomElement()!, date: Date(), paymentMethod: .applePay),
+            Donations(amountInCents: 2000, company: CompanyObject.ceateFakeComapnyList().randomElement()!, date: Date(), paymentMethod: .creditCard),
+            Donations(amountInCents: 2050, company: CompanyObject.ceateFakeComapnyList().randomElement()!, date: Date(), paymentMethod: .paypal),
+            Donations(amountInCents: 1000, company: CompanyObject.ceateFakeComapnyList().randomElement()!, date: Date(), paymentMethod: .applePay),
+            Donations(amountInCents: 2000, company: CompanyObject.ceateFakeComapnyList().randomElement()!, date: Date(), paymentMethod: .creditCard),
+            Donations(amountInCents: 2050, company: CompanyObject.ceateFakeComapnyList().randomElement()!, date: Date(), paymentMethod: .paypal)
+        ]
+    }
+}

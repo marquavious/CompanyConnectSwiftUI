@@ -181,7 +181,7 @@ struct NGOProfileView: View {
                                                     .resizable()
                                                     .scaledToFill()
                                                     .clipShape(Circle())
-                                                    .shadow(radius: 2)
+//                                                    .shadow(radius: 2)
 
                                                 VStack(alignment: .center) {
                                                     Text(member.name)
@@ -320,7 +320,7 @@ struct NGOProfileView: View {
                                         maxWidth: UIScreen.main.bounds.width - (padding * 4),
                                         minHeight: 500
                                     )
-                                    .shadow(radius: 2)
+//                                    .shadow(radius: 2)
                                     .padding([.bottom], 50)
                                 }
                             }
@@ -353,18 +353,15 @@ struct NGOProfileView: View {
 
                     Text("DONATE")
                         .font(.system(size: 15))
-                        .font(.system(size: 15))
                         .fontWeight(.semibold)
                         .padding([.vertical], 6)
                         .padding([.horizontal], 8)
                         .foregroundColor(.white)
                         .background(.regularMaterial.opacity(0.1))
                         .background(Color(red: 255/255, green: 75/255, blue: 96/255))
-//                        .backgroundColor(.red)
                         .environment(\.colorScheme, .dark)
                         .clipShape(
                             RoundedRectangle(cornerRadius: 8)
-//                                .fill(.red)
                         )
                         .onTapGesture {
                             dismiss()

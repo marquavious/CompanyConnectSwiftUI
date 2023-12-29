@@ -53,8 +53,8 @@ struct CustomAnnotationView: View {
 struct NGOMapView: View {
 
 
-
-    @State var shouldShowListView: Bool = true
+    @Environment(\.colorScheme) var colorScheme
+    @State var shouldShowListView: Bool = false
     @State var shouldLockMap: Bool = false
 
     @State private var presentedNgos: [CompanyObject] = []
@@ -63,7 +63,7 @@ struct NGOMapView: View {
 
     var body: some View {
         NavigationStack(path: $presentedNgos) {
-            ZStack {
+//            ZStack {
                 MapReader { reader in
                     Map() {
                         ForEach(viewModel.presentedCompanies) { company in
@@ -133,7 +133,7 @@ struct NGOMapView: View {
                     .frame(maxHeight: shouldShowListView ? .infinity : 235)
                     .background(.regularMaterial)
                 }
-            }
+//            }
             .environmentObject(viewModel)
             .navigationDestination(for: CompanyObject.self) { company in
                 NGOProfileView(companyObject: company)
@@ -182,10 +182,6 @@ struct RoundButtonView: View {
             colorScheme == .light ? (isHighlighted ? color : Color.white) :
             (isHighlighted ? color : Color.clear)
 
-            if isHighlighted {
-                colorScheme == .dark ? Color.black.opacity(0.2) : Color.clear
-            }
-
             Text(text)
                 .fontWeight(.medium)
                 .padding([.leading, .trailing], 16)
@@ -197,15 +193,9 @@ struct RoundButtonView: View {
                 onTapAction?(isHighlighted)
             }
         }
+        .background(colorScheme == .light ? Color.clear : .gray.opacity(0.3))
         .cornerRadius(8)
         .frame(maxHeight: 30)
-        .shadow(radius: isHighlighted ? 0 : 2)
-        .overlay {
-            if colorScheme == .dark {
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.white, style: StrokeStyle(lineWidth: 1))
-            }
-        }
     }
 }
 
@@ -351,17 +341,17 @@ struct CompanyCardView: View {
         ForEach(viewModel.presentedCompanies) { company in
             ZStack {
 
-                let backgroundColor = colorScheme == .light ?  Color.white :  Color.clear
+                let backgroundColor = colorScheme == .light ?  Color.white : Color.gray.opacity(0.3)
 
                 backgroundColor
                     .cornerRadius(8)
-                    .shadow(radius: 2)
-                    .overlay {
-                        if colorScheme == .dark {
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.white, style: StrokeStyle(lineWidth: 1))
-                        }
-                    }
+//                    .shadow(radius: 2)
+//                    .overlay {
+//                        if colorScheme == .dark {
+//                            RoundedRectangle(cornerRadius: 8)
+//                                .stroke(Color.white, style: StrokeStyle(lineWidth: 1))
+//                        }
+//                    }
 
                 HStack(alignment: .top) {
                     
@@ -371,7 +361,7 @@ struct CompanyCardView: View {
                                 .resizable()
                                 .frame(width: photoSize.height)
                                 .id(company.id)
-                                .shadow(radius: 2)
+//                                .shadow(radius: 2)
                                 .clipped()
                                 .cornerRadius(8)
                                 .overlay {

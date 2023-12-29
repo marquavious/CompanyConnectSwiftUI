@@ -36,9 +36,20 @@ class UserInputViewControllerViewModel: ObservableObject {
 struct MainView: View {
     var body: some View {
         TabView {
+
+            ActivityFeedView().tabItem {
+                Label("Feed", systemImage: "bubble.circle.fill")
+            }
+
+
             NGOMapView()
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Label("Map", systemImage: "globe.americas")
+                }
+
+            DonationsView()
+                .tabItem {
+                    Label("Donations", systemImage: "dollarsign.circle")
                 }
         }
     }
@@ -51,4 +62,9 @@ struct UserInputTextField: Hashable {
 
 enum UserInputTextType {
     case name, email, phoneNumber, generic
+}
+
+
+#Preview {
+    MainView()
 }
