@@ -63,82 +63,84 @@ struct NGOMapView: View {
 
     var body: some View {
         NavigationStack(path: $presentedNgos) {
-//            ZStack {
-                MapReader { reader in
-                    Map() {
-                        ForEach(viewModel.presentedCompanies) { company in
-                            Annotation(company.orginizationName, coordinate: company.coordinate) {
-                                ZStack {
-                                    VStack(spacing: 1) {
-                                        Circle()
-                                            .fill(Color.white.opacity(0.7))
-                                            .frame(width: 40, height: 40)
-                                            .overlay {
-                                                company.logo
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fill)
-                                                    .clipShape(Circle())
-                                                    .padding(8)
-                                            }
+            GeometryReader { proxy in
+                ZStack {
+                    VStack {
+                        Map {
+                            ForEach(viewModel.presentedCompanies) { company in
+                                Annotation(company.orginizationName, coordinate: company.coordinate) {
+                                    ZStack {
+                                        VStack(spacing: 1) {
+                                            Circle()
+                                                .fill(Color.white.opacity(0.7))
+                                                .frame(width: 40, height: 40)
+                                                .overlay {
+                                                    company.logo
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .clipShape(Circle())
+                                                        .padding(8)
+                                                }
 
-                                        Triangle()
-                                            .fill(Color.white.opacity(0.7))
-                                            .frame(width: 15, height: 10)
-                                            .rotationEffect(.degrees(180))
+                                            Triangle()
+                                                .fill(Color.white.opacity(0.7))
+                                                .frame(width: 15, height: 10)
+                                                .rotationEffect(.degrees(180))
+                                        }
+                                    }.onTapGesture {
+                                        presentedNgos.append(company)
                                     }
-                                }.onTapGesture {
-                                    presentedNgos.append(company)
                                 }
                             }
-                        }
-                    }
-                }
+                        }.frame(height: proxy.size.height - 235, alignment: .top)
 
-                VStack(spacing: 0)  {
-                    Spacer()
-
-                    MapControlPanelView(
-                        shouldShowListView: $shouldShowListView,
-                        shouldLockMap: $shouldLockMap
-                    )
-
-                    ZStack {
+                        Spacer()
+                    }.frame(height: proxy.size.height)
                         VStack(spacing: 0) {
-                            CategoryFilterScrollView { category in
-                                if viewModel.selctedCategories.contains(category) {
-                                    viewModel.selctedCategories.removeAll(where: { $0 == category })
-                                } else if !viewModel.selctedCategories.contains(category) {
-                                    viewModel.selctedCategories.append(category)
+                            Spacer()
+
+                            MapControlPanelView(
+                                shouldShowListView: $shouldShowListView,
+                                shouldLockMap: $shouldLockMap
+                            )
+
+                            ZStack {
+                                VStack(spacing: 0) {
+                                    CategoryFilterScrollView { category in
+                                        if viewModel.selctedCategories.contains(category) {
+                                            viewModel.selctedCategories.removeAll(where: { $0 == category })
+                                        } else if !viewModel.selctedCategories.contains(category) {
+                                            viewModel.selctedCategories.append(category)
+                                        }
+                                    }
+                                    .frame(maxHeight: 50)
+
+                                    Divider()
+
+                                    CompanyHGrid(
+                                        shouldShowListView: $shouldShowListView
+                                    ){ company in
+                                        presentedNgos.append(company)
+                                    }
+                                    .padding(.top, shouldShowListView ? 0 : 8)
+
+                                    CompanyVGrid(
+                                        shouldShowListView: $shouldShowListView
+                                    ){ company in
+                                        presentedNgos.append(company)
+                                    }
+                                    .padding(.bottom, shouldShowListView ? 0 : 16)
                                 }
                             }
-                            .frame(maxHeight: 50)
-
-                            Divider()
-
-                            CompanyHGrid(
-                                shouldShowListView: $shouldShowListView
-                            ){ company in
-                                presentedNgos.append(company)
-                            }
-                            .padding(.top, shouldShowListView ? 0 : 8)
-
-                            CompanyVGrid(
-                                shouldShowListView: $shouldShowListView
-                            ){ company in
-                                presentedNgos.append(company)
-                            }
-                            .padding(.bottom, shouldShowListView ? 0 : 16)
+                            .frame(maxHeight: shouldShowListView ? .infinity : 235)
+                            .background(.regularMaterial)
+                        }
+                        .environmentObject(viewModel)
+                        .navigationDestination(for: CompanyObject.self) { company in
+                            NGOProfileView(companyObject: company)
+                                .navigationBarBackButtonHidden(true)
                         }
                     }
-                    .frame(maxHeight: shouldShowListView ? .infinity : 235)
-                    .background(.regularMaterial)
-                }
-//            }
-            .environmentObject(viewModel)
-            .navigationDestination(for: CompanyObject.self) { company in
-                NGOProfileView(companyObject: company)
-                    .navigationBarBackButtonHidden(true)
-//                    .toolbar(.hidden, for: .tabBar)
             }
         }
     }

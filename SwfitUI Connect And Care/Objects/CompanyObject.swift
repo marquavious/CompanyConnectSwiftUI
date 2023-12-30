@@ -81,7 +81,7 @@ struct CompanyObject: Identifiable, Hashable {
     static func ceateFakeComapnyList() -> [CompanyObject] {
         return [
             CompanyObject(
-                orginizationName: "Cars for Kids 1",
+                orginizationName: "Cars for Kids",
                 coordinate: CLLocationCoordinate2D(
                     latitude: 18.542952, longitude: -72.39234
                 ), 
@@ -90,7 +90,7 @@ struct CompanyObject: Identifiable, Hashable {
                 team: TeamMember.generateTeamList()
             ),
             CompanyObject(
-                orginizationName: "Cars for Kids 2",
+                orginizationName: "Cars for Kids",
                 coordinate: CLLocationCoordinate2D(
                     latitude: -22.859839, longitude: -43.267511
                 ),
@@ -99,7 +99,7 @@ struct CompanyObject: Identifiable, Hashable {
                 team: TeamMember.generateTeamList()
             ),
             CompanyObject(
-                orginizationName: "Cars for Kids 3",
+                orginizationName: "Cars for Kids",
                 coordinate: CLLocationCoordinate2D(
                     latitude: 30.053881, longitude: 31.238474
                 ),
@@ -108,7 +108,7 @@ struct CompanyObject: Identifiable, Hashable {
                 team: TeamMember.generateTeamList()
             ),
             CompanyObject(
-                orginizationName: "Cars for Kids 4",
+                orginizationName: "Cars for Kids",
                 coordinate: CLLocationCoordinate2D(
                     latitude: 31.771959, longitude: 35.217018
                 ),
@@ -117,7 +117,7 @@ struct CompanyObject: Identifiable, Hashable {
                 team: TeamMember.generateTeamList()
             ),
             CompanyObject(
-                orginizationName: "Cars for Kids 5",
+                orginizationName: "Cars for Kids",
                 coordinate: CLLocationCoordinate2D(
                     latitude: 41.9001, longitude: -71.0898
                 ),
@@ -126,7 +126,7 @@ struct CompanyObject: Identifiable, Hashable {
                 team: TeamMember.generateTeamList()
             ),
             CompanyObject(
-                orginizationName: "Cars for Kids 6",
+                orginizationName: "Cars for Kids",
                 coordinate: CLLocationCoordinate2D(
                     latitude: 43.84864, longitude: 18.35644
                 ),
