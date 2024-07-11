@@ -165,7 +165,7 @@ struct CompanyObject: Identifiable, Hashable {
                 logoSystemName: "figure.walk.circle.fill",
                 radomShowShorthandName: false,
                 shouldUseSolidColorBackground:true,
-                themeColor: PrimaryColors.primary.color
+                themeColor: Color(red: 28/255, green: 68/255, blue: 108/255)
             ),
             CompanyObject(
                 orginizationName: "People4All",

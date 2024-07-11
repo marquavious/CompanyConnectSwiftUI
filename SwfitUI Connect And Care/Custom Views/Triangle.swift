@@ -5,6 +5,8 @@
 //  Created by Marquavious Draggon on 7/11/24.
 //
 
+import SwiftUI
+
 struct Triangle: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()

@@ -64,7 +64,10 @@ struct UserInputView: View {
                         isLoading.toggle()
                         delegate?.userDidPressActionButton(view: self, inputText: userInputText)
                     }
-                    .modifier(WhiteButtonViewModifiers())
+                    .frame(maxWidth: .infinity, minHeight:47)
+                    .background(Color.white)
+                    .fontWeight(.semibold)
+                    .cornerRadius(3.0)
                     .allowsHitTesting(!userInputText.isEmpty ? true : false)
                     .foregroundColor(!userInputText.isEmpty ?
                                      Color(red: 28/255, green: 68/255, blue: 108/255):
