@@ -759,7 +759,7 @@ struct TweetGenerator {
                 company: CompanyObject.ceateFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .video("move-1"),
+                media: nil ,//.video("move-1"),
                 hourAgoPosted: 1
             ),
             ActvityPost(
@@ -831,7 +831,7 @@ struct TweetGenerator {
                 company: CompanyObject.ceateFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .video("move-8"),
+                media:  nil ,//.video("move-8"),
                 hourAgoPosted: 5
             ),
             ActvityPost(
@@ -852,7 +852,7 @@ struct TweetGenerator {
                 company: CompanyObject.ceateFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .video("move-2"),
+                media: nil ,//.video("move-2"),
                 hourAgoPosted: 7
             ),
             ActvityPost(
@@ -894,7 +894,7 @@ struct TweetGenerator {
                 company: CompanyObject.ceateFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .video("move-1"),
+                media: nil ,//.video("move-1"),
                 hourAgoPosted: 9
             ),
             ActvityPost(
@@ -965,7 +965,7 @@ struct TweetGenerator {
                 company: CompanyObject.ceateFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .video("move-6"),
+                media: nil, //.video("move-6"),
                 hourAgoPosted: 12
             ),
             ActvityPost(
@@ -986,7 +986,7 @@ struct TweetGenerator {
                 company: CompanyObject.ceateFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .video("move-1"),
+                media: nil ,// .video("move-1"),
                 hourAgoPosted: 13
             )
         ]

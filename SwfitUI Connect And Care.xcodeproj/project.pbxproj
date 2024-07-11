@@ -28,21 +28,6 @@
 		C09962232B2A9C39001265F5 /* NGOMapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09962222B2A9C39001265F5 /* NGOMapViewViewModel.swift */; };
 		C0A0F8FA2B34223E0096F1E8 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A0F8F92B34223E0096F1E8 /* BlurView.swift */; };
 		C0CFA1742B50FE85005D5F59 /* TipViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFA1732B50FE85005D5F59 /* TipViews.swift */; };
-		C0DEBE3B2B4CC4D600DEFE8C /* mov-5.MOV in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE352B4CC4D100DEFE8C /* mov-5.MOV */; };
-		C0DEBE3C2B4CC4D600DEFE8C /* mov-3.MOV in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE362B4CC4D100DEFE8C /* mov-3.MOV */; };
-		C0DEBE3D2B4CC4D600DEFE8C /* mov-2.MOV in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE372B4CC4D200DEFE8C /* mov-2.MOV */; };
-		C0DEBE3E2B4CC4D600DEFE8C /* mov-4.MOV in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE382B4CC4D300DEFE8C /* mov-4.MOV */; };
-		C0DEBE3F2B4CC4D600DEFE8C /* mov-1.MOV in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE392B4CC4D400DEFE8C /* mov-1.MOV */; };
-		C0DEBE402B4CC4D600DEFE8C /* mov-6.MOV in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE3A2B4CC4D600DEFE8C /* mov-6.MOV */; };
-		C0DEBE452B4CCB5C00DEFE8C /* move-4.mov in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE412B4CCB5A00DEFE8C /* move-4.mov */; };
-		C0DEBE462B4CCB5C00DEFE8C /* move-2.mov in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE422B4CCB5A00DEFE8C /* move-2.mov */; };
-		C0DEBE472B4CCB5C00DEFE8C /* move-3.mov in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE432B4CCB5B00DEFE8C /* move-3.mov */; };
-		C0DEBE482B4CCB5C00DEFE8C /* move-1.mov in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE442B4CCB5C00DEFE8C /* move-1.mov */; };
-		C0DEBE4B2B4CD14D00DEFE8C /* gg.mov in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE4A2B4CD14D00DEFE8C /* gg.mov */; };
-		C0DEBE502B4CDC2400DEFE8C /* move-5.mov in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE4C2B4CDC2000DEFE8C /* move-5.mov */; };
-		C0DEBE512B4CDC2400DEFE8C /* move-7.mov in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE4D2B4CDC2100DEFE8C /* move-7.mov */; };
-		C0DEBE522B4CDC2400DEFE8C /* move-8.mov in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE4E2B4CDC2300DEFE8C /* move-8.mov */; };
-		C0DEBE532B4CDC2400DEFE8C /* move-6.mov in Resources */ = {isa = PBXBuildFile; fileRef = C0DEBE4F2B4CDC2400DEFE8C /* move-6.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,22 +53,6 @@
 		C09962222B2A9C39001265F5 /* NGOMapViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOMapViewViewModel.swift; sourceTree = "<group>"; };
 		C0A0F8F92B34223E0096F1E8 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		C0CFA1732B50FE85005D5F59 /* TipViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViews.swift; sourceTree = "<group>"; };
-		C0DEBE352B4CC4D100DEFE8C /* mov-5.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "mov-5.MOV"; sourceTree = "<group>"; };
-		C0DEBE362B4CC4D100DEFE8C /* mov-3.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "mov-3.MOV"; sourceTree = "<group>"; };
-		C0DEBE372B4CC4D200DEFE8C /* mov-2.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "mov-2.MOV"; sourceTree = "<group>"; };
-		C0DEBE382B4CC4D300DEFE8C /* mov-4.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "mov-4.MOV"; sourceTree = "<group>"; };
-		C0DEBE392B4CC4D400DEFE8C /* mov-1.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "mov-1.MOV"; sourceTree = "<group>"; };
-		C0DEBE3A2B4CC4D600DEFE8C /* mov-6.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "mov-6.MOV"; sourceTree = "<group>"; };
-		C0DEBE412B4CCB5A00DEFE8C /* move-4.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "move-4.mov"; sourceTree = "<group>"; };
-		C0DEBE422B4CCB5A00DEFE8C /* move-2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "move-2.mov"; sourceTree = "<group>"; };
-		C0DEBE432B4CCB5B00DEFE8C /* move-3.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "move-3.mov"; sourceTree = "<group>"; };
-		C0DEBE442B4CCB5C00DEFE8C /* move-1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "move-1.mov"; sourceTree = "<group>"; };
-		C0DEBE492B4CD0FC00DEFE8C /* FPV Drone Flight through Beautiful Iceland Canyon.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FPV Drone Flight through Beautiful Iceland Canyon.mp4"; sourceTree = "<group>"; };
-		C0DEBE4A2B4CD14D00DEFE8C /* gg.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gg.mov; sourceTree = "<group>"; };
-		C0DEBE4C2B4CDC2000DEFE8C /* move-5.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "move-5.mov"; sourceTree = "<group>"; };
-		C0DEBE4D2B4CDC2100DEFE8C /* move-7.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "move-7.mov"; sourceTree = "<group>"; };
-		C0DEBE4E2B4CDC2300DEFE8C /* move-8.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "move-8.mov"; sourceTree = "<group>"; };
-		C0DEBE4F2B4CDC2400DEFE8C /* move-6.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "move-6.mov"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +79,6 @@
 		C05ADEBC2B0AC29D00F5B5ED = {
 			isa = PBXGroup;
 			children = (
-				C0DEBE342B4CC4A200DEFE8C /* Videos */,
 				C05ADEC72B0AC29D00F5B5ED /* SwfitUI Connect And Care */,
 				C05ADEC62B0AC29D00F5B5ED /* Products */,
 			);
@@ -152,29 +120,6 @@
 				C05ADECF2B0AC29E00F5B5ED /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		C0DEBE342B4CC4A200DEFE8C /* Videos */ = {
-			isa = PBXGroup;
-			children = (
-				C0DEBE392B4CC4D400DEFE8C /* mov-1.MOV */,
-				C0DEBE372B4CC4D200DEFE8C /* mov-2.MOV */,
-				C0DEBE362B4CC4D100DEFE8C /* mov-3.MOV */,
-				C0DEBE382B4CC4D300DEFE8C /* mov-4.MOV */,
-				C0DEBE442B4CCB5C00DEFE8C /* move-1.mov */,
-				C0DEBE422B4CCB5A00DEFE8C /* move-2.mov */,
-				C0DEBE4C2B4CDC2000DEFE8C /* move-5.mov */,
-				C0DEBE4F2B4CDC2400DEFE8C /* move-6.mov */,
-				C0DEBE4D2B4CDC2100DEFE8C /* move-7.mov */,
-				C0DEBE4E2B4CDC2300DEFE8C /* move-8.mov */,
-				C0DEBE492B4CD0FC00DEFE8C /* FPV Drone Flight through Beautiful Iceland Canyon.mp4 */,
-				C0DEBE432B4CCB5B00DEFE8C /* move-3.mov */,
-				C0DEBE412B4CCB5A00DEFE8C /* move-4.mov */,
-				C0DEBE352B4CC4D100DEFE8C /* mov-5.MOV */,
-				C0DEBE4A2B4CD14D00DEFE8C /* gg.mov */,
-				C0DEBE3A2B4CC4D600DEFE8C /* mov-6.MOV */,
-			);
-			path = Videos;
 			sourceTree = "<group>";
 		};
 		C0FF4C072C406AD800146DC9 /* SANDBOX CODE */ = {
@@ -255,23 +200,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0DEBE4B2B4CD14D00DEFE8C /* gg.mov in Resources */,
-				C0DEBE512B4CDC2400DEFE8C /* move-7.mov in Resources */,
 				C05ADED02B0AC29E00F5B5ED /* Preview Assets.xcassets in Resources */,
-				C0DEBE532B4CDC2400DEFE8C /* move-6.mov in Resources */,
-				C0DEBE452B4CCB5C00DEFE8C /* move-4.mov in Resources */,
-				C0DEBE3D2B4CC4D600DEFE8C /* mov-2.MOV in Resources */,
-				C0DEBE3E2B4CC4D600DEFE8C /* mov-4.MOV in Resources */,
-				C0DEBE522B4CDC2400DEFE8C /* move-8.mov in Resources */,
-				C0DEBE472B4CCB5C00DEFE8C /* move-3.mov in Resources */,
 				C05ADECD2B0AC29E00F5B5ED /* Assets.xcassets in Resources */,
-				C0DEBE3F2B4CC4D600DEFE8C /* mov-1.MOV in Resources */,
-				C0DEBE482B4CCB5C00DEFE8C /* move-1.mov in Resources */,
-				C0DEBE502B4CDC2400DEFE8C /* move-5.mov in Resources */,
-				C0DEBE462B4CCB5C00DEFE8C /* move-2.mov in Resources */,
-				C0DEBE3B2B4CC4D600DEFE8C /* mov-5.MOV in Resources */,
-				C0DEBE402B4CC4D600DEFE8C /* mov-6.MOV in Resources */,
-				C0DEBE3C2B4CC4D600DEFE8C /* mov-3.MOV in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
