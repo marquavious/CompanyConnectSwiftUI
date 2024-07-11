@@ -6,68 +6,36 @@
 //
 
 import SwiftUI
+import AVKit
+import TipKit
 
 struct ActivityFeedView: View {
 
-    let activityPost = ActvityPost.makeFakeActivityPosts()
+    @StateObject var viewModel = BasicFakeActivityFeed()
+    @Environment (\.colorScheme) var colorScheme
+    @State private var presentedNgos: [CompanyObject] = []
+    @State private var shouldShowFilter: Bool = false
 
     var body: some View {
-        NavigationView {
-            ScrollView(showsIndicators: false) {
-                LazyVGrid(columns: [GridItem(.flexible())], alignment: .leading) {
-                    ForEach(activityPost) { activityPost in
-                        HStack(alignment: .top, spacing: 12) {
-                            activityPost.comapany.logo
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 50, height: 50)
-                                .clipShape(Circle())
-
-                            VStack(alignment: .leading, spacing: 6) {
-                                    HStack(spacing: 0) {
-                                        Text(activityPost.comapany.orginizationName)
-                                            .font(.subheadline)
-                                            .bold()
-                                        Text(" • 11h")
-                                            .font(.caption)
-                                            .foregroundColor(.gray)
-                                        Spacer()
-                                        Image(systemName: "ellipsis")
-                                    }
-
-                                if let caption = activityPost.caption {
-                                    Text(caption).font(.subheadline)
-                                }
-
-                                if let media = activityPost.media {
-                                    MediaView(media: media)
-                                        .padding([.vertical], 8)
-                                }
-                            }
-                        }
-                        Divider()
-                    }
-                    .padding([.horizontal], 16)
-                    .padding([.vertical], 8)
-                }
+        NavigationStack(path: $presentedNgos) {
+            ActivityFeedScrollView(shouldShowCategoryFilter: true, viewModel: viewModel, ngoSelected: { ngo in
+                presentedNgos.append(ngo)
+            }, actvityPostSelected: { post in
+            })
+            .environment(viewModel)
+            .navigationTitle("Recent Updates")
+            .navigationDestination(for: CompanyObject.self) { company in
+                NGOProfileView(companyObject: company)
+                    .navigationBarBackButtonHidden(true)
             }
-            .scrollClipDisabled()
-            .navigationTitle("Updates")
-            .contentMargins([.top], 32)
             .toolbar {
-                Image(systemName: "line.3.horizontal.decrease.circle")
-
-//                Menu {
-//                    Button {
-//                        // action for menu item 1
-//                    } label: {
-//                        Label("Menu Item 1", systemImage: "icon_name")
-//                    }
-//                    // Additional menu items
-//                } label: {
-//                    Label("Menu Button", systemImage: "icon_name")
-//                }
-
+                Button("", systemImage: viewModel.hasSelected() ?  "xmark.circle": "") {
+                    if viewModel.hasSelected() {
+                        withAnimation(.easeInOut(duration: 0.1)) {
+                            viewModel.resetSelectedCategories()
+                        }
+                    }
+                }.tint(colorScheme == .light ? .black:.white)
             }
         }
     }
@@ -82,10 +50,16 @@ struct MediaView: View {
     var body: some View {
         switch media {
         case .photo(let photo):
-            photo.image
-                .resizable()
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-                .padding([.trailing], 8)
+                photo.image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 200)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .contextMenu {
+                        Button("Share", systemImage: "square.and.arrow.up") { }
+                    }
+                    .shadow(radius: colorScheme == .light ? 1 : 0)
+
         case .photos(let images):
             GeometryReader { proxy in
                 let proxySize = proxy.frame(in: .local)
@@ -99,46 +73,38 @@ struct MediaView: View {
                                        height: proxySize.height,
                                        alignment: .center)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
+                                .contextMenu {
+                                    Button("Share", systemImage: "square.and.arrow.up") { }
+                                }
+                                .shadow(radius: colorScheme == .light ? 1 : 0)
                         }
-                    }.scrollTargetLayout()
-
-                }.scrollClipDisabled()
-                    .scrollTargetBehavior(.viewAligned)
-            }.frame(height: 250)
-        case .donation:
-            Text("f")
-        case .donationProgress(_):
+                    }
+                    .scrollTargetLayout()
+                }
+                .scrollClipDisabled()
+                .scrollTargetBehavior(.viewAligned)
+            }.frame(height: 200)
+        case .donationProgress(let donationProgress, let donationTotal):
             GeometryReader { proxy in
-                var width: CGFloat = proxy.frame(in: .local).width
-                var height: CGFloat = 20
-                var percent: CGFloat = 69
-                var color1 = Color(Color.orange)
-                var color2 = Color(Color.pink)
+                let width: CGFloat = proxy.frame(in: .local).width
+                let height: CGFloat = 15
+                let percent = (( donationProgress / donationTotal) * 100)
+                let color1 = Color(Color.orange)
+                let color2 = Color(Color.red)
 
                 let multiplier = width / 100
 
-                VStack(alignment: .center) {
+                VStack(alignment: .center, spacing: 16) {
                     HStack {
-                        Text("$957")
-                            .font(.largeTitle)
+                        Text("$\(String(format: "%.0f", donationProgress))")
+                            .font(.title)
 
-                        Text("/ $1000")
-                            .font(.largeTitle)
+                        Text("/ $\(String(format: "%.0f", donationTotal))")
+                            .font(.title)
                             .opacity(0.5)
                     }
 
                     ZStack(alignment: .leading) {
-                        //                        RoundedRectangle(cornerRadius: height, style: .continuous)
-                        //                            .frame(width: width, height: height)
-                        //                            .foregroundColor(colorScheme == .light ? .gray.opacity(0.3) : .gray.opacity(0.3))
-                        //                        RoundedRectangle(cornerRadius: height, style: .continuous)
-                        //                            .frame(width: percent * multiplier, height: height)
-                        //
-                        //                            .background(LinearGradient(colors: [color1, color2], startPoint: .leading, endPoint: .trailing)
-                        //                                .clipShape(RoundedRectangle(cornerRadius: height, style: .continuous))
-                        //                            )
-                        //                            .foregroundColor(.clear)
-
                         RoundedRectangle(cornerRadius: height, style: .continuous)
                             .frame(maxWidth: width, maxHeight: height)
                             .foregroundColor(colorScheme == .light ? .gray.opacity(0.3) : .gray.opacity(0.3))
@@ -149,30 +115,47 @@ struct MediaView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: height, style: .continuous))
                             )
                             .foregroundColor(.clear)
-                    }.padding([.horizontal], 16)
+                    }
+                    .padding([.horizontal], 16)
 
-                    //                .border(Color.red)
+                    Button("DONATE") {
+                        // Show Dono Page
+                    }
+                    .background(colorScheme == .light ? .red : .gray.opacity(0.3))
+                    .foregroundColor(.white)
+                    .buttonStyle(.bordered)
+                    .font(.subheadline)
+                    .bold()
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
 
-                    Spacer()
-
-                    Text("SHOW SUPPORT")
-//                        .font(.system(size: 15))
-                        .fontWeight(.semibold)
-                        .padding([.vertical], 6)
-                        .padding([.horizontal], 8)
-                        .foregroundColor(.white)
-                        .background(.regularMaterial.opacity(0.1))
-                        .background(Color(red: 255/255, green: 75/255, blue: 96/255))
-                        .environment(\.colorScheme, .dark)
-                        .clipShape(
-                            RoundedRectangle(cornerRadius: 8)
-                        )
-                        .onTapGesture {
-
-                        }
-                }
+                }.frame(height: 130)
             }
-            .frame(height: 150)
+            .frame(height: 130)
+
+        case .video(let id):
+            let avPlayer = AVPlayer(url:  Bundle.main.url(forResource: id, withExtension: "mov")!)
+            GeometryReader { proxy in
+                VideoPlayer(player: avPlayer)
+                    .frame(width: 450, height: 900, alignment: .center)
+                    .position(x: proxy.size.width / 2, y: proxy.size.height / 2)
+                    .scaledToFill()
+                    .clipped()
+                    .onAppear() {
+                        avPlayer.isMuted = true
+                        avPlayer.play()
+                        avPlayer.volume = 0
+                    }
+                    .onDisappear {
+                        avPlayer.isMuted = true
+                        avPlayer.pause()
+                        avPlayer.volume = 0
+                    }
+            }
+            .frame(height: 200)
+            .clipped()
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .shadow(radius: colorScheme == .light ? 1 : 0)
+            .zIndex(-100)
         }
     }
 }
@@ -181,121 +164,237 @@ struct MediaView: View {
     ActivityFeedView()
 }
 
-struct ActvityPost: Hashable, Identifiable {
-    static func == (lhs: ActvityPost, rhs: ActvityPost) -> Bool {
-        return lhs.id == rhs.id
-    }
+struct ActvitiyFeedFilterView: View {
 
-    public func hash(into hasher: inout Hasher) {
-        return hasher.combine(id)
-    }
+    var viewModel: ActivityFeedViewViewModelType
+    var onTapAction: ((Category) -> Void)
 
-    typealias Percentage = Double
-
-    enum Media {
-        case photo(IdentifiableImage)
-        case photos([IdentifiableImage])
-        case donation
-        case donationProgress(Percentage)
-    }
-
-    let id = UUID()
-    let comapany: CompanyObject
-    let caption: String?
-    let media: Media?
-
-    static func makeFakeActivityPosts() -> [ActvityPost] {
-
-        return [
-            ActvityPost(
-                comapany: CompanyObject.ceateFakeComapnyList().randomElement()!,
-                caption: "SO so happy to start working on our new projects!",
-                media: nil
-            ),
-            ActvityPost(
-                comapany: CompanyObject.ceateFakeComapnyList().randomElement()!,
-                caption: "SO so happy to start working on our new projects!",
-                media: .photo(IdentifiableImage(image: CompanyObject.generateRadomImage()))
-            ),
-            ActvityPost(
-                comapany: CompanyObject.ceateFakeComapnyList().randomElement()!,
-                caption: "SO so happy to start working on our new projects!",
-                media: nil
-            ),
-            ActvityPost(
-                comapany: CompanyObject.ceateFakeComapnyList().randomElement()!,
-                caption: "SO so happy to start working on our new projects!",
-                media: nil
-            ),
-
-            ActvityPost(
-                comapany: CompanyObject.ceateFakeComapnyList().randomElement()!,
-                caption: "We're $200 away from our fundrasing goal! Thank you all for the support! ",
-                media:.donationProgress(94)
-            ),
-            ActvityPost(
-                comapany: CompanyObject.ceateFakeComapnyList().randomElement()!,
-                caption: "SO so happy to start working on our new projects!",
-                media: .photos(
-                    [
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                    ]
-                )
-            ),
-            ActvityPost(
-                comapany: CompanyObject.ceateFakeComapnyList().randomElement()!,
-                caption: "SO so happy to start working on our new projects!",
-                media: nil
-            ),
-            ActvityPost(
-                comapany: CompanyObject.ceateFakeComapnyList().randomElement()!,
-                caption: "SO so happy to start working on our new projects!",
-                media: .photo(IdentifiableImage(image: CompanyObject.generateRadomImage()))
-            ),
-            ActvityPost(
-                comapany: CompanyObject.ceateFakeComapnyList().randomElement()!,
-                caption: "SO so happy to start working on our new projects!",
-                media: nil
-            ),
-
-            ActvityPost(
-                comapany: CompanyObject.ceateFakeComapnyList().randomElement()!,
-                caption: "We're $200 away from our fundrasing goal! Thank you all for the support! ",
-                media:.donationProgress(94)
-            ),
-            ActvityPost(
-                comapany: CompanyObject.ceateFakeComapnyList().randomElement()!,
-                caption: "SO so happy to start working on our new projects!",
-                media: .photos(
-                    [
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                    ]
-                )
-            ),
-            ActvityPost(
-                comapany: CompanyObject.ceateFakeComapnyList().randomElement()!,
-                caption: "SO so happy to start working on our new projects!",
-                media: nil
-            ),
-//            ActvityPost(
-//                comapany: company,
-//                caption: "We're ",
-//                media: .donation
-//            ),
-//            ActvityPost(
-//                comapany: CompanyObject.ceateFakeComapnyList().randomElement()!,
-//                caption: "We're $200 away from our fundrasing goal! Thank you all for the support! ",
-//                media:.donationProgress(94)
-//            )
-        ]
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHGrid(rows: [GridItem(.flexible())]) {
+                ForEach(viewModel.categories(), id: \.self) { category in
+                    ZStack {
+                        RoundButtonView(text: category.name, color: category.color, isHighlighted: viewModel.selctedCategories().contains(category))
+                            .onTap { _ in
+                                onTapAction(category)
+                            }
+                    }
+                }
+            }
+        }
+        .background(.background)
+        .contentMargins(.horizontal, 8)
+        .contentMargins(.vertical, 8)
     }
 }
 
-struct IdentifiableImage: Identifiable {
-    let id = UUID()
-    let image: Image
+struct ActivityFeedScrollView: View {
+
+    @State var shouldShowCategoryFilter: Bool
+
+    var viewModel: ActivityFeedViewViewModelType
+    @Environment(\.colorScheme) var colorScheme
+    let activityScrollerTipView = ActivityScrollerTipView()
+
+    var ngoSelected: ((CompanyObject) -> Void)
+
+    var actvityPostSelected: ((ActvityPost) -> Void)
+
+    var body: some View {
+        ScrollView(showsIndicators: false) {
+            LazyVGrid(columns: [GridItem(.flexible())], alignment: .leading, pinnedViews: [.sectionHeaders]) {
+                Section {
+                    TipView(activityScrollerTipView)
+                        .padding([.horizontal], 16)
+                    ForEach(viewModel.presentedPosts()) { activityPost in
+                        HStack(alignment: .top, spacing: 12) {
+
+                            if let poster = activityPost.poster {
+                                poster.image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 40, height: 40)
+                                    .clipShape(Circle())
+                                    .onTapGesture { ngoSelected(activityPost.company) }
+                                    .overlay(alignment: .bottomTrailing) {
+
+                                        let company = activityPost.company
+
+
+                                        if company.shouldUseSolidColorBackground {
+
+                                            Circle()
+                                                .fill(company.themeColor)
+                                                .frame(width: 20, height: 20)
+                                                .padding(2)
+                                                .background(colorScheme == .dark ? .black : .white)
+                                                .overlay(alignment: .center) {
+                                                    Color.white
+                                                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                                                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                                                        .mask {
+                                                            VStack(spacing: 0) {
+                                                                Text(Image(systemName: company.logoSystemName))
+                                                                    .font(.caption)
+                                                                    .bold()
+                                                            }
+                                                        }
+                                                }
+                                                .clipShape(Circle())
+                                                .offset(x:8, y: 8)
+                                        } else {
+                                            company.logo
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 20, height: 20)
+                                                .clipShape(Circle())
+                                                .padding(2)
+                                                .background(colorScheme == .dark ? .black : .white)
+                                                .overlay(alignment: .center) {
+                                                    Color.white
+                                                        .mask {
+                                                            VStack(spacing: 0) {
+                                                                Text(Image(systemName: company.logoSystemName))
+                                                                    .font(.caption)
+                                                                    .bold()
+                                                            }
+                                                        }
+                                                }
+                                                .clipShape(Circle())
+                                                .offset(x:8, y: 8)
+                                        }
+                                    }
+                            }
+                            else {
+
+                                if activityPost.company.shouldUseSolidColorBackground {
+
+                                    Circle()
+                                        .fill(activityPost.company.themeColor)
+                                        .frame(width: 40, height: 40)
+                                        .overlay(alignment: .center) {
+                                            Color.white
+                                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                                .mask {
+                                                    VStack(spacing: 0) {
+                                                        Text(Image(systemName: activityPost.company.logoSystemName))
+                                                            .font(activityPost.company.radomShowShorthandName ? .caption : .title2)
+                                                            .bold()
+
+                                                        if activityPost.company.radomShowShorthandName {
+                                                            Text(String(activityPost.company.orginizationName.prefix(3)).uppercased())
+                                                                .font(.caption)
+                                                                .bold()
+                                                        }
+                                                    }
+                                                }
+                                        }
+                                        .onTapGesture { ngoSelected(activityPost.company) }
+                                } else {
+                                    activityPost.company.logo
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 40, height: 40)
+                                        .clipShape(Circle())
+                                        .overlay(alignment: .center) {
+                                            Color.white
+                                                .mask {
+                                                    VStack(spacing: 0) {
+                                                        Text(Image(systemName: activityPost.company.logoSystemName))
+                                                            .font(activityPost.company.radomShowShorthandName ? .caption : .title2)
+                                                            .bold()
+
+                                                        if activityPost.company.radomShowShorthandName {
+                                                            Text(String(activityPost.company.orginizationName.prefix(3)).uppercased())
+                                                                .font(.caption)
+                                                                .bold()
+                                                        }
+                                                    }
+                                                }
+                                        }
+                                        .clipShape(Circle())
+                                        .onTapGesture { ngoSelected(activityPost.company) }
+                                }
+                            }
+
+                            VStack(alignment: .leading, spacing: 6) {
+                                HStack(spacing: 0) {
+                                    if let poster = activityPost.poster {
+                                        Text("\(poster.name)")
+                                            .font(.subheadline)
+                                            .bold()
+
+                                        Text(" from ")
+                                            .font(.subheadline)
+                                            .foregroundColor(.gray)
+                                    }
+
+                                    Text(activityPost.company.orginizationName)
+                                        .font(.subheadline)
+                                        .bold()
+                                        .fixedSize(horizontal: false, vertical: true)
+
+                                    Text(" • \(activityPost.hourAgoPosted)h")
+                                        .font(.subheadline)
+                                        .foregroundColor(.gray)
+
+                                    Spacer()
+
+                                    Menu {
+                                        Button("Share", systemImage: "square.and.arrow.up") { }
+                                        Button("Visit Profile", systemImage: "person.crop.circle") {
+                                            ngoSelected(activityPost.company)
+                                        }
+                                    } label: {
+                                        Label("", systemImage: "ellipsis")
+                                            .tint(colorScheme == .light ? .black:.white)
+                                    }
+                                }
+
+                                if let caption = activityPost.caption {
+                                    Text(caption)
+                                        .font(.system(size: 14))
+                                        .padding([.bottom], 8)
+                                }
+
+
+                                if let media = activityPost.media {
+                                    MediaView(media: media)
+                                        .padding([.vertical], 8)
+                                        .frame(width: 200, height: 200)
+                                        .onTapGesture {
+                                            actvityPostSelected(activityPost)
+                                        }
+
+                                }
+                            }
+                        }
+                        .padding([.top], 8)
+                        .padding([.horizontal], 16)
+                        Divider()
+                    }
+                } header: {
+                        if shouldShowCategoryFilter {
+                            VStack(spacing: 0) {
+                            ActvitiyFeedFilterView(viewModel: viewModel) { category in
+                                activityScrollerTipView.invalidate(reason: .actionPerformed)
+                                if viewModel.selctedCategories().contains(category) {
+                                    withAnimation(.easeInOut(duration: 0.2)) {
+                                        viewModel.removeCategory(category: category)
+                                    }
+                                } else if !viewModel.selctedCategories().contains(category) {
+                                    withAnimation(.easeInOut(duration: 0.2)) {
+                                        viewModel.addToSelectedCategories(category: category)
+                                    }
+                                }
+                            }
+                            .frame(minHeight: 50)
+                                Divider()
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

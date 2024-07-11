@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 @main
 struct SwfitUI_Connect_And_CareApp: App {
@@ -15,55 +16,30 @@ struct SwfitUI_Connect_And_CareApp: App {
             MainView()
         }
     }
-}
-
-/*
-class UserInputViewControllerViewModel: ObservableObject {
-    @Published var userInputViewObject: UserInputViewObjectViewModel
 
     init() {
-        self.userInputViewObject = UserInputViewObject(
-            image: Image("person.badge.key"),
-            title: "This is a smaple User Input Title",
-            subtitle: "Below, you should see all of your custom Input Fields",
-            actionButtonText: "Action Button Text",
-            userInputTextFields: UserInputTextField(prompt: "Test Input", type: .generic)
-        )
+        try? Tips.resetDatastore() // Purge all TipKit related data.
+        try? Tips.configure() // Tips.showTipsForTesting([CompletionToDeleteTip.self])
     }
 }
- */
 
 struct MainView: View {
     var body: some View {
         TabView {
-
             ActivityFeedView().tabItem {
                 Label("Feed", systemImage: "bubble.circle.fill")
             }
 
+            NGOMapView().tabItem {
+                Label("Map", systemImage: "globe.americas")
+            }
 
-            NGOMapView()
-                .tabItem {
-                    Label("Map", systemImage: "globe.americas")
-                }
-
-            DonationsView()
-                .tabItem {
-                    Label("Donations", systemImage: "dollarsign.circle")
-                }
+            DonationsView().tabItem {
+                Label("Donations", systemImage: "dollarsign.circle")
+            }
         }
     }
 }
-
-struct UserInputTextField: Hashable {
-    let prompt: String
-    let type: UserInputTextType
-}
-
-enum UserInputTextType {
-    case name, email, phoneNumber, generic
-}
-
 
 #Preview {
     MainView()

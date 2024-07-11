@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import TipKit
 
 struct Triangle: Shape {
     func path(in rect: CGRect) -> Path {
@@ -52,10 +53,9 @@ struct CustomAnnotationView: View {
 
 struct NGOMapView: View {
 
-
     @Environment(\.colorScheme) var colorScheme
     @State var shouldShowListView: Bool = false
-    @State var shouldLockMap: Bool = false
+    @State var shouldLockMap: Bool = true
 
     @State private var presentedNgos: [CompanyObject] = []
 
@@ -66,7 +66,7 @@ struct NGOMapView: View {
             GeometryReader { proxy in
                 ZStack {
                     VStack {
-                        Map {
+                        Map(interactionModes: shouldLockMap ? [] : [.all]) {
                             ForEach(viewModel.presentedCompanies) { company in
                                 Annotation(company.orginizationName, coordinate: company.coordinate) {
                                     ZStack {
@@ -75,11 +75,40 @@ struct NGOMapView: View {
                                                 .fill(Color.white.opacity(0.7))
                                                 .frame(width: 40, height: 40)
                                                 .overlay {
-                                                    company.logo
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .clipShape(Circle())
-                                                        .padding(8)
+                                                    if company.shouldUseSolidColorBackground {
+                                                        Circle()
+                                                            .fill(company.themeColor)
+                                                            .frame(width: 30, height: 30)
+                                                            .overlay(alignment: .center) {
+                                                                Color.white
+                                                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                                                    .mask {
+                                                                        VStack(spacing: 0) {
+                                                                            Text(Image(systemName: company.logoSystemName))
+                                                                                .font(.title2)
+                                                                                .bold()
+                                                                        }
+                                                                    }
+                                                            }
+                                                    } else {
+                                                        company.logo
+                                                            .resizable()
+                                                            .scaledToFill()
+                                                            .frame(width: 30, height: 30)
+                                                            .clipShape(Circle())
+                                                            .overlay(alignment: .center) {
+                                                                Color.white
+                                                                    .mask {
+                                                                        VStack(spacing: 0) {
+                                                                            Text(Image(systemName: company.logoSystemName))
+                                                                                .font(.title2)
+                                                                                .bold()
+                                                                        }
+                                                                    }
+                                                            }
+                                                            .clipShape(Circle())
+                                                    }
                                                 }
 
                                             Triangle()
@@ -92,55 +121,56 @@ struct NGOMapView: View {
                                     }
                                 }
                             }
-                        }.frame(height: proxy.size.height - 235, alignment: .top)
+                        }
+                        .frame(height: proxy.size.height - 235, alignment: .top)
 
                         Spacer()
                     }.frame(height: proxy.size.height)
-                        VStack(spacing: 0) {
-                            Spacer()
+                    VStack(spacing: 0) {
+                        Spacer()
 
-                            MapControlPanelView(
-                                shouldShowListView: $shouldShowListView,
-                                shouldLockMap: $shouldLockMap
-                            )
+                        MapControlPanelView(
+                            shouldShowListView: $shouldShowListView,
+                            shouldLockMap: $shouldLockMap
+                        )
 
-                            ZStack {
-                                VStack(spacing: 0) {
-                                    CategoryFilterScrollView { category in
-                                        if viewModel.selctedCategories.contains(category) {
-                                            viewModel.selctedCategories.removeAll(where: { $0 == category })
-                                        } else if !viewModel.selctedCategories.contains(category) {
-                                            viewModel.selctedCategories.append(category)
-                                        }
+                        ZStack {
+                            VStack(spacing: 0) {
+                                CategoryFilterScrollView { category in
+                                    if viewModel.selctedCategories.contains(category) {
+                                        viewModel.selctedCategories.removeAll(where: { $0 == category })
+                                    } else if !viewModel.selctedCategories.contains(category) {
+                                        viewModel.selctedCategories.append(category)
                                     }
-                                    .frame(maxHeight: 50)
-
-                                    Divider()
-
-                                    CompanyHGrid(
-                                        shouldShowListView: $shouldShowListView
-                                    ){ company in
-                                        presentedNgos.append(company)
-                                    }
-                                    .padding(.top, shouldShowListView ? 0 : 8)
-
-                                    CompanyVGrid(
-                                        shouldShowListView: $shouldShowListView
-                                    ){ company in
-                                        presentedNgos.append(company)
-                                    }
-                                    .padding(.bottom, shouldShowListView ? 0 : 16)
                                 }
+                                .frame(maxHeight: 50)
+
+                                Divider()
+
+                                CompanyHGrid(
+                                    shouldShowListView: $shouldShowListView
+                                ){ company in
+                                    presentedNgos.append(company)
+                                }
+                                .padding(.top, shouldShowListView ? 0 : 8)
+
+                                CompanyVGrid(
+                                    shouldShowListView: $shouldShowListView
+                                ){ company in
+                                    presentedNgos.append(company)
+                                }
+                                .padding(.bottom, shouldShowListView ? 0 : 16)
                             }
-                            .frame(maxHeight: shouldShowListView ? .infinity : 235)
-                            .background(.regularMaterial)
                         }
-                        .environmentObject(viewModel)
-                        .navigationDestination(for: CompanyObject.self) { company in
-                            NGOProfileView(companyObject: company)
-                                .navigationBarBackButtonHidden(true)
-                        }
+                        .frame(maxHeight: shouldShowListView ? .infinity : 235)
+                        .background(.regularMaterial)
                     }
+                    .environmentObject(viewModel)
+                    .navigationDestination(for: CompanyObject.self) { company in
+                        NGOProfileView(companyObject: company)
+                            .navigationBarBackButtonHidden(true)
+                    }
+                }
             }
         }
     }
@@ -185,6 +215,7 @@ struct RoundButtonView: View {
             (isHighlighted ? color : Color.clear)
 
             Text(text)
+                .font(.subheadline)
                 .fontWeight(.medium)
                 .padding([.leading, .trailing], 16)
                 .foregroundColor(
@@ -197,7 +228,7 @@ struct RoundButtonView: View {
         }
         .background(colorScheme == .light ? Color.clear : .gray.opacity(0.3))
         .cornerRadius(8)
-        .frame(maxHeight: 30)
+        .shadow(radius: colorScheme == .light ? 1 : 0)
     }
 }
 
@@ -277,6 +308,7 @@ struct MapControlPanelView: View {
 
     @Binding var shouldShowListView: Bool
     @Binding var shouldLockMap: Bool
+    let mapTipView = MapTipView()
 
     @EnvironmentObject var viewModel: NGOMapViewViewModel
 
@@ -300,11 +332,12 @@ struct MapControlPanelView: View {
                 .background(.regularMaterial)
                 .clipShape(Circle())
                 .onTapGesture {
+                    mapTipView.invalidate(reason: .actionPerformed)
                     withAnimation(.easeInOut(duration: 0.4)) {
                         shouldShowListView.toggle()
                     }
                 }
-
+                .popoverTip(mapTipView, arrowEdge: .bottom)
             Image(systemName: "xmark")
                 .frame(
                     width: viewModel.hasSelected ? 20 : 0,
@@ -319,7 +352,7 @@ struct MapControlPanelView: View {
                 .onTapGesture {
                     withAnimation(.easeInOut(duration: 0.2)) {
                         viewModel.selctedCategories = []
-                        shouldLockMap = false
+                        shouldLockMap = true
                     }
                 }
         }
@@ -342,65 +375,85 @@ struct CompanyCardView: View {
     var body: some View {
         ForEach(viewModel.presentedCompanies) { company in
             ZStack {
-
                 let backgroundColor = colorScheme == .light ?  Color.white : Color.gray.opacity(0.3)
 
                 backgroundColor
                     .cornerRadius(8)
-//                    .shadow(radius: 2)
-//                    .overlay {
-//                        if colorScheme == .dark {
-//                            RoundedRectangle(cornerRadius: 8)
-//                                .stroke(Color.white, style: StrokeStyle(lineWidth: 1))
-//                        }
-//                    }
-
+                    .shadow(radius: colorScheme == .light ? 1 : 0)
                 HStack(alignment: .top) {
-                    
                     let photoSize = CGSize(width: cellSize.width / 3, height: cellSize.height)
-
-                            company.coverImage
-                                .resizable()
-                                .frame(width: photoSize.height)
-                                .id(company.id)
-//                                .shadow(radius: 2)
-                                .clipped()
-                                .cornerRadius(8)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .frame(width: photoSize.height)
-                                        .cornerRadius(8)
-                                        .opacity(0.3)
-                                        .overlay {
-                                            HStack {
-                                                VStack {
-                                                    Spacer()
-                                                    RoundedRectangle(cornerRadius: 8)
-                                                        .fill(.regularMaterial)
-                                                        .frame(width: 40, height: 40)
-                                                        .overlay {
-//                                                            RoundedRectangle(cornerRadius: 8)
-//                                                                .fill(Color.white)
-//                                                                .padding(4)
-                                                        }
-                                                }
-                                                Spacer()
-                                            }
-                                            .padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 0))
-                                        }
-                                }
+                    company.coverImage
+                        .resizable()
+                        .frame(width: photoSize.height)
+                        .id(company.id)
+                        .clipped()
+                        .cornerRadius(8)
+                        .mask(alignment: .bottomLeading) {
+                            CurvedRect(cornerRadius: 8, photoSize: CGSize(width: 45, height: 45))
+                        }
                     VStack(alignment: .leading, spacing: 2) {
                         Text(company.orginizationName)
-                            .font(.title3)
-                            .fontWeight(.semibold)
+                            .font(.headline)
                             .foregroundColor(
                                 colorScheme == .light ? Color.black.opacity(0.7) : .white
                             )
                         Text(company.missionStatement)
-                            .font(.caption2)
+                            .font(.caption)
                             .foregroundColor(
                                 colorScheme == .light ? Color.black.opacity(0.7) : .white
                             )
+                    }
+                }
+                .overlay(alignment: .bottomLeading) {
+                    if company.shouldUseSolidColorBackground {
+
+                        Circle()
+                            .fill(company.themeColor)
+                            .frame(width: 40, height: 40)
+                            .overlay(alignment: .center) {
+                                Color.white
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    .mask {
+                                        VStack(spacing: 0) {
+                                            Text(Image(systemName: company.logoSystemName))
+                                                .font(company.radomShowShorthandName ? .caption : .title2)
+                                                .bold()
+
+                                            if company.radomShowShorthandName {
+                                                Text(String(company.orginizationName.prefix(3)).uppercased())
+                                                    .font(.caption)
+                                                    .bold()
+                                            }
+                                        }
+                                    }
+                            }
+                    }
+                    else {
+
+                        company.logo
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            .overlay(alignment: .center) {
+                                //                    donation.company.coverImage
+                                Color.white
+                                    .mask {
+                                        VStack(spacing: 0) {
+                                            Text(Image(systemName: company.logoSystemName))
+                                                .font(company.radomShowShorthandName ? .caption : .title2)
+                                                .bold()
+
+                                            if company.radomShowShorthandName {
+                                                Text(String(company.orginizationName.prefix(3)).uppercased())
+                                                    .font(.caption)
+                                                    .bold()
+                                            }
+                                        }
+                                    }
+                            }
+                            .clipShape(Circle())
                     }
                 }
                 .padding(8)

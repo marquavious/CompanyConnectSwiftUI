@@ -22,16 +22,6 @@ struct NavBackButton: View {
 
 struct NGOProfileTextView<Content: View>: View {
 
-    enum MediaLocation {
-        case top, middle, bottom, none
-    }
-
-    let titleText: String
-    let text: String?
-    let mediaLocation: MediaLocation
-
-    let viewBuilder: () -> Content?
-
     init(
         titleText: String,
         text: String? = nil,
@@ -44,6 +34,16 @@ struct NGOProfileTextView<Content: View>: View {
             self.viewBuilder = viewBuilder
         }
 
+    enum MediaLocation {
+        case top, middle, bottom, none
+    }
+
+    let titleText: String
+    let text: String?
+    let mediaLocation: MediaLocation
+
+    let viewBuilder: () -> Content?
+
     var body: some View {
 
         VStack(alignment: .leading) {
@@ -51,7 +51,7 @@ struct NGOProfileTextView<Content: View>: View {
             if mediaLocation == .top { viewBuilder() }
 
             Text(titleText)
-                .font(.title)
+                .font(.title2)
                 .bold()
                 .padding([.top, .bottom], 8)
                 .padding([.leading, .trailing])
@@ -60,6 +60,7 @@ struct NGOProfileTextView<Content: View>: View {
 
             if let text = text {
                 Text(text)
+                    .font(.subheadline)
                     .padding([.leading, .trailing, .bottom])
             }
 
@@ -75,6 +76,7 @@ struct NGOProfileView: View {
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
 
         self.companyObject = companyObject
+        self.activityFeedViewModel = CompanyActivityFeed(company: companyObject)
     }
 
     let companyObject: CompanyObject
@@ -89,6 +91,11 @@ struct NGOProfileView: View {
 
     @Environment(\.colorScheme) var colorScheme
 
+    @State var showActivityFeed: Bool = true
+
+    @State private var currentTab = 1
+
+    var activityFeedViewModel: ActivityFeedViewViewModelType
 
 
     var body: some View {
@@ -98,6 +105,7 @@ struct NGOProfileView: View {
             ScrollView(.vertical, showsIndicators: false) {
 
                 VStack(spacing: 15) {
+
                     GeometryReader { proxy -> AnyView in
 
                         let minY = proxy.frame(in: .global).minY
@@ -113,6 +121,7 @@ struct NGOProfileView: View {
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: getRect().width, height: minY > 0 ? 180 + minY : 180, alignment: .center)
                                     .cornerRadius(0)
+
 
                                 BlurView()
                                     .opacity(blurViewOpacity())
@@ -140,201 +149,300 @@ struct NGOProfileView: View {
                                 .offset(y: offset < 0 ? getOffset() - 20 : -20)
                                 .scaleEffect(getScale())
                                 .padding(.horizontal, 8)
+                                .overlay(alignment: .center) {
+                                    if companyObject.shouldUseSolidColorBackground {
+                                        Circle()
+                                            .fill(companyObject.themeColor)
+                                            .frame(width: 75, height: 75)
+                                            .overlay(alignment: .center) {
+                                                Color.white
+                                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                                    .mask {
+                                                        VStack(spacing: 0) {
+                                                            Text(Image(systemName: companyObject.logoSystemName))
+                                                                .font(.largeTitle)
+                                                                .bold()
+
+                                                            if companyObject.radomShowShorthandName {
+                                                                Text(String(companyObject.orginizationName.prefix(3)).uppercased())
+                                                                    .font(.subheadline)
+                                                                    .bold()
+                                                            }
+                                                        }
+                                                    }
+                                            }
+                                            .offset(y: offset < 0 ? getOffset() - 20 : -20)
+                                            .scaleEffect(getScale())
+                                    } else {
+                                        companyObject.logo
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 75, height: 75)
+                                            .clipShape(Circle())
+                                            .overlay(alignment: .center) {
+                                                Color.white
+                                                    .mask {
+                                                        VStack(spacing: 0) {
+                                                            Text(Image(systemName: companyObject.logoSystemName))
+                                                                .font(.largeTitle)
+                                                                .bold()
+
+                                                            if companyObject.radomShowShorthandName {
+                                                                Text(String(companyObject.orginizationName.prefix(3)).uppercased())
+                                                                    .font(.title3)
+                                                                    .bold()
+                                                            }
+                                                        }
+                                                    }
+                                            }
+                                            .clipShape(Circle())
+                                            .offset(y: offset < 0 ? getOffset() - 20 : -20)
+                                            .scaleEffect(getScale())
+                                    }
+                                }
 
                         }
                         .padding([.top], -30)
 
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .leading, spacing: 8) {
                             Text(companyObject.orginizationName)
-                                .font(.title)
+                                .font(.title2)
                                 .bold()
 
                             Text("Current Projects: **\(companyObject.projects.count)**")
 
                             Text(CompanyObject.generateShort())
+                                .font(.subheadline)
+                            
                         }
                         .padding([.horizontal])
                         .offset(y: -20)
 
+                        Picker("", selection: $currentTab) {
+                            Text("ABOUT").tag(1)
+                            Text("RECENT ACTIVITY").tag(0)
+                        }
+                        .pickerStyle(.segmented)
+                        .padding([.horizontal], 16)
+
                         Divider()
+                            .padding([.top], 8)
 
-                        NGOProfileTextView(
-                            titleText: "Mission Statment",
-                            text: companyObject.briefHistoryObject.history,
-                            mediaLocation: .bottom
-                        ) { }
+                        if currentTab == 0 {
 
-                        Divider()
+                            ActivityFeedScrollView(shouldShowCategoryFilter: false, viewModel: activityFeedViewModel) { companyObject in
 
-                        NGOProfileTextView(
-                            titleText: "Our Team",
-                            mediaLocation: .bottom
-                        ) {
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                LazyHGrid(rows: [GridItem()]) {
-                                    ForEach(companyObject.team, id: \.id) { member in
+                            } actvityPostSelected: { actvityPost in
+                                
+                            }
+                            .padding([.top], 8)
+
+                        } else {
+                            NGOProfileTextView(
+                                titleText: "Mission Statment",
+                                text: companyObject.briefHistoryObject.history,
+                                mediaLocation: .bottom
+                            ) { }
+
+                            Divider()
+
+                            NGOProfileTextView(
+                                titleText: "Our Team",
+                                mediaLocation: .bottom
+                            ) {
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    LazyHGrid(rows: [GridItem()]) {
+                                        ForEach(companyObject.team, id: \.id) { member in
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius: 8)
+                                                    .fill(.background)
+                                                VStack {
+                                                    member.image
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .frame(width: 85, height: 85)
+                                                        .clipShape(Circle())
+
+                                                    VStack(alignment: .center) {
+                                                        Text(member.name)
+                                                            .font(.subheadline)
+                                                            .bold()
+                                                        Text(member.position)
+                                                            .font(.caption)
+                                                            .italic()
+                                                            .foregroundColor(.gray)
+                                                    }
+                                                    .padding(8)
+                                                }
+                                            }
+                                            .frame(minWidth: 12, maxHeight: 175)
+                                            .frame(width: 90)
+                                            .padding([.bottom, .trailing, .top], 8)
+                                        }
+                                    }
+                                }
+                                .contentMargins(.horizontal, 16)
+                            }
+
+                            Divider()
+
+                            NGOProfileTextView(
+                                titleText: "Brief History",
+                                text: companyObject.briefHistoryObject.history,
+                                mediaLocation: .bottom
+                            ) {
+                                VStack(alignment: .center) {
+                                    TabView {
+                                        ForEach(companyObject.briefHistoryObject.imageObjects, id: \.self) { object in
+                                            VStack {
+                                                Rectangle()
+                                                    .fill(.background)
+                                                    .overlay {
+                                                        VStack {
+                                                            object.image
+                                                                .resizable()
+                                                                .scaledToFill()
+                                                                .frame(height: 200, alignment: .bottom)
+
+                                                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                                                .padding([.leading, .trailing])
+                                                            Spacer()
+
+                                                            Text(object.caption)
+                                                                .font(.callout.italic())
+                                                                .padding(8)
+                                                        }
+                                                    }
+                                                Spacer(minLength: 40)
+                                            }
+                                        }
+                                    }
+                                    .frame(minHeight: 300, alignment: .top)
+                                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                                }
+                            }
+
+                            Divider()
+
+                            NGOProfileTextView(
+                                titleText: "Location",
+                                text: companyObject.missionStatement,
+                                mediaLocation: .middle
+                            ) {
+                                Map(bounds:
+                                        MapCameraBounds(minimumDistance: 4500,
+                                                        maximumDistance: 4500),
+                                    interactionModes: []) {
+
+                                    Annotation("", coordinate: companyObject.coordinate) {
+                                        VStack(spacing: 1) {
+                                            Circle()
+                                                .fill(Color.white.opacity(0.7))
+                                                .frame(width: 40, height: 40)
+                                                .overlay {
+                                                    Circle()
+                                                        .fill(Color.white)
+                                                        .padding(6)
+                                                }
+
+                                            Triangle()
+                                                .fill(Color.white.opacity(0.7))
+                                                .frame(width: 15, height: 10)
+                                                .rotationEffect(.degrees(180))
+                                        }
+                                    }
+                                }
+                                    .frame(height: 200)
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    .padding([.leading, .trailing, .bottom])
+                                    .mapStyle(.hybrid)
+                            }
+
+
+                            Divider()
+
+                            NGOProfileTextView(
+                                titleText: "Projects",
+                                mediaLocation: .middle
+                            ) {
+
+                                let padding: CGFloat = 8
+                                TabView {
+                                    ForEach(companyObject.projects, id: \.id) { project in
                                         ZStack {
                                             RoundedRectangle(cornerRadius: 8)
                                                 .fill(.background)
-                                            VStack {
-                                                member.image
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .clipShape(Circle())
-//                                                    .shadow(radius: 2)
 
-                                                VStack(alignment: .center) {
-                                                    Text(member.name)
-                                                        .font(.title3)
-                                                        .bold()
-                                                    Text(member.position)
-                                                        .font(.callout)
-                                                        .italic()
-                                                        .foregroundColor(.gray)
+                                            VStack(spacing: 0) {
+                                                Rectangle()
+                                                    .overlay {
+                                                        project.image
+                                                            .resizable()
+                                                            .aspectRatio(contentMode: .fill)
+                                                            .frame(alignment: .center)
+                                                            .overlay(alignment: .bottom) {
+
+                                                            }
+                                                    }
+                                                    .clipped()
+
+                                                Divider()
+
+                                                VStack(alignment: .leading) {
+
+                                                    HStack {
+                                                        Text(project.name)
+                                                            .font(.title2)
+                                                            .bold()
+                                                            .padding([.top], 3)
+
+                                                        Spacer()
+
+                                                        Text(project.status.displayName)
+                                                            .font(.system(size: 15))
+                                                            .fontWeight(.semibold)
+                                                            .padding([.vertical], 6)
+                                                            .padding([.horizontal], 8)
+                                                            .foregroundColor(.white)
+                                                            .background(.regularMaterial.opacity(0.1))
+                                                            .background(project.status.displayColor)
+                                                            .environment(\.colorScheme, .dark)
+                                                            .clipShape(
+                                                                RoundedRectangle(cornerRadius: 8)
+                                                            )
+                                                            .zIndex(1)
+                                                            .offset(y: -50)
+                                                            .onTapGesture {
+                                                                dismiss()
+                                                            }
+                                                    }
+                                                    Text(project.description)
+                                                        .font(.subheadline)
+                                                        .padding([.top], 3)
+                                                        .padding([.bottom], 8)
                                                 }
                                                 .padding(8)
                                             }
                                         }
-                                        .frame(minWidth: 12, maxHeight: 175)
-                                        .padding([.bottom, .trailing, .top], 8)
+                                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                                        .frame(
+                                            maxWidth: UIScreen.main.bounds.width - (padding * 4),
+                                            minHeight: 500
+                                        )
+                                        .padding([.bottom], 50)
+                                        .shadow(radius: colorScheme == .light ? 1 : 0)
                                     }
                                 }
-                            }
-                            .contentMargins(.horizontal, 16)
-                        }
-
-                        Divider()
-
-                        NGOProfileTextView(
-                            titleText: "Brief History",
-                            text: companyObject.briefHistoryObject.history,
-                            mediaLocation: .bottom
-                        ) {
-                            VStack(alignment: .center) {
-                                TabView {
-                                    ForEach(companyObject.briefHistoryObject.imageObjects, id: \.self) { object in
-                                        VStack {
-                                            Rectangle()
-                                                .fill(.background)
-                                                .overlay {
-                                                    VStack {
-                                                        object.image
-                                                            .resizable()
-
-                                                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                                                            .padding([.leading, .trailing])
-                                                        Spacer()
-
-                                                        Text(object.caption)
-                                                            .font(.callout.italic())
-                                                            .padding(8)
-                                                    }
-                                                }
-                                            Spacer(minLength: 40)
-                                        }
-                                    }
-                                }
-                                .frame(minHeight: 300, alignment: .top)
+                                .frame(minHeight: 600, alignment: .top)
                                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                             }
+
                         }
-
-                        Divider()
-
-                        NGOProfileTextView(
-                            titleText: "Location",
-                            text: companyObject.missionStatement,
-                            mediaLocation: .middle
-                        ) {
-                            Map(bounds:
-                                    MapCameraBounds(minimumDistance: 4500,
-                                                    maximumDistance: 4500),
-                                interactionModes: []) {
-
-                                Annotation("", coordinate: companyObject.coordinate) {
-                                    VStack(spacing: 1) {
-                                        Circle()
-                                            .fill(Color.white.opacity(0.7))
-                                            .frame(width: 40, height: 40)
-                                            .overlay {
-                                                Circle()
-                                                    .fill(Color.white)
-                                                    .padding(6)
-                                            }
-
-                                        Triangle()
-                                            .fill(Color.white.opacity(0.7))
-                                            .frame(width: 15, height: 10)
-                                            .rotationEffect(.degrees(180))
-                                    }
-                                }
-                            }
-                            .frame(height: 200)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                            .padding([.leading, .trailing, .bottom])
-                            .mapStyle(.hybrid)
-                        }
-
-                        Divider()
-
-                        NGOProfileTextView(
-                            titleText: "Projects",
-                            mediaLocation: .middle
-                        ) {
-
-                            let padding: CGFloat = 8
-                            TabView {
-                                ForEach(companyObject.team, id: \.id) { member in
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .fill(.background)
-
-                                        VStack(spacing: 0) {
-                                            Rectangle()
-                                                .overlay {
-                                                    member.image
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .frame(alignment: .center)
-                                                }
-                                                .clipped()
-
-                                            Divider()
-
-                                            VStack(alignment: .leading) {
-                                                Text(member.name)
-                                                    .font(.title2)
-                                                    .fontWeight(.semibold)
-                                                    .padding([.top], 3)
-                                                Text(member.bio)
-                                                    .padding([.top], 3)
-                                                    .padding([.bottom], 8)
-                                            }
-                                            .padding(8)
-                                            
-                                        }
-
-                                    }
-                                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                                    .frame(
-                                        maxWidth: UIScreen.main.bounds.width - (padding * 4),
-                                        minHeight: 500
-                                    )
-//                                    .shadow(radius: 2)
-                                    .padding([.bottom], 50)
-                                }
-                            }
-                            .frame(minHeight: 600, alignment: .top)
-                            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                        }
-
-
 
                     }
                     .zIndex(-offset > 80 ? 0 : 1)
                 }
             }
-
             .ignoresSafeArea(.all, edges: .top)
 
             VStack {
@@ -358,7 +466,7 @@ struct NGOProfileView: View {
                         .padding([.horizontal], 8)
                         .foregroundColor(.white)
                         .background(.regularMaterial.opacity(0.1))
-                        .background(Color(red: 255/255, green: 75/255, blue: 96/255))
+                        .background(.red)
                         .environment(\.colorScheme, .dark)
                         .clipShape(
                             RoundedRectangle(cornerRadius: 8)
@@ -370,51 +478,8 @@ struct NGOProfileView: View {
                 .offset(y: -10)
                 .padding(.horizontal)
 
-                /*
-                HStack {
-                    Image(systemName: "chevron.left")
-                        .frame(width: 20,height: 20)
-                        .padding(10)
-                        .foregroundColor(.white)
-                        .background(.regularMaterial)
-                        .environment(\.colorScheme, .dark)
-                        .clipShape(Circle())
-                        .transition(.scale)
-                        .padding(.horizontal)
-//                        .padding(.bottom, 20)
-
-//                    Button(Image("chevron.left")) {
-//
-//                    }
-//                    Image("chevron.left")
-//                        .
-//                    .padding(.horizontal)
-                    Spacer()
-                }
-                 */
-
                 Spacer()
-//                RoundedRectangle(cornerRadius: 8)
-//                    .fill(.background)
-//                    .shadow(radius: 2)
-//                    .frame(maxHeight: 80)
-//                    .overlay {
-//                        HStack {
-//                            Button("DONATE") {
-////                                dismiss()
-//                            }
-//                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                            .background(
-//                                RoundedRectangle(cornerRadius: 8).fill(Color(red: 255/255, green: 96/255, blue: 96/255))
-//                            )
-//                            .foregroundColor(.white)
-//                            .padding()
-//                        }
-//                    }
             }
-//            .ignoresSafeArea(edges: .bottom)
-
-
         }
     }
 
@@ -447,331 +512,3 @@ struct NGOProfileView: View {
 #Preview {
     NGOProfileView(companyObject: CompanyObject.ceateFakeComapnyList().first!)
 }
-
-/*
- ScrollView(.vertical) {
-
-     VStack(spacing: 15) {
-         GeometryReader { proxy -> AnyView in
-
-             let minY = proxy.frame(in: .global).minY
-
-             DispatchQueue.main.async {
-                 self.offset = minY
-             }
-
-             return AnyView(
-                 ZStack {
-                     headerImage
-                         .resizable()
-                         .aspectRatio(contentMode: .fill)
-                         .frame(width: getRect().width, height: minY > 0 ? 180 + minY : 180, alignment: .center)
-                         .cornerRadius(0)
-
-                     BlurView()
-                         .opacity(blurViewOpacity())
-
-                 }
-                 .clipped()
-                 .frame(height: minY > 0 ? 180 + minY : nil)
-                 .offset(y: minY > 0 ? -minY : -minY < 80 ? 0 : -minY - 80)
-
-             )
-
-         }
-         .frame(height: 180)
-         .zIndex(1)
-
-         VStack {
-             HStack {
-                 headerImage
-                     .resizable()
-                     .aspectRatio(contentMode: .fill)
-                     .frame(width: 75)
-                     .clipShape(Circle())
-                     .padding(8)
-                     .background(colorScheme == .dark ? .black : .white)
-                     .clipShape(Circle())
-                     .offset(y: offset < 0 ? getOffset() - 20 : -20)
-                     .scaleEffect(getScale())
-
-                 Spacer()
-
-                 Text("Whatever")
-                     .padding([.leading, .trailing], 16)
-                     .padding([.top, .bottom], 6)
-                     .background(Capsule().fill(.purple))
-                     .overlay(
-
-                         GeometryReader { proxy -> Color in
-
-                             let minY = proxy.frame(in: .global).minY
-                             self.titleOffset = minY
-
-                             return Color.clear
-
-                         }
-                         .frame(width: 0, height: 0)
-
-
-                     , alignment: .top
-                 )
-             }
-             .padding([.top], -25)
-             .padding(.bottom, -10)
-
-         }
-         .padding(.horizontal)
-         .zIndex(-offset > 80 ? 0 : 1)
-     }
- }.ignoresSafeArea(.all, edges: .top)
-*/
-
-
-/*
-
- ScrollView(showsIndicators: false) {
-     VStack(alignment: .leading) {
-
-
-             companyObject.coverImage
-                 .resizable()
-                 .scaledToFill()
-                 .frame(height: 300, alignment: .bottom)
-                 .clipped()
-
-
-
-         VStack(alignment: .leading) {
-//                        Circle()
-//                            .fill(Color.white)
-//                            .frame(width: 100)
-
-             HStack(alignment: .center) {
-             CompanyObject.generateRadomImage()
-                 .resizable()
-                 .scaledToFill()
-                 .clipShape(Circle())
-                 .frame(width: 100)
-                 .shadow(radius: 2)
-
-                 Spacer()
-
-                 Text(companyObject.category.name)
-                     .padding([.leading, .trailing], 16)
-                     .padding([.top, .bottom], 6)
-//                            .foregroundColor(.blue)
-                     .background(Capsule().fill(companyObject.category.color))
-             }
-
-             Text(companyObject.orginizationName)
-                 .font(.title)
-                 .bold()
-             Text("Current Projects: **\(companyObject.projects.count)**")
-
-//                        Text(companyObject.category.name)
-//                            .padding([.leading, .trailing], 16)
-//                            .padding([.top, .bottom], 6)
-////                            .foregroundColor(.blue)
-//                            .background(Capsule().fill(companyObject.category.color))
-//                        HStack {
-//                            RoundButtonView(text: companyObject.category.name, color: companyObject.category.color)
-//                            Spacer()
-//
-//                        }
-             Text(CompanyObject.generateShort())
-
-         }
-
-         Divider()
-
-         NGOProfileTextView(
-             titleText: "Mission Statment",
-             text: companyObject.briefHistoryObject.history,
-             mediaLocation: .bottom
-         ) { }
-
-         Divider()
-
-         NGOProfileTextView(
-             titleText: "Our Team",
-             mediaLocation: .bottom
-         ) {
-
-             ScrollView(.horizontal, showsIndicators: false) {
-                 LazyHGrid(rows: [GridItem()]) {
-                     ForEach(companyObject.team, id: \.id) { member in
-                         ZStack {
-                             RoundedRectangle(cornerRadius: 8)
-                                 .fill(.background)
-                             VStack {
-                                 member.image
-                                     .resizable()
-                                     .scaledToFill()
-                                     .clipShape(Circle())
-                                     .shadow(radius: 2)
-
-                                 VStack(alignment: .center) {
-                                     Text(member.name)
-                                         .font(.title3)
-                                         .bold()
-                                     Text(member.position)
-                                         .font(.callout)
-                                         .italic()
-                                         .foregroundColor(.gray)
-                                 }
-                                 .padding(8)
-                             }
-                         }
-                         .frame(minWidth: 12, maxHeight: 175)
-                         .padding([.bottom, .trailing, .top], 8)
-                     }
-                 }
-             }
-             .contentMargins(.horizontal, 16)
-         }
-
-         Divider()
-
-         NGOProfileTextView(
-             titleText: "Brief History",
-             text: companyObject.briefHistoryObject.history,
-             mediaLocation: .bottom
-         ) {
-             VStack(alignment: .center) {
-                 TabView {
-                     ForEach(companyObject.briefHistoryObject.imageObjects, id: \.self) { object in
-                         VStack {
-                             Rectangle()
-                                 .fill(.background)
-                                 .overlay {
-                                     VStack {
-                                         object.image
-                                             .resizable()
-
-                                             .clipShape(RoundedRectangle(cornerRadius: 8))
-                                             .padding([.leading, .trailing])
-                                         Spacer()
-
-                                         Text(object.caption)
-                                             .font(.callout.italic())
-                                             .padding(8)
-                                     }
-                                 }
-                             Spacer(minLength: 40)
-                         }
-                     }
-                 }
-                 .frame(minHeight: 300, alignment: .top)
-                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-             }
-         }
-
-         Divider()
-
-         NGOProfileTextView(
-             titleText: "Location",
-             text: companyObject.missionStatement,
-             mediaLocation: .middle
-         ) {
-             Map(bounds:
-                   MapCameraBounds(minimumDistance: 4500,
-                                   maximumDistance: 4500),
-                 interactionModes: []) {
-
-                 Annotation("", coordinate: companyObject.coordinate) {
-                     VStack(spacing: 1) {
-//
-//                                    RoundedRectangle(cornerRadius: 8)
-                         Circle()
-//                                        .fill(companyObject.category.color)
-                             .fill(Color.white.opacity(0.7))
-                             .frame(width: 40, height: 40)
-                             .overlay {
-//                                            RoundedRectangle(cornerRadius: 8)
-                                 Circle()
-                                     .fill(Color.white)
-                                     .padding(6)
-                             }
-//                                }
-//                                .border(.red)
-
-//                                Rectangle()
-//                                    .fill(Color.red)
-//
-//                                Rectangle()
-//                                    .fill(Color.red)
-
-                     Triangle()
-//                                        .fill(companyObject.category.color)
-                         .fill(Color.white.opacity(0.7))
-                         .frame(width: 15, height: 10)
-//                                    .border(.red)
-                         .rotationEffect(.degrees(180))
-//                                        .offset(y: 20)
-                 }
-                 }
-             }
-             .frame(height: 200)
-             .clipShape(RoundedRectangle(cornerRadius: 8))
-             .padding([.leading, .trailing, .bottom])
-             .mapStyle(.hybrid)
-         }
-
-         Divider()
-
-         NGOProfileTextView(
-             titleText: "Projects",
-             mediaLocation: .middle
-         ) {
-
-             let padding: CGFloat = 8
-             TabView {
-                 ForEach(companyObject.team, id: \.id) { member in
-                     ZStack {
-                         RoundedRectangle(cornerRadius: 8)
-                             .fill(.background)
-
-                         VStack(spacing: 0) {
-                             Rectangle()
-                                 .overlay {
-                                     member.image
-                                         .resizable()
-                                         .aspectRatio(contentMode: .fill)
-                                         .frame(alignment: .center)
-                                 }
-                                 .clipped()
-
-                             Divider()
-
-                             VStack(alignment: .leading) {
-                                 Text(member.name)
-                                     .font(.title2)
-                                     .padding([.top], 3)
-                                 Text(member.bio)
-                                     .padding([.top], 3)
-                                     .padding([.bottom], 8)
-                             }
-                             .padding(8)
-                         }
-                     }
-                     .clipShape(RoundedRectangle(cornerRadius: 8))
-                     .frame(
-                         maxWidth: UIScreen.main.bounds.width - (padding * 4),
-                         minHeight: 500
-                     )
-                     .shadow(radius: 2)
-                     .padding([.bottom], 50)
-                 }
-             }
-             .frame(minHeight: 600, alignment: .top)
-             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-         }
-
-         Divider()
-
-         Spacer()
-     }
- }
-}
- */
