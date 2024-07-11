@@ -35,6 +35,17 @@
 		C0FF4C152C40992700146DC9 /* CompanyVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C142C40992700146DC9 /* CompanyVGrid.swift */; };
 		C0FF4C172C40993A00146DC9 /* MapControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C162C40993A00146DC9 /* MapControlPanelView.swift */; };
 		C0FF4C192C40995D00146DC9 /* CompanyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C182C40995D00146DC9 /* CompanyCardView.swift */; };
+		C0FF4C1D2C409FB400146DC9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C1C2C409FB400146DC9 /* User.swift */; };
+		C0FF4C1F2C409FE000146DC9 /* BriefHistoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C1E2C409FE000146DC9 /* BriefHistoryObject.swift */; };
+		C0FF4C212C409FF900146DC9 /* BriefHistoryImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C202C409FF900146DC9 /* BriefHistoryImageObject.swift */; };
+		C0FF4C232C40A00700146DC9 /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C222C40A00700146DC9 /* Donation.swift */; };
+		C0FF4C252C40A02000146DC9 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C242C40A02000146DC9 /* Project.swift */; };
+		C0FF4C272C40A07500146DC9 /* ActivityFeedViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C262C40A07500146DC9 /* ActivityFeedViewViewModelType.swift */; };
+		C0FF4C292C40A0D600146DC9 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C282C40A0D600146DC9 /* TeamMember.swift */; };
+		C0FF4C2B2C40A0F600146DC9 /* ActvityPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C2A2C40A0F600146DC9 /* ActvityPost.swift */; };
+		C0FF4C2D2C40A11800146DC9 /* IdentifiableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C2C2C40A11800146DC9 /* IdentifiableImage.swift */; };
+		C0FF4C2F2C40A12900146DC9 /* IdentifiableVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C2E2C40A12900146DC9 /* IdentifiableVideo.swift */; };
+		C0FF4C312C40A15600146DC9 /* TweetGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C302C40A15600146DC9 /* TweetGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +78,17 @@
 		C0FF4C142C40992700146DC9 /* CompanyVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyVGrid.swift; sourceTree = "<group>"; };
 		C0FF4C162C40993A00146DC9 /* MapControlPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControlPanelView.swift; sourceTree = "<group>"; };
 		C0FF4C182C40995D00146DC9 /* CompanyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCardView.swift; sourceTree = "<group>"; };
+		C0FF4C1C2C409FB400146DC9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C0FF4C1E2C409FE000146DC9 /* BriefHistoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefHistoryObject.swift; sourceTree = "<group>"; };
+		C0FF4C202C409FF900146DC9 /* BriefHistoryImageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefHistoryImageObject.swift; sourceTree = "<group>"; };
+		C0FF4C222C40A00700146DC9 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
+		C0FF4C242C40A02000146DC9 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		C0FF4C262C40A07500146DC9 /* ActivityFeedViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedViewViewModelType.swift; sourceTree = "<group>"; };
+		C0FF4C282C40A0D600146DC9 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
+		C0FF4C2A2C40A0F600146DC9 /* ActvityPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActvityPost.swift; sourceTree = "<group>"; };
+		C0FF4C2C2C40A11800146DC9 /* IdentifiableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableImage.swift; sourceTree = "<group>"; };
+		C0FF4C2E2C40A12900146DC9 /* IdentifiableVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableVideo.swift; sourceTree = "<group>"; };
+		C0FF4C302C40A15600146DC9 /* TweetGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,14 +102,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C02C064E2B27F00600600FFA /* OBJECTS */ = {
+		C02C064E2B27F00600600FFA /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
 				C02C064F2B27F01E00600FFA /* CompanyObject.swift */,
+				C0FF4C302C40A15600146DC9 /* TweetGenerator.swift */,
+				C0FF4C2E2C40A12900146DC9 /* IdentifiableVideo.swift */,
+				C0FF4C2C2C40A11800146DC9 /* IdentifiableImage.swift */,
+				C0FF4C2A2C40A0F600146DC9 /* ActvityPost.swift */,
+				C0FF4C282C40A0D600146DC9 /* TeamMember.swift */,
+				C0FF4C242C40A02000146DC9 /* Project.swift */,
+				C0FF4C222C40A00700146DC9 /* Donation.swift */,
+				C0FF4C202C409FF900146DC9 /* BriefHistoryImageObject.swift */,
+				C0FF4C1E2C409FE000146DC9 /* BriefHistoryObject.swift */,
 				C02C06512B27F15B00600FFA /* CategoryObject.swift */,
 				C09962222B2A9C39001265F5 /* NGOMapViewViewModel.swift */,
+				C0FF4C262C40A07500146DC9 /* ActivityFeedViewViewModelType.swift */,
+				C0FF4C1C2C409FB400146DC9 /* User.swift */,
 			);
-			path = OBJECTS;
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 		C05ADEBC2B0AC29D00F5B5ED = {
@@ -110,12 +143,12 @@
 			isa = PBXGroup;
 			children = (
 				C05ADEC82B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift */,
-				C02C064E2B27F00600600FFA /* OBJECTS */,
-				C0FF4C082C406B8F00146DC9 /* LOGIN CODE */,
-				C0FF4C072C406AD800146DC9 /* SANDBOX CODE */,
-				C0FF4C1B2C409E3700146DC9 /* VIEW EXTENTIONS */,
-				C0FF4C1A2C409E0F00146DC9 /* TAB VIEWS */,
-				C0FF4C092C40984700146DC9 /* Custom Views */,
+				C02C064E2B27F00600600FFA /* DataModels */,
+				C0FF4C1B2C409E3700146DC9 /* View Extentions */,
+				C0FF4C1A2C409E0F00146DC9 /* TabViews */,
+				C0FF4C092C40984700146DC9 /* CustomViews */,
+				C0FF4C072C406AD800146DC9 /* Ignore */,
+				C0FF4C082C406B8F00146DC9 /* Login Code (Ignore) */,
 				C05ADECE2B0AC29E00F5B5ED /* Preview Content */,
 			);
 			path = "SwfitUI Connect And Care";
@@ -130,17 +163,17 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C0FF4C072C406AD800146DC9 /* SANDBOX CODE */ = {
+		C0FF4C072C406AD800146DC9 /* Ignore */ = {
 			isa = PBXGroup;
 			children = (
 				C031FD822B0EC9B50041014B /* Waste.swift */,
 				C042D7912B56420C00E45D4D /* WasteTwo.swift */,
 				C042D7932B56537800E45D4D /* WASTE3.swift */,
 			);
-			path = "SANDBOX CODE";
+			path = Ignore;
 			sourceTree = "<group>";
 		};
-		C0FF4C082C406B8F00146DC9 /* LOGIN CODE */ = {
+		C0FF4C082C406B8F00146DC9 /* Login Code (Ignore) */ = {
 			isa = PBXGroup;
 			children = (
 				C05ADED82B0BE31700F5B5ED /* TextViewModifiers.swift */,
@@ -148,10 +181,10 @@
 				C05ADECA2B0AC29D00F5B5ED /* LoginOnboardingView.swift */,
 				C05ADED62B0BD9D400F5B5ED /* UserInputView.swift */,
 			);
-			path = "LOGIN CODE";
+			path = "Login Code (Ignore)";
 			sourceTree = "<group>";
 		};
-		C0FF4C092C40984700146DC9 /* Custom Views */ = {
+		C0FF4C092C40984700146DC9 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				C0CFA1732B50FE85005D5F59 /* TipViews.swift */,
@@ -165,10 +198,10 @@
 				C0FF4C162C40993A00146DC9 /* MapControlPanelView.swift */,
 				C0FF4C182C40995D00146DC9 /* CompanyCardView.swift */,
 			);
-			path = "Custom Views";
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
-		C0FF4C1A2C409E0F00146DC9 /* TAB VIEWS */ = {
+		C0FF4C1A2C409E0F00146DC9 /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
 				C071C1642B17F32A00BCFC49 /* NGOMapView.swift */,
@@ -176,15 +209,15 @@
 				C04601F22B3C6E1000BFFB52 /* ActivityFeedView.swift */,
 				C050008A2B194B2D00319C64 /* NGOProfileView.swift */,
 			);
-			path = "TAB VIEWS";
+			path = TabViews;
 			sourceTree = "<group>";
 		};
-		C0FF4C1B2C409E3700146DC9 /* VIEW EXTENTIONS */ = {
+		C0FF4C1B2C409E3700146DC9 /* View Extentions */ = {
 			isa = PBXGroup;
 			children = (
 				C031FD842B0ECA7A0041014B /* ViewExtentions.swift */,
 			);
-			path = "VIEW EXTENTIONS";
+			path = "View Extentions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,11 +292,18 @@
 			files = (
 				C050008B2B194B2D00319C64 /* NGOProfileView.swift in Sources */,
 				C042D7922B56420C00E45D4D /* WasteTwo.swift in Sources */,
+				C0FF4C292C40A0D600146DC9 /* TeamMember.swift in Sources */,
 				C042D7942B56537800E45D4D /* WASTE3.swift in Sources */,
+				C0FF4C2B2C40A0F600146DC9 /* ActvityPost.swift in Sources */,
+				C0FF4C232C40A00700146DC9 /* Donation.swift in Sources */,
 				C04601F12B3C57AB00BFFB52 /* DonationsView.swift in Sources */,
 				C0FF4C0D2C4098A200146DC9 /* CNCAnnotation.swift in Sources */,
+				C0FF4C1D2C409FB400146DC9 /* User.swift in Sources */,
+				C0FF4C2D2C40A11800146DC9 /* IdentifiableImage.swift in Sources */,
 				C0FF4C152C40992700146DC9 /* CompanyVGrid.swift in Sources */,
+				C0FF4C272C40A07500146DC9 /* ActivityFeedViewViewModelType.swift in Sources */,
 				C0FF4C112C4098E200146DC9 /* RoundButtonView.swift in Sources */,
+				C0FF4C312C40A15600146DC9 /* TweetGenerator.swift in Sources */,
 				C0CFA1742B50FE85005D5F59 /* TipViews.swift in Sources */,
 				C031FD872B0ECAC20041014B /* UserInputData.swift in Sources */,
 				C071C1652B17F32A00BCFC49 /* NGOMapView.swift in Sources */,
@@ -272,14 +312,18 @@
 				C0FF4C0F2C4098D100146DC9 /* CategoryFilterScrollView.swift in Sources */,
 				C02C06522B27F15B00600FFA /* CategoryObject.swift in Sources */,
 				C04601F32B3C6E1000BFFB52 /* ActivityFeedView.swift in Sources */,
+				C0FF4C2F2C40A12900146DC9 /* IdentifiableVideo.swift in Sources */,
 				C031FD832B0EC9B50041014B /* Waste.swift in Sources */,
 				C031FD852B0ECA7A0041014B /* ViewExtentions.swift in Sources */,
 				C05ADED92B0BE31700F5B5ED /* TextViewModifiers.swift in Sources */,
+				C0FF4C212C409FF900146DC9 /* BriefHistoryImageObject.swift in Sources */,
 				C05ADECB2B0AC29D00F5B5ED /* LoginOnboardingView.swift in Sources */,
+				C0FF4C252C40A02000146DC9 /* Project.swift in Sources */,
 				C0FF4C132C40990400146DC9 /* CompanyHGrid.swift in Sources */,
 				C0FF4C172C40993A00146DC9 /* MapControlPanelView.swift in Sources */,
 				C05ADEC92B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift in Sources */,
 				C02C06502B27F01E00600FFA /* CompanyObject.swift in Sources */,
+				C0FF4C1F2C409FE000146DC9 /* BriefHistoryObject.swift in Sources */,
 				C0A0F8FA2B34223E0096F1E8 /* BlurView.swift in Sources */,
 				C09962232B2A9C39001265F5 /* NGOMapViewViewModel.swift in Sources */,
 				C05ADED72B0BD9D400F5B5ED /* UserInputView.swift in Sources */,
