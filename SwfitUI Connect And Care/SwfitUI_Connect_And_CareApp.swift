@@ -18,8 +18,10 @@ struct SwfitUI_Connect_And_CareApp: App {
     }
 
     init() {
+        /*
         try? Tips.resetDatastore() // Purge all TipKit related data.
         try? Tips.configure() // Tips.showTipsForTesting([CompletionToDeleteTip.self])
+        */
     }
 }
 

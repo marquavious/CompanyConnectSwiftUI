@@ -132,30 +132,32 @@ struct MediaView: View {
             }
             .frame(height: 130)
 
-        case .video(let id):
-            let avPlayer = AVPlayer(url:  Bundle.main.url(forResource: id, withExtension: "mov")!)
-            GeometryReader { proxy in
-                VideoPlayer(player: avPlayer)
-                    .frame(width: 450, height: 900, alignment: .center)
-                    .position(x: proxy.size.width / 2, y: proxy.size.height / 2)
-                    .scaledToFill()
-                    .clipped()
-                    .onAppear() {
-                        avPlayer.isMuted = true
-                        avPlayer.play()
-                        avPlayer.volume = 0
-                    }
-                    .onDisappear {
-                        avPlayer.isMuted = true
-                        avPlayer.pause()
-                        avPlayer.volume = 0
-                    }
-            }
-            .frame(height: 200)
-            .clipped()
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-            .shadow(radius: colorScheme == .light ? 1 : 0)
-            .zIndex(-100)
+//        case .video(let id):
+//            let avPlayer = AVPlayer(url:  Bundle.main.url(forResource: id, withExtension: "mov")!)
+//            GeometryReader { proxy in
+//                VideoPlayer(player: avPlayer)
+//                    .frame(width: 450, height: 900, alignment: .center)
+//                    .position(x: proxy.size.width / 2, y: proxy.size.height / 2)
+//                    .scaledToFill()
+//                    .clipped()
+//                    .onAppear() {
+//                        avPlayer.isMuted = true
+//                        avPlayer.play()
+//                        avPlayer.volume = 0
+//                    }
+//                    .onDisappear {
+//                        avPlayer.isMuted = true
+//                        avPlayer.pause()
+//                        avPlayer.volume = 0
+//                    }
+//            }
+//            .frame(height: 200)
+//            .clipped()
+//            .clipShape(RoundedRectangle(cornerRadius: 8))
+//            .shadow(radius: colorScheme == .light ? 1 : 0)
+//            .zIndex(-100)
+        case .video(_):
+            Rectangle()
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct IdentifiableImage: Identifiable, Hashable {
     let id = UUID()
