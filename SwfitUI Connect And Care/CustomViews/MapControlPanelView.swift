@@ -10,18 +10,32 @@ import SwiftUI
 
 struct MapControlPanelView: View {
 
+    private enum Icons: String {
+        case mapLockedIcon = "dot.scope"
+        case mapUnlocked = "globe.americas"
+        case mapListViewShowed = "mappin.and.ellipse"
+        case mapListViewHidden = "list.bullet"
+        case clearMapSelection = "xmark"
+    }
+
+    private struct Constants {
+        static let ButtonSize = CGSize(width: 20, height: 20)
+        static let Padding: CGFloat = 10
+    }
+
     @Binding var shouldShowListView: Bool
     @Binding var shouldLockMap: Bool
-    let mapTipView = MapTipView()
+    @EnvironmentObject var viewModel: MapViewViewModel
 
-    @EnvironmentObject var viewModel: NGOMapViewViewModel
+    private let mapTipView = MapTipView()
 
     var body: some View {
         HStack {
             Spacer()
-            Image(systemName: shouldLockMap ? "dot.scope" : "globe.americas")
+
+            Image(systemName: shouldLockMap ? Icons.mapLockedIcon.rawValue : Icons.mapUnlocked.rawValue)
                 .resizable()
-                .frame(width: 20, height: 20)
+                .frame(width: Constants.ButtonSize.width, height: Constants.ButtonSize.height)
                 .padding(10)
                 .background(.regularMaterial)
                 .clipShape(Circle())
@@ -30,8 +44,8 @@ struct MapControlPanelView: View {
                     shouldLockMap.toggle()
                 }
 
-            Image(systemName: shouldShowListView ? "mappin.and.ellipse" : "list.bullet")
-                .frame(width: 20, height: 20)
+            Image(systemName: shouldShowListView ? Icons.mapListViewShowed.rawValue : Icons.mapListViewHidden.rawValue)
+                .frame(width: Constants.ButtonSize.width, height: Constants.ButtonSize.height)
                 .padding(10)
                 .background(.regularMaterial)
                 .clipShape(Circle())
@@ -42,12 +56,13 @@ struct MapControlPanelView: View {
                     }
                 }
                 .popoverTip(mapTipView, arrowEdge: .bottom)
-            Image(systemName: "xmark")
+
+            Image(systemName: Icons.clearMapSelection.rawValue)
                 .frame(
-                    width: viewModel.hasSelected ? 20 : 0,
-                    height: viewModel.hasSelected ? 20 : 0
+                    width: viewModel.hasSelected ? Constants.ButtonSize.width : .zero,
+                    height: viewModel.hasSelected ? Constants.ButtonSize.height : .zero
                 )
-                .padding(viewModel.hasSelected ? 10 : 0)
+                .padding(viewModel.hasSelected ? Constants.Padding : .zero)
                 .foregroundColor(.white)
                 .background(.regularMaterial)
                 .environment(\.colorScheme, .dark)
@@ -63,4 +78,9 @@ struct MapControlPanelView: View {
         .padding(8)
 
     }
+}
+
+#Preview {
+    MapTabView()
+        .environmentObject(MapViewViewModel())
 }

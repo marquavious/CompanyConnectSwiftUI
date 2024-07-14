@@ -481,6 +481,7 @@ struct NGOProfileView: View {
                 Spacer()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 
         func getTitleOffset() -> CGFloat {

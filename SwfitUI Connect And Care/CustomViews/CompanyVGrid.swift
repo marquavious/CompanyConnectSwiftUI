@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct CompanyVGrid: View {
-    @EnvironmentObject var viewModel: NGOMapViewViewModel
+    @EnvironmentObject var viewModel: MapViewViewModel
     @Binding var shouldShowListView: Bool
     var onTapAction: ((CompanyObject) -> Void)
 
@@ -28,13 +28,5 @@ struct CompanyVGrid: View {
             .contentMargins([.bottom], 8)
             .opacity(shouldShowListView ? 1 : 0)
         }
-    }
-}
-
-extension CompanyVGrid {
-    func onTap(_ handler: @escaping (CompanyObject) -> Void) -> CompanyVGrid {
-        var new = self
-        new.onTapAction = handler
-        return new
     }
 }

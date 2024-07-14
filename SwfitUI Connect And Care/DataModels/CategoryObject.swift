@@ -9,7 +9,8 @@ import Foundation
 import SwiftUI
 import Observation
 
-enum Category: String, Codable, CaseIterable {
+enum Category: String, Codable, CaseIterable, Identifiable {
+
     case healthcare, womensRights,
          humanRights, environmental,
          community, conflictReleief,
@@ -36,6 +37,10 @@ enum Category: String, Codable, CaseIterable {
         case .indigenousRights:
             return "Indigenous Rights"
         }
+    }
+
+    var id: String {
+        return self.name
     }
 
     static func returnRandom() -> Category {

@@ -12,7 +12,7 @@ struct CompanyCardView: View {
 
     var onTapAction: ((CompanyObject) -> Void)
     let cellSize: CGSize
-    @EnvironmentObject var viewModel: NGOMapViewViewModel
+    @EnvironmentObject var viewModel: MapViewViewModel
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
@@ -105,13 +105,5 @@ struct CompanyCardView: View {
                 onTapAction(company)
             }
         }
-    }
-}
-
-extension CompanyCardView {
-    func onTap(_ handler: @escaping (CompanyObject) -> Void) -> CompanyCardView {
-        var new = self
-        new.onTapAction = handler
-        return new
     }
 }

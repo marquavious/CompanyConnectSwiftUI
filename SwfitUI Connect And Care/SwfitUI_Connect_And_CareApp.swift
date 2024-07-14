@@ -32,7 +32,7 @@ struct MainView: View {
                 Label("Feed", systemImage: "bubble.circle.fill")
             }
 
-            NGOMapView().tabItem {
+            MapTabView().tabItem {
                 Label("Map", systemImage: "globe.americas")
             }
 

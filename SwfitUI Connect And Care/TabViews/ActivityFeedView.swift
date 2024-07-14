@@ -176,10 +176,13 @@ struct ActvitiyFeedFilterView: View {
             LazyHGrid(rows: [GridItem(.flexible())]) {
                 ForEach(viewModel.categories(), id: \.self) { category in
                     ZStack {
-                        RoundButtonView(text: category.name, color: category.color, isHighlighted: viewModel.selctedCategories().contains(category))
-                            .onTap { _ in
-                                onTapAction(category)
-                            }
+                        RoundButtonView(
+                            text: category.name,
+                            color: category.color,
+                            isHighlighted: viewModel.selctedCategories().contains(category)
+                        ) {
+                            onTapAction(category)
+                        }
                     }
                 }
             }

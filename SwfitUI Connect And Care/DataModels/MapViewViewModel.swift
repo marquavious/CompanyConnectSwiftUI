@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 @Observable
-class NGOMapViewViewModel: ObservableObject {
+class MapViewViewModel: ObservableObject {
 
     init() { }
 
@@ -35,5 +35,15 @@ class NGOMapViewViewModel: ObservableObject {
 
     func resetSelectedCategories() {
         selctedCategories = []
+    }
+
+    func handleSelectedCategory(_ category: Category) {
+        if selctedCategories.contains(category) {
+            selctedCategories.removeAll(where: { $0 == category })
+        } else if !selctedCategories.contains(category) {
+            selctedCategories.append(category)
+        } else {
+            print("Interesting")
+        }
     }
 }

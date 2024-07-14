@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct CompanyHGrid: View {
-    @EnvironmentObject var viewModel: NGOMapViewViewModel
+    @EnvironmentObject var viewModel: MapViewViewModel
     @Environment(\.colorScheme) var colorScheme
     @Binding var shouldShowListView: Bool
     var onTapAction: ((CompanyObject) -> Void)

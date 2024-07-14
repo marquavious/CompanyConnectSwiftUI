@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C013F5FF2C43D999003A967B /* CurvedRectShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013F5FE2C43D999003A967B /* CurvedRectShape.swift */; };
+		C013F5FB2C43B3F3003A967B /* BaseMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013F5FA2C43B3F3003A967B /* BaseMapView.swift */; };
+		C013F5FD2C43B41B003A967B /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013F5FC2C43B41B003A967B /* MapAnnotationView.swift */; };
 		C02C06502B27F01E00600FFA /* CompanyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C064F2B27F01E00600FFA /* CompanyObject.swift */; };
 		C02C06522B27F15B00600FFA /* CategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C06512B27F15B00600FFA /* CategoryObject.swift */; };
 		C031FD852B0ECA7A0041014B /* ViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031FD842B0ECA7A0041014B /* ViewExtentions.swift */; };
@@ -17,10 +19,11 @@
 		C05ADEC92B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADEC82B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift */; };
 		C05ADECD2B0AC29E00F5B5ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C05ADECC2B0AC29E00F5B5ED /* Assets.xcassets */; };
 		C05ADED02B0AC29E00F5B5ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C05ADECF2B0AC29E00F5B5ED /* Preview Assets.xcassets */; };
-		C071C1652B17F32A00BCFC49 /* NGOMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071C1642B17F32A00BCFC49 /* NGOMapView.swift */; };
-		C09962232B2A9C39001265F5 /* NGOMapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09962222B2A9C39001265F5 /* NGOMapViewViewModel.swift */; };
+		C071C1652B17F32A00BCFC49 /* MapTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071C1642B17F32A00BCFC49 /* MapTabView.swift */; };
+		C09962232B2A9C39001265F5 /* MapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09962222B2A9C39001265F5 /* MapViewViewModel.swift */; };
 		C0A0F8FA2B34223E0096F1E8 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A0F8F92B34223E0096F1E8 /* BlurView.swift */; };
 		C0CFA1742B50FE85005D5F59 /* TipViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFA1732B50FE85005D5F59 /* TipViews.swift */; };
+		C0D0546F2C4132F400A623AA /* CompanyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D0546E2C4132F400A623AA /* CompanyListView.swift */; };
 		C0FF4C0B2C40985F00146DC9 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C0A2C40985F00146DC9 /* Triangle.swift */; };
 		C0FF4C0D2C4098A200146DC9 /* CNCAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C0C2C4098A200146DC9 /* CNCAnnotation.swift */; };
 		C0FF4C0F2C4098D100146DC9 /* CategoryFilterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C0E2C4098D100146DC9 /* CategoryFilterScrollView.swift */; };
@@ -44,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		C013F5FE2C43D999003A967B /* CurvedRectShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedRectShape.swift; sourceTree = "<group>"; };
+		C013F5FA2C43B3F3003A967B /* BaseMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMapView.swift; sourceTree = "<group>"; };
+		C013F5FC2C43B41B003A967B /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
 		C02C064F2B27F01E00600FFA /* CompanyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyObject.swift; sourceTree = "<group>"; };
 		C02C06512B27F15B00600FFA /* CategoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryObject.swift; sourceTree = "<group>"; };
 		C031FD842B0ECA7A0041014B /* ViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtentions.swift; sourceTree = "<group>"; };
@@ -54,10 +59,11 @@
 		C05ADEC82B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwfitUI_Connect_And_CareApp.swift; sourceTree = "<group>"; };
 		C05ADECC2B0AC29E00F5B5ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C05ADECF2B0AC29E00F5B5ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C071C1642B17F32A00BCFC49 /* NGOMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOMapView.swift; sourceTree = "<group>"; };
-		C09962222B2A9C39001265F5 /* NGOMapViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOMapViewViewModel.swift; sourceTree = "<group>"; };
+		C071C1642B17F32A00BCFC49 /* MapTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTabView.swift; sourceTree = "<group>"; };
+		C09962222B2A9C39001265F5 /* MapViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewViewModel.swift; sourceTree = "<group>"; };
 		C0A0F8F92B34223E0096F1E8 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		C0CFA1732B50FE85005D5F59 /* TipViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViews.swift; sourceTree = "<group>"; };
+		C0D0546E2C4132F400A623AA /* CompanyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListView.swift; sourceTree = "<group>"; };
 		C0FF4C0A2C40985F00146DC9 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		C0FF4C0C2C4098A200146DC9 /* CNCAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNCAnnotation.swift; sourceTree = "<group>"; };
 		C0FF4C0E2C4098D100146DC9 /* CategoryFilterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterScrollView.swift; sourceTree = "<group>"; };
@@ -104,7 +110,7 @@
 				C0FF4C202C409FF900146DC9 /* BriefHistoryImageObject.swift */,
 				C0FF4C1E2C409FE000146DC9 /* BriefHistoryObject.swift */,
 				C02C06512B27F15B00600FFA /* CategoryObject.swift */,
-				C09962222B2A9C39001265F5 /* NGOMapViewViewModel.swift */,
+				C09962222B2A9C39001265F5 /* MapViewViewModel.swift */,
 				C0FF4C262C40A07500146DC9 /* ActivityFeedViewViewModelType.swift */,
 				C0FF4C1C2C409FB400146DC9 /* User.swift */,
 			);
@@ -163,6 +169,9 @@
 				C0FF4C142C40992700146DC9 /* CompanyVGrid.swift */,
 				C0FF4C162C40993A00146DC9 /* MapControlPanelView.swift */,
 				C0FF4C182C40995D00146DC9 /* CompanyCardView.swift */,
+				C0D0546E2C4132F400A623AA /* CompanyListView.swift */,
+				C013F5FA2C43B3F3003A967B /* BaseMapView.swift */,
+				C013F5FC2C43B41B003A967B /* MapAnnotationView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -170,7 +179,7 @@
 		C0FF4C1A2C409E0F00146DC9 /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
-				C071C1642B17F32A00BCFC49 /* NGOMapView.swift */,
+				C071C1642B17F32A00BCFC49 /* MapTabView.swift */,
 				C04601F02B3C57AB00BFFB52 /* DonationsView.swift */,
 				C04601F22B3C6E1000BFFB52 /* ActivityFeedView.swift */,
 				C050008A2B194B2D00319C64 /* NGOProfileView.swift */,
@@ -269,24 +278,27 @@
 				C0FF4C112C4098E200146DC9 /* RoundButtonView.swift in Sources */,
 				C0FF4C312C40A15600146DC9 /* TweetGenerator.swift in Sources */,
 				C0CFA1742B50FE85005D5F59 /* TipViews.swift in Sources */,
-				C071C1652B17F32A00BCFC49 /* NGOMapView.swift in Sources */,
+				C071C1652B17F32A00BCFC49 /* MapTabView.swift in Sources */,
 				C0FF4C0B2C40985F00146DC9 /* Triangle.swift in Sources */,
 				C0FF4C192C40995D00146DC9 /* CompanyCardView.swift in Sources */,
 				C0FF4C0F2C4098D100146DC9 /* CategoryFilterScrollView.swift in Sources */,
 				C02C06522B27F15B00600FFA /* CategoryObject.swift in Sources */,
 				C04601F32B3C6E1000BFFB52 /* ActivityFeedView.swift in Sources */,
+				C0D0546F2C4132F400A623AA /* CompanyListView.swift in Sources */,
 				C0FF4C2F2C40A12900146DC9 /* IdentifiableVideo.swift in Sources */,
 				C031FD852B0ECA7A0041014B /* ViewExtentions.swift in Sources */,
 				C013F5FF2C43D999003A967B /* CurvedRectShape.swift in Sources */,
 				C0FF4C212C409FF900146DC9 /* BriefHistoryImageObject.swift in Sources */,
 				C0FF4C252C40A02000146DC9 /* Project.swift in Sources */,
+				C013F5FD2C43B41B003A967B /* MapAnnotationView.swift in Sources */,
+				C013F5FB2C43B3F3003A967B /* BaseMapView.swift in Sources */,
 				C0FF4C132C40990400146DC9 /* CompanyHGrid.swift in Sources */,
 				C0FF4C172C40993A00146DC9 /* MapControlPanelView.swift in Sources */,
 				C05ADEC92B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift in Sources */,
 				C02C06502B27F01E00600FFA /* CompanyObject.swift in Sources */,
 				C0FF4C1F2C409FE000146DC9 /* BriefHistoryObject.swift in Sources */,
 				C0A0F8FA2B34223E0096F1E8 /* BlurView.swift in Sources */,
-				C09962232B2A9C39001265F5 /* NGOMapViewViewModel.swift in Sources */,
+				C09962232B2A9C39001265F5 /* MapViewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,23 +10,36 @@ import SwiftUI
 
 struct CategoryFilterScrollView: View {
 
-    @EnvironmentObject var viewModel: NGOMapViewViewModel
-    var onTapAction: ((Category) -> Void)
+    struct Constants {
+        static let Padding: CGFloat = 8
+        static let edgeInsets = EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
+    }
+
+    @EnvironmentObject var viewModel: MapViewViewModel
+
+    var didSelectCategory: ((Category) -> Void)
+    private let gridRows = [GridItem(.flexible())]
 
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHGrid(rows: [GridItem(.flexible())]) {
-                ForEach(viewModel.categories, id: \.self) { category in
+        ScrollView(
+            .horizontal,
+            showsIndicators: false
+        ) {
+            LazyHGrid(rows: gridRows) {
+                ForEach(viewModel.categories) { category in
                     ZStack {
-                        RoundButtonView(text: category.name, color: category.color, isHighlighted: viewModel.selctedCategories.contains(category))
-                            .onTap { _ in
-                                onTapAction(category)
-                            }
-                            .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                        RoundButtonView(
+                            text: category.name,
+                            color: category.color,
+                            isHighlighted: viewModel.selctedCategories.contains(category)
+                        ) {
+                            didSelectCategory(category)
+                        }
+                        .padding(Constants.edgeInsets)
                     }
                 }
             }
         }
-        .contentMargins(.horizontal, 8)
+        .contentMargins(.horizontal, Constants.Padding)
     }
 }
