@@ -32,7 +32,7 @@ struct CompanyCardView: View {
                         .clipped()
                         .cornerRadius(8)
                         .mask(alignment: .bottomLeading) {
-                            CurvedRect(cornerRadius: 8, photoSize: CGSize(width: 45, height: 45))
+                            CurvedRectShape(cornerRadius: 8, photoSize: CGSize(width: 45, height: 45))
                         }
                     VStack(alignment: .leading, spacing: 2) {
                         Text(company.orginizationName)
