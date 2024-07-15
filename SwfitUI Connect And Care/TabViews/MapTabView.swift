@@ -11,7 +11,7 @@ import TipKit
 
 struct MapTabView: View {
 
-    @State private var shouldShowListView: Bool = false
+    @State var shouldShowListView: Bool = false
     @State private var shouldLockMap: Bool = true
     @State private var selectedCompanies = [CompanyObject]()
     @StateObject var viewModel = MapViewViewModel()

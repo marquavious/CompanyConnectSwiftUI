@@ -21,10 +21,7 @@ struct CategoryFilterScrollView: View {
     private let gridRows = [GridItem(.flexible())]
 
     var body: some View {
-        ScrollView(
-            .horizontal,
-            showsIndicators: false
-        ) {
+        ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: gridRows) {
                 ForEach(viewModel.categories) { category in
                     ZStack {
@@ -42,4 +39,5 @@ struct CategoryFilterScrollView: View {
         }
         .contentMargins(.horizontal, Constants.Padding)
     }
+
 }

@@ -9,24 +9,36 @@ import Foundation
 import SwiftUI
 
 struct CompanyVGrid: View {
+
+    struct Constants {
+        static let cellSize = CGSize(width: 350, height: 150)
+        static let edgeInsets = EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+        static let bottomContentMarginPadding: CGFloat = 8
+    }
+
     @EnvironmentObject var viewModel: MapViewViewModel
     @Binding var shouldShowListView: Bool
-    var onTapAction: ((CompanyObject) -> Void)
 
-    let cellSize = CGSize(width: 350, height: 150)
+    var onTapAction: ((CompanyObject) -> Void)
+    let vGridColumns = [GridItem(.flexible())]
 
     var body: some View {
-        VStack {
-            ScrollView(.vertical, showsIndicators: false) {
-                LazyVGrid(columns: [GridItem(.flexible())]) {
-                    CompanyCardView(onTapAction: onTapAction, cellSize: cellSize)
-                        .frame(maxHeight: cellSize.height)
-                }
-                .padding(EdgeInsets(top: 16, leading: 8, bottom: 0, trailing: 8))
+        ScrollView(.vertical, showsIndicators: false) {
+            LazyVGrid(columns: vGridColumns) {
+                CompanyCardView(
+                    onTapAction: onTapAction,
+                    cellSize: Constants.cellSize
+                )
+                .frame(maxHeight: Constants.cellSize.height)
             }
-            .frame(maxHeight: shouldShowListView ? .infinity : 0)
-            .contentMargins([.bottom], 8)
-            .opacity(shouldShowListView ? 1 : 0)
+            .padding(Constants.edgeInsets)
         }
+        .frame(maxHeight: shouldShowListView ? .infinity : .zero)
+        .contentMargins([.bottom], Constants.bottomContentMarginPadding)
+        .opacity(shouldShowListView ? 1 : 0)
     }
+}
+
+#Preview {
+    MapTabView(shouldShowListView: true)
 }

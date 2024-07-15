@@ -1,65 +1,12 @@
 //
-//  DonationsView.swift
+//  DonationCellView.swift
 //  SwfitUI Connect And Care
 //
-//  Created by Marquavious Draggon on 12/27/23.
+//  Created by Marquavious Draggon on 7/14/24.
 //
 
+import Foundation
 import SwiftUI
-
-struct DonationsView: View {
-    @Environment (\.colorScheme) var colorScheme
-
-    let userData = User(name: "Cack", donations: Donation.generateDonations(), scheduledDonations: [Donation(
-        amountInCents: 205,
-        company: CompanyObject.ceateFakeComapnyList().randomElement()!,
-        date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!,
-        paymentMethod: .paypal
-    )])
-    var body: some View {
-        NavigationView {
-            List {
-                Section {
-                    ForEach(userData.donations, id: \.id) { donation in
-                        DonationCellView(donation: donation)
-                    }
-                }
-                Section {
-                    ForEach(userData.scheduledDonations, id: \.id) { donation in
-                        DonationCellView(donation: donation)
-                    }
-                }
-            header: {
-                Text("Scheduled")
-                    .font(.title3)
-                    .padding([.vertical])
-            } footer: {
-                Text(CompanyObject.generateShort())
-                    .font(.caption)
-                    .padding([.vertical])
-                }
-            }
-            .contentMargins([.top], 16)
-            .navigationTitle("Donations")
-            .navigationBarTitleDisplayMode(.large)
-            .scrollIndicators(.hidden)
-            .toolbar {
-                Button("", systemImage: "plus.circle") {
-                }.tint(colorScheme == .light ? .black:.white)
-            }
-        }
-    }
-}
-
-#Preview {
-    DonationsView()
-}
-
-extension Color {
-    static func random() -> Color {
-        return Color(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1))
-    }
-}
 
 struct DonationCellView: View {
 
@@ -150,4 +97,9 @@ struct DonationCellView: View {
         let dateString = dateFormatter.string(from: date)
         return dateString
     }
+}
+
+
+#Preview {
+    DonationsView(user: User.createFakeUserData())
 }

@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C013F5FF2C43D999003A967B /* CurvedRectShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013F5FE2C43D999003A967B /* CurvedRectShape.swift */; };
 		C013F5FB2C43B3F3003A967B /* BaseMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013F5FA2C43B3F3003A967B /* BaseMapView.swift */; };
 		C013F5FD2C43B41B003A967B /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013F5FC2C43B41B003A967B /* MapAnnotationView.swift */; };
+		C013F5FF2C43D999003A967B /* CurvedRectShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013F5FE2C43D999003A967B /* CurvedRectShape.swift */; };
+		C013F6012C449A14003A967B /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013F6002C449A14003A967B /* Color+Ext.swift */; };
+		C013F6032C449D1C003A967B /* DonationCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013F6022C449D1C003A967B /* DonationCellView.swift */; };
 		C02C06502B27F01E00600FFA /* CompanyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C064F2B27F01E00600FFA /* CompanyObject.swift */; };
 		C02C06522B27F15B00600FFA /* CategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C06512B27F15B00600FFA /* CategoryObject.swift */; };
 		C031FD852B0ECA7A0041014B /* ViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031FD842B0ECA7A0041014B /* ViewExtentions.swift */; };
-		C04601F12B3C57AB00BFFB52 /* DonationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04601F02B3C57AB00BFFB52 /* DonationsView.swift */; };
+		C04601F12B3C57AB00BFFB52 /* DonationsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04601F02B3C57AB00BFFB52 /* DonationsTabView.swift */; };
 		C04601F32B3C6E1000BFFB52 /* ActivityFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04601F22B3C6E1000BFFB52 /* ActivityFeedView.swift */; };
 		C050008B2B194B2D00319C64 /* NGOProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C050008A2B194B2D00319C64 /* NGOProfileView.swift */; };
 		C05ADEC92B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05ADEC82B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift */; };
@@ -46,13 +48,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C013F5FE2C43D999003A967B /* CurvedRectShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedRectShape.swift; sourceTree = "<group>"; };
 		C013F5FA2C43B3F3003A967B /* BaseMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMapView.swift; sourceTree = "<group>"; };
 		C013F5FC2C43B41B003A967B /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
+		C013F5FE2C43D999003A967B /* CurvedRectShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedRectShape.swift; sourceTree = "<group>"; };
+		C013F6002C449A14003A967B /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		C013F6022C449D1C003A967B /* DonationCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationCellView.swift; sourceTree = "<group>"; };
 		C02C064F2B27F01E00600FFA /* CompanyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyObject.swift; sourceTree = "<group>"; };
 		C02C06512B27F15B00600FFA /* CategoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryObject.swift; sourceTree = "<group>"; };
 		C031FD842B0ECA7A0041014B /* ViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtentions.swift; sourceTree = "<group>"; };
-		C04601F02B3C57AB00BFFB52 /* DonationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsView.swift; sourceTree = "<group>"; };
+		C04601F02B3C57AB00BFFB52 /* DonationsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsTabView.swift; sourceTree = "<group>"; };
 		C04601F22B3C6E1000BFFB52 /* ActivityFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedView.swift; sourceTree = "<group>"; };
 		C050008A2B194B2D00319C64 /* NGOProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOProfileView.swift; sourceTree = "<group>"; };
 		C05ADEC52B0AC29D00F5B5ED /* SwfitUI Connect And Care.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwfitUI Connect And Care.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +176,7 @@
 				C0D0546E2C4132F400A623AA /* CompanyListView.swift */,
 				C013F5FA2C43B3F3003A967B /* BaseMapView.swift */,
 				C013F5FC2C43B41B003A967B /* MapAnnotationView.swift */,
+				C013F6022C449D1C003A967B /* DonationCellView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -180,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				C071C1642B17F32A00BCFC49 /* MapTabView.swift */,
-				C04601F02B3C57AB00BFFB52 /* DonationsView.swift */,
+				C04601F02B3C57AB00BFFB52 /* DonationsTabView.swift */,
 				C04601F22B3C6E1000BFFB52 /* ActivityFeedView.swift */,
 				C050008A2B194B2D00319C64 /* NGOProfileView.swift */,
 			);
@@ -191,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				C031FD842B0ECA7A0041014B /* ViewExtentions.swift */,
+				C013F6002C449A14003A967B /* Color+Ext.swift */,
 			);
 			path = "View Extentions";
 			sourceTree = "<group>";
@@ -265,11 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C013F6032C449D1C003A967B /* DonationCellView.swift in Sources */,
 				C050008B2B194B2D00319C64 /* NGOProfileView.swift in Sources */,
 				C0FF4C292C40A0D600146DC9 /* TeamMember.swift in Sources */,
 				C0FF4C2B2C40A0F600146DC9 /* ActvityPost.swift in Sources */,
 				C0FF4C232C40A00700146DC9 /* Donation.swift in Sources */,
-				C04601F12B3C57AB00BFFB52 /* DonationsView.swift in Sources */,
+				C04601F12B3C57AB00BFFB52 /* DonationsTabView.swift in Sources */,
 				C0FF4C0D2C4098A200146DC9 /* CNCAnnotation.swift in Sources */,
 				C0FF4C1D2C409FB400146DC9 /* User.swift in Sources */,
 				C0FF4C2D2C40A11800146DC9 /* IdentifiableImage.swift in Sources */,
@@ -294,6 +301,7 @@
 				C013F5FB2C43B3F3003A967B /* BaseMapView.swift in Sources */,
 				C0FF4C132C40990400146DC9 /* CompanyHGrid.swift in Sources */,
 				C0FF4C172C40993A00146DC9 /* MapControlPanelView.swift in Sources */,
+				C013F6012C449A14003A967B /* Color+Ext.swift in Sources */,
 				C05ADEC92B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift in Sources */,
 				C02C06502B27F01E00600FFA /* CompanyObject.swift in Sources */,
 				C0FF4C1F2C409FE000146DC9 /* BriefHistoryObject.swift in Sources */,

@@ -47,6 +47,7 @@ struct CompanyListView: View {
         .frame(maxHeight: shouldShowListView ? .infinity : Constants.maxHeight)
         .background(.regularMaterial)
     }
+
 }
 
 #Preview {

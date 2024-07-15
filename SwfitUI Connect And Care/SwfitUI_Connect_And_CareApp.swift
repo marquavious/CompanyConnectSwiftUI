@@ -36,7 +36,7 @@ struct MainView: View {
                 Label("Map", systemImage: "globe.americas")
             }
 
-            DonationsView().tabItem {
+            DonationsView(user: User.createFakeUserData()).tabItem {
                 Label("Donations", systemImage: "dollarsign.circle")
             }
         }
