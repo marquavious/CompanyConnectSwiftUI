@@ -13,10 +13,7 @@ struct CompanyObject: Identifiable, Hashable {
     let team: [TeamMember]
     let briefHistoryObject = generateBriefHistoryObject()
     let projects: [Project] = Project.generateProjectList()
-    let logoSystemName: String
-    let radomShowShorthandName: Bool
-    let shouldUseSolidColorBackground: Bool
-    let themeColor: Color
+    let logoImageData: LogoImageViewData
 
     public func hash(into hasher: inout Hasher) {
         return hasher.combine(id)
@@ -84,11 +81,14 @@ struct CompanyObject: Identifiable, Hashable {
                 category: .community, 
                 coverImage: Image("charleyrivers"),
                 missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(), 
-                logoSystemName: "car.circle.fill",
-                radomShowShorthandName:false,
-                shouldUseSolidColorBackground: true, 
-                themeColor: .orange
+                team: TeamMember.generateTeamList(),
+                logoImageData: LogoImageViewData(
+                    companyAbbreviation: "C.4.K",
+                    addAbbreviationToLogo: false,
+                    systemLogo: Image(systemName: "car.circle.fill"),
+                    logoBackground: generateRadomImage(),
+                    themeColor: .orange
+                )
             ),
             CompanyObject(
                 orginizationName: "A.D.F.R.A",
@@ -98,11 +98,14 @@ struct CompanyObject: Identifiable, Hashable {
                 category: .healthcare, 
                 coverImage: Image("chilkoottrail"),
                 missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(), 
-                logoSystemName: "cross.case.circle.fill",
-                radomShowShorthandName: true,
-                shouldUseSolidColorBackground: false,
-                themeColor: Color.random()
+                team: TeamMember.generateTeamList(),
+                logoImageData: LogoImageViewData(
+                    companyAbbreviation: "A.D.F",
+                    addAbbreviationToLogo: true,
+                    systemLogo: Image(systemName: "cross.case.circle.fill"),
+                    logoBackground: generateRadomImage(),
+                    themeColor: Color.random()
+                )
             ),
             CompanyObject(
                 orginizationName: "Ever Green",
@@ -112,11 +115,14 @@ struct CompanyObject: Identifiable, Hashable {
                 category: .environmental,
                 coverImage: Image("chincoteague"),
                 missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(), 
-                logoSystemName: "tree.circle.fill",
-                radomShowShorthandName: false,
-                shouldUseSolidColorBackground: false,
-                themeColor: Color.random()
+                team: TeamMember.generateTeamList(),
+                logoImageData: LogoImageViewData(
+                    companyAbbreviation: "E.V.G",
+                    addAbbreviationToLogo: false,
+                    systemLogo: Image(systemName: "tree.circle.fill"),
+                    logoBackground: generateRadomImage(),
+                    themeColor: Color.random()
+                )
             ),
             CompanyObject(
                 orginizationName: "EDU Global",
@@ -126,11 +132,14 @@ struct CompanyObject: Identifiable, Hashable {
                 category: .education,
                 coverImage: Image("hiddenlake"),
                 missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(), 
-                logoSystemName: "globe.europe.africa.fill",
-                radomShowShorthandName: true,
-                shouldUseSolidColorBackground: true,
-                themeColor: .green
+                team: TeamMember.generateTeamList(),
+                logoImageData: LogoImageViewData(
+                    companyAbbreviation: "E.D.U",
+                    addAbbreviationToLogo: true,
+                    systemLogo: Image(systemName: "globe.europe.africa.fill"),
+                    logoBackground: generateRadomImage(),
+                    themeColor: .green
+                )
             ),
             CompanyObject(
                 orginizationName: "True Vison",
@@ -140,11 +149,14 @@ struct CompanyObject: Identifiable, Hashable {
                 category: .womensRights,
                 coverImage: Image("icybay"),
                 missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(), 
-                logoSystemName: "eye.circle.fill",
-                radomShowShorthandName: false,
-                shouldUseSolidColorBackground: false,
-                themeColor: Color.random()
+                team: TeamMember.generateTeamList(),
+                logoImageData: LogoImageViewData(
+                    companyAbbreviation: "T.V.",
+                    addAbbreviationToLogo: false,
+                    systemLogo: Image(systemName: "eye.circle.fill"),
+                    logoBackground: generateRadomImage(),
+                    themeColor: Color.random()
+                )
             ),
             CompanyObject(
                 orginizationName: "S.A.O.M",
@@ -154,11 +166,14 @@ struct CompanyObject: Identifiable, Hashable {
                 category: .veterans, 
                 coverImage: Image("lakemcdonald"),
                 missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(), 
-                logoSystemName: "figure.walk.circle.fill",
-                radomShowShorthandName: false,
-                shouldUseSolidColorBackground:true,
-                themeColor: Color(red: 28/255, green: 68/255, blue: 108/255)
+                team: TeamMember.generateTeamList(),
+                logoImageData: LogoImageViewData(
+                    companyAbbreviation: "S.A.O.",
+                    addAbbreviationToLogo: false,
+                    systemLogo: Image(systemName: "figure.walk.circle.fill"),
+                    logoBackground: nil,
+                    themeColor: Color(red: 28/255, green: 68/255, blue: 108/255)
+                )
             ),
             CompanyObject(
                 orginizationName: "People4All",
@@ -168,12 +183,14 @@ struct CompanyObject: Identifiable, Hashable {
                 category: .humanRights,
                 coverImage: Image("rainbowlake"),
                 missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(), 
-                logoSystemName: "peacesign",
-                radomShowShorthandName: false,
-                shouldUseSolidColorBackground:true,
-                themeColor: .purple
-                // peacesign
+                team: TeamMember.generateTeamList(),
+                logoImageData: LogoImageViewData(
+                    companyAbbreviation: "P.4.A",
+                    addAbbreviationToLogo: false,
+                    systemLogo: Image(systemName: "peacesign"),
+                    logoBackground: nil,
+                    themeColor: .purple
+                )
             ),
             CompanyObject(
                 orginizationName: "VENTRA",
@@ -183,14 +200,15 @@ struct CompanyObject: Identifiable, Hashable {
                 category: .indigenousRights,
                 coverImage: Image("silversalmoncreek"),
                 missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(), 
-                logoSystemName: "circle.hexagongrid.fill",
-                radomShowShorthandName: true,
-                shouldUseSolidColorBackground: true,
-                themeColor: .brown
+                team: TeamMember.generateTeamList(),
+                logoImageData: LogoImageViewData(
+                    companyAbbreviation: "V.E.N",
+                    addAbbreviationToLogo: true,
+                    systemLogo: Image(systemName: "circle.hexagongrid.fill"),
+                    logoBackground: generateRadomImage(),
+                    themeColor: .brown
+                )
             ),
-
-
             CompanyObject(
                 orginizationName: "Blue Aid",
                 coordinate: CLLocationCoordinate2D(
@@ -200,10 +218,13 @@ struct CompanyObject: Identifiable, Hashable {
                 coverImage: Image("stmarylake"),
                 missionStatement: generateSummary(),
                 team: TeamMember.generateTeamList(),
-                logoSystemName: "rotate.3d.fill",
-                radomShowShorthandName: true,
-                shouldUseSolidColorBackground: true,
-                themeColor: .blue
+                logoImageData: LogoImageViewData(
+                    companyAbbreviation: "B.A.",
+                    addAbbreviationToLogo: true,
+                    systemLogo: Image(systemName: "rotate.3d.fill"),
+                    logoBackground: generateRadomImage(),
+                    themeColor: .blue
+                )
             ),
             CompanyObject(
                 orginizationName: "Tree Vision",
@@ -213,11 +234,14 @@ struct CompanyObject: Identifiable, Hashable {
                 category: .environmental,
                 coverImage: Image("turtlerock"),
                 missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(), 
-                logoSystemName: "bird.circle.fill",
-                radomShowShorthandName: true,
-                shouldUseSolidColorBackground: true,
-                themeColor: .cyan
+                team: TeamMember.generateTeamList(),
+                logoImageData: LogoImageViewData(
+                    companyAbbreviation: "T.V.",
+                    addAbbreviationToLogo: true,
+                    systemLogo: Image(systemName: "bird.circle.fill"),
+                    logoBackground: generateRadomImage(),
+                    themeColor: .cyan
+                )
             ),
             CompanyObject(
                 orginizationName: "Mantra",
@@ -227,11 +251,14 @@ struct CompanyObject: Identifiable, Hashable {
                 category: .community,
                 coverImage: Image("twinlake"),
                 missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(), 
-                logoSystemName: "arrow.up.left.arrow.down.right.circle.fill",
-                radomShowShorthandName: false,
-                shouldUseSolidColorBackground:true,
-                themeColor: .gray
+                team: TeamMember.generateTeamList(),
+                logoImageData: LogoImageViewData(
+                    companyAbbreviation: "M",
+                    addAbbreviationToLogo: false,
+                    systemLogo: Image(systemName: "arrow.up.left.arrow.down.right.circle.fill"),
+                    logoBackground: generateRadomImage(),
+                    themeColor: .gray
+                )
             ),
             CompanyObject(
                 orginizationName: "G.H.G",
@@ -241,11 +268,14 @@ struct CompanyObject: Identifiable, Hashable {
                 category: .healthcare,
                 coverImage: Image("umbagog"),
                 missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(), 
-                logoSystemName: "sun.and.horizon.circle.fill",
-                radomShowShorthandName: true,
-                shouldUseSolidColorBackground: false,
-                themeColor: Color.random()
+                team: TeamMember.generateTeamList(),
+                logoImageData: LogoImageViewData(
+                    companyAbbreviation: "G.H.G",
+                    addAbbreviationToLogo: false,
+                    systemLogo: Image(systemName: "sun.and.horizon.circle.fill"),
+                    logoBackground: generateRadomImage(),
+                    themeColor: Color.random()
+                )
             )
         ]
 

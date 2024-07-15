@@ -150,55 +150,12 @@ struct NGOProfileView: View {
                                 .scaleEffect(getScale())
                                 .padding(.horizontal, 8)
                                 .overlay(alignment: .center) {
-                                    if companyObject.shouldUseSolidColorBackground {
-                                        Circle()
-                                            .fill(companyObject.themeColor)
-                                            .frame(width: 75, height: 75)
-                                            .overlay(alignment: .center) {
-                                                Color.white
-                                                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                                                    .mask {
-                                                        VStack(spacing: 0) {
-                                                            Text(Image(systemName: companyObject.logoSystemName))
-                                                                .font(.largeTitle)
-                                                                .bold()
-
-                                                            if companyObject.radomShowShorthandName {
-                                                                Text(String(companyObject.orginizationName.prefix(3)).uppercased())
-                                                                    .font(.subheadline)
-                                                                    .bold()
-                                                            }
-                                                        }
-                                                    }
-                                            }
-                                            .offset(y: offset < 0 ? getOffset() - 20 : -20)
-                                            .scaleEffect(getScale())
-                                    } else {
-                                        companyObject.logo
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 75, height: 75)
-                                            .clipShape(Circle())
-                                            .overlay(alignment: .center) {
-                                                Color.white
-                                                    .mask {
-                                                        VStack(spacing: 0) {
-                                                            Text(Image(systemName: companyObject.logoSystemName))
-                                                                .font(.largeTitle)
-                                                                .bold()
-
-                                                            if companyObject.radomShowShorthandName {
-                                                                Text(String(companyObject.orginizationName.prefix(3)).uppercased())
-                                                                    .font(.title3)
-                                                                    .bold()
-                                                            }
-                                                        }
-                                                    }
-                                            }
-                                            .clipShape(Circle())
-                                            .offset(y: offset < 0 ? getOffset() - 20 : -20)
-                                            .scaleEffect(getScale())
-                                    }
+                                    LogoImageView(
+                                        logoImageViewData: companyObject.logoImageData,
+                                        showIconOnly: false,
+                                        size: CGSize(width: 75, height: 75)
+                                    )
+                                    .offset(y: offset < 0 ? getOffset() - 20 : -20)
                                 }
 
                         }

@@ -48,56 +48,57 @@ struct CompanyCardView: View {
                     }
                 }
                 .overlay(alignment: .bottomLeading) {
-                    if company.shouldUseSolidColorBackground {
-
-                        Circle()
-                            .fill(company.themeColor)
-                            .frame(width: 40, height: 40)
-                            .overlay(alignment: .center) {
-                                Color.white
-                                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                                    .mask {
-                                        VStack(spacing: 0) {
-                                            Text(Image(systemName: company.logoSystemName))
-                                                .font(company.radomShowShorthandName ? .caption : .title2)
-                                                .bold()
-
-                                            if company.radomShowShorthandName {
-                                                Text(String(company.orginizationName.prefix(3)).uppercased())
-                                                    .font(.caption)
-                                                    .bold()
-                                            }
-                                        }
-                                    }
-                            }
-                    }
-                    else {
-
-                        company.logo
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 40, height: 40)
-                            .clipShape(Circle())
-                            .overlay(alignment: .center) {
-                                //                    donation.company.coverImage
-                                Color.white
-                                    .mask {
-                                        VStack(spacing: 0) {
-                                            Text(Image(systemName: company.logoSystemName))
-                                                .font(company.radomShowShorthandName ? .caption : .title2)
-                                                .bold()
-
-                                            if company.radomShowShorthandName {
-                                                Text(String(company.orginizationName.prefix(3)).uppercased())
-                                                    .font(.caption)
-                                                    .bold()
-                                            }
-                                        }
-                                    }
-                            }
-                            .clipShape(Circle())
-                    }
+                    LogoImageView(logoImageViewData: company.logoImageData, size: CGSize(width: 40, height: 40))
+//                    if company.logoImage {
+//
+//                        Circle()
+//                            .fill(company.themeColor)
+//                            .frame(width: 40, height: 40)
+//                            .overlay(alignment: .center) {
+//                                Color.white
+//                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+//                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+//                                    .mask {
+//                                        VStack(spacing: 0) {
+//                                            Text(Image(systemName: company.logoSystemName))
+//                                                .font(company.radomShowShorthandName ? .caption : .title2)
+//                                                .bold()
+//
+//                                            if company.radomShowShorthandName {
+//                                                Text(String(company.orginizationName.prefix(3)).uppercased())
+//                                                    .font(.caption)
+//                                                    .bold()
+//                                            }
+//                                        }
+//                                    }
+//                            }
+//                    }
+//                    else {
+//
+//                        company.logo
+//                            .resizable()
+//                            .scaledToFill()
+//                            .frame(width: 40, height: 40)
+//                            .clipShape(Circle())
+//                            .overlay(alignment: .center) {
+//                                //                    donation.company.coverImage
+//                                Color.white
+//                                    .mask {
+//                                        VStack(spacing: 0) {
+//                                            Text(Image(systemName: company.logoSystemName))
+//                                                .font(company.radomShowShorthandName ? .caption : .title2)
+//                                                .bold()
+//
+//                                            if company.radomShowShorthandName {
+//                                                Text(String(company.orginizationName.prefix(3)).uppercased())
+//                                                    .font(.caption)
+//                                                    .bold()
+//                                            }
+//                                        }
+//                                    }
+//                            }
+//                            .clipShape(Circle())
+//                    }
                 }
                 .padding(8)
             }

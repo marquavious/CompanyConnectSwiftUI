@@ -213,7 +213,6 @@ struct ActivityFeedScrollView: View {
                         .padding([.horizontal], 16)
                     ForEach(viewModel.presentedPosts()) { activityPost in
                         HStack(alignment: .top, spacing: 12) {
-
                             if let poster = activityPost.poster {
                                 poster.image
                                     .resizable()
@@ -221,106 +220,20 @@ struct ActivityFeedScrollView: View {
                                     .frame(width: 40, height: 40)
                                     .clipShape(Circle())
                                     .onTapGesture { ngoSelected(activityPost.company) }
+                                    /*
                                     .overlay(alignment: .bottomTrailing) {
-
-                                        let company = activityPost.company
-
-
-                                        if company.shouldUseSolidColorBackground {
-
-                                            Circle()
-                                                .fill(company.themeColor)
-                                                .frame(width: 20, height: 20)
-                                                .padding(2)
-                                                .background(colorScheme == .dark ? .black : .white)
-                                                .overlay(alignment: .center) {
-                                                    Color.white
-                                                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                                                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                                                        .mask {
-                                                            VStack(spacing: 0) {
-                                                                Text(Image(systemName: company.logoSystemName))
-                                                                    .font(.caption)
-                                                                    .bold()
-                                                            }
-                                                        }
-                                                }
-                                                .clipShape(Circle())
-                                                .offset(x:8, y: 8)
-                                        } else {
-                                            company.logo
-                                                .resizable()
-                                                .scaledToFill()
-                                                .frame(width: 20, height: 20)
-                                                .clipShape(Circle())
-                                                .padding(2)
-                                                .background(colorScheme == .dark ? .black : .white)
-                                                .overlay(alignment: .center) {
-                                                    Color.white
-                                                        .mask {
-                                                            VStack(spacing: 0) {
-                                                                Text(Image(systemName: company.logoSystemName))
-                                                                    .font(.caption)
-                                                                    .bold()
-                                                            }
-                                                        }
-                                                }
-                                                .clipShape(Circle())
-                                                .offset(x:8, y: 8)
-                                        }
+                                        LogoImageView(
+                                            logoImageViewData: activityPost.company.logoImageData,
+                                            showIconOnly: true, size: CGSize(width: 20, height: 20)
+                                        )
+                                        .offset(x:8, y: 8)
                                     }
-                            }
-                            else {
-
-                                if activityPost.company.shouldUseSolidColorBackground {
-
-                                    Circle()
-                                        .fill(activityPost.company.themeColor)
-                                        .frame(width: 40, height: 40)
-                                        .overlay(alignment: .center) {
-                                            Color.white
-                                                .clipShape(RoundedRectangle(cornerRadius: 8))
-                                                .clipShape(RoundedRectangle(cornerRadius: 8))
-                                                .mask {
-                                                    VStack(spacing: 0) {
-                                                        Text(Image(systemName: activityPost.company.logoSystemName))
-                                                            .font(activityPost.company.radomShowShorthandName ? .caption : .title2)
-                                                            .bold()
-
-                                                        if activityPost.company.radomShowShorthandName {
-                                                            Text(String(activityPost.company.orginizationName.prefix(3)).uppercased())
-                                                                .font(.caption)
-                                                                .bold()
-                                                        }
-                                                    }
-                                                }
-                                        }
-                                        .onTapGesture { ngoSelected(activityPost.company) }
-                                } else {
-                                    activityPost.company.logo
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 40, height: 40)
-                                        .clipShape(Circle())
-                                        .overlay(alignment: .center) {
-                                            Color.white
-                                                .mask {
-                                                    VStack(spacing: 0) {
-                                                        Text(Image(systemName: activityPost.company.logoSystemName))
-                                                            .font(activityPost.company.radomShowShorthandName ? .caption : .title2)
-                                                            .bold()
-
-                                                        if activityPost.company.radomShowShorthandName {
-                                                            Text(String(activityPost.company.orginizationName.prefix(3)).uppercased())
-                                                                .font(.caption)
-                                                                .bold()
-                                                        }
-                                                    }
-                                                }
-                                        }
-                                        .clipShape(Circle())
-                                        .onTapGesture { ngoSelected(activityPost.company) }
-                                }
+                                 */
+                            } else {
+                                LogoImageView(
+                                    logoImageViewData: activityPost.company.logoImageData,
+                                    showIconOnly: true, size: CGSize(width: 40, height: 40)
+                                )
                             }
 
                             VStack(alignment: .leading, spacing: 6) {
