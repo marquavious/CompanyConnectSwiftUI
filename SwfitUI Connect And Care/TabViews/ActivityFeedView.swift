@@ -11,18 +11,17 @@ import TipKit
 
 struct ActivityFeedView: View {
 
-    @StateObject var viewModel = BasicFakeActivityFeed()
+    var viewModel: ActivityFeedViewViewModelType
     @Environment (\.colorScheme) var colorScheme
     @State private var presentedNgos: [CompanyObject] = []
     @State private var shouldShowFilter: Bool = false
 
     var body: some View {
         NavigationStack(path: $presentedNgos) {
-            ActivityFeedScrollView(shouldShowCategoryFilter: true, viewModel: viewModel, ngoSelected: { ngo in
-                presentedNgos.append(ngo)
-            }, actvityPostSelected: { post in
-            })
-            .environment(viewModel)
+            ActivityFeedScrollView(
+                shouldShowCategoryFilter: true,
+                viewModel: viewModel
+            ) { presentedNgos.append($0) }
             .navigationTitle("Recent Updates")
             .navigationDestination(for: CompanyObject.self) { company in
                 NGOProfileView(companyObject: company)
@@ -42,7 +41,7 @@ struct ActivityFeedView: View {
 }
 
 #Preview {
-    ActivityFeedView()
+    ActivityFeedView(viewModel: BasicFakeActivityFeed())
 }
 
 struct ActvitiyFeedFilterView: View {
@@ -80,9 +79,7 @@ struct ActivityFeedScrollView: View {
     @Environment(\.colorScheme) var colorScheme
     let activityScrollerTipView = ActivityScrollerTipView()
 
-    var ngoSelected: ((CompanyObject) -> Void)
-
-    var actvityPostSelected: ((ActvityPost) -> Void)
+    var ngoSelected: ((CompanyObject) -> Void)?
 
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -98,7 +95,7 @@ struct ActivityFeedScrollView: View {
                                     .scaledToFill()
                                     .frame(width: 40, height: 40)
                                     .clipShape(Circle())
-                                    .onTapGesture { ngoSelected(activityPost.company) }
+                                    .onTapGesture { ngoSelected?(activityPost.company) }
                                     /*
                                     .overlay(alignment: .bottomTrailing) {
                                         LogoImageView(
@@ -141,7 +138,9 @@ struct ActivityFeedScrollView: View {
                                     Menu {
                                         Button("Share", systemImage: "square.and.arrow.up") { }
                                         Button("Visit Profile", systemImage: "person.crop.circle") {
-                                            ngoSelected(activityPost.company)
+                                            if let ngoSelected {
+                                                ngoSelected(activityPost.company)
+                                            }
                                         }
                                     } label: {
                                         Label("", systemImage: "ellipsis")
@@ -156,15 +155,11 @@ struct ActivityFeedScrollView: View {
                                 }
 
 
-                                if let media = activityPost.media {
-                                    MediaView(media: media)
-                                        .padding([.vertical], 8)
-                                        .frame(width: 200, height: 200)
-                                        .onTapGesture {
-                                            actvityPostSelected(activityPost)
-                                        }
-
-                                }
+//                                if let media = activityPost.media {
+//                                    MediaView(media: media)
+//                                        .padding([.vertical], 8)
+//                                        .frame(width: 200, height: 200)
+//                                }
                             }
                         }
                         .padding([.top], 8)

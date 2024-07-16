@@ -20,7 +20,6 @@ struct ActvityPost: Hashable, Identifiable {
         case photo(IdentifiableImage)
         case photos([IdentifiableImage])
         case donationProgress(Double, Double)
-        case video(String)
 
         var type: String {
             switch self {
@@ -31,8 +30,6 @@ struct ActvityPost: Hashable, Identifiable {
                 return "photos"
             case .donationProgress(_, _):
                 return "donationProgress"
-            case .video(_):
-                return "video"
             }
         }
     }

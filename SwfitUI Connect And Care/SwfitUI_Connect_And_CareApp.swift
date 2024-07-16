@@ -28,7 +28,7 @@ struct SwfitUI_Connect_And_CareApp: App {
 struct MainView: View {
     var body: some View {
         TabView {
-            ActivityFeedView().tabItem {
+            ActivityFeedView(viewModel: BasicFakeActivityFeed()).tabItem {
                 Label("Feed", systemImage: "bubble.circle.fill")
             }
 

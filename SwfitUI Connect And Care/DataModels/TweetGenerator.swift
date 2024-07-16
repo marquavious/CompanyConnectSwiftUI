@@ -80,7 +80,7 @@ struct TweetGenerator {
 
     static func generateRandomMeda() -> [ActvityPost.Media?] {
 
-        let videoTitle = "move-\(Int.random(in: 1...8))"
+//        let videoTitle = "move-\(Int.random(in: 1...8))"
 
         let filteredPhotos = Array(
             Set(
@@ -93,7 +93,6 @@ struct TweetGenerator {
         )
 
         var array = [
-            Bool.random() ? nil: ActvityPost.Media.video(videoTitle),
             Bool.random() ? nil: ( Bool.random() ? nil : ActvityPost.Media.donationProgress(Double.random(in: 0...500), Bool.random() ? 800 : 1000)),
             Bool.random() ? nil: ActvityPost.Media.photos(filteredPhotos) ,
             Bool.random() ? nil:  ActvityPost.Media.photo(IdentifiableImage(image: CompanyObject.generateRadomImage())),
