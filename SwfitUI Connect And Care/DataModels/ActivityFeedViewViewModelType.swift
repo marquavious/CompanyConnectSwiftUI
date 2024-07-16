@@ -11,11 +11,12 @@ protocol ActivityFeedViewViewModelType {
     func posts() -> [ActvityPost]
     func selctedCategories() ->[Category]
     func categories() -> [Category]
-    func hasSelected() -> Bool
+    func hasSelectedCategories() -> Bool
     func presentedPosts() -> [ActvityPost]
     func resetSelectedCategories()
     func addToSelectedCategories(category: Category)
     func removeCategory(category: Category)
+    func handleSelectedCategory(_ category: Category)
 }
 
 @Observable
@@ -70,7 +71,7 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
         return _categories
     }
 
-    func hasSelected() -> Bool {
+    func hasSelectedCategories() -> Bool {
         return _hasSelected
     }
 
@@ -84,6 +85,14 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     func removeCategory(category: Category) {
         _selctedCategories.removeAll(where: { $0 == category })
+    }
+
+    func handleSelectedCategory(_ category: Category) {
+        if _selctedCategories.contains(category) {
+            removeCategory(category: category)
+        } else if !_selctedCategories.contains(category) {
+            addToSelectedCategories(category: category)
+        }
     }
 
 }
@@ -138,7 +147,7 @@ class BasicFakeActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
         return _categories
     }
 
-    func hasSelected() -> Bool {
+    func hasSelectedCategories() -> Bool {
         return _hasSelected
     }
 
@@ -152,6 +161,14 @@ class BasicFakeActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     func removeCategory(category: Category) {
         _selctedCategories.removeAll(where: { $0 == category })
+    }
+
+    func handleSelectedCategory(_ category: Category) {
+        if _selctedCategories.contains(category) {
+            removeCategory(category: category)
+        } else if !_selctedCategories.contains(category) {
+            addToSelectedCategories(category: category)
+        }
     }
 
 }

@@ -1,0 +1,117 @@
+//
+//  ActivityViewCell.swift
+//  SwfitUI Connect And Care
+//
+//  Created by Marquavious Draggon on 7/16/24.
+//
+
+import Foundation
+import SwiftUI
+
+struct ActivityViewCell: View {
+
+    struct Constants {
+        static let ActivityCellProfilePictureSize: CGSize = CGSize(width: 40, height: 40)
+        static let ActivityCellProfilePictureBadgeSize: CGSize = CGSize(width: 20, height: 20)
+        static let ActivityCellPhotoContentPadding: CGFloat = 12
+        static let ActivityCellContentTopPadding: CGFloat = 8
+        static let ActivityCellContentHorizontalPadding: CGFloat = 16
+        static let ActivityCellMediaViewHeight: CGFloat = 200
+
+        static let ActivityCellCaptionBottomPadding: CGFloat = 8
+        static let ActivityCellMedaiViewBottomPadding: CGFloat = 8
+    }
+
+    enum Icons: String {
+        case ShareIcon = "square.and.arrow.up"
+        case ActionButton = "ellipsis"
+        case VisitProfile = "person.crop.circle"
+    }
+
+    let activityPost: ActvityPost
+    var posterSelected: () -> Void
+    @Environment(\.colorScheme) var colorScheme
+
+    var body: some View {
+        HStack(alignment: .top, spacing: Constants.ActivityCellPhotoContentPadding) {
+
+            if let poster = activityPost.poster {
+                poster.image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(
+                        width: Constants.ActivityCellProfilePictureSize.width,
+                        height: Constants.ActivityCellProfilePictureSize.height
+                    )
+                    .clipShape(Circle())
+                    .overlay(alignment: .bottomTrailing) {
+                        LogoImageView(
+                            logoImageViewData: activityPost.company.logoImageData,
+                            showIconOnly: true, size: Constants.ActivityCellProfilePictureBadgeSize
+                        )
+                        .offset(x: 8, y: 8)
+                    }
+                    .onTapGesture { posterSelected() }
+            } else {
+                LogoImageView(
+                    logoImageViewData: activityPost.company.logoImageData,
+                    showIconOnly: true, size: Constants.ActivityCellProfilePictureSize
+                )
+            }
+
+            VStack(alignment: .leading, spacing: 6) {
+                HStack(spacing: .zero) {
+                    if let poster = activityPost.poster {
+                        Text("\(poster.name)")
+                            .font(.subheadline)
+                            .bold()
+
+                        Text(" from ")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
+
+                    Text(activityPost.company.orginizationName)
+                        .font(.subheadline)
+                        .bold()
+
+                    Text(" • \(activityPost.hourAgoPosted)h")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+
+                    Spacer()
+
+                    Menu {
+                        Button("Share", systemImage: Icons.ShareIcon.rawValue) {
+                            // - TODO: IMPLIMENT SHARE
+                        }
+                        Button("Visit Profile", systemImage: Icons.VisitProfile.rawValue) {
+                            // - TODO: IMPLIMENT PROFILE VISIT FLOW
+                        }
+                    } label: {
+                        Label(String(), systemImage: Icons.ActionButton.rawValue)
+                            .tint(colorScheme == .light ? .black:.white)
+                    }
+                }
+
+                if let caption = activityPost.caption {
+                    Text(caption)
+                        .font(.system(size: 14))
+                        .padding([.bottom], Constants.ActivityCellCaptionBottomPadding)
+                }
+
+                if let media = activityPost.media {
+                    MediaView(media: media)
+                        .frame(height: Constants.ActivityCellMediaViewHeight)
+                        .padding([.vertical], Constants.ActivityCellMedaiViewBottomPadding)
+                }
+            }
+        }
+        .padding([.top], Constants.ActivityCellContentTopPadding)
+        .padding([.horizontal], Constants.ActivityCellContentHorizontalPadding)
+    }
+}
+
+#Preview {
+    ActivityFeedView(viewModel: BasicFakeActivityFeed())
+}
