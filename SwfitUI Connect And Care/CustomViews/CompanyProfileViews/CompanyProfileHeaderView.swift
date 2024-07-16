@@ -18,13 +18,10 @@ struct CompanyProfileHeaderView: View {
                     .fill(.background)
                     .overlay(alignment: .top) {
                         companyObject.coverImage
-
                             .resizable()
                             .scaledToFill()
                             .frame(height: 150, alignment: .bottom)
-//                            .clipped()
                             .ignoresSafeArea()
-
                             .overlay(alignment: .leading) {
                                 /* Not sure what to do here Im burnt
                                 Image(systemName: "arrow.backward")
@@ -68,7 +65,8 @@ struct CompanyProfileHeaderView: View {
                                 }
                             }
                             .ignoresSafeArea(.all, edges: .top)
-//                            .navigationBarBackButtonHidden(true)
+                        // TODO: - Comback to this
+                        // .navigationBarBackButtonHidden(true)
                     }
             }
             .frame(height: 210)

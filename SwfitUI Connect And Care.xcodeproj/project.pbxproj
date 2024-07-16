@@ -157,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				C05ADEC82B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift */,
+				C0A1D8EA2C462A8B00CC3F79 /* Custom Shapes */,
 				C02C064E2B27F00600600FFA /* DataModels */,
 				C0FF4C1B2C409E3700146DC9 /* View Extentions */,
 				C0FF4C1A2C409E0F00146DC9 /* TabViews */,
@@ -175,16 +176,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C0FF4C092C40984700146DC9 /* CustomViews */ = {
+		C0A1D8EA2C462A8B00CC3F79 /* Custom Shapes */ = {
 			isa = PBXGroup;
 			children = (
-				C0CFA1732B50FE85005D5F59 /* TipViews.swift */,
-				C0A0F8F92B34223E0096F1E8 /* BlurView.swift */,
 				C0FF4C0A2C40985F00146DC9 /* Triangle.swift */,
 				C013F5FE2C43D999003A967B /* CurvedRectShape.swift */,
+			);
+			path = "Custom Shapes";
+			sourceTree = "<group>";
+		};
+		C0A1D8EB2C462BD900CC3F79 /* MapViews */ = {
+			isa = PBXGroup;
+			children = (
 				C0FF4C0C2C4098A200146DC9 /* CNCAnnotation.swift */,
-				C0FF4C0E2C4098D100146DC9 /* CategoryFilterScrollView.swift */,
-				C0FF4C102C4098E200146DC9 /* RoundButtonView.swift */,
 				C0FF4C122C40990400146DC9 /* CompanyHGrid.swift */,
 				C0FF4C142C40992700146DC9 /* CompanyVGrid.swift */,
 				C0FF4C162C40993A00146DC9 /* MapControlPanelView.swift */,
@@ -192,15 +196,51 @@
 				C0D0546E2C4132F400A623AA /* CompanyListView.swift */,
 				C013F5FA2C43B3F3003A967B /* BaseMapView.swift */,
 				C013F5FC2C43B41B003A967B /* MapAnnotationView.swift */,
-				C013F6022C449D1C003A967B /* DonationCellView.swift */,
-				C013F6042C44DBC8003A967B /* LogoImageView.swift */,
-				C013F60C2C460C59003A967B /* MediaView.swift */,
-				C013F60A2C45D972003A967B /* NGOProfileTextView.swift */,
+			);
+			path = MapViews;
+			sourceTree = "<group>";
+		};
+		C0A1D8EC2C462BE000CC3F79 /* CompanyProfileViews */ = {
+			isa = PBXGroup;
+			children = (
 				C0A1D8E02C46149200CC3F79 /* OurTeamPhotoScrollerView.swift */,
 				C0A1D8E22C4614AB00CC3F79 /* BriefHistoryPhotoScrollerView.swift */,
 				C0A1D8E42C4614D100CC3F79 /* ProjectsScrollerView.swift */,
 				C0A1D8E62C4614E600CC3F79 /* CompanyProfileMapView.swift */,
 				C0A1D8E82C46269900CC3F79 /* CompanyProfileHeaderView.swift */,
+				C013F60A2C45D972003A967B /* NGOProfileTextView.swift */,
+			);
+			path = CompanyProfileViews;
+			sourceTree = "<group>";
+		};
+		C0A1D8ED2C462BEE00CC3F79 /* ActivityViews */ = {
+			isa = PBXGroup;
+			children = (
+				C013F60C2C460C59003A967B /* MediaView.swift */,
+			);
+			path = ActivityViews;
+			sourceTree = "<group>";
+		};
+		C0A1D8EE2C462C4400CC3F79 /* DonationViews */ = {
+			isa = PBXGroup;
+			children = (
+				C013F6022C449D1C003A967B /* DonationCellView.swift */,
+			);
+			path = DonationViews;
+			sourceTree = "<group>";
+		};
+		C0FF4C092C40984700146DC9 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				C0A1D8EE2C462C4400CC3F79 /* DonationViews */,
+				C0A1D8ED2C462BEE00CC3F79 /* ActivityViews */,
+				C0A1D8EC2C462BE000CC3F79 /* CompanyProfileViews */,
+				C0A1D8EB2C462BD900CC3F79 /* MapViews */,
+				C0CFA1732B50FE85005D5F59 /* TipViews.swift */,
+				C0A0F8F92B34223E0096F1E8 /* BlurView.swift */,
+				C0FF4C0E2C4098D100146DC9 /* CategoryFilterScrollView.swift */,
+				C0FF4C102C4098E200146DC9 /* RoundButtonView.swift */,
+				C013F6042C44DBC8003A967B /* LogoImageView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";

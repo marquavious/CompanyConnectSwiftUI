@@ -13,7 +13,7 @@ struct BriefHistoryPhotoScrollerView: View {
     var body: some View {
         VStack(alignment: .center) {
             TabView {
-                ForEach(companyObject.briefHistoryObject.imageObjects, id: \.self) { object in
+                ForEach(companyObject.briefHistoryObject.imageObjects) { object in
                     VStack {
                         Rectangle()
                             .fill(.background)

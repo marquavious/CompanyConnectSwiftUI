@@ -29,7 +29,6 @@ struct NGOProfileTextView<Content: View>: View {
     let titleText: String
     let text: String?
     let mediaLocation: MediaLocation
-
     let viewBuilder: () -> Content?
 
     var body: some View {
