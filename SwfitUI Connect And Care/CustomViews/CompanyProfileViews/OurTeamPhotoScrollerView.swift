@@ -9,39 +9,64 @@ import Foundation
 import SwiftUI
 
 struct OurTeamPhotoScrollerView: View {
-    var companyObject: CompanyObject
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHGrid(rows: [GridItem()]) {
-                ForEach(companyObject.team, id: \.id) { member in
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(.background)
-                        VStack {
-                            member.image
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 85, height: 85)
-                                .clipShape(Circle())
 
-                            VStack(alignment: .center) {
-                                Text(member.name)
-                                    .font(.subheadline)
-                                    .bold()
-                                Text(member.position)
-                                    .font(.caption)
-                                    .italic()
-                                    .foregroundColor(.gray)
-                            }
-                            .padding(8)
+    struct Constants {
+        static let ProfilePictureSize: CGSize = CGSize(width: 85, height: 85)
+        static let MemberInfoPadding: CGFloat = 8
+        static let HorizonalContentPadding: CGFloat = 16
+        static let CellSize: CGSize = CGSize(width: 90, height: 160)
+        static let CellPadding: CGFloat = 4
+    }
+
+    let companyObject: CompanyObject
+    private let rows = [GridItem()]
+
+    var body: some View {
+        ScrollView(
+            .horizontal,
+            showsIndicators: false
+        ) {
+            LazyHGrid(rows: rows) {
+                ForEach(companyObject.team) { member in
+                    VStack {
+                        member.image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(
+                                width: Constants.ProfilePictureSize.width,
+                                height: Constants.ProfilePictureSize.height
+                            )
+                            .clipShape(Circle())
+
+                        VStack(alignment: .center) {
+                            Text(member.name)
+                                .font(.subheadline)
+                                .bold()
+                            Text(member.position)
+                                .font(.caption)
+                                .multilineTextAlignment(.center)
+                                .italic()
+                                .foregroundColor(.gray)
                         }
+                        .padding(Constants.MemberInfoPadding)
                     }
-                    .frame(minWidth: 12, maxHeight: 175)
-                    .frame(width: 90)
-                    .padding([.bottom, .trailing, .top], 8)
+                    .frame(
+                        width: Constants.CellSize.width,
+                        height:  Constants.CellSize.height
+                    )
+                    .padding(Constants.CellPadding)
                 }
             }
         }
-        .contentMargins(.horizontal, 16)
+        .contentMargins(.horizontal, Constants.HorizonalContentPadding)
     }
+
+}
+
+#Preview {
+    OurTeamPhotoScrollerView(companyObject: CompanyObject.createFakeComapnyList().randomElement()!)
+}
+
+#Preview {
+    NGOProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
 }

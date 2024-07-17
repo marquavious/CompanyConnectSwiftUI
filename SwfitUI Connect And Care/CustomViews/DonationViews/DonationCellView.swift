@@ -10,17 +10,22 @@ import SwiftUI
 
 struct DonationCellView: View {
 
+    struct Constants {
+        static let LogoImageViewSize: CGSize =  CGSize(width: 40, height: 40)
+        static let CategoryNamePadding: CGFloat = 6
+    }
+
     let donation: Donation
 
     var body: some View {
         HStack {
             LogoImageView(
                 logoImageViewData: donation.company.logoImageData,
-                size: CGSize(width: 40, height: 40)
+                size: Constants.LogoImageViewSize
             )
 
             VStack(alignment: .leading) {
-                Text(parseDate(date: donation.date))
+                Text(Date.parseDate(date: donation.date))
                     .font(.subheadline)
                     .bold()
 
@@ -28,8 +33,7 @@ struct DonationCellView: View {
                     .font(.system(size: 13))
                     .lineLimit(1)
                     .fontWeight(.semibold)
-                    .padding([.vertical], 6)
-                    .padding([.horizontal], 6)
+                    .padding([.vertical, .horizontal], Constants.CategoryNamePadding)
                     .foregroundColor(.white)
                     .background(donation.company.category.color)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
@@ -47,12 +51,6 @@ struct DonationCellView: View {
         }
     }
 
-    private func parseDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M/d/yy"
-        let dateString = dateFormatter.string(from: date)
-        return dateString
-    }
 }
 
 #Preview {

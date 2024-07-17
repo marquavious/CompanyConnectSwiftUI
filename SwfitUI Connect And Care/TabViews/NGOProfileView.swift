@@ -10,8 +10,12 @@ import MapKit
 
 struct NGOProfileView: View {
 
-    enum Tabs: Int, CaseIterable {
-        case about, activityView
+    struct Constants {
+        static let sectionPadding: CGFloat = 15
+    }
+
+    enum ProfileTabs: Int, CaseIterable {
+        case about, activity
     }
 
     enum AboutSections: Int, CaseIterable, Identifiable {
@@ -76,38 +80,32 @@ struct NGOProfileView: View {
             case .briefHistory:
                 BriefHistoryPhotoScrollerView(companyObject: companyObject)
             case .locations:
-                CompanyProfileMapView(companyObject: companyObject)
+                CompanyProfileMapView(company: companyObject)
             case .projects:
                 ProjectsScrollerView(companyObject: companyObject)
             }
         }
     }
 
-    struct Constants {
-        static let sectionPadding: CGFloat = 15
-    }
-
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) var colorScheme
     @State var showActivityFeed: Bool = true
-    @State private var currentTab: Tabs = .about
-    private var activityFeedViewModel: ActivityFeedViewViewModelType
-    private let companyObject: CompanyObject
+    @State private var currentTab: ProfileTabs = .about
+    private var viewModel: ActivityFeedViewViewModelType
+    private let company: CompanyObject
 
     init(companyObject: CompanyObject) {
         UIPageControl.appearance().currentPageIndicatorTintColor = .gray
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
-
-        self.companyObject = companyObject
-        self.activityFeedViewModel = CompanyActivityFeed(company: companyObject)
+        self.company = companyObject
+        self.viewModel = CompanyActivityFeed(company: companyObject)
     }
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: Constants.sectionPadding) {
-
                 CompanyProfileHeaderView(
-                    companyObject: companyObject,
+                    companyObject: company,
                     currentTab: $currentTab
                 )
 
@@ -116,23 +114,24 @@ struct NGOProfileView: View {
                     ForEach(AboutSections.allCases) { section in
                         NGOProfileTextView(
                             titleText: section.sectionTitles,
-                            text: section.sectionDescriptionText(companyObject: companyObject),
+                            text: section.sectionDescriptionText(companyObject: company),
                             mediaLocation: section.sectionMediaLocation
                         ) {
-                            section.sectionView(companyObject: companyObject)
+                            section.sectionView(companyObject: company)
                         }
                     }
-                case .activityView:
+                case .activity:
                     ActivityFeedScrollView(
                         shouldShowCategoryFilter: false,
-                        viewModel: activityFeedViewModel
+                        viewModel: viewModel
                     )
                 }
             }
         }
     }
+
 }
 
 #Preview {
-    NGOProfileView(companyObject: CompanyObject.ceateFakeComapnyList().first!)
+    NGOProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
 }

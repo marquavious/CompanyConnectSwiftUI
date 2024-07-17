@@ -10,10 +10,16 @@ import SwiftUI
 
 struct CompanyCardView: View {
 
-    var onTapAction: ((CompanyObject) -> Void)
-    let cellSize: CGSize
+    struct Constants {
+        static let LogoImageViewBackgroundSize: CGSize = CGSize(width: 45, height: 45)
+        static let LogoImageViewSize: CGSize = CGSize(width: 40, height: 40)
+    }
+
     @EnvironmentObject var viewModel: MapViewViewModel
     @Environment(\.colorScheme) var colorScheme
+
+    var onTapAction: ((CompanyObject) -> Void)
+    let cellSize: CGSize
 
     var body: some View {
         ForEach(viewModel.presentedCompanies) { company in
@@ -32,7 +38,10 @@ struct CompanyCardView: View {
                         .clipped()
                         .cornerRadius(8)
                         .mask(alignment: .bottomLeading) {
-                            CurvedRectShape(cornerRadius: 8, photoSize: CGSize(width: 45, height: 45))
+                            CurvedRectShape(
+                                cornerRadius: 8,
+                                photoSize: Constants.LogoImageViewBackgroundSize
+                            )
                         }
                     VStack(alignment: .leading, spacing: 2) {
                         Text(company.orginizationName)
@@ -48,7 +57,10 @@ struct CompanyCardView: View {
                     }
                 }
                 .overlay(alignment: .bottomLeading) {
-                    LogoImageView(logoImageViewData: company.logoImageData, size: CGSize(width: 40, height: 40))
+                    LogoImageView(
+                        logoImageViewData: company.logoImageData,
+                        size: Constants.LogoImageViewSize
+                    )
                 }
                 .padding(8)
             }
@@ -57,4 +69,9 @@ struct CompanyCardView: View {
             }
         }
     }
+
+}
+
+#Preview {
+    MapTabView()
 }

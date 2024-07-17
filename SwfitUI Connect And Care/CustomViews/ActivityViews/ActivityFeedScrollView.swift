@@ -19,14 +19,18 @@ struct ActivityFeedScrollView: View {
 
     @State var shouldShowCategoryFilter: Bool
     @Environment(\.colorScheme) var colorScheme
+
     var viewModel: ActivityFeedViewViewModelType
-    let activityScrollerTipView = ActivityScrollerTipView()
     var ngoSelected: ((CompanyObject) -> Void)?
     private let columns = [GridItem(.flexible())]
+    private let activityScrollerTipView = ActivityScrollerTipView()
 
     var body: some View {
         ScrollView(showsIndicators: false) {
-            LazyVGrid(columns: columns, alignment: .leading, pinnedViews: [.sectionHeaders]) {
+            LazyVGrid(
+                columns: columns,
+                alignment: .leading, pinnedViews: [.sectionHeaders]
+            ) {
                 Section {
                     TipView(activityScrollerTipView)
                         .padding([.horizontal], Constants.TipViewPadding)
@@ -54,6 +58,7 @@ struct ActivityFeedScrollView: View {
             }
         }
     }
+
 }
 
 #Preview {

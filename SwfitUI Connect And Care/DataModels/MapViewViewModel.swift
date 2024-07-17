@@ -6,7 +6,7 @@ class MapViewViewModel: ObservableObject {
 
     init() { }
 
-    var companies: [CompanyObject] = CompanyObject.ceateFakeComapnyList()
+    var companies: [CompanyObject] = CompanyObject.createFakeComapnyList()
     var categories: [Category] = [.community,.healthcare, .environmental, .education,.womensRights,.veterans, .humanRights,.indigenousRights]
 
     var selctedCategories = [Category]()

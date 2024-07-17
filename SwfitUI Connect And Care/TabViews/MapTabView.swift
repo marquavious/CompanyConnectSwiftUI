@@ -42,6 +42,7 @@ struct MapTabView: View {
             .environmentObject(viewModel)
         }
     }
+
 }
 
 #Preview {

@@ -16,10 +16,10 @@ struct DonationProgessView: View {
         static let DonationProgessView: CGFloat = 120
     }
 
+    @Environment (\.colorScheme) var colorScheme
+
     let donationProgress: Double
     let donationTotal: Double
-
-    @Environment (\.colorScheme) var colorScheme
 
     var body: some View {
         GeometryReader { proxy in
@@ -44,22 +44,30 @@ struct DonationProgessView: View {
                 }
 
                 ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: progressBarHeight, style: .continuous)
-                        .frame(
-                            maxWidth: proxyWidth,
-                            maxHeight: progressBarHeight
+                    RoundedRectangle(
+                        cornerRadius: progressBarHeight,
+                        style: .continuous)
+                    .frame(
+                        maxWidth: proxyWidth,
+                        maxHeight: progressBarHeight
+                    )
+                    .foregroundColor(backgroundProgressBarColor)
+                    RoundedRectangle(
+                        cornerRadius: progressBarHeight,
+                        style: .continuous)
+                    .frame(
+                        maxWidth: percenttageAmountFuFilled * multiplier,
+                        maxHeight: progressBarHeight
+                    )
+                    .background(
+                        LinearGradient(
+                            colors: [color1, color2],
+                            startPoint: .leading,
+                            endPoint: .trailing
                         )
-                        .foregroundColor(backgroundProgressBarColor)
-                    RoundedRectangle(cornerRadius: progressBarHeight, style: .continuous)
-                        .frame(
-                            maxWidth: percenttageAmountFuFilled * multiplier,
-                            maxHeight: progressBarHeight
-                        )
-                        .background(
-                            LinearGradient(colors: [color1, color2], startPoint: .leading, endPoint: .trailing)
-                                .clipShape(RoundedRectangle(cornerRadius: progressBarHeight, style: .continuous))
-                        )
-                        .foregroundColor(.clear)
+                        .clipShape(RoundedRectangle(cornerRadius: progressBarHeight, style: .continuous))
+                    )
+                    .foregroundColor(.clear)
                 }
                 .padding([.horizontal], Constants.HorizontalPadding)
 
@@ -76,8 +84,9 @@ struct DonationProgessView: View {
         }
         .frame(height: Constants.DonationProgessView)
     }
+
 }
 
-#Preview {
-    ActivityFeedView(viewModel: BasicFakeActivityFeed())
+#Preview() {
+    DonationProgessView(donationProgress: 500, donationTotal: 100)
 }

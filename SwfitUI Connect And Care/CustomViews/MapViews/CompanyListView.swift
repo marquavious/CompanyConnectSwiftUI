@@ -18,6 +18,7 @@ struct CompanyListView: View {
 
     @EnvironmentObject var viewModel: MapViewViewModel
     @Binding var shouldShowListView: Bool
+
     var didSelectCompany: (CompanyObject) -> Void
 
     var body: some View {

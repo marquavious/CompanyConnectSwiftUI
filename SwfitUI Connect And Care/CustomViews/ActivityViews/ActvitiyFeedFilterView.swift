@@ -14,12 +14,16 @@ struct ActvitiyFeedFilterView: View {
         static let contentMargins: EdgeInsets = EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
     }
 
-    var viewModel: ActivityFeedViewViewModelType
-    var onTapAction: ((Category) -> Void)
+    let viewModel: ActivityFeedViewViewModelType
     private let rows = [GridItem(.flexible())]
 
+    var onTapAction: ((Category) -> Void)
+
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
+        ScrollView(
+            .horizontal,
+            showsIndicators: false
+        ) {
             LazyHGrid(rows: rows) {
                 ForEach(viewModel.categories()) { category in
                     RoundButtonView(
@@ -35,6 +39,7 @@ struct ActvitiyFeedFilterView: View {
         .background(.background)
         .contentMargins([.horizontal, .vertical], Constants.contentMargins)
     }
+
 }
 
 #Preview {

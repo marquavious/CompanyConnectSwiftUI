@@ -54,4 +54,9 @@ struct NGOProfileTextView<Content: View>: View {
             if mediaLocation == .bottom { viewBuilder() }
         }
     }
+
+}
+
+#Preview {
+    NGOProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
 }

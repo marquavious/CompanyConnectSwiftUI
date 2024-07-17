@@ -9,8 +9,10 @@ import Foundation
 import SwiftUI
 
 struct CurvedRectShape: Shape {
+
     let cornerRadius: CGFloat
     let photoSize: CGSize
+
     func path(in rect: CGRect) -> Path {
         Path { path in
             path.move(to: CGPoint(x: rect.minX, y: rect.height - photoSize.height))
@@ -25,4 +27,5 @@ struct CurvedRectShape: Shape {
             path.addLine(to: CGPoint(x: rect.minX, y: rect.minY))
         }
     }
+
 }

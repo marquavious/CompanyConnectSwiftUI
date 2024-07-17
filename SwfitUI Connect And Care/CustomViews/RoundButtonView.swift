@@ -28,7 +28,10 @@ struct RoundButtonView: View {
             Text(text)
                 .font(.subheadline)
                 .fontWeight(.medium)
-                .padding([.leading, .trailing], Constants.Padding)
+                .padding(
+                    [.leading, .trailing],
+                    Constants.Padding
+                )
                 .foregroundColor(
                     colorScheme == .light ? (isHighlighted ? .white : Color.black.opacity(0.7)) : .white
                 )

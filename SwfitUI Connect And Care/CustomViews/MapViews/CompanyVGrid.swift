@@ -20,7 +20,7 @@ struct CompanyVGrid: View {
     @Binding var shouldShowListView: Bool
 
     var onTapAction: ((CompanyObject) -> Void)
-    let vGridColumns = [GridItem(.flexible())]
+    private let vGridColumns = [GridItem(.flexible())]
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -37,6 +37,7 @@ struct CompanyVGrid: View {
         .contentMargins([.bottom], Constants.bottomContentMarginPadding)
         .opacity(shouldShowListView ? 1 : 0)
     }
+
 }
 
 #Preview {

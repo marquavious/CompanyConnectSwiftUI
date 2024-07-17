@@ -25,14 +25,14 @@ extension User {
                 [
                     Donation(
                         amountInCents: 205,
-                        company: CompanyObject.ceateFakeComapnyList().randomElement()!,
+                        company: CompanyObject.createFakeComapnyList().randomElement()!,
                         date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!,
                         paymentMethod: .paypal
                     ),
 
                     Donation(
                         amountInCents: 205,
-                        company: CompanyObject.ceateFakeComapnyList().randomElement()!,
+                        company: CompanyObject.createFakeComapnyList().randomElement()!,
                         date: Calendar.current.date(byAdding: .day, value: 7, to: Date())!,
                         paymentMethod: .paypal
                     )

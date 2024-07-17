@@ -10,13 +10,13 @@ import SwiftUI
 struct DonationsView: View {
 
     struct Constants {
-        static let contentPadding = EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0)
-        static let headerTitle = "Scheduled"
-        static let navigationTitle = "Donations"
-    } 
+        static let ContentPadding = EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0)
+        static let HeaderTitle = "Scheduled"
+        static let NavigationTitle = "Donations"
+    }
 
     private enum Icons: String {
-        case rightToolbar = "plus.circle"
+        case RightToolbar = "plus.circle"
     }
 
     @Environment (\.colorScheme) var colorScheme
@@ -37,7 +37,7 @@ struct DonationsView: View {
                     }
                 }
             header: {
-                Text(Constants.headerTitle)
+                Text(Constants.HeaderTitle)
                     .font(.title3)
                     .padding([.vertical])
             } footer: {
@@ -47,18 +47,22 @@ struct DonationsView: View {
                     .padding([.vertical])
                 }
             }
-            .contentMargins([.top], Constants.contentPadding)
-            .navigationTitle(Constants.navigationTitle)
+            .contentMargins([.top], Constants.ContentPadding)
+            .navigationTitle(Constants.NavigationTitle)
             .navigationBarTitleDisplayMode(.large)
             .scrollIndicators(.hidden)
             .toolbar {
-                Button(String(), systemImage: Icons.rightToolbar.rawValue) {
+                Button(
+                    String(),
+                    systemImage: Icons.RightToolbar.rawValue
+                ) {
                     // - TODO: Add donation flow
                 }
                 .tint(colorScheme == .light ? .black:.white)
             }
         }
     }
+
 }
 
 #Preview {

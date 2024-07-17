@@ -71,7 +71,7 @@ struct CompanyObject: Identifiable, Hashable {
         return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     }
 
-    static func ceateFakeComapnyList() -> [CompanyObject] {
+    static func createFakeComapnyList() -> [CompanyObject] {
         var array = [
             CompanyObject(
                 orginizationName: "Cars for Kids",

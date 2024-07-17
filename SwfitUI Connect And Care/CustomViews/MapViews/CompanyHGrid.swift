@@ -30,7 +30,10 @@ struct CompanyHGrid: View {
                     onTapAction: onTapAction,
                     cellSize: Constants.cellSize
                 )
-                .frame(maxWidth: Constants.cellSize.width, maxHeight: Constants.cellSize.height)
+                .frame(
+                    maxWidth: Constants.cellSize.width,
+                    maxHeight: Constants.cellSize.height
+                )
             }
             .scrollTargetLayout()
         }
@@ -38,6 +41,7 @@ struct CompanyHGrid: View {
         .frame(maxHeight: shouldShowListView ? .zero : Constants.maxHeight)
         .opacity(shouldShowListView ? 0 : 1)
     }
+
 }
 
 #Preview {

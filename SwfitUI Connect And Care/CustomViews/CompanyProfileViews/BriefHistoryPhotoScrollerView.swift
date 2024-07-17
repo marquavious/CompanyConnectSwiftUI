@@ -9,36 +9,45 @@ import Foundation
 import SwiftUI
 
 struct BriefHistoryPhotoScrollerView: View {
-    var companyObject: CompanyObject
+
+    struct Constants {
+        static let ImageHeight: CGFloat = 200
+        static let TabViewHeight: CGFloat = 300
+        static let CaptionPadding: CGFloat = 8
+    }
+
+    let companyObject: CompanyObject
+
     var body: some View {
-        VStack(alignment: .center) {
-            TabView {
-                ForEach(companyObject.briefHistoryObject.imageObjects) { object in
-                    VStack {
-                        Rectangle()
-                            .fill(.background)
-                            .overlay {
-                                VStack {
-                                    object.image
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(height: 200, alignment: .bottom)
+        TabView {
+            ForEach(companyObject.briefHistoryObject.imageObjects) { object in
+                VStack {
+                    object.image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(
+                            height: Constants.ImageHeight,
+                            alignment: .center
+                        )
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .padding([.leading, .trailing])
 
-                                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                                        .padding([.leading, .trailing])
-                                    Spacer()
-
-                                    Text(object.caption)
-                                        .font(.callout.italic())
-                                        .padding(8)
-                                }
-                            }
-                        Spacer(minLength: 40)
-                    }
+                    Text(object.caption)
+                        .font(.callout.italic())
+                        .padding(Constants.CaptionPadding)
+                    Spacer()
                 }
             }
-            .frame(minHeight: 300, alignment: .top)
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
         }
+        .frame(
+            minHeight: Constants.TabViewHeight,
+            alignment: .top
+        )
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
     }
+
+}
+
+#Preview {
+    NGOProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
 }

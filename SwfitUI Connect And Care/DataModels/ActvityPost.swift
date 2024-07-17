@@ -16,24 +16,6 @@ struct ActvityPost: Hashable, Identifiable {
         return hasher.combine(id)
     }
 
-    enum Media {
-        case photo(IdentifiableImage)
-        case photoCarousel([IdentifiableImage])
-        case donationProgress(Double, Double)
-
-        var type: String {
-            switch self {
-
-            case .photo(_):
-                return "photo"
-            case .photoCarousel(_):
-                return "photos"
-            case .donationProgress(_, _):
-                return "donationProgress"
-            }
-        }
-    }
-
     let id = UUID()
     let company: CompanyObject
     let poster: TeamMember?

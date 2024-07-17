@@ -19,7 +19,10 @@ struct MapAnnotationView: View {
                     .fill(Color.white.opacity(0.7))
                     .frame(width: 40, height: 40)
                     .overlay {
-                        LogoImageView(logoImageViewData: company.logoImageData, showIconOnly: true, size: CGSize(width: 30, height: 30))
+                        LogoImageView(
+                            logoImageViewData: company.logoImageData,
+                            showIconOnly: true, size: CGSize(width: 30, height: 30)
+                        )
                     }
                 Triangle()
                     .fill(Color.white.opacity(0.7))
@@ -28,8 +31,9 @@ struct MapAnnotationView: View {
             }
         }
     }
+
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    MapAnnotationView(company: CompanyObject.ceateFakeComapnyList().first!)
+    MapAnnotationView(company: CompanyObject.createFakeComapnyList().first!)
 }

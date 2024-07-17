@@ -8,16 +8,16 @@ struct MediaView: View {
         static let MediaViewFrameHeight: CGFloat = 200
     }
 
-    let media: ActvityPost.Media
     @Environment (\.colorScheme) var colorScheme
+
+    let media: Media
 
     var body: some View {
         viewForMedia(media)
     }
 
     @ViewBuilder
-    func viewForMedia(_ media: ActvityPost.Media) -> some View {
-
+    func viewForMedia(_ media: Media) -> some View {
         switch media {
         case .photo(let photo):
             photo.image
@@ -62,6 +62,7 @@ struct MediaView: View {
             )
         }
     }
+
 }
 
 #Preview {

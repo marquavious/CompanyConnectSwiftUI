@@ -21,7 +21,7 @@ struct MapControlPanelView: View {
     private struct Constants {
         static let ButtonSize = CGSize(width: 20, height: 20)
         static let ButtonPadding: CGFloat = 10
-        static let AnimationDuration: CGFloat = 10
+        static let AnimationDuration: CGFloat = 0.5
         static let Padding: CGFloat = 8
     }
 
@@ -37,7 +37,10 @@ struct MapControlPanelView: View {
 
             Image(systemName: shouldLockMap ? Icons.mapLockedIcon.rawValue : Icons.mapUnlocked.rawValue)
                 .resizable()
-                .frame(width: Constants.ButtonSize.width, height: Constants.ButtonSize.height)
+                .frame(
+                    width: Constants.ButtonSize.width,
+                    height: Constants.ButtonSize.height
+                )
                 .padding(Constants.ButtonPadding)
                 .background(.regularMaterial)
                 .clipShape(Circle())
@@ -47,7 +50,10 @@ struct MapControlPanelView: View {
                 }
 
             Image(systemName: shouldShowListView ? Icons.mapListViewShowed.rawValue : Icons.mapListViewHidden.rawValue)
-                .frame(width: Constants.ButtonSize.width, height: Constants.ButtonSize.height)
+                .frame(
+                    width: Constants.ButtonSize.width,
+                    height: Constants.ButtonSize.height
+                )
                 .padding(Constants.ButtonPadding)
                 .background(.regularMaterial)
                 .clipShape(Circle())
@@ -78,8 +84,8 @@ struct MapControlPanelView: View {
                 }
         }
         .padding(Constants.Padding)
-
     }
+
 }
 
 #Preview {

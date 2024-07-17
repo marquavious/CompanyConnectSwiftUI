@@ -10,35 +10,31 @@ import SwiftUI
 import MapKit
 struct CompanyProfileMapView: View {
 
-    var companyObject: CompanyObject
+    struct Constants {
+        static let AnnotationSize: CGSize = CGSize(width: 40, height: 40)
+        static let Height: CGFloat = 200
+    }
+
+    let company: CompanyObject
+    private let mapCameraBounds = MapCameraBounds(minimumDistance: 4500, maximumDistance: 4500)
 
     var body: some View {
-        Map(bounds:
-                MapCameraBounds(minimumDistance: 4500,
-                                maximumDistance: 4500),
-            interactionModes: []) {
-
-            Annotation(String(), coordinate: companyObject.coordinate) {
-                VStack(spacing: 1) {
-                    Circle()
-                        .fill(Color.white.opacity(0.7))
-                        .frame(width: 40, height: 40)
-                        .overlay {
-                            Circle()
-                                .fill(Color.white)
-                                .padding(6)
-                        }
-
-                    Triangle()
-                        .fill(Color.white.opacity(0.7))
-                        .frame(width: 15, height: 10)
-                        .rotationEffect(.degrees(180))
-                }
+        Map(
+            bounds: mapCameraBounds,
+            interactionModes: []
+        ) {
+            Annotation(company.orginizationName, coordinate: company.coordinate) {
+                MapAnnotationView(company: company)
             }
         }
-        .frame(height: 200)
+        .frame(height: Constants.Height)
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .padding([.leading, .trailing, .bottom])
         .mapStyle(.hybrid)
     }
+
+}
+
+#Preview {
+    NGOProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
 }

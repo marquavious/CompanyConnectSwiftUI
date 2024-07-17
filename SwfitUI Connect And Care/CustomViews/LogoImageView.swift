@@ -102,4 +102,5 @@ struct LogoImageView: View {
             }
         }
     }
+
 }

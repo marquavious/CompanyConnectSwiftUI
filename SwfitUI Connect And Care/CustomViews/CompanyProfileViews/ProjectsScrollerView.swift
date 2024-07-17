@@ -13,7 +13,7 @@ struct ProjectsScrollerView: View {
     @Environment(\.colorScheme) var colorScheme
 
     let padding: CGFloat = 8
-    var companyObject: CompanyObject
+    let companyObject: CompanyObject
 
     var body: some View {
         TabView {
@@ -81,4 +81,8 @@ struct ProjectsScrollerView: View {
         .frame(minHeight: 600, alignment: .top)
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
     }
+}
+
+#Preview {
+    NGOProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
 }

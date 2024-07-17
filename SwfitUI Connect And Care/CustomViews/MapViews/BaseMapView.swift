@@ -10,24 +10,28 @@ import SwiftUI
 import MapKit
 
 struct BaseMapView: View {
-
+    
     @Binding var shouldLockMap: Bool
     @EnvironmentObject var viewModel: MapViewViewModel
-
+    
     var didSelectCompany: (CompanyObject) -> Void
-
+    
     var body: some View {
         Map(interactionModes: shouldLockMap ? [] : [.all]) {
             ForEach(viewModel.presentedCompanies) { company in
-                Annotation(company.orginizationName, coordinate: company.coordinate) {
+                Annotation(
+                    company.orginizationName,
+                    coordinate: company.coordinate
+                ) {
                     MapAnnotationView(company: company)
-                    .onTapGesture {
-                        didSelectCompany(company)
-                    }
+                        .onTapGesture {
+                            didSelectCompany(company)
+                        }
                 }
             }
         }
     }
+    
 }
 
 #Preview {
