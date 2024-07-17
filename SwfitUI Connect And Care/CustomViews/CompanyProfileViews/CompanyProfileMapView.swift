@@ -18,7 +18,7 @@ struct CompanyProfileMapView: View {
                                 maximumDistance: 4500),
             interactionModes: []) {
 
-            Annotation("", coordinate: companyObject.coordinate) {
+            Annotation(String(), coordinate: companyObject.coordinate) {
                 VStack(spacing: 1) {
                     Circle()
                         .fill(Color.white.opacity(0.7))
@@ -36,9 +36,9 @@ struct CompanyProfileMapView: View {
                 }
             }
         }
-            .frame(height: 200)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-            .padding([.leading, .trailing, .bottom])
-            .mapStyle(.hybrid)
+        .frame(height: 200)
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .padding([.leading, .trailing, .bottom])
+        .mapStyle(.hybrid)
     }
 }

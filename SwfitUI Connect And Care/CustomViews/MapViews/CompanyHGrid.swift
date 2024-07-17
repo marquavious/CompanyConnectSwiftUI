@@ -38,7 +38,6 @@ struct CompanyHGrid: View {
         .frame(maxHeight: shouldShowListView ? .zero : Constants.maxHeight)
         .opacity(shouldShowListView ? 0 : 1)
     }
-
 }
 
 #Preview {

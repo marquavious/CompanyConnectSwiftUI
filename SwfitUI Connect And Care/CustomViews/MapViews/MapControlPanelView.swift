@@ -20,7 +20,9 @@ struct MapControlPanelView: View {
 
     private struct Constants {
         static let ButtonSize = CGSize(width: 20, height: 20)
-        static let Padding: CGFloat = 10
+        static let ButtonPadding: CGFloat = 10
+        static let AnimationDuration: CGFloat = 10
+        static let Padding: CGFloat = 8
     }
 
     @Binding var shouldShowListView: Bool
@@ -36,7 +38,7 @@ struct MapControlPanelView: View {
             Image(systemName: shouldLockMap ? Icons.mapLockedIcon.rawValue : Icons.mapUnlocked.rawValue)
                 .resizable()
                 .frame(width: Constants.ButtonSize.width, height: Constants.ButtonSize.height)
-                .padding(10)
+                .padding(Constants.ButtonPadding)
                 .background(.regularMaterial)
                 .clipShape(Circle())
                 .opacity(shouldShowListView ? 0 : 1)
@@ -46,12 +48,12 @@ struct MapControlPanelView: View {
 
             Image(systemName: shouldShowListView ? Icons.mapListViewShowed.rawValue : Icons.mapListViewHidden.rawValue)
                 .frame(width: Constants.ButtonSize.width, height: Constants.ButtonSize.height)
-                .padding(10)
+                .padding(Constants.ButtonPadding)
                 .background(.regularMaterial)
                 .clipShape(Circle())
                 .onTapGesture {
                     mapTipView.invalidate(reason: .actionPerformed)
-                    withAnimation(.easeInOut(duration: 0.4)) {
+                    withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
                         shouldShowListView.toggle()
                     }
                 }
@@ -62,20 +64,20 @@ struct MapControlPanelView: View {
                     width: viewModel.hasSelected ? Constants.ButtonSize.width : .zero,
                     height: viewModel.hasSelected ? Constants.ButtonSize.height : .zero
                 )
-                .padding(viewModel.hasSelected ? Constants.Padding : .zero)
+                .padding(viewModel.hasSelected ? Constants.ButtonPadding : .zero)
                 .foregroundColor(.white)
                 .background(.regularMaterial)
                 .environment(\.colorScheme, .dark)
                 .clipShape(Circle())
                 .transition(.scale)
                 .onTapGesture {
-                    withAnimation(.easeInOut(duration: 0.2)) {
+                    withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
                         viewModel.selctedCategories = []
                         shouldLockMap = true
                     }
                 }
         }
-        .padding(8)
+        .padding(Constants.Padding)
 
     }
 }

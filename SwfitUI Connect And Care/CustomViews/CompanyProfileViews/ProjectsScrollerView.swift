@@ -13,7 +13,6 @@ struct ProjectsScrollerView: View {
     @Environment(\.colorScheme) var colorScheme
 
     let padding: CGFloat = 8
-
     var companyObject: CompanyObject
 
     var body: some View {
@@ -83,4 +82,3 @@ struct ProjectsScrollerView: View {
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
     }
 }
-

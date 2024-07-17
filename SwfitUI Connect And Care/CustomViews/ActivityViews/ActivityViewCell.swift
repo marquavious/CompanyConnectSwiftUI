@@ -18,7 +18,6 @@ struct ActivityViewCell: View {
         static let ActivityCellContentHorizontalPadding: CGFloat = 16
         static let ActivityCellMediaViewMaxHeight: CGFloat = 200
         static let ActivityCellInternalContentPadding: CGFloat = 6
-
         static let ActivityCellCaptionBottomPadding: CGFloat = 8
         static let ActivityCellMedaiViewBottomPadding: CGFloat = 8
     }
