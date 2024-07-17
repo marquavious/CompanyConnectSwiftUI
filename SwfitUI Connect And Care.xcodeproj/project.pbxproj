@@ -18,6 +18,7 @@
 		C016B5BA2C4727A2003FD1FE /* ActvitiyFeedFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C016B5B92C4727A2003FD1FE /* ActvitiyFeedFilterView.swift */; };
 		C016B5BC2C472C1D003FD1FE /* ActivityFeedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C016B5BB2C472C1D003FD1FE /* ActivityFeedScrollView.swift */; };
 		C016B5BE2C4738BE003FD1FE /* ActivityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C016B5BD2C4738BE003FD1FE /* ActivityViewCell.swift */; };
+		C016B5C02C474DF8003FD1FE /* DonationProgessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C016B5BF2C474DF8003FD1FE /* DonationProgessView.swift */; };
 		C02C06502B27F01E00600FFA /* CompanyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C064F2B27F01E00600FFA /* CompanyObject.swift */; };
 		C02C06522B27F15B00600FFA /* CategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C06512B27F15B00600FFA /* CategoryObject.swift */; };
 		C031FD852B0ECA7A0041014B /* ViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031FD842B0ECA7A0041014B /* ViewExtentions.swift */; };
@@ -70,6 +71,7 @@
 		C016B5B92C4727A2003FD1FE /* ActvitiyFeedFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActvitiyFeedFilterView.swift; sourceTree = "<group>"; };
 		C016B5BB2C472C1D003FD1FE /* ActivityFeedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedScrollView.swift; sourceTree = "<group>"; };
 		C016B5BD2C4738BE003FD1FE /* ActivityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewCell.swift; sourceTree = "<group>"; };
+		C016B5BF2C474DF8003FD1FE /* DonationProgessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationProgessView.swift; sourceTree = "<group>"; };
 		C02C064F2B27F01E00600FFA /* CompanyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyObject.swift; sourceTree = "<group>"; };
 		C02C06512B27F15B00600FFA /* CategoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryObject.swift; sourceTree = "<group>"; };
 		C031FD842B0ECA7A0041014B /* ViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtentions.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				C016B5B92C4727A2003FD1FE /* ActvitiyFeedFilterView.swift */,
 				C016B5BB2C472C1D003FD1FE /* ActivityFeedScrollView.swift */,
 				C016B5BD2C4738BE003FD1FE /* ActivityViewCell.swift */,
+				C016B5BF2C474DF8003FD1FE /* DonationProgessView.swift */,
 			);
 			path = ActivityViews;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				C013F5FB2C43B3F3003A967B /* BaseMapView.swift in Sources */,
 				C0FF4C132C40990400146DC9 /* CompanyHGrid.swift in Sources */,
 				C013F60B2C45D972003A967B /* NGOProfileTextView.swift in Sources */,
+				C016B5C02C474DF8003FD1FE /* DonationProgessView.swift in Sources */,
 				C0FF4C172C40993A00146DC9 /* MapControlPanelView.swift in Sources */,
 				C013F6012C449A14003A967B /* Color+Ext.swift in Sources */,
 				C05ADEC92B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift in Sources */,

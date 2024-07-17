@@ -94,7 +94,7 @@ struct TweetGenerator {
 
         var array = [
             Bool.random() ? nil: ( Bool.random() ? nil : ActvityPost.Media.donationProgress(Double.random(in: 0...500), Bool.random() ? 800 : 1000)),
-            Bool.random() ? nil: ActvityPost.Media.photos(filteredPhotos) ,
+            Bool.random() ? nil: ActvityPost.Media.photoCarousel(filteredPhotos) ,
             Bool.random() ? nil:  ActvityPost.Media.photo(IdentifiableImage(image: CompanyObject.generateRadomImage())),
             nil,
             nil,
@@ -227,7 +227,7 @@ struct TweetGenerator {
                 company: CompanyObject.ceateFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .photos(
+                media: .photoCarousel(
                     [
                         IdentifiableImage(image: CompanyObject.generateRadomImage()),
                         IdentifiableImage(image: CompanyObject.generateRadomImage()),
@@ -361,7 +361,7 @@ struct TweetGenerator {
                 company: CompanyObject.ceateFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .photos(
+                media: .photoCarousel(
                     [
                         IdentifiableImage(image: CompanyObject.generateRadomImage()),
                         IdentifiableImage(image: CompanyObject.generateRadomImage()),

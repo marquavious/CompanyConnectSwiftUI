@@ -18,7 +18,7 @@ struct ActvityPost: Hashable, Identifiable {
 
     enum Media {
         case photo(IdentifiableImage)
-        case photos([IdentifiableImage])
+        case photoCarousel([IdentifiableImage])
         case donationProgress(Double, Double)
 
         var type: String {
@@ -26,7 +26,7 @@ struct ActvityPost: Hashable, Identifiable {
 
             case .photo(_):
                 return "photo"
-            case .photos(_):
+            case .photoCarousel(_):
                 return "photos"
             case .donationProgress(_, _):
                 return "donationProgress"

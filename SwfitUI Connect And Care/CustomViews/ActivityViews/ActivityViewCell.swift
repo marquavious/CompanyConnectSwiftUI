@@ -16,7 +16,8 @@ struct ActivityViewCell: View {
         static let ActivityCellPhotoContentPadding: CGFloat = 12
         static let ActivityCellContentTopPadding: CGFloat = 8
         static let ActivityCellContentHorizontalPadding: CGFloat = 16
-        static let ActivityCellMediaViewHeight: CGFloat = 200
+        static let ActivityCellMediaViewMaxHeight: CGFloat = 200
+        static let ActivityCellInternalContentPadding: CGFloat = 6
 
         static let ActivityCellCaptionBottomPadding: CGFloat = 8
         static let ActivityCellMedaiViewBottomPadding: CGFloat = 8
@@ -34,7 +35,6 @@ struct ActivityViewCell: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: Constants.ActivityCellPhotoContentPadding) {
-
             if let poster = activityPost.poster {
                 poster.image
                     .resizable()
@@ -59,7 +59,7 @@ struct ActivityViewCell: View {
                 )
             }
 
-            VStack(alignment: .leading, spacing: 6) {
+            VStack(alignment: .leading, spacing: Constants.ActivityCellInternalContentPadding) {
                 HStack(spacing: .zero) {
                     if let poster = activityPost.poster {
                         Text("\(poster.name)")
@@ -102,7 +102,7 @@ struct ActivityViewCell: View {
 
                 if let media = activityPost.media {
                     MediaView(media: media)
-                        .frame(height: Constants.ActivityCellMediaViewHeight)
+                        .frame(maxHeight: Constants.ActivityCellMediaViewMaxHeight)
                         .padding([.vertical], Constants.ActivityCellMedaiViewBottomPadding)
                 }
             }
