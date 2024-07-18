@@ -29,86 +29,88 @@ struct ActivityCellView: View {
     }
 
     let activityPost: ActvityPost
-    var posterSelected: () -> Void
+    let posterSelected: () -> Void
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
-        HStack(alignment: .top, spacing: Constants.ActivityCellPhotoContentPadding) {
-            if let poster = activityPost.poster {
-                poster.image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(
-                        width: Constants.ActivityCellProfilePictureSize.width,
-                        height: Constants.ActivityCellProfilePictureSize.height
-                    )
-                    .clipShape(Circle())
-                    .overlay(alignment: .bottomTrailing) {
-                        LogoImageView(
-                            logoImageViewData: activityPost.company.logoImageData,
-                            showIconOnly: true, size: Constants.ActivityCellProfilePictureBadgeSize
+        VStack {
+            HStack(alignment: .top, spacing: Constants.ActivityCellPhotoContentPadding) {
+                if let poster = activityPost.poster {
+                    poster.image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(
+                            width: Constants.ActivityCellProfilePictureSize.width,
+                            height: Constants.ActivityCellProfilePictureSize.height
                         )
-                        .offset(x: 8, y: 8)
-                    }
-                    .onTapGesture { posterSelected() }
-            } else {
-                LogoImageView(
-                    logoImageViewData: activityPost.company.logoImageData,
-                    showIconOnly: true, 
-                    size: Constants.ActivityCellProfilePictureSize
-                )
-            }
+                        .clipShape(Circle())
+                        .overlay(alignment: .bottomTrailing) {
+                            LogoImageView(
+                                logoImageViewData: activityPost.company.logoImageData,
+                                size: Constants.ActivityCellProfilePictureBadgeSize,
+                                overrideLogoWithFontSize: .caption2
+                            )
+                            .offset(x: 8, y: 8)
+                        }
+                        .onTapGesture { posterSelected() }
+                } else {
+                    LogoImageView(
+                        logoImageViewData: activityPost.company.logoImageData,
+                        size: Constants.ActivityCellProfilePictureSize
+                    )
+                }
 
-            VStack(alignment: .leading, spacing: Constants.ActivityCellInternalContentPadding) {
-                HStack(spacing: .zero) {
-                    if let poster = activityPost.poster {
-                        Text("\(poster.name)")
+                VStack(alignment: .leading, spacing: Constants.ActivityCellInternalContentPadding) {
+                    HStack(spacing: .zero) {
+                        if let poster = activityPost.poster {
+                            Text("\(poster.name)")
+                                .font(.subheadline)
+                                .bold()
+
+                            Text(" from ")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                        }
+
+                        Text(activityPost.company.orginizationName)
                             .font(.subheadline)
                             .bold()
 
-                        Text(" from ")
+                        Text(" • \(activityPost.hourAgoPosted)h")
                             .font(.subheadline)
                             .foregroundColor(.gray)
+
+                        Spacer()
+
+                        Menu {
+                            Button("Share", systemImage: Icons.ShareIcon.rawValue) {
+                                // - TODO: IMPLIMENT SHARE
+                            }
+                            Button("Visit Profile", systemImage: Icons.VisitProfile.rawValue) {
+                                // - TODO: IMPLIMENT PROFILE VISIT FLOW
+                            }
+                        } label: {
+                            Label(String(), systemImage: Icons.ActionButton.rawValue)
+                                .tint(colorScheme == .light ? .black:.white)
+                        }
                     }
 
-                    Text(activityPost.company.orginizationName)
-                        .font(.subheadline)
-                        .bold()
-
-                    Text(" • \(activityPost.hourAgoPosted)h")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-
-                    Spacer()
-
-                    Menu {
-                        Button("Share", systemImage: Icons.ShareIcon.rawValue) {
-                            // - TODO: IMPLIMENT SHARE
-                        }
-                        Button("Visit Profile", systemImage: Icons.VisitProfile.rawValue) {
-                            // - TODO: IMPLIMENT PROFILE VISIT FLOW
-                        }
-                    } label: {
-                        Label(String(), systemImage: Icons.ActionButton.rawValue)
-                            .tint(colorScheme == .light ? .black:.white)
+                    if let caption = activityPost.caption {
+                        Text(caption)
+                            .font(.system(size: 14))
+                            .padding([.bottom], Constants.ActivityCellCaptionBottomPadding)
                     }
-                }
 
-                if let caption = activityPost.caption {
-                    Text(caption)
-                        .font(.system(size: 14))
-                        .padding([.bottom], Constants.ActivityCellCaptionBottomPadding)
-                }
-
-                if let media = activityPost.media {
-                    MediaView(media: media)
-                        .frame(maxHeight: Constants.ActivityCellMediaViewMaxHeight)
-                        .padding([.vertical], Constants.ActivityCellMedaiViewBottomPadding)
+                    if let media = activityPost.media {
+                        MediaView(media: media)
+                            .frame(maxHeight: Constants.ActivityCellMediaViewMaxHeight)
+                            .padding([.vertical], Constants.ActivityCellMedaiViewBottomPadding)
+                    }
                 }
             }
+            .padding([.top], Constants.ActivityCellContentTopPadding)
+            .padding([.horizontal], Constants.ActivityCellContentHorizontalPadding)
         }
-        .padding([.top], Constants.ActivityCellContentTopPadding)
-        .padding([.horizontal], Constants.ActivityCellContentHorizontalPadding)
     }
 }
 

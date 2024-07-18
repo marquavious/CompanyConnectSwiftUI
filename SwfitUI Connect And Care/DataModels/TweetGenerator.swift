@@ -79,16 +79,6 @@ struct TweetGenerator {
 
     static func generateRandomMeda() -> [MediaData?] {
 
-        let filteredPhotos = Array(
-            Set(
-                [
-                    IdentifiableImage(image: Image.generateRadomImage()),
-                    IdentifiableImage(image: Image.generateRadomImage()),
-                    IdentifiableImage(image: Image.generateRadomImage())
-                ]
-            )
-        )
-
         var array = [
             Bool.random() ? nil: ( Bool.random() ? nil : MediaData.createDonationProgressMedia()),
             Bool.random() ? nil: MediaData.createFakePhotoCarouselMedia() ,

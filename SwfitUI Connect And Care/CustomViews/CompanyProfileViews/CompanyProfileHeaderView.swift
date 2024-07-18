@@ -9,8 +9,11 @@ import Foundation
 import SwiftUI
 
 struct CompanyProfileHeaderView: View {
-    var companyObject: CompanyObject
+
     @Binding var currentTab: CompanyProfileView.ProfileTabs
+
+    let companyObject: CompanyObject
+
     var body: some View {
         VStack(alignment: .leading) {
             Group {
@@ -37,14 +40,14 @@ struct CompanyProfileHeaderView: View {
                                 HStack {
                                     LogoImageView(
                                         logoImageViewData: companyObject.logoImageData,
-                                        showIconOnly: false,
-                                        size: CGSize(width: 100, height: 100)
+                                        size: CGSize(width: 75, height: 75),
+                                        overrideLogoWithFontSize: .largeTitle
                                     )
                                     .overlay(
                                         Circle()
                                             .stroke(.background, lineWidth: 3)
                                     )
-                                    .offset(x: 16, y: 50)
+                                    .offset(x: 16, y: 75/2)
 
                                     Spacer()
 
@@ -60,7 +63,7 @@ struct CompanyProfileHeaderView: View {
                                         .clipShape(
                                             RoundedRectangle(cornerRadius: 8)
                                         )
-                                        .offset(y: 80)
+                                        .offset(y: 60)
                                         .padding([.trailing], 8)
                                 }
                             }
@@ -69,7 +72,7 @@ struct CompanyProfileHeaderView: View {
                         // .navigationBarBackButtonHidden(true)
                     }
             }
-            .frame(height: 210)
+            .frame(height: 190)
 
             VStack(alignment: .leading, spacing: 8) {
                 Text(companyObject.orginizationName)

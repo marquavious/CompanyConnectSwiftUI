@@ -16,8 +16,6 @@ struct LogoImageData {
 }
 
 struct LogoImageViewData {
-    let companyAbbreviation: String
-    let addAbbreviationToLogo: Bool
     let systemLogo: Image
     let logoBackground: Image?
     let themeColor: Color
@@ -25,45 +23,40 @@ struct LogoImageViewData {
 
 struct LogoImageView: View {
 
-    let companyAbbreviation: String?
-    let addAbbreviationToLogo: Bool
     let systemLogo: Image
     let logoBackground: Image?
     let themeColor: Color
     let size: CGSize
-    let showIconOnly: Bool
+
+    // I dont like this, but this is the nature of using system
+    // Icons as logos.
+    var overrideLogoWithFontSize: Font?
 
     init(
-        companyAbbreviation: String?,
-        addAbbreviationToLogo: Bool,
         systemLogo: Image,
         logoBackground: Image? = nil,
         themeColor: Color,
         size: CGSize,
-        showIconOnly: Bool
+        overrideLogoWithFontSize: Font? = nil
     ) {
-        self.companyAbbreviation = companyAbbreviation
-        self.addAbbreviationToLogo = addAbbreviationToLogo
         self.systemLogo = systemLogo
         self.logoBackground = logoBackground
         self.themeColor = themeColor
         self.size = size
-        self.showIconOnly = showIconOnly
+        self.overrideLogoWithFontSize = overrideLogoWithFontSize
     }
 
     init(
         logoImageViewData: LogoImageViewData,
-        showIconOnly: Bool = false,
-        size: CGSize
+        size: CGSize,
+        overrideLogoWithFontSize: Font? = nil
     ) {
         self.init(
-            companyAbbreviation: logoImageViewData.companyAbbreviation,
-            addAbbreviationToLogo: logoImageViewData.addAbbreviationToLogo,
             systemLogo: logoImageViewData.systemLogo,
             logoBackground: logoImageViewData.logoBackground,
             themeColor: logoImageViewData.themeColor,
             size: size,
-            showIconOnly: showIconOnly
+            overrideLogoWithFontSize: overrideLogoWithFontSize
         )
     }
 
@@ -92,15 +85,8 @@ struct LogoImageView: View {
     private func crateLogoMask() -> some View {
         VStack(spacing: .zero) {
             Text(systemLogo)
-                .font(addAbbreviationToLogo && !showIconOnly ? .caption : .title2)
+                .font(overrideLogoWithFontSize)
                 .bold()
-
-            if let companyAbbreviation = companyAbbreviation, addAbbreviationToLogo, !showIconOnly {
-                Text(companyAbbreviation)
-                    .font(.caption2)
-                    .bold()
-            }
         }
     }
-
 }

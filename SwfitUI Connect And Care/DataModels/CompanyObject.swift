@@ -40,8 +40,6 @@ extension CompanyObject {
             briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
             projects: Project.generateFakeProjectList(),
             logoImageData: LogoImageViewData(
-                companyAbbreviation: "F.C.I",
-                addAbbreviationToLogo: Bool.random(),
                 systemLogo: Image.generateRadomLogo(),
                 logoBackground: Image.generateRadomImage(),
                 themeColor: Color.random()
@@ -64,8 +62,6 @@ extension CompanyObject {
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
-                    companyAbbreviation: "C.4.K",
-                    addAbbreviationToLogo: false,
                     systemLogo: Image(systemName: "car.circle.fill"),
                     logoBackground: Image.generateRadomImage(),
                     themeColor: .orange
@@ -84,8 +80,6 @@ extension CompanyObject {
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
-                    companyAbbreviation: "A.D.F",
-                    addAbbreviationToLogo: true,
                     systemLogo: Image(systemName: "cross.case.circle.fill"),
                     logoBackground: Image.generateRadomImage(),
                     themeColor: Color.random()
@@ -104,8 +98,6 @@ extension CompanyObject {
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
-                    companyAbbreviation: "E.V.G",
-                    addAbbreviationToLogo: false,
                     systemLogo: Image(systemName: "tree.circle.fill"),
                     logoBackground: Image.generateRadomImage(),
                     themeColor: Color.random()
@@ -124,8 +116,6 @@ extension CompanyObject {
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
-                    companyAbbreviation: "E.D.U",
-                    addAbbreviationToLogo: true,
                     systemLogo: Image(systemName: "globe.europe.africa.fill"),
                     logoBackground: Image.generateRadomImage(),
                     themeColor: .green
@@ -144,8 +134,6 @@ extension CompanyObject {
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
-                    companyAbbreviation: "T.V.",
-                    addAbbreviationToLogo: false,
                     systemLogo: Image(systemName: "eye.circle.fill"),
                     logoBackground: Image.generateRadomImage(),
                     themeColor: Color.random()
@@ -164,8 +152,6 @@ extension CompanyObject {
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
-                    companyAbbreviation: "S.A.O.",
-                    addAbbreviationToLogo: false,
                     systemLogo: Image(systemName: "figure.walk.circle.fill"),
                     logoBackground: nil,
                     themeColor: Color(red: 28/255, green: 68/255, blue: 108/255)
@@ -184,8 +170,6 @@ extension CompanyObject {
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
-                    companyAbbreviation: "P.4.A",
-                    addAbbreviationToLogo: false,
                     systemLogo: Image(systemName: "peacesign"),
                     logoBackground: nil,
                     themeColor: .purple
@@ -204,10 +188,8 @@ extension CompanyObject {
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
-                    companyAbbreviation: "V.E.N",
-                    addAbbreviationToLogo: true,
                     systemLogo: Image(systemName: "circle.hexagongrid.fill"),
-                    logoBackground: Image.generateRadomImage(),
+                    logoBackground: nil,
                     themeColor: .brown
                 )
             ),
@@ -224,8 +206,6 @@ extension CompanyObject {
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
-                    companyAbbreviation: "B.A.",
-                    addAbbreviationToLogo: true,
                     systemLogo: Image(systemName: "rotate.3d.fill"),
                     logoBackground: Image.generateRadomImage(),
                     themeColor: .blue
@@ -244,10 +224,8 @@ extension CompanyObject {
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
-                    companyAbbreviation: "T.V.",
-                    addAbbreviationToLogo: true,
                     systemLogo: Image(systemName: "bird.circle.fill"),
-                    logoBackground: Image.generateRadomImage(),
+                    logoBackground: nil,
                     themeColor: .cyan
                 )
             ),
@@ -264,8 +242,6 @@ extension CompanyObject {
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
-                    companyAbbreviation: "M",
-                    addAbbreviationToLogo: false,
                     systemLogo: Image(systemName: "arrow.up.left.arrow.down.right.circle.fill"),
                     logoBackground: Image.generateRadomImage(),
                     themeColor: .gray
@@ -284,10 +260,8 @@ extension CompanyObject {
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
-                    companyAbbreviation: "G.H.G",
-                    addAbbreviationToLogo: false,
                     systemLogo: Image(systemName: "sun.and.horizon.circle.fill"),
-                    logoBackground: Image.generateRadomImage(),
+                    logoBackground: nil,
                     themeColor: Color.random()
                 )
             )

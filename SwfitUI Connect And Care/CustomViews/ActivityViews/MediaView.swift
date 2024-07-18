@@ -6,6 +6,7 @@ struct MediaView: View {
     struct Constants {
         static let MediaViewCornerRadius: CGFloat = 8
         static let MediaViewFrameHeight: CGFloat = 200
+        static let DonationProgessViewTrailingPadding: CGFloat = 16
     }
 
     @Environment (\.colorScheme) var colorScheme
@@ -60,6 +61,7 @@ struct MediaView: View {
                 donationProgress: donationProgress,
                 donationTotal: donationTotal
             )
+            .padding(.trailing, Constants.DonationProgessViewTrailingPadding)
         }
     }
 

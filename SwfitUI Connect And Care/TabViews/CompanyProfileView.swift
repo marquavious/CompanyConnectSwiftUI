@@ -105,8 +105,8 @@ struct CompanyProfileView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: Constants.sectionPadding) {
                 CompanyProfileHeaderView(
-                    companyObject: company,
-                    currentTab: $currentTab
+                    currentTab: $currentTab, 
+                    companyObject: company
                 )
 
                 switch currentTab {

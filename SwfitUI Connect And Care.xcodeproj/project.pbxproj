@@ -17,7 +17,7 @@
 		C013F60D2C460C59003A967B /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013F60C2C460C59003A967B /* MediaView.swift */; };
 		C016B5BA2C4727A2003FD1FE /* ActvitiyFeedFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C016B5B92C4727A2003FD1FE /* ActvitiyFeedFilterView.swift */; };
 		C016B5BC2C472C1D003FD1FE /* ActivityFeedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C016B5BB2C472C1D003FD1FE /* ActivityFeedScrollView.swift */; };
-		C016B5BE2C4738BE003FD1FE /* ActivityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C016B5BD2C4738BE003FD1FE /* ActivityViewCell.swift */; };
+		C016B5BE2C4738BE003FD1FE /* ActivityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C016B5BD2C4738BE003FD1FE /* ActivityCellView.swift */; };
 		C016B5C02C474DF8003FD1FE /* DonationProgessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C016B5BF2C474DF8003FD1FE /* DonationProgessView.swift */; };
 		C016B5C22C487BAF003FD1FE /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C016B5C12C487BAF003FD1FE /* Date+Ext.swift */; };
 		C016B5C42C487C9D003FD1FE /* MediaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C016B5C32C487C9D003FD1FE /* MediaData.swift */; };
@@ -72,7 +72,7 @@
 		C013F60C2C460C59003A967B /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		C016B5B92C4727A2003FD1FE /* ActvitiyFeedFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActvitiyFeedFilterView.swift; sourceTree = "<group>"; };
 		C016B5BB2C472C1D003FD1FE /* ActivityFeedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedScrollView.swift; sourceTree = "<group>"; };
-		C016B5BD2C4738BE003FD1FE /* ActivityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewCell.swift; sourceTree = "<group>"; };
+		C016B5BD2C4738BE003FD1FE /* ActivityCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellView.swift; sourceTree = "<group>"; };
 		C016B5BF2C474DF8003FD1FE /* DonationProgessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationProgessView.swift; sourceTree = "<group>"; };
 		C016B5C12C487BAF003FD1FE /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		C016B5C32C487C9D003FD1FE /* MediaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaData.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 				C013F60C2C460C59003A967B /* MediaView.swift */,
 				C016B5B92C4727A2003FD1FE /* ActvitiyFeedFilterView.swift */,
 				C016B5BB2C472C1D003FD1FE /* ActivityFeedScrollView.swift */,
-				C016B5BD2C4738BE003FD1FE /* ActivityViewCell.swift */,
+				C016B5BD2C4738BE003FD1FE /* ActivityCellView.swift */,
 				C016B5BF2C474DF8003FD1FE /* DonationProgessView.swift */,
 			);
 			path = ActivityViews;
@@ -406,7 +406,7 @@
 				C05ADEC92B0AC29D00F5B5ED /* SwfitUI_Connect_And_CareApp.swift in Sources */,
 				C016B5BC2C472C1D003FD1FE /* ActivityFeedScrollView.swift in Sources */,
 				C02C06502B27F01E00600FFA /* CompanyObject.swift in Sources */,
-				C016B5BE2C4738BE003FD1FE /* ActivityViewCell.swift in Sources */,
+				C016B5BE2C4738BE003FD1FE /* ActivityCellView.swift in Sources */,
 				C0FF4C1F2C409FE000146DC9 /* BriefHistoryObject.swift in Sources */,
 				C0A1D8E52C4614D100CC3F79 /* ProjectsScrollerView.swift in Sources */,
 				C0A0F8FA2B34223E0096F1E8 /* BlurView.swift in Sources */,

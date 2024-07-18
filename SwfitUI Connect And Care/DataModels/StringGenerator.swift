@@ -36,7 +36,8 @@ struct StringGenerator {
         let text = [
             StringGenerator.generateStringOne(),
             StringGenerator.generateStringTwo(),
-            StringGenerator.generateStringThree()
+            StringGenerator.generateStringThree(),
+            StringGenerator.generateStringFour()
         ].shuffled().randomElement()!
 
         let ending = ["!","...",".","?",""]

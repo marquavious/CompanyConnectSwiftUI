@@ -21,7 +21,7 @@ struct MapAnnotationView: View {
                     .overlay {
                         LogoImageView(
                             logoImageViewData: company.logoImageData,
-                            showIconOnly: true, size: CGSize(width: 30, height: 30)
+                            size: CGSize(width: 30, height: 30)
                         )
                     }
                 Triangle()
