@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct ActivityViewCell: View {
+struct ActivityCellView: View {
 
     struct Constants {
         static let ActivityCellProfilePictureSize: CGSize = CGSize(width: 40, height: 40)
