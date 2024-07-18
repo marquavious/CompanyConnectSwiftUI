@@ -9,10 +9,10 @@ struct CompanyObject: Identifiable, Hashable {
     let category: Category
     let coverImage: Image
     let missionStatement: String
-    let bio: String = StringGenerator.generateShortString()
+    let bio: String
     let team: [TeamMember]
-    let briefHistoryObject = BriefHistoryObject.createFakeBriefHistoryObject()
-    let projects: [Project] = Project.generateFakeProjectList()
+    let briefHistoryObject: BriefHistoryObject
+    let projects: [Project]
     let logoImageData: LogoImageViewData
 
     public func hash(into hasher: inout Hasher) {
@@ -35,7 +35,10 @@ extension CompanyObject {
             category: Category.allCases.randomElement() ?? .community,
             coverImage: Image.generateRadomImage(),
             missionStatement: "Mission Statement",
+            bio: StringGenerator.generateShortString(),
             team: TeamMember.generateRandomTeamList(),
+            briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+            projects: Project.generateFakeProjectList(),
             logoImageData: LogoImageViewData(
                 companyAbbreviation: "F.C.I",
                 addAbbreviationToLogo: Bool.random(),
@@ -56,7 +59,10 @@ extension CompanyObject {
                 category: .community,
                 coverImage: Image("charleyrivers"),
                 missionStatement: StringGenerator.generateShortString(),
+                bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
+                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "C.4.K",
                     addAbbreviationToLogo: false,
@@ -73,7 +79,10 @@ extension CompanyObject {
                 category: .healthcare,
                 coverImage: Image("chilkoottrail"),
                 missionStatement: StringGenerator.generateShortString(),
+                bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
+                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "A.D.F",
                     addAbbreviationToLogo: true,
@@ -90,7 +99,10 @@ extension CompanyObject {
                 category: .environmental,
                 coverImage: Image("chincoteague"),
                 missionStatement: StringGenerator.generateShortString(),
+                bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
+                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "E.V.G",
                     addAbbreviationToLogo: false,
@@ -107,7 +119,10 @@ extension CompanyObject {
                 category: .education,
                 coverImage: Image("hiddenlake"),
                 missionStatement: StringGenerator.generateShortString(),
+                bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
+                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "E.D.U",
                     addAbbreviationToLogo: true,
@@ -124,7 +139,10 @@ extension CompanyObject {
                 category: .womensRights,
                 coverImage: Image("icybay"),
                 missionStatement: StringGenerator.generateShortString(),
+                bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
+                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "T.V.",
                     addAbbreviationToLogo: false,
@@ -141,7 +159,10 @@ extension CompanyObject {
                 category: .veterans,
                 coverImage: Image("lakemcdonald"),
                 missionStatement: StringGenerator.generateShortString(),
+                bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
+                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "S.A.O.",
                     addAbbreviationToLogo: false,
@@ -158,7 +179,10 @@ extension CompanyObject {
                 category: .humanRights,
                 coverImage: Image("rainbowlake"),
                 missionStatement: StringGenerator.generateShortString(),
+                bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
+                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "P.4.A",
                     addAbbreviationToLogo: false,
@@ -175,7 +199,10 @@ extension CompanyObject {
                 category: .indigenousRights,
                 coverImage: Image("silversalmoncreek"),
                 missionStatement: StringGenerator.generateShortString(),
+                bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
+                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "V.E.N",
                     addAbbreviationToLogo: true,
@@ -192,7 +219,10 @@ extension CompanyObject {
                 category: .healthcare,
                 coverImage: Image("stmarylake"),
                 missionStatement: StringGenerator.generateShortString(),
+                bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
+                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "B.A.",
                     addAbbreviationToLogo: true,
@@ -209,7 +239,10 @@ extension CompanyObject {
                 category: .environmental,
                 coverImage: Image("turtlerock"),
                 missionStatement: StringGenerator.generateShortString(),
+                bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
+                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "T.V.",
                     addAbbreviationToLogo: true,
@@ -226,7 +259,10 @@ extension CompanyObject {
                 category: .community,
                 coverImage: Image("twinlake"),
                 missionStatement: StringGenerator.generateShortString(),
+                bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
+                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "M",
                     addAbbreviationToLogo: false,
@@ -243,7 +279,10 @@ extension CompanyObject {
                 category: .healthcare,
                 coverImage: Image("umbagog"),
                 missionStatement: StringGenerator.generateShortString(),
+                bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
+                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                projects: Project.generateFakeProjectList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "G.H.G",
                     addAbbreviationToLogo: false,

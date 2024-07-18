@@ -11,9 +11,9 @@ import SwiftUI
 struct ProjectsScrollerView: View {
 
     struct Constants {
-        static let ContentPadding: CGFloat = 0
+        static let ContentPadding: CGFloat = 8
         static let MinHeight: CGFloat = 500
-        static let MinTabViewHeight: CGFloat = 500
+        static let MinTabViewHeight: CGFloat = 600
         static let TabViewBottomPadding: CGFloat = 50
     }
 
@@ -35,9 +35,6 @@ struct ProjectsScrollerView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(alignment: .center)
-                                    .overlay(alignment: .bottom) {
-
-                                    }
                             }
                             .clipped()
 
@@ -48,15 +45,14 @@ struct ProjectsScrollerView: View {
                                 Text(project.name)
                                     .font(.title2)
                                     .bold()
-                                    .padding([.top], 3)
+                                    .padding(EdgeInsets(top: 3, leading: 8, bottom: 0, trailing: 8))
 
                                 Spacer()
 
                                 Text(project.status.displayName)
                                     .font(.system(size: 15))
                                     .fontWeight(.semibold)
-                                    .padding([.vertical], 6)
-                                    .padding([.horizontal], 8)
+                                    .padding(EdgeInsets(top: 6, leading: 8, bottom: 6, trailing: 8))
                                     .foregroundColor(.white)
                                     .background(.regularMaterial.opacity(0.1))
                                     .background(project.status.statusColor)
@@ -68,8 +64,7 @@ struct ProjectsScrollerView: View {
 
                             Text(project.description)
                                 .font(.subheadline)
-                                .padding([.top], 3)
-                                .padding([.bottom], 8)
+                                .padding(EdgeInsets(top: 3, leading: 8, bottom: 8, trailing: 8))
                         }
                         .padding(8)
                     }
