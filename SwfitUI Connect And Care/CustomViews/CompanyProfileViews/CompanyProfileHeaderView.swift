@@ -77,7 +77,7 @@ struct CompanyProfileHeaderView: View {
                     .bold()
                 Text("Current Projects: **\(companyObject.projects.count)**")
 
-                Text(CompanyObject.generateShort())
+                Text(companyObject.bio)
                     .font(.subheadline)
             }
             .padding([.horizontal])

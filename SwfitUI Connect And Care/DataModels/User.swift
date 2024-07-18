@@ -8,6 +8,7 @@
 import Foundation
 
 struct User: Identifiable, Hashable {
+    
     let id = UUID()
     let name: String
     let donations: [Donation]
@@ -15,28 +16,11 @@ struct User: Identifiable, Hashable {
 }
 
 extension User {
-    static func createFakeUserData(user: User? = nil) -> User {
-        if let user = user { return user }
-
-        return User(
-            name: "Fake User",
-            donations: Donation.generateDonations(),
-            scheduledDonations:
-                [
-                    Donation(
-                        amountInCents: 205,
-                        company: CompanyObject.createFakeComapnyList().randomElement()!,
-                        date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!,
-                        paymentMethod: .paypal
-                    ),
-
-                    Donation(
-                        amountInCents: 205,
-                        company: CompanyObject.createFakeComapnyList().randomElement()!,
-                        date: Calendar.current.date(byAdding: .day, value: 7, to: Date())!,
-                        paymentMethod: .paypal
-                    )
-                ]
+    static func createFakeUserData() -> User {
+        User(
+            name: "Johnny Appleseed",
+            donations: Donation.generatePastDonations(),
+            scheduledDonations: Donation.generateSchedualedDonations()
         )
     }
 }

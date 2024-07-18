@@ -4,15 +4,16 @@ import SwiftUI
 
 struct CompanyObject: Identifiable, Hashable {
     let id = UUID()
-    let logo: Image = generateRadomImage()
+    let logo: Image = Image.generateRadomImage()
     let orginizationName: String
     let coordinate: CLLocationCoordinate2D
     let category: Category
     let coverImage: Image
     let missionStatement: String
+    let bio: String = StringGenerator.generateShortString()
     let team: [TeamMember]
-    let briefHistoryObject = generateBriefHistoryObject()
-    let projects: [Project] = Project.generateProjectList()
+    let briefHistoryObject = BriefHistoryObject.createFakeBriefHistoryObject()
+    let projects: [Project] = Project.generateFakeProjectList()
     let logoImageData: LogoImageViewData
 
     public func hash(into hasher: inout Hasher) {
@@ -22,71 +23,46 @@ struct CompanyObject: Identifiable, Hashable {
     public static func == (lhs: CompanyObject, rhs: CompanyObject) -> Bool {
         return lhs.id == rhs.id
     }
+}
 
-    static func generateRadomImage() -> Image {
-
-        let imagesArray = [
-            Image("charleyrivers"),
-            Image("chilkoottrail"),
-            Image("chincoteague"),
-            Image("hiddenlake"),
-            Image("icybay"),
-            Image("lakemcdonald"),
-            Image("rainbowlake"),
-            Image("silversalmoncreek"),
-            Image("stmarylake"),
-            Image("turtlerock"),
-            Image("twinlake"),
-            Image("umbagog")
-        ]
-
-        return imagesArray.randomElement() ?? Image("twinlake")
-    }
-
-    static func generateBriefHistoryObject() -> BriefHistoryObject {
-        return BriefHistoryObject(
-            history: generateSummary(),
-            imageObjects: [
-                BriefHistoryImageObject(
-                    caption: "Where it all began",
-                    image: generateRadomImage()
-                ),
-                BriefHistoryImageObject(
-                    caption: "Breaking ground!",
-                    image: generateRadomImage()
-                ),
-                BriefHistoryImageObject(
-                    caption: "25 Years later...",
-                    image: generateRadomImage()
-                ),
-            ]
+extension CompanyObject {
+    static func createFakeCompanyObject() -> CompanyObject {
+        CompanyObject(
+            orginizationName: "Fake Company Inc.",
+            coordinate: CLLocationCoordinate2D(
+                latitude: CLLocationDegrees(Int.random(in: 0..<20)),
+                longitude: CLLocationDegrees(Int.random(in: -100..<20))
+            ),
+            category: Category.allCases.randomElement() ?? .community,
+            coverImage: Image.generateRadomImage(),
+            missionStatement: "Mission Statement",
+            team: TeamMember.generateRandomTeamList(),
+            logoImageData: LogoImageViewData(
+                companyAbbreviation: "F.C.I",
+                addAbbreviationToLogo: Bool.random(),
+                systemLogo: Image.generateRadomLogo(),
+                logoBackground: Image.generateRadomImage(),
+                themeColor: Color.random()
+            )
         )
     }
 
-    static func generateSummary() -> String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    }
-
-    static func generateShort() -> String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    }
-
     static func createFakeComapnyList() -> [CompanyObject] {
-        var array = [
+        [
             CompanyObject(
                 orginizationName: "Cars for Kids",
                 coordinate: CLLocationCoordinate2D(
                     latitude: 18.542952, longitude: -72.39234
-                ), 
-                category: .community, 
+                ),
+                category: .community,
                 coverImage: Image("charleyrivers"),
-                missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(),
+                missionStatement: StringGenerator.generateShortString(),
+                team: TeamMember.generateRandomTeamList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "C.4.K",
                     addAbbreviationToLogo: false,
                     systemLogo: Image(systemName: "car.circle.fill"),
-                    logoBackground: generateRadomImage(),
+                    logoBackground: Image.generateRadomImage(),
                     themeColor: .orange
                 )
             ),
@@ -95,15 +71,15 @@ struct CompanyObject: Identifiable, Hashable {
                 coordinate: CLLocationCoordinate2D(
                     latitude: -22.859839, longitude: -43.267511
                 ),
-                category: .healthcare, 
+                category: .healthcare,
                 coverImage: Image("chilkoottrail"),
-                missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(),
+                missionStatement: StringGenerator.generateShortString(),
+                team: TeamMember.generateRandomTeamList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "A.D.F",
                     addAbbreviationToLogo: true,
                     systemLogo: Image(systemName: "cross.case.circle.fill"),
-                    logoBackground: generateRadomImage(),
+                    logoBackground: Image.generateRadomImage(),
                     themeColor: Color.random()
                 )
             ),
@@ -114,13 +90,13 @@ struct CompanyObject: Identifiable, Hashable {
                 ),
                 category: .environmental,
                 coverImage: Image("chincoteague"),
-                missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(),
+                missionStatement: StringGenerator.generateShortString(),
+                team: TeamMember.generateRandomTeamList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "E.V.G",
                     addAbbreviationToLogo: false,
                     systemLogo: Image(systemName: "tree.circle.fill"),
-                    logoBackground: generateRadomImage(),
+                    logoBackground: Image.generateRadomImage(),
                     themeColor: Color.random()
                 )
             ),
@@ -131,13 +107,13 @@ struct CompanyObject: Identifiable, Hashable {
                 ),
                 category: .education,
                 coverImage: Image("hiddenlake"),
-                missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(),
+                missionStatement: StringGenerator.generateShortString(),
+                team: TeamMember.generateRandomTeamList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "E.D.U",
                     addAbbreviationToLogo: true,
                     systemLogo: Image(systemName: "globe.europe.africa.fill"),
-                    logoBackground: generateRadomImage(),
+                    logoBackground: Image.generateRadomImage(),
                     themeColor: .green
                 )
             ),
@@ -148,13 +124,13 @@ struct CompanyObject: Identifiable, Hashable {
                 ),
                 category: .womensRights,
                 coverImage: Image("icybay"),
-                missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(),
+                missionStatement: StringGenerator.generateShortString(),
+                team: TeamMember.generateRandomTeamList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "T.V.",
                     addAbbreviationToLogo: false,
                     systemLogo: Image(systemName: "eye.circle.fill"),
-                    logoBackground: generateRadomImage(),
+                    logoBackground: Image.generateRadomImage(),
                     themeColor: Color.random()
                 )
             ),
@@ -163,10 +139,10 @@ struct CompanyObject: Identifiable, Hashable {
                 coordinate: CLLocationCoordinate2D(
                     latitude: 43.84864, longitude: 18.35644
                 ),
-                category: .veterans, 
+                category: .veterans,
                 coverImage: Image("lakemcdonald"),
-                missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(),
+                missionStatement: StringGenerator.generateShortString(),
+                team: TeamMember.generateRandomTeamList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "S.A.O.",
                     addAbbreviationToLogo: false,
@@ -182,8 +158,8 @@ struct CompanyObject: Identifiable, Hashable {
                 ),
                 category: .humanRights,
                 coverImage: Image("rainbowlake"),
-                missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(),
+                missionStatement: StringGenerator.generateShortString(),
+                team: TeamMember.generateRandomTeamList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "P.4.A",
                     addAbbreviationToLogo: false,
@@ -199,13 +175,13 @@ struct CompanyObject: Identifiable, Hashable {
                 ),
                 category: .indigenousRights,
                 coverImage: Image("silversalmoncreek"),
-                missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(),
+                missionStatement: StringGenerator.generateShortString(),
+                team: TeamMember.generateRandomTeamList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "V.E.N",
                     addAbbreviationToLogo: true,
                     systemLogo: Image(systemName: "circle.hexagongrid.fill"),
-                    logoBackground: generateRadomImage(),
+                    logoBackground: Image.generateRadomImage(),
                     themeColor: .brown
                 )
             ),
@@ -216,13 +192,13 @@ struct CompanyObject: Identifiable, Hashable {
                 ),
                 category: .healthcare,
                 coverImage: Image("stmarylake"),
-                missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(),
+                missionStatement: StringGenerator.generateShortString(),
+                team: TeamMember.generateRandomTeamList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "B.A.",
                     addAbbreviationToLogo: true,
                     systemLogo: Image(systemName: "rotate.3d.fill"),
-                    logoBackground: generateRadomImage(),
+                    logoBackground: Image.generateRadomImage(),
                     themeColor: .blue
                 )
             ),
@@ -233,13 +209,13 @@ struct CompanyObject: Identifiable, Hashable {
                 ),
                 category: .environmental,
                 coverImage: Image("turtlerock"),
-                missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(),
+                missionStatement: StringGenerator.generateShortString(),
+                team: TeamMember.generateRandomTeamList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "T.V.",
                     addAbbreviationToLogo: true,
                     systemLogo: Image(systemName: "bird.circle.fill"),
-                    logoBackground: generateRadomImage(),
+                    logoBackground: Image.generateRadomImage(),
                     themeColor: .cyan
                 )
             ),
@@ -250,13 +226,13 @@ struct CompanyObject: Identifiable, Hashable {
                 ),
                 category: .community,
                 coverImage: Image("twinlake"),
-                missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(),
+                missionStatement: StringGenerator.generateShortString(),
+                team: TeamMember.generateRandomTeamList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "M",
                     addAbbreviationToLogo: false,
                     systemLogo: Image(systemName: "arrow.up.left.arrow.down.right.circle.fill"),
-                    logoBackground: generateRadomImage(),
+                    logoBackground: Image.generateRadomImage(),
                     themeColor: .gray
                 )
             ),
@@ -267,29 +243,16 @@ struct CompanyObject: Identifiable, Hashable {
                 ),
                 category: .healthcare,
                 coverImage: Image("umbagog"),
-                missionStatement: generateSummary(),
-                team: TeamMember.generateTeamList(),
+                missionStatement: StringGenerator.generateShortString(),
+                team: TeamMember.generateRandomTeamList(),
                 logoImageData: LogoImageViewData(
                     companyAbbreviation: "G.H.G",
                     addAbbreviationToLogo: false,
                     systemLogo: Image(systemName: "sun.and.horizon.circle.fill"),
-                    logoBackground: generateRadomImage(),
+                    logoBackground: Image.generateRadomImage(),
                     themeColor: Color.random()
                 )
             )
-        ]
-
-        for i in 0...array.count {
-            if i < 1, i > array.count {
-                let post = array[i]
-                let previousPost = array[i - 1]
-
-                    if post.id == previousPost.id {
-                        array.remove(at: i)
-                    }
-                }
-            }
-
-        return array
+        ].shuffled()
     }
 }

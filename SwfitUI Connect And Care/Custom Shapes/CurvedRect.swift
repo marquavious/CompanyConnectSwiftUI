@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct CurvedRectShape: Shape {
+struct CurvedRect: Shape {
 
     let cornerRadius: CGFloat
     let photoSize: CGSize

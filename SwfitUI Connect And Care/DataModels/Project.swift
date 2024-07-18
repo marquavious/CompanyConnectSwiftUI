@@ -15,7 +15,6 @@ struct Project: Hashable, Identifiable {
 
         var displayName: String {
             switch self {
-
             case .completed:
                 return "COMPLETED"
             case .inProgress:
@@ -30,7 +29,7 @@ struct Project: Hashable, Identifiable {
             case .completed:
                 return Color(red: 28/255, green: 68/255, blue: 108/255)
             case .inProgress:
-                return Color.orange
+                return .orange
             case .watingToBeFunded:
                 return .red
             }
@@ -46,43 +45,41 @@ struct Project: Hashable, Identifiable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+}
 
-    static func generateProjectList() -> [Project] {
+extension Project {
+    static func generateFakeProjectList() -> [Project] {
         return [
             Project(
                 name: "Project 1",
-                description: generateBio(),
+                description: StringGenerator.generateLongString(),
                 status: .completed,
-                image: CompanyObject.generateRadomImage()
+                image: Image.generateRadomImage()
             ),
             Project(
                 name: "Project 2",
-                description: generateBio(),
+                description: StringGenerator.generateLongString(),
                 status: .inProgress,
-                image:  CompanyObject.generateRadomImage()
+                image:  Image.generateRadomImage()
             ),
             Project(
                 name: "Project 3",
-                description: generateBio(),
+                description: StringGenerator.generateLongString(),
                 status: .watingToBeFunded,
-                image: CompanyObject.generateRadomImage()
+                image: Image.generateRadomImage()
             ),
             Project(
                 name: "Project 4",
-                description: generateBio(),
+                description: StringGenerator.generateLongString(),
                 status: .completed,
-                image: CompanyObject.generateRadomImage()
+                image: Image.generateRadomImage()
             ),
             Project(
                 name: "Project 5",
-                description: generateBio(),
+                description: StringGenerator.generateLongString(),
                 status: .watingToBeFunded,
-                image: CompanyObject.generateRadomImage()
-            ),
+                image: Image.generateRadomImage()
+            )
         ]
-    }
-
-    static func generateBio() -> String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
 }

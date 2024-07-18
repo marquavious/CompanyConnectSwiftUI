@@ -8,10 +8,12 @@
 import Foundation
 
 extension Date {
+
     static func parseDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "M/d/yy"
         let dateString = dateFormatter.string(from: date)
         return dateString
     }
+
 }

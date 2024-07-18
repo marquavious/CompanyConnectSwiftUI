@@ -10,14 +10,14 @@ struct MediaView: View {
 
     @Environment (\.colorScheme) var colorScheme
 
-    let media: Media
+    let media: MediaData
 
     var body: some View {
         viewForMedia(media)
     }
 
     @ViewBuilder
-    func viewForMedia(_ media: Media) -> some View {
+    func viewForMedia(_ media: MediaData) -> some View {
         switch media {
         case .photo(let photo):
             photo.image

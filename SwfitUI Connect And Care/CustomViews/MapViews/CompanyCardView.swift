@@ -38,7 +38,7 @@ struct CompanyCardView: View {
                         .clipped()
                         .cornerRadius(8)
                         .mask(alignment: .bottomLeading) {
-                            CurvedRectShape(
+                            CurvedRect(
                                 cornerRadius: 8,
                                 photoSize: Constants.LogoImageViewBackgroundSize
                             )

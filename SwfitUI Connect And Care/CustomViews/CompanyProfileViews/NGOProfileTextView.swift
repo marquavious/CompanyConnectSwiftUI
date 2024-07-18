@@ -39,9 +39,11 @@ struct NGOProfileTextView<Content: View>: View {
 
             Text(titleText)
                 .font(.title2)
+                .multilineTextAlignment(.leading)
                 .bold()
                 .padding([.top, .bottom], 8)
                 .padding([.leading, .trailing])
+                .border(.green)
 
             if mediaLocation == .middle { viewBuilder() }
 
@@ -52,7 +54,7 @@ struct NGOProfileTextView<Content: View>: View {
             }
 
             if mediaLocation == .bottom { viewBuilder() }
-        }
+        }.border(.red)
     }
 
 }

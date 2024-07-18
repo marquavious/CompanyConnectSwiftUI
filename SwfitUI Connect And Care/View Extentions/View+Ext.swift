@@ -1,5 +1,5 @@
 //
-//  ViewExtentions.swift
+//  View+Ext.swift
 //  SwfitUI Connect And Care
 //
 //  Created by Marquavious Draggon on 11/22/23.

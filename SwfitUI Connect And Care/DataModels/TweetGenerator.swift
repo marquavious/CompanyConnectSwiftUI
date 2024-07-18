@@ -17,7 +17,7 @@ struct TweetGenerator {
         for _ in (1..<50) {
 
             let company = CompanyObject.createFakeComapnyList().shuffled().randomElement()!
-            let tamMember = [TeamMember.generateTeamList().shuffled().randomElement()]
+            let tamMember = [TeamMember.generateRandomTeamList().shuffled().randomElement()]
 
             let post = ActvityPost(
                 company: company,
@@ -78,24 +78,22 @@ struct TweetGenerator {
         return ackposts.sorted { $0.hourAgoPosted < $1.hourAgoPosted }
     }
 
-    static func generateRandomMeda() -> [Media?] {
-
-//        let videoTitle = "move-\(Int.random(in: 1...8))"
+    static func generateRandomMeda() -> [MediaData?] {
 
         let filteredPhotos = Array(
             Set(
                 [
-                    IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                    IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                    IdentifiableImage(image: CompanyObject.generateRadomImage())
+                    IdentifiableImage(image: Image.generateRadomImage()),
+                    IdentifiableImage(image: Image.generateRadomImage()),
+                    IdentifiableImage(image: Image.generateRadomImage())
                 ]
             )
         )
 
         var array = [
-            Bool.random() ? nil: ( Bool.random() ? nil : Media.donationProgress(Double.random(in: 0...500), Bool.random() ? 800 : 1000)),
-            Bool.random() ? nil: Media.photoCarousel(filteredPhotos) ,
-            Bool.random() ? nil: Media.photo(IdentifiableImage(image: CompanyObject.generateRadomImage())),
+            Bool.random() ? nil: ( Bool.random() ? nil : MediaData.createDonationProgressMedia()),
+            Bool.random() ? nil: MediaData.createFakePhotoCarouselMedia() ,
+            Bool.random() ? nil: MediaData.createFakePhotoMedia(),
             nil,
             nil,
             nil
@@ -161,16 +159,16 @@ struct TweetGenerator {
         return [
             ActvityPost(
                 company: returnCompany(),
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
                 media: nil,
                 hourAgoPosted: 1
             ),
             ActvityPost(
                 company: returnCompany(),
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .photo(IdentifiableImage(image: CompanyObject.generateRadomImage())),
+                media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 1
             ),
             ActvityPost(
@@ -191,14 +189,14 @@ struct TweetGenerator {
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: Media.photo(IdentifiableImage(image: CompanyObject.generateRadomImage())),
+                media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 3
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: nil ,//.video("move-1"),
+                media: nil,
                 hourAgoPosted: 1
             ),
             ActvityPost(
@@ -210,7 +208,7 @@ struct TweetGenerator {
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
                 media: nil,
                 hourAgoPosted: 3
@@ -229,25 +227,24 @@ struct TweetGenerator {
                 caption: TweetGenerator.generateRandomStatus(),
                 media: .photoCarousel(
                     [
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
+                        IdentifiableImage.createFakeIdentifiableImage(),
+                        IdentifiableImage.createFakeIdentifiableImage(),
+                        IdentifiableImage.createFakeIdentifiableImage(),
+                        IdentifiableImage.createFakeIdentifiableImage()
                     ]
                 ),
                 hourAgoPosted: 4
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
-                caption: "We're $200 away from our fundrasing goal! Thank you all for the support! ",
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                caption: "We're $200 away from our fundrasing goal! Thank you all for the support!",
                 media:.donationProgress(250, 500),
                 hourAgoPosted: 4
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
                 media: nil,
                 hourAgoPosted: 5
@@ -256,12 +253,12 @@ struct TweetGenerator {
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .photo(IdentifiableImage(image: CompanyObject.generateRadomImage())),
+                media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 5
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
                 media: nil,
                 hourAgoPosted: 5
@@ -277,7 +274,7 @@ struct TweetGenerator {
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .photo(IdentifiableImage(image: CompanyObject.generateRadomImage())),
+                media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 6
             ),
             ActvityPost(
@@ -289,14 +286,14 @@ struct TweetGenerator {
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
                 media: nil ,//.video("move-2"),
                 hourAgoPosted: 7
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
                 media: nil,
                 hourAgoPosted: 7
@@ -305,7 +302,7 @@ struct TweetGenerator {
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .photo(IdentifiableImage(image: CompanyObject.generateRadomImage())),
+                media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 8
             ),
             ActvityPost(
@@ -324,9 +321,9 @@ struct TweetGenerator {
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: Media.photo(IdentifiableImage(image: CompanyObject.generateRadomImage())),
+                media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 9
             ),
             ActvityPost(
@@ -345,7 +342,7 @@ struct TweetGenerator {
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
                 media: nil,
                 hourAgoPosted: 9
@@ -359,15 +356,14 @@ struct TweetGenerator {
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
                 media: .photoCarousel(
                     [
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
-                        IdentifiableImage(image: CompanyObject.generateRadomImage()),
+                        IdentifiableImage.createFakeIdentifiableImage(),
+                        IdentifiableImage.createFakeIdentifiableImage(),
+                        IdentifiableImage.createFakeIdentifiableImage(),
+                        IdentifiableImage.createFakeIdentifiableImage()
                     ]
                 ),
                 hourAgoPosted: 10
@@ -388,21 +384,21 @@ struct TweetGenerator {
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .photo(IdentifiableImage(image: CompanyObject.generateRadomImage())),
+                media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 11
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
                 media: nil,
                 hourAgoPosted: 11
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
                 media: nil, //.video("move-6"),
                 hourAgoPosted: 12
@@ -411,12 +407,12 @@ struct TweetGenerator {
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: TweetGenerator.generateRandomStatus(),
-                media: .photo(IdentifiableImage(image: CompanyObject.generateRadomImage())),
+                media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 12
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateTeamList().randomElement()!,
+                poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: TweetGenerator.generateRandomStatus(),
                 media: nil,
                 hourAgoPosted: 13

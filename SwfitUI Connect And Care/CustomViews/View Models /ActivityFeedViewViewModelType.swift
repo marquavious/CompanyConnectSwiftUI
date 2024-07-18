@@ -23,9 +23,11 @@ protocol ActivityFeedViewViewModelType {
 class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     init(company: CompanyObject) {
+        _company = company
         _posts = TweetGenerator.generateRandomTweetsFrom(company: company)
     }
 
+    private let _company: CompanyObject
     private var _posts: [ActvityPost]
     private var _selctedCategories = [Category]()
     private var _categories: [Category] = []
@@ -35,24 +37,7 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     }
 
     private var _presentedPosts: [ActvityPost] {
-        if _selctedCategories.isEmpty {
-            return _posts
-        }
-
-
-        var tempArray = [ActvityPost]()
-        for category in _selctedCategories {
-
-            for post in _posts {
-                if post.company.category == category {
-                    tempArray.append(post)
-                }
-            }
-        }
-
-        return tempArray.sorted { post1, post2 in
-            post1.hourAgoPosted < post2.hourAgoPosted
-        }
+        _posts
     }
 
     func resetSelectedCategories() {
@@ -60,23 +45,23 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     }
 
     func posts() -> [ActvityPost] {
-        return ActvityPost.makeFakeActivityPosts()
+        Array(repeating: ActvityPost.createFakeActivityPostForCompany(company: _company), count: 50)
     }
 
     func selctedCategories() -> [Category] {
-        return _selctedCategories
+        _selctedCategories
     }
 
     func categories() -> [Category] {
-        return _categories
+        _categories
     }
 
     func hasSelectedCategories() -> Bool {
-        return _hasSelected
+        _hasSelected
     }
 
     func presentedPosts() -> [ActvityPost] {
-        return _presentedPosts
+        _presentedPosts
     }
 
     func addToSelectedCategories(category: Category) {
@@ -136,7 +121,7 @@ class BasicFakeActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     }
 
     func posts() -> [ActvityPost] {
-        return ActvityPost.makeFakeActivityPosts()
+        return Array(repeating: ActvityPost.createFakeActivityPost(), count: 50)
     }
 
     func selctedCategories() -> [Category] {

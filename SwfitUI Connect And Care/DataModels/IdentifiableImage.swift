@@ -16,3 +16,9 @@ struct IdentifiableImage: Identifiable, Hashable {
         hasher.combine(id)
     }
 }
+
+extension IdentifiableImage {
+    static func createFakeIdentifiableImage(image: Image = Image.generateRadomImage()) -> IdentifiableImage {
+        IdentifiableImage(image: image)
+    }
+}

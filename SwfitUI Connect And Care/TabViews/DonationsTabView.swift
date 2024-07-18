@@ -42,7 +42,7 @@ struct DonationsView: View {
                     .padding([.vertical])
             } footer: {
                 // - TODO: Replace Fake Text with Text Generators
-                Text(CompanyObject.generateShort())
+                Text(StringGenerator.generateShortString())
                     .font(.caption)
                     .padding([.vertical])
                 }

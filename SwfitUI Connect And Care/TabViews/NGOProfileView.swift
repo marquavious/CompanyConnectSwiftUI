@@ -58,7 +58,7 @@ struct NGOProfileView: View {
         func sectionDescriptionText(companyObject: CompanyObject) -> String? {
             switch self {
             case .missionStatements:
-                companyObject.briefHistoryObject.history
+                companyObject.missionStatement
             case .ourTeam:
                 nil
             case .briefHistory:

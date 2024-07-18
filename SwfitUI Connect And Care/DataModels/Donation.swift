@@ -9,7 +9,7 @@ import Foundation
 
 struct Donation: Hashable, Identifiable {
 
-    enum PaymentMethod {
+    enum PaymentMethod: CaseIterable {
         case creditCard, paypal, applePay
 
         var displayName: String {
@@ -29,47 +29,48 @@ struct Donation: Hashable, Identifiable {
     let company: CompanyObject
     let date: Date
     let paymentMethod: PaymentMethod
+}
 
+extension Donation {
     func displayAmount() -> String {
         return "$\(String(format: "%.0f", amountInCents))"
     }
 
-    static func generateDonations() -> [Donation] {
-        return [
-            Donation(
-                amountInCents: 100,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                date: Calendar.current.date(byAdding: .day, value: -5, to: Date())!,
-                paymentMethod: .applePay),
-            Donation(
-                amountInCents: 200,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                date: Calendar.current.date(byAdding: .day, value: -7, to: Date())!,
-                paymentMethod: .creditCard),
-            Donation(
-                amountInCents: 205,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                date: Calendar.current.date(byAdding: .day, value: -7, to: Date())!,
-                paymentMethod: .paypal),
-            Donation(
-                amountInCents: 100,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!,
-                paymentMethod: .applePay),
-            Donation(
-                amountInCents: 200,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
-                paymentMethod: .creditCard
-            ),
-            Donation(
-                amountInCents: 205,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
-                paymentMethod: .paypal
+    // TODO: - Merge Below Functions
+
+    static func generatePastDonations(donationCount: Int = 5) -> [Donation] {
+        var array = [Donation]()
+        for _ in 0...donationCount {
+            array.append(
+                Donation(
+                    amountInCents: Double.random(in: 0...500),
+                    company: CompanyObject.createFakeCompanyObject(),
+                    date: Calendar.current.date(
+                        byAdding: .day,
+                        value: Int.random(in: -10 ... -1),
+                        to: Date())!,
+                    paymentMethod: PaymentMethod.allCases.randomElement()!)
             )
-        ].sorted { donationOne, donationTwo in
-            donationOne.date < donationTwo.date
         }
+
+        return array.sorted { $0.date < $1.date }
+    }
+
+    static func generateSchedualedDonations(donationCount: Int = 5) -> [Donation] {
+        var array = [Donation]()
+        for _ in 0...donationCount {
+            array.append(
+                Donation(
+                    amountInCents: Double.random(in: 0...500),
+                    company: CompanyObject.createFakeCompanyObject(),
+                    date: Calendar.current.date(
+                        byAdding: .day,
+                        value: Int.random(in: 1 ... 10),
+                        to: Date())!,
+                    paymentMethod: PaymentMethod.allCases.randomElement()!)
+            )
+        }
+
+        return array.sorted { $0.date < $1.date }
     }
 }

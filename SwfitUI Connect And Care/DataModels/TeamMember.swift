@@ -18,9 +18,11 @@ struct TeamMember: Hashable, Identifiable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+}
 
-    static func generateTeamList() -> [TeamMember] {
-        var array =  [
+extension TeamMember {
+    static func generateRandomTeamList() -> [TeamMember] {
+         [
             TeamMember(
                 name: "John Doe",
                 position: "CEO",
@@ -52,23 +54,5 @@ struct TeamMember: Hashable, Identifiable {
                 image:  Image("face-6")
             )
         ].shuffled()
-
-
-        for i in 0...array.count {
-            if i < 1, i > array.count {
-                let post = array[i]
-                let previousPost = array[i - 1]
-
-                    if post.id == previousPost.id {
-                        array.remove(at: i)
-                    }
-                }
-            }
-
-        return array
-    }
-
-    static func generateBio() -> String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
 }
