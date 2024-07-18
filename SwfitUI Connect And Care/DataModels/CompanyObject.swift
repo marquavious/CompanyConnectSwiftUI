@@ -4,7 +4,6 @@ import SwiftUI
 
 struct CompanyObject: Identifiable, Hashable {
     let id = UUID()
-    let logo: Image = Image.generateRadomImage()
     let orginizationName: String
     let coordinate: CLLocationCoordinate2D
     let category: Category

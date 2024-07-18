@@ -36,5 +36,5 @@ struct CompanyProfileMapView: View {
 }
 
 #Preview {
-    NGOProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
+    CompanyProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
 }

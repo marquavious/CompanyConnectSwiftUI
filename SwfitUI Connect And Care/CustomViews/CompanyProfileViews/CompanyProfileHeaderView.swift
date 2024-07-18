@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CompanyProfileHeaderView: View {
     var companyObject: CompanyObject
-    @Binding var currentTab: NGOProfileView.ProfileTabs
+    @Binding var currentTab: CompanyProfileView.ProfileTabs
     var body: some View {
         VStack(alignment: .leading) {
             Group {
@@ -83,8 +83,8 @@ struct CompanyProfileHeaderView: View {
             .padding([.horizontal])
 
             Picker("", selection: $currentTab) {
-                Text("ABOUT").tag(NGOProfileView.ProfileTabs.about)
-                Text("RECENT ACTIVITY").tag(NGOProfileView.ProfileTabs.activity)
+                Text("ABOUT").tag(CompanyProfileView.ProfileTabs.about)
+                Text("RECENT ACTIVITY").tag(CompanyProfileView.ProfileTabs.activity)
             }
             .pickerStyle(.segmented)
             .padding([.horizontal], 16)
@@ -98,5 +98,5 @@ struct CompanyProfileHeaderView: View {
 }
 
 #Preview {
-    NGOProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
+    CompanyProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
 }

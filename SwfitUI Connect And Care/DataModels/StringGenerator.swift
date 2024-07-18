@@ -15,4 +15,36 @@ struct StringGenerator {
     static func generateShortString() -> String {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     }
+
+    static func generateStringOne() -> String {
+        return "Lorem ipsum"
+    }
+
+    static func generateStringTwo() -> String {
+        return "Lorem ipsum dolor sit amet, consectetur adipiscing"
+    }
+
+    static func generateStringThree() -> String {
+        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+    }
+
+    static func generateStringFour() -> String {
+        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+    }
+
+    static func generateRandomActivityString() -> String {
+        let text = [
+            StringGenerator.generateStringOne(),
+            StringGenerator.generateStringTwo(),
+            StringGenerator.generateStringThree()
+        ].shuffled().randomElement()!
+
+        let ending = ["!","...",".","?",""]
+        let emojiEnding = [" #NGO", " 🌎", " 🚧", " 🚜", " 🌾", " 🏥"," 🏡"]
+        let stringToTrim = text
+
+        return String(
+            stringToTrim.trimmingCharacters(in: .whitespaces) + (ending.shuffled().randomElement()!)) + (Bool.random() ? "" : emojiEnding.shuffled().first!)
+    }
+
 }

@@ -22,7 +22,7 @@ struct TweetGenerator {
             let post = ActvityPost(
                 company: company,
                 poster: Bool.random() ? tamMember.randomElement()! : nil,
-                caption: generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media:  generateRandomMeda().shuffled().randomElement()!,
                 hourAgoPosted: Int.random(in: 1...19)
             )
@@ -41,7 +41,6 @@ struct TweetGenerator {
             }
         }
 
-
         return ackposts.sorted { $0.hourAgoPosted < $1.hourAgoPosted }
     }
 
@@ -56,8 +55,8 @@ struct TweetGenerator {
             let post = ActvityPost(
                 company: company,
                 poster: Bool.random() ? tamMember.randomElement()! : nil,
-                caption: generateRandomStatus(),
-                media:  generateRandomMeda().shuffled().randomElement()!,
+                caption: StringGenerator.generateRandomActivityString(),
+                media: generateRandomMeda().shuffled().randomElement()!,
                 hourAgoPosted: Int.random(in: 1...19)
             )
 
@@ -112,111 +111,73 @@ struct TweetGenerator {
         return array
     }
 
-    static func generateRandomStatus() -> String {
-        let text = [
-            generateOne(),
-            generateTwo(),
-            generateThree()
-        ].shuffled().randomElement()!
-        let ending = ["!","...",".","?",""]
-        let emojiEnding = [" #NGO", " 🌎", " 🚧", " 🚜", " 🌾", " 🏥"," 🏡"]
-
-        let a = text
-
-        return String(a.trimmingCharacters(in: .whitespaces) + (ending.shuffled().randomElement()!)) + (Bool.random() ? "" : emojiEnding.shuffled().first!)
-
-    }
-
-    static func generateBio() -> String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-    }
-
-    static func generateOne() -> String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing"
-    }
-
-
-    static func generateTwo() -> String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
-    }
-
-    static func generateThree() -> String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-    }
-
-    static func generateFour() -> String {
-        return "Lorem ipsum"
-    }
-
     static func returnStructuredTweetList() -> [ActvityPost] {
 
         func returnCompany() -> CompanyObject {
            return CompanyObject.createFakeComapnyList().randomElement()!
         }
 
-        // COme back
-
         return [
             ActvityPost(
                 company: returnCompany(),
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 1
             ),
             ActvityPost(
                 company: returnCompany(),
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 1
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 2
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 2
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 3
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 1
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 3
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 3
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 4
             ),
@@ -224,7 +185,7 @@ struct TweetGenerator {
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: .photoCarousel(
                     [
                         IdentifiableImage.createFakeIdentifiableImage(),
@@ -245,119 +206,119 @@ struct TweetGenerator {
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 5
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 5
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 5
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media:  nil ,//.video("move-8"),
                 hourAgoPosted: 5
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 6
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 6
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil ,//.video("move-2"),
                 hourAgoPosted: 7
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 7
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 8
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 8
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
-                media: nil,
+                caption: StringGenerator.generateRandomActivityString(), 
+                media: MediaData.generateRandomMedia(),
                 hourAgoPosted: 8
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 9
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil ,//.video("move-1"),
                 hourAgoPosted: 9
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 9
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 9
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 10
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: .photoCarousel(
                     [
                         IdentifiableImage.createFakeIdentifiableImage(),
@@ -378,50 +339,50 @@ struct TweetGenerator {
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 11
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 11
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 11
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil, //.video("move-6"),
                 hourAgoPosted: 12
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: MediaData.createFakePhotoMedia(),
                 hourAgoPosted: 12
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
-                caption: TweetGenerator.generateRandomStatus(),
+                caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 13
             ),
             ActvityPost(
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
-                caption: TweetGenerator.generateRandomStatus(),
-                media: nil ,// .video("move-1"),
+                caption: StringGenerator.generateRandomActivityString(),
+                media: nil,
                 hourAgoPosted: 13
             )
         ]

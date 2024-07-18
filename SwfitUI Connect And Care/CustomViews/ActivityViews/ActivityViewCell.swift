@@ -54,7 +54,8 @@ struct ActivityViewCell: View {
             } else {
                 LogoImageView(
                     logoImageViewData: activityPost.company.logoImageData,
-                    showIconOnly: true, size: Constants.ActivityCellProfilePictureSize
+                    showIconOnly: true, 
+                    size: Constants.ActivityCellProfilePictureSize
                 )
             }
 

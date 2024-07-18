@@ -37,7 +37,7 @@ struct MapTabView: View {
                 }
             }
             .navigationDestination(for: CompanyObject.self) {
-                NGOProfileView(companyObject: $0)
+                CompanyProfileView(companyObject: $0)
             }
             .environmentObject(viewModel)
         }

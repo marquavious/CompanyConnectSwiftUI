@@ -24,7 +24,7 @@ struct Project: Hashable, Identifiable {
             }
         }
 
-        var displayColor: Color {
+        var statusColor: Color {
             switch self {
             case .completed:
                 return Color(red: 28/255, green: 68/255, blue: 108/255)

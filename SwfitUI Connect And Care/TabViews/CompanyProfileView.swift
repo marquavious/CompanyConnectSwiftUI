@@ -1,5 +1,5 @@
 //
-//  NGOProfileView.swift
+//  CompanyProfileView.swift
 //  SwfitUI Connect And Care
 //
 //  Created by Marquavious Draggon on 11/30/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct NGOProfileView: View {
+struct CompanyProfileView: View {
 
     struct Constants {
         static let sectionPadding: CGFloat = 15
@@ -112,7 +112,7 @@ struct NGOProfileView: View {
                 switch currentTab {
                 case .about:
                     ForEach(AboutSections.allCases) { section in
-                        NGOProfileTextView(
+                        CompanyProfileTextView(
                             titleText: section.sectionTitles,
                             text: section.sectionDescriptionText(companyObject: company),
                             mediaLocation: section.sectionMediaLocation
@@ -133,5 +133,5 @@ struct NGOProfileView: View {
 }
 
 #Preview {
-    NGOProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
+    CompanyProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
 }

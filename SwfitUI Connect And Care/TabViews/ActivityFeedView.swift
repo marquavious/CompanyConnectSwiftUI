@@ -35,7 +35,7 @@ struct ActivityFeedView: View {
                 presentedNgos.append($0)
             }
             .navigationDestination(for: CompanyObject.self) {
-                NGOProfileView(companyObject: $0)
+                CompanyProfileView(companyObject: $0)
             }
             .navigationTitle(Constants.NavigationTitle)
             .toolbar {

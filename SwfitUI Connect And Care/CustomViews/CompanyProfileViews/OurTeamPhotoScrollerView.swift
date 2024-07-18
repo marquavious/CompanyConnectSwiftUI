@@ -68,5 +68,5 @@ struct OurTeamPhotoScrollerView: View {
 }
 
 #Preview {
-    NGOProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
+    CompanyProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
 }

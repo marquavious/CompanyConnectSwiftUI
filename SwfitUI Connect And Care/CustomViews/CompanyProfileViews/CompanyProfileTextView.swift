@@ -1,5 +1,5 @@
 //
-//  NGOProfileTextView.swift
+//  CompanyProfileTextView.swift
 //  SwfitUI Connect And Care
 //
 //  Created by Marquavious Draggon on 7/15/24.
@@ -12,7 +12,7 @@ enum MediaLocation {
     case top, middle, bottom, none
 }
 
-struct NGOProfileTextView<Content: View>: View {
+struct CompanyProfileTextView<Content: View>: View {
 
     init(
         titleText: String,
@@ -43,7 +43,6 @@ struct NGOProfileTextView<Content: View>: View {
                 .bold()
                 .padding([.top, .bottom], 8)
                 .padding([.leading, .trailing])
-                .border(.green)
 
             if mediaLocation == .middle { viewBuilder() }
 
@@ -54,11 +53,11 @@ struct NGOProfileTextView<Content: View>: View {
             }
 
             if mediaLocation == .bottom { viewBuilder() }
-        }.border(.red)
+        }
     }
 
 }
 
 #Preview {
-    NGOProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
+    CompanyProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
 }
