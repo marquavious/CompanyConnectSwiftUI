@@ -40,7 +40,6 @@
 		C0A1D8E32C4614AB00CC3F79 /* BriefHistoryPhotoScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A1D8E22C4614AB00CC3F79 /* BriefHistoryPhotoScrollerView.swift */; };
 		C0A1D8E52C4614D100CC3F79 /* ProjectsScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A1D8E42C4614D100CC3F79 /* ProjectsScrollerView.swift */; };
 		C0A1D8E72C4614E600CC3F79 /* CompanyProfileMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A1D8E62C4614E600CC3F79 /* CompanyProfileMapView.swift */; };
-		C0A1D8E92C46269900CC3F79 /* CompanyProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A1D8E82C46269900CC3F79 /* CompanyProfileHeaderView.swift */; };
 		C0CFA1742B50FE85005D5F59 /* TipViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFA1732B50FE85005D5F59 /* TipViews.swift */; };
 		C0D0546F2C4132F400A623AA /* CompanyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D0546E2C4132F400A623AA /* CompanyListView.swift */; };
 		C0FF4C0B2C40985F00146DC9 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF4C0A2C40985F00146DC9 /* Triangle.swift */; };
@@ -97,7 +96,6 @@
 		C0A1D8E22C4614AB00CC3F79 /* BriefHistoryPhotoScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefHistoryPhotoScrollerView.swift; sourceTree = "<group>"; };
 		C0A1D8E42C4614D100CC3F79 /* ProjectsScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsScrollerView.swift; sourceTree = "<group>"; };
 		C0A1D8E62C4614E600CC3F79 /* CompanyProfileMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileMapView.swift; sourceTree = "<group>"; };
-		C0A1D8E82C46269900CC3F79 /* CompanyProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileHeaderView.swift; sourceTree = "<group>"; };
 		C0CFA1732B50FE85005D5F59 /* TipViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViews.swift; sourceTree = "<group>"; };
 		C0D0546E2C4132F400A623AA /* CompanyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListView.swift; sourceTree = "<group>"; };
 		C0FF4C0A2C40985F00146DC9 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 				C0A1D8E22C4614AB00CC3F79 /* BriefHistoryPhotoScrollerView.swift */,
 				C0A1D8E42C4614D100CC3F79 /* ProjectsScrollerView.swift */,
 				C0A1D8E62C4614E600CC3F79 /* CompanyProfileMapView.swift */,
-				C0A1D8E82C46269900CC3F79 /* CompanyProfileHeaderView.swift */,
 				C013F60A2C45D972003A967B /* CompanyProfileTextView.swift */,
 			);
 			path = CompanyProfileViews;
@@ -372,7 +369,6 @@
 				C0FF4C2B2C40A0F600146DC9 /* ActvityPost.swift in Sources */,
 				C016B5C22C487BAF003FD1FE /* Date+Ext.swift in Sources */,
 				C0FF4C232C40A00700146DC9 /* Donation.swift in Sources */,
-				C0A1D8E92C46269900CC3F79 /* CompanyProfileHeaderView.swift in Sources */,
 				C04601F12B3C57AB00BFFB52 /* DonationsTabView.swift in Sources */,
 				C0FF4C1D2C409FB400146DC9 /* User.swift in Sources */,
 				C013F60D2C460C59003A967B /* MediaView.swift in Sources */,
