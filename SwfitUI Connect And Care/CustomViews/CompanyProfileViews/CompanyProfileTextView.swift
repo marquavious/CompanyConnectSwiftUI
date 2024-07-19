@@ -54,6 +54,7 @@ struct CompanyProfileTextView<Content: View>: View {
 
             if mediaLocation == .bottom { viewBuilder() }
         }
+        .background()
     }
 
 }
