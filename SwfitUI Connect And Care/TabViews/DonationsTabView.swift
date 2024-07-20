@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct DonationsView: View {
 
@@ -18,6 +19,8 @@ struct DonationsView: View {
     private enum Icons: String {
         case RightToolbar = "plus.circle"
     }
+
+    var donationSalesTwo = Donation.generatePastDonations()
 
     @Environment (\.colorScheme) var colorScheme
 
@@ -60,6 +63,7 @@ struct DonationsView: View {
                 }
                 .tint(colorScheme == .light ? .black:.white)
             }
+
         }
     }
 

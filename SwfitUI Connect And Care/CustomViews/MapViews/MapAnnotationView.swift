@@ -10,6 +10,11 @@ import SwiftUI
 
 struct MapAnnotationView: View {
 
+    struct Constants {
+        static let AnnotationSize: CGSize = CGSize(width: 40, height: 40)
+        static let LogoSize: CGSize = CGSize(width: 30, height: 30)
+    }
+
     @State var company: CompanyObject
 
     var body: some View {
@@ -17,11 +22,14 @@ struct MapAnnotationView: View {
             VStack(spacing: 1) {
                 Circle()
                     .fill(Color.white.opacity(0.7))
-                    .frame(width: 40, height: 40)
+                    .frame(
+                        width: Constants.AnnotationSize.width,
+                        height: Constants.AnnotationSize.height
+                    )
                     .overlay {
                         LogoImageView(
                             logoImageViewData: company.logoImageData,
-                            size: CGSize(width: 30, height: 30)
+                            size: CGSize(width: Constants.LogoSize.width, height: Constants.LogoSize.height)
                         )
                     }
                 Triangle()

@@ -26,7 +26,6 @@ struct MapControlPanelView: View {
     }
 
     @Binding var shouldShowListView: Bool
-    @Binding var shouldLockMap: Bool
     @EnvironmentObject var viewModel: MapViewViewModel
 
     private let mapTipView = MapTipView()
@@ -34,20 +33,6 @@ struct MapControlPanelView: View {
     var body: some View {
         HStack {
             Spacer()
-
-            Image(systemName: shouldLockMap ? Icons.mapLockedIcon.rawValue : Icons.mapUnlocked.rawValue)
-                .resizable()
-                .frame(
-                    width: Constants.ButtonSize.width,
-                    height: Constants.ButtonSize.height
-                )
-                .padding(Constants.ButtonPadding)
-                .background(.regularMaterial)
-                .clipShape(Circle())
-                .opacity(shouldShowListView ? 0 : 1)
-                .onTapGesture {
-                    shouldLockMap.toggle()
-                }
 
             Image(systemName: shouldShowListView ? Icons.mapListViewShowed.rawValue : Icons.mapListViewHidden.rawValue)
                 .frame(
@@ -77,9 +62,8 @@ struct MapControlPanelView: View {
                 .clipShape(Circle())
                 .transition(.scale)
                 .onTapGesture {
-                    withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
+                    withAnimation(.easeInOut(duration: 0.2)) {
                         viewModel.selctedCategories = []
-                        shouldLockMap = true
                     }
                 }
         }

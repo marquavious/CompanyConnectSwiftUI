@@ -229,6 +229,7 @@ struct CompanyProfileView: View {
                         .clipShape(Circle())
                         .onTapGesture { dismiss() }
                         .padding([.horizontal])
+                        .allowsHitTesting(true)
                 }
         }
     }

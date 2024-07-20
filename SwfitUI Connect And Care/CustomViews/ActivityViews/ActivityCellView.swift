@@ -30,6 +30,7 @@ struct ActivityCellView: View {
 
     let activityPost: ActvityPost
     let posterSelected: () -> Void
+    let visitProfileTapped: () -> Void
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
@@ -58,6 +59,7 @@ struct ActivityCellView: View {
                         logoImageViewData: activityPost.company.logoImageData,
                         size: Constants.ActivityCellProfilePictureSize
                     )
+                    .onTapGesture { posterSelected() }
                 }
 
                 VStack(alignment: .leading, spacing: Constants.ActivityCellInternalContentPadding) {
@@ -75,6 +77,7 @@ struct ActivityCellView: View {
                         Text(activityPost.company.orginizationName)
                             .font(.subheadline)
                             .bold()
+                            .onTapGesture { posterSelected() }
 
                         Text(" • \(activityPost.hourAgoPosted)h")
                             .font(.subheadline)
@@ -88,6 +91,7 @@ struct ActivityCellView: View {
                             }
                             Button("Visit Profile", systemImage: Icons.VisitProfile.rawValue) {
                                 // - TODO: IMPLIMENT PROFILE VISIT FLOW
+                                visitProfileTapped()
                             }
                         } label: {
                             Label(String(), systemImage: Icons.ActionButton.rawValue)

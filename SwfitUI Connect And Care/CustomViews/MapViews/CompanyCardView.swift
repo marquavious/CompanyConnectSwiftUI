@@ -49,7 +49,7 @@ struct CompanyCardView: View {
                             .foregroundColor(
                                 colorScheme == .light ? Color.black.opacity(0.7) : .white
                             )
-                        Text(company.missionStatement)
+                        Text(company.briefHistoryObject.history)
                             .font(.caption)
                             .foregroundColor(
                                 colorScheme == .light ? Color.black.opacity(0.7) : .white

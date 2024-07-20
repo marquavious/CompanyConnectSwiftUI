@@ -19,7 +19,7 @@ struct MapTabView: View {
     var body: some View {
         NavigationStack(path: $selectedCompanies) {
             ZStack {
-                BaseMapView(shouldLockMap: $shouldLockMap) {
+                BaseMapView() {
                      selectedCompanies.append($0)
                 }
 
@@ -27,8 +27,7 @@ struct MapTabView: View {
                     Spacer()
 
                     MapControlPanelView(
-                        shouldShowListView: $shouldShowListView,
-                        shouldLockMap: $shouldLockMap
+                        shouldShowListView: $shouldShowListView
                     )
 
                     CompanyListView(shouldShowListView: $shouldShowListView) {

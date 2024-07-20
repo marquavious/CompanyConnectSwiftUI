@@ -35,9 +35,13 @@ struct ActivityFeedScrollView: View {
                     TipView(activityScrollerTipView)
                         .padding([.horizontal], Constants.TipViewPadding)
                     ForEach(viewModel.presentedPosts()) { activityPost in
-                        ActivityCellView(activityPost: activityPost) {
-                            ngoSelected?(activityPost.company)
-                        }
+                        ActivityCellView(
+                            activityPost: activityPost) {
+                                ngoSelected?(activityPost.company)
+                            } visitProfileTapped: {
+                                ngoSelected?(activityPost.company)
+                            }
+
                         Divider()
                     }
                 } header: {
