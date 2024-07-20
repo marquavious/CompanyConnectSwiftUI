@@ -14,12 +14,12 @@ struct MapTabView: View {
     @State var shouldShowListView: Bool = false
     @State private var shouldLockMap: Bool = true
     @State private var selectedCompanies = [CompanyObject]()
-    @StateObject var viewModel = MapViewViewModel()
+    var viewModel: MapViewViewModelType
 
     var body: some View {
         NavigationStack(path: $selectedCompanies) {
             ZStack {
-                BaseMapView() {
+                BaseMapView(viewModel: viewModel) {
                      selectedCompanies.append($0)
                 }
 
@@ -27,10 +27,11 @@ struct MapTabView: View {
                     Spacer()
 
                     MapControlPanelView(
-                        shouldShowListView: $shouldShowListView
+                        shouldShowListView: $shouldShowListView,
+                        viewModel: viewModel
                     )
 
-                    CompanyListView(shouldShowListView: $shouldShowListView) {
+                    CompanyListView(shouldShowListView: $shouldShowListView, viewModel: viewModel) {
                         selectedCompanies.append($0)
                     }
                 }
@@ -38,12 +39,11 @@ struct MapTabView: View {
             .navigationDestination(for: CompanyObject.self) {
                 CompanyProfileView(companyObject: $0)
             }
-            .environmentObject(viewModel)
         }
     }
 
 }
 
 #Preview {
-    MapTabView()
+    MapTabView(viewModel: FakeMapViewViewModel())
 }

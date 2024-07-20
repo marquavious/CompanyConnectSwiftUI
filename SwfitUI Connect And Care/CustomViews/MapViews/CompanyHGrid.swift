@@ -17,6 +17,7 @@ struct CompanyHGrid: View {
         static let bottomContentMarginPadding: CGFloat = 8
     }
 
+    var viewModel: MapViewViewModelType
     @Environment(\.colorScheme) var colorScheme
     @Binding var shouldShowListView: Bool
 
@@ -27,6 +28,7 @@ struct CompanyHGrid: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: hRowColumns) {
                 CompanyCardView(
+                    viewModel: viewModel,
                     onTapAction: onTapAction,
                     cellSize: Constants.cellSize
                 )
@@ -45,5 +47,5 @@ struct CompanyHGrid: View {
 }
 
 #Preview {
-    MapTabView()
+    MapTabView(viewModel: FakeMapViewViewModel())
 }

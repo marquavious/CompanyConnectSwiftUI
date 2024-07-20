@@ -16,7 +16,7 @@ struct CompanyVGrid: View {
         static let bottomContentMarginPadding: CGFloat = 8
     }
 
-    @EnvironmentObject var viewModel: MapViewViewModel
+    var viewModel: MapViewViewModelType
     @Binding var shouldShowListView: Bool
 
     var onTapAction: ((CompanyObject) -> Void)
@@ -26,6 +26,7 @@ struct CompanyVGrid: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(columns: vGridColumns) {
                 CompanyCardView(
+                    viewModel: viewModel,
                     onTapAction: onTapAction,
                     cellSize: Constants.cellSize
                 )
@@ -41,5 +42,5 @@ struct CompanyVGrid: View {
 }
 
 #Preview {
-    MapTabView(shouldShowListView: true)
+    MapTabView(shouldShowListView: true, viewModel: FakeMapViewViewModel())
 }

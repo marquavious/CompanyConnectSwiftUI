@@ -11,7 +11,7 @@ import MapKit
 
 struct BaseMapView: View {
 
-    @EnvironmentObject var viewModel: MapViewViewModel
+    var viewModel: MapViewViewModelType
 
     // For some strange rason, we cannot force inital max zoom out levels using native maps
     // Unless we introduce SDKs, we will have to deal with this for now. Thanks Apple.
@@ -21,7 +21,7 @@ struct BaseMapView: View {
 
     var body: some View {
         Map(position: $defaultMapPosition, interactionModes: [.all]) {
-            ForEach(viewModel.presentedCompanies) { company in
+            ForEach(viewModel.presentedCompanies()) { company in
                 Annotation(
                     company.orginizationName,
                     coordinate: company.coordinate
@@ -38,6 +38,5 @@ struct BaseMapView: View {
 }
 
 #Preview {
-    MapTabView()
-        .environmentObject(MapViewViewModel())
+    MapTabView(viewModel: FakeMapViewViewModel())
 }

@@ -16,15 +16,15 @@ struct CompanyListView: View {
         static let categoryFilterScrollViewHeight: CGFloat = 50
     }
 
-    @EnvironmentObject var viewModel: MapViewViewModel
     @Binding var shouldShowListView: Bool
+    var viewModel: MapViewViewModelType
 
     var didSelectCompany: (CompanyObject) -> Void
 
     var body: some View {
         ZStack {
             VStack(spacing: .zero) {
-                CategoryFilterScrollView {
+                CategoryFilterScrollView(viewModel: viewModel) {
                     viewModel.handleSelectedCategory($0)
                 }
                 .frame(maxHeight: Constants.categoryFilterScrollViewHeight)
@@ -32,12 +32,14 @@ struct CompanyListView: View {
                 Divider()
 
                 CompanyHGrid(
+                    viewModel: viewModel,
                     shouldShowListView: $shouldShowListView
                 ){
                     didSelectCompany($0)
                 }
 
                 CompanyVGrid(
+                    viewModel: viewModel,
                     shouldShowListView: $shouldShowListView
                 ){
                     didSelectCompany($0)
@@ -52,5 +54,5 @@ struct CompanyListView: View {
 }
 
 #Preview {
-    MapTabView()
+    MapTabView(viewModel: FakeMapViewViewModel())
 }

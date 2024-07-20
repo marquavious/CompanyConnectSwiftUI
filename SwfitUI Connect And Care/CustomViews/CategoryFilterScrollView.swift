@@ -15,7 +15,7 @@ struct CategoryFilterScrollView: View {
         static let edgeInsets = EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
     }
 
-    @EnvironmentObject var viewModel: MapViewViewModel
+    var viewModel: MapViewViewModelType
 
     var didSelectCategory: ((Category) -> Void)
     private let gridRows = [GridItem(.flexible())]
@@ -23,12 +23,12 @@ struct CategoryFilterScrollView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: gridRows) {
-                ForEach(viewModel.categories) { category in
+                ForEach(viewModel.categories()) { category in
                     ZStack {
                         RoundButtonView(
                             text: category.name,
                             color: category.color,
-                            isHighlighted: viewModel.selctedCategories.contains(category)
+                            isHighlighted: viewModel.selctedCategories().contains(category)
                         ) {
                             didSelectCategory(category)
                         }

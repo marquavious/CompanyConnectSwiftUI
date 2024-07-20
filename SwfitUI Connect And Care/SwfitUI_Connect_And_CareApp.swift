@@ -11,7 +11,13 @@ import TipKit
 @main
 struct SwfitUI_Connect_And_CareApp: App {
 
-    let dependencyGraph = DependencyGraph(applicationBuild: .offline) // CHANGE THIS WITH SCHEMES
+    #if RELEASE
+    let dependencyGraph = DependencyGraph(applicationBuild: .production)
+    #elseif OFFLINE
+    let dependencyGraph = DependencyGraph(applicationBuild: .offline)
+    #elseif INTEGRATED
+    let dependencyGraph = DependencyGraph(applicationBuild: .integrated)
+    #endif
 
     var body: some Scene {
         WindowGroup {
@@ -20,10 +26,10 @@ struct SwfitUI_Connect_And_CareApp: App {
     }
 
     init() {
-        /*
+    #if RELEASE
         try? Tips.resetDatastore() // Purge all TipKit related data.
         try? Tips.configure() // Tips.showTipsForTesting([CompletionToDeleteTip.self])
-        */
+    #endif
     }
 }
 
@@ -37,7 +43,7 @@ struct MainView: View {
                 Label("Feed", systemImage: "bubble.circle.fill")
             }
 
-            MapTabView().tabItem {
+            MapTabView(viewModel: dependencyGraph.applicationBuild.mapViewViewModel).tabItem {
                 Label("Map", systemImage: "globe.americas")
             }
 
@@ -53,16 +59,27 @@ struct MainView: View {
 }
 
 enum ApplicationBuild {
-    case production, debug, offline
+    case production, offline, integrated
 
     var activityFeedViewModel: ActivityFeedViewViewModelType {
         switch self {
         case .production:
             FakeHomeTabActivityFeed() // For Now
-        case .debug:
-            FakeHomeTabActivityFeed()
         case .offline:
             StubbedActivityFeed(service: OfflinePostsService(postCount: 50))
+        case .integrated:
+            StubbedActivityFeed(service: OfflinePostsService(postCount: 50))
+        }
+    }
+
+    var mapViewViewModel: MapViewViewModelType {
+        switch self {
+        case .production:
+            OfflineMapViewViewModel(mapServiceType: OfflineMapService()) // For Now
+        case .offline:
+            OfflineMapViewViewModel(mapServiceType: OfflineMapService())
+        case .integrated:
+            OfflineMapViewViewModel(mapServiceType: OfflineMapService())
         }
     }
 }
