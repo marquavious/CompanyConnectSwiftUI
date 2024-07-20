@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ActivityFeedViewViewModelType {
-    func posts() -> [ActvityPost]
+//    func posts() -> [ActvityPost]
     func selctedCategories() ->[Category]
     func categories() -> [Category]
     func hasSelectedCategories() -> Bool
@@ -16,11 +16,88 @@ protocol ActivityFeedViewViewModelType {
     func resetSelectedCategories()
     func addToSelectedCategories(category: Category)
     func removeCategory(category: Category)
-    func handleSelectedCategory(_ category: Category)
+    func handleCategorySelection(_ category: Category)
+}
+
+protocol PostsServiceType {
+    func getPosts() async throws -> [ActvityPost]
 }
 
 @Observable
-class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
+class OfflinePostsService: PostsServiceType {
+    let postCount: Int
+
+    init(postCount: Int) {
+        self.postCount = postCount
+    }
+
+    func getPosts() async throws -> [ActvityPost] {
+        return Array(
+            repeating: ActvityPost.createFakeActivityPost(),
+            count: postCount
+        )
+    }
+}
+
+@Observable
+class StubbedActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
+
+    private (set) var service: PostsServiceType
+    private var _posts = [ActvityPost]()
+    private var _selctedCategories = [Category]()
+    private var _categories: [Category] = []
+
+    init(service: PostsServiceType) {
+        self.service = service
+    }
+
+    func loadPosts() async {
+        do {
+            self._posts = try await service.getPosts()
+        } catch {
+            // Handle Error
+        }
+    }
+
+    func selctedCategories() -> [Category] {
+        _selctedCategories
+    }
+    
+    func categories() -> [Category] {
+        Category.allCases
+    }
+    
+    func hasSelectedCategories() -> Bool {
+        !_selctedCategories.isEmpty
+    }
+    
+    func presentedPosts() -> [ActvityPost] {
+        _posts
+    }
+    
+    func resetSelectedCategories() {
+        _selctedCategories.removeAll()
+    }
+    
+    func addToSelectedCategories(category: Category) {
+        _selctedCategories.append(category)
+    }
+    
+    func removeCategory(category: Category) {
+        _selctedCategories.removeAll(where: { $0 == category })
+    }
+    
+    func handleCategorySelection(_ category: Category) {
+        if _selctedCategories.contains(category) {
+            removeCategory(category: category)
+        } else if !_selctedCategories.contains(category) {
+            addToSelectedCategories(category: category)
+        }
+    }
+}
+
+@Observable
+class FakeCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     init(company: CompanyObject) {
         _company = company
@@ -72,7 +149,7 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
         _selctedCategories.removeAll(where: { $0 == category })
     }
 
-    func handleSelectedCategory(_ category: Category) {
+    func handleCategorySelection(_ category: Category) {
         if _selctedCategories.contains(category) {
             removeCategory(category: category)
         } else if !_selctedCategories.contains(category) {
@@ -83,13 +160,11 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 }
 
 @Observable
-class BasicFakeActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
+class FakeHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     private var _posts = TweetGenerator.returnStructuredTweetList()
     private var _selctedCategories = [Category]()
     private var _categories: [Category] = [.community,.healthcare, .environmental, .education,.womensRights,.veterans, .humanRights,.indigenousRights]
-//    CompanyObject.ceateFakeComapnyList().map{ $0.category }
-//    Category.createCategoryList().sorted { $0.name < $1.name }
 
     private var _hasSelected: Bool {
         return !_selctedCategories.isEmpty
@@ -148,7 +223,7 @@ class BasicFakeActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
         _selctedCategories.removeAll(where: { $0 == category })
     }
 
-    func handleSelectedCategory(_ category: Category) {
+    func handleCategorySelection(_ category: Category) {
         if _selctedCategories.contains(category) {
             removeCategory(category: category)
         } else if !_selctedCategories.contains(category) {

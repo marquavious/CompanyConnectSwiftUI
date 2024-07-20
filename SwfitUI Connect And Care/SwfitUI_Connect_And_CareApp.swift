@@ -11,9 +11,11 @@ import TipKit
 @main
 struct SwfitUI_Connect_And_CareApp: App {
 
+    let dependencyGraph = DependencyGraph(applicationBuild: .offline) // CHANGE THIS WITH SCHEMES
+
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(dependencyGraph: dependencyGraph)
         }
     }
 
@@ -26,9 +28,12 @@ struct SwfitUI_Connect_And_CareApp: App {
 }
 
 struct MainView: View {
+
+    let dependencyGraph: DependencyGraph
+
     var body: some View {
         TabView {
-            ActivityFeedView(viewModel: BasicFakeActivityFeed()).tabItem {
+            ActivityFeedView(viewModel: dependencyGraph.applicationBuild.activityFeedViewModel).tabItem {
                 Label("Feed", systemImage: "bubble.circle.fill")
             }
 
@@ -44,5 +49,29 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    MainView(dependencyGraph: DependencyGraph(applicationBuild: .offline))
+}
+
+enum ApplicationBuild {
+    case production, debug, offline
+
+    var activityFeedViewModel: ActivityFeedViewViewModelType {
+        switch self {
+        case .production:
+            FakeHomeTabActivityFeed() // For Now
+        case .debug:
+            FakeHomeTabActivityFeed()
+        case .offline:
+            StubbedActivityFeed(service: OfflinePostsService(postCount: 50))
+        }
+    }
+}
+
+
+class DependencyGraph {
+    let applicationBuild: ApplicationBuild
+
+    init(applicationBuild: ApplicationBuild) {
+        self.applicationBuild = applicationBuild
+    }
 }

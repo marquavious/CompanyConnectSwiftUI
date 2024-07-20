@@ -111,7 +111,7 @@ struct CompanyProfileView: View {
         UIPageControl.appearance().currentPageIndicatorTintColor = .gray
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
         self.company = companyObject
-        self.viewModel = CompanyActivityFeed(company: companyObject)
+        self.viewModel = FakeCompanyActivityFeed(company: companyObject)
     }
 
     var body: some View {

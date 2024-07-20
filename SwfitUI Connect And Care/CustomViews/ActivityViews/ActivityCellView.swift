@@ -119,5 +119,5 @@ struct ActivityCellView: View {
 }
 
 #Preview {
-    ActivityFeedView(viewModel: BasicFakeActivityFeed())
+    ActivityFeedView(viewModel: FakeHomeTabActivityFeed())
 }

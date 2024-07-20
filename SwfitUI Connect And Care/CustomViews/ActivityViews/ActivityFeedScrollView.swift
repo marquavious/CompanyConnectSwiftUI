@@ -50,7 +50,7 @@ struct ActivityFeedScrollView: View {
                             ActvitiyFeedFilterView(viewModel: viewModel) { category in
                                 activityScrollerTipView.invalidate(reason: .actionPerformed)
                                 withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
-                                    viewModel.handleSelectedCategory(category)
+                                    viewModel.handleCategorySelection(category)
                                 }
                             }
                             .frame(minHeight: Constants.ActvitiyFeedFilterViewHight)
@@ -66,5 +66,5 @@ struct ActivityFeedScrollView: View {
 }
 
 #Preview {
-    ActivityFeedView(viewModel: BasicFakeActivityFeed())
+    ActivityFeedView(viewModel: FakeHomeTabActivityFeed())
 }

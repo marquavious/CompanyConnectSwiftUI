@@ -68,5 +68,5 @@ struct MediaView: View {
 }
 
 #Preview {
-    ActivityFeedView(viewModel: BasicFakeActivityFeed())
+    ActivityFeedView(viewModel: FakeHomeTabActivityFeed())
 }
