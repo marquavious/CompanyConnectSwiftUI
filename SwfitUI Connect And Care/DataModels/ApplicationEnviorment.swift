@@ -14,31 +14,4 @@ enum ApplicationEnviorment: String {
     case integrated = "INTEGRATED"
     case development = "DEVELOPMENT"
 
-    var activityFeedViewModel: ActivityFeedViewViewModelType {
-        switch self {
-        case .production:
-            // For Now
-            FakeHomeTabActivityFeed()
-        case .offline:
-            StubbedActivityFeed(service: OfflinePostsService(postCount: 50))
-        case .integrated:
-            StubbedActivityFeed(service: OfflinePostsService(postCount: 50))
-        case .development:
-            FakeHomeTabActivityFeed()
-        }
-    }
-
-    var mapViewViewModel: MapViewViewModelType {
-        switch self {
-        case .production:
-            // For Now
-            OfflineMapViewViewModel(mapServiceType: OfflineMapService())
-        case .offline:
-            OfflineMapViewViewModel(mapServiceType: OfflineMapService())
-        case .integrated:
-            OfflineMapViewViewModel(mapServiceType: OfflineMapService())
-        case .development:
-            FakeMapViewViewModel()
-        }
-    }
 }
