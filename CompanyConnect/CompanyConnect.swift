@@ -16,6 +16,7 @@ struct CompanyConnect: App {
         do {
             configEnvString = try Configuration.value(for: ConfiKeys.APPLICATION_ENVIRONMENT.rawValue)
         } catch {
+            print(error)
             fatalError("Could not load enviorment variable")
         }
 
