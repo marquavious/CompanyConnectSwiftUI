@@ -11,13 +11,16 @@ import TipKit
 @main
 struct SwfitUI_Connect_And_CareApp: App {
 
-    #if RELEASE
-    let dependencyGraph = DependencyGraph(applicationBuild: .production)
-    #elseif OFFLINE
-    let dependencyGraph = DependencyGraph(applicationBuild: .offline)
-    #elseif INTEGRATED
-    let dependencyGraph = DependencyGraph(applicationBuild: .integrated)
-    #endif
+    let dependencyGraph: DependencyGraph = {
+        let configEnvString: String
+        do {
+            configEnvString = try Configuration.value(for: ConfiKeys.APPLICATION_ENVIRONMENT.rawValue)
+        } catch { fatalError("Could not load enviorment variable") }
+
+        if let enviorment = ApplicationEnviorment(rawValue: configEnvString) {
+            return DependencyGraph(applicationEnviorment: enviorment)
+        } else { fatalError("Could not load enviorment variable") }
+    }()
 
     var body: some Scene {
         WindowGroup {
@@ -30,7 +33,8 @@ struct SwfitUI_Connect_And_CareApp: App {
         try? Tips.resetDatastore() // Purge all TipKit related data.
         try? Tips.configure() // Tips.showTipsForTesting([CompletionToDeleteTip.self])
     #endif
-    }
+    }   
+    
 }
 
 struct MainView: View {
@@ -39,11 +43,11 @@ struct MainView: View {
 
     var body: some View {
         TabView {
-            ActivityFeedView(viewModel: dependencyGraph.applicationBuild.activityFeedViewModel).tabItem {
+            ActivityFeedView(viewModel: dependencyGraph.applicationEnviorment.activityFeedViewModel).tabItem {
                 Label("Feed", systemImage: "bubble.circle.fill")
             }
 
-            MapTabView(viewModel: dependencyGraph.applicationBuild.mapViewViewModel).tabItem {
+            MapTabView(viewModel: dependencyGraph.applicationEnviorment.mapViewViewModel).tabItem {
                 Label("Map", systemImage: "globe.americas")
             }
 
@@ -55,40 +59,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(dependencyGraph: DependencyGraph(applicationBuild: .offline))
-}
-
-enum ApplicationBuild {
-    case production, offline, integrated
-
-    var activityFeedViewModel: ActivityFeedViewViewModelType {
-        switch self {
-        case .production:
-            FakeHomeTabActivityFeed() // For Now
-        case .offline:
-            StubbedActivityFeed(service: OfflinePostsService(postCount: 50))
-        case .integrated:
-            StubbedActivityFeed(service: OfflinePostsService(postCount: 50))
-        }
-    }
-
-    var mapViewViewModel: MapViewViewModelType {
-        switch self {
-        case .production:
-            OfflineMapViewViewModel(mapServiceType: OfflineMapService()) // For Now
-        case .offline:
-            OfflineMapViewViewModel(mapServiceType: OfflineMapService())
-        case .integrated:
-            OfflineMapViewViewModel(mapServiceType: OfflineMapService())
-        }
-    }
-}
-
-
-class DependencyGraph {
-    let applicationBuild: ApplicationBuild
-
-    init(applicationBuild: ApplicationBuild) {
-        self.applicationBuild = applicationBuild
-    }
+    MainView(dependencyGraph: DependencyGraph(applicationEnviorment: .offline))
 }

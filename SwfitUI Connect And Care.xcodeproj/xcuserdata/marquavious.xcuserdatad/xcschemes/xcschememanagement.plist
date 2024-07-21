@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>(DEVELOPMENT) SwiftUI Connect And Care.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>(OFFLINE) SwiftUI Connect And Care.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>SwfitUI Connect And Care.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +23,26 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>C05ADEC42B0AC29D00F5B5ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C08444852C4CC7EC0034C236</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C08444C22C4CC8D20034C236</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C08445042C4CCCC70034C236</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C08445422C4CCF1F0034C236</key>
 		<dict>
 			<key>primary</key>
 			<true/>

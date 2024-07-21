@@ -18,10 +18,18 @@ protocol MapServiceType {
 }
 
 @Observable
-class OfflineMapService: MapServiceType {
+class FakeMapService: MapServiceType {
 
     func getMapData() async throws -> MapData {
         return CompanyObject.createFakeComapnyList()
+    }
+}
+
+@Observable
+class OfflineMapService: MapServiceType {
+
+    func getMapData() async throws -> MapData {
+        return []
     }
 }
 

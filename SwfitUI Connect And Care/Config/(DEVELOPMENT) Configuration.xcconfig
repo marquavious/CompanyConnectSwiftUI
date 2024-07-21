@@ -1,0 +1,11 @@
+//
+//  (DEVELOPMENT) Configuration.xcconfig
+//  SwfitUI Connect And Care
+//
+//  Created by Marquavious Draggon on 7/21/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APPLICATION_ENVIRONMENT = DEVELOPMENT
