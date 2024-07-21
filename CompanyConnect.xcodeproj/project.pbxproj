@@ -188,7 +188,7 @@
 		C0219F892C4CFE9100979B2E /* CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompanyConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0219F8D2C4D020200979B2E /* (OFFLINE) CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(OFFLINE) CompanyConnect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(PROD) Configuration.xcconfig"; sourceTree = "<group>"; };
-		C0B86C6F2C4D055700C853C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C0B86C6F2C4D055700C853C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CC8D5D2C4CEEC40083E6C6 /* (DEVELOPMENT) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(DEVELOPMENT) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0CC8D5E2C4CEEC40083E6C6 /* (OFFLINE) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(OFFLINE) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0CC8D612C4CEEC40083E6C6 /* CurvedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedRect.swift; sourceTree = "<group>"; };
@@ -288,6 +288,8 @@
 		C0CC8D602C4CEEC40083E6C6 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */,
+				C0B86C6F2C4D055700C853C0 /* Info.plist */,
 				C0CC8D5D2C4CEEC40083E6C6 /* (DEVELOPMENT) Configuration.xcconfig */,
 				C0CC8E962C4CF9BE0083E6C6 /* (DEVELOPMENT) CompanyConnect-Info.plist */,
 				C0CC8D5E2C4CEEC40083E6C6 /* (OFFLINE) Configuration.xcconfig */,
@@ -435,9 +437,7 @@
 		C0CC8DA32C4CEEC40083E6C6 /* CompanyConnect */ = {
 			isa = PBXGroup;
 			children = (
-				C0B86C6F2C4D055700C853C0 /* Info.plist */,
 				C0CC8DD82C4CF1930083E6C6 /* CompanyConnect.swift */,
-				C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */,
 				C0CC8D602C4CEEC40083E6C6 /* Config */,
 				C0CC8D632C4CEEC40083E6C6 /* Custom Shapes */,
 				C0CC8D832C4CEEC40083E6C6 /* CustomViews */,
