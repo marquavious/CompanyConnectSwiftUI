@@ -1,0 +1,1084 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C0CC8DA42C4CF0F80083E6C6 /* CurvedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D612C4CEEC40083E6C6 /* CurvedRect.swift */; };
+		C0CC8DA52C4CF0F80083E6C6 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D622C4CEEC40083E6C6 /* Triangle.swift */; };
+		C0CC8DA62C4CF0F80083E6C6 /* ActivityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D642C4CEEC40083E6C6 /* ActivityCellView.swift */; };
+		C0CC8DA72C4CF0F80083E6C6 /* ActivityFeedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D652C4CEEC40083E6C6 /* ActivityFeedScrollView.swift */; };
+		C0CC8DA82C4CF0F80083E6C6 /* ActvitiyFeedFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D662C4CEEC40083E6C6 /* ActvitiyFeedFilterView.swift */; };
+		C0CC8DA92C4CF0F80083E6C6 /* DonationProgessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D672C4CEEC40083E6C6 /* DonationProgessView.swift */; };
+		C0CC8DAA2C4CF0F80083E6C6 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D682C4CEEC40083E6C6 /* MediaView.swift */; };
+		C0CC8DAB2C4CF0F80083E6C6 /* BriefHistoryPhotoScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6A2C4CEEC40083E6C6 /* BriefHistoryPhotoScrollerView.swift */; };
+		C0CC8DAC2C4CF0F80083E6C6 /* CompanyProfileMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6B2C4CEEC40083E6C6 /* CompanyProfileMapView.swift */; };
+		C0CC8DAD2C4CF0F80083E6C6 /* CompanyProfileTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6C2C4CEEC40083E6C6 /* CompanyProfileTextView.swift */; };
+		C0CC8DAE2C4CF0F80083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6D2C4CEEC40083E6C6 /* OurTeamPhotoScrollerView.swift */; };
+		C0CC8DAF2C4CF0F80083E6C6 /* ProjectsScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6E2C4CEEC40083E6C6 /* ProjectsScrollerView.swift */; };
+		C0CC8DB02C4CF0F80083E6C6 /* DonationCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D702C4CEEC40083E6C6 /* DonationCellView.swift */; };
+		C0CC8DB12C4CF0F80083E6C6 /* BaseMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D722C4CEEC40083E6C6 /* BaseMapView.swift */; };
+		C0CC8DB22C4CF0F80083E6C6 /* CompanyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D732C4CEEC40083E6C6 /* CompanyCardView.swift */; };
+		C0CC8DB32C4CF0F80083E6C6 /* CompanyHGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D742C4CEEC40083E6C6 /* CompanyHGrid.swift */; };
+		C0CC8DB42C4CF0F80083E6C6 /* CompanyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D752C4CEEC40083E6C6 /* CompanyListView.swift */; };
+		C0CC8DB52C4CF0F80083E6C6 /* CompanyVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D762C4CEEC40083E6C6 /* CompanyVGrid.swift */; };
+		C0CC8DB62C4CF0F80083E6C6 /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D772C4CEEC40083E6C6 /* MapAnnotationView.swift */; };
+		C0CC8DB72C4CF0F80083E6C6 /* MapControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D782C4CEEC40083E6C6 /* MapControlPanelView.swift */; };
+		C0CC8DD02C4CF0F80083E6C6 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D952C4CEEC40083E6C6 /* Color+Ext.swift */; };
+		C0CC8DD12C4CF0F80083E6C6 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D962C4CEEC40083E6C6 /* Date+Ext.swift */; };
+		C0CC8DD22C4CF0F80083E6C6 /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D972C4CEEC40083E6C6 /* Image+Ext.swift */; };
+		C0CC8DD32C4CF0F80083E6C6 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D982C4CEEC40083E6C6 /* View+Ext.swift */; };
+		C0CC8DD42C4CF0F80083E6C6 /* ActivityFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D9D2C4CEEC40083E6C6 /* ActivityFeedView.swift */; };
+		C0CC8DD52C4CF0F80083E6C6 /* CompanyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D9E2C4CEEC40083E6C6 /* CompanyProfileView.swift */; };
+		C0CC8DD62C4CF0F80083E6C6 /* DonationsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D9F2C4CEEC40083E6C6 /* DonationsTabView.swift */; };
+		C0CC8DD72C4CF0F80083E6C6 /* MapTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8DA02C4CEEC40083E6C6 /* MapTabView.swift */; };
+		C0CC8DD92C4CF21B0083E6C6 /* CompanyConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8DD82C4CF1930083E6C6 /* CompanyConnect.swift */; };
+		C0CC8DDA2C4CF21C0083E6C6 /* CompanyConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8DD82C4CF1930083E6C6 /* CompanyConnect.swift */; };
+		C0CC8DDB2C4CF21C0083E6C6 /* CompanyConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8DD82C4CF1930083E6C6 /* CompanyConnect.swift */; };
+		C0CC8DDE2C4CF3370083E6C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CC8D9A2C4CEEC40083E6C6 /* Assets.xcassets */; };
+		C0CC8DDF2C4CF3370083E6C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CC8D9A2C4CEEC40083E6C6 /* Assets.xcassets */; };
+		C0CC8DE02C4CF3370083E6C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CC8D9A2C4CEEC40083E6C6 /* Assets.xcassets */; };
+		C0CC8DE12C4CF3560083E6C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CC8D9B2C4CEEC40083E6C6 /* Preview Assets.xcassets */; };
+		C0CC8DE22C4CF3560083E6C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CC8D9B2C4CEEC40083E6C6 /* Preview Assets.xcassets */; };
+		C0CC8DE32C4CF3570083E6C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CC8D9B2C4CEEC40083E6C6 /* Preview Assets.xcassets */; };
+		C0CC8DEA2C4CF4320083E6C6 /* ApplicationEnviorment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D852C4CEEC40083E6C6 /* ApplicationEnviorment.swift */; };
+		C0CC8DEB2C4CF4320083E6C6 /* MediaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8E2C4CEEC40083E6C6 /* MediaData.swift */; };
+		C0CC8DEC2C4CF4320083E6C6 /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D902C4CEEC40083E6C6 /* StringGenerator.swift */; };
+		C0CC8DED2C4CF4320083E6C6 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D912C4CEEC40083E6C6 /* TeamMember.swift */; };
+		C0CC8DEE2C4CF4320083E6C6 /* CompanyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D892C4CEEC40083E6C6 /* CompanyObject.swift */; };
+		C0CC8DEF2C4CF4320083E6C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D932C4CEEC40083E6C6 /* User.swift */; };
+		C0CC8DF02C4CF4320083E6C6 /* IdentifiableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8D2C4CEEC40083E6C6 /* IdentifiableImage.swift */; };
+		C0CC8DF12C4CF4320083E6C6 /* CategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D882C4CEEC40083E6C6 /* CategoryObject.swift */; };
+		C0CC8DF22C4CF4320083E6C6 /* DependencyGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8B2C4CEEC40083E6C6 /* DependencyGraph.swift */; };
+		C0CC8DF32C4CF4320083E6C6 /* TweetGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D922C4CEEC40083E6C6 /* TweetGenerator.swift */; };
+		C0CC8DF42C4CF4320083E6C6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8A2C4CEEC40083E6C6 /* Configuration.swift */; };
+		C0CC8DF52C4CF4320083E6C6 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8F2C4CEEC40083E6C6 /* Project.swift */; };
+		C0CC8DF62C4CF4320083E6C6 /* BriefHistoryImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D862C4CEEC40083E6C6 /* BriefHistoryImageObject.swift */; };
+		C0CC8DF72C4CF4320083E6C6 /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8C2C4CEEC40083E6C6 /* Donation.swift */; };
+		C0CC8DF82C4CF4320083E6C6 /* ActvityPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D842C4CEEC40083E6C6 /* ActvityPost.swift */; };
+		C0CC8DF92C4CF4320083E6C6 /* BriefHistoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D872C4CEEC40083E6C6 /* BriefHistoryObject.swift */; };
+		C0CC8E082C4CF4330083E6C6 /* ApplicationEnviorment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D852C4CEEC40083E6C6 /* ApplicationEnviorment.swift */; };
+		C0CC8E092C4CF4330083E6C6 /* MediaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8E2C4CEEC40083E6C6 /* MediaData.swift */; };
+		C0CC8E0A2C4CF4330083E6C6 /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D902C4CEEC40083E6C6 /* StringGenerator.swift */; };
+		C0CC8E0B2C4CF4330083E6C6 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D912C4CEEC40083E6C6 /* TeamMember.swift */; };
+		C0CC8E0C2C4CF4330083E6C6 /* CompanyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D892C4CEEC40083E6C6 /* CompanyObject.swift */; };
+		C0CC8E0D2C4CF4330083E6C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D932C4CEEC40083E6C6 /* User.swift */; };
+		C0CC8E0E2C4CF4330083E6C6 /* IdentifiableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8D2C4CEEC40083E6C6 /* IdentifiableImage.swift */; };
+		C0CC8E0F2C4CF4330083E6C6 /* CategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D882C4CEEC40083E6C6 /* CategoryObject.swift */; };
+		C0CC8E102C4CF4330083E6C6 /* DependencyGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8B2C4CEEC40083E6C6 /* DependencyGraph.swift */; };
+		C0CC8E112C4CF4330083E6C6 /* TweetGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D922C4CEEC40083E6C6 /* TweetGenerator.swift */; };
+		C0CC8E122C4CF4330083E6C6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8A2C4CEEC40083E6C6 /* Configuration.swift */; };
+		C0CC8E132C4CF4330083E6C6 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8F2C4CEEC40083E6C6 /* Project.swift */; };
+		C0CC8E142C4CF4330083E6C6 /* BriefHistoryImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D862C4CEEC40083E6C6 /* BriefHistoryImageObject.swift */; };
+		C0CC8E152C4CF4330083E6C6 /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8C2C4CEEC40083E6C6 /* Donation.swift */; };
+		C0CC8E162C4CF4330083E6C6 /* ActvityPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D842C4CEEC40083E6C6 /* ActvityPost.swift */; };
+		C0CC8E172C4CF4330083E6C6 /* BriefHistoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D872C4CEEC40083E6C6 /* BriefHistoryObject.swift */; };
+		C0CC8E262C4CF4350083E6C6 /* ApplicationEnviorment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D852C4CEEC40083E6C6 /* ApplicationEnviorment.swift */; };
+		C0CC8E272C4CF4350083E6C6 /* MediaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8E2C4CEEC40083E6C6 /* MediaData.swift */; };
+		C0CC8E282C4CF4350083E6C6 /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D902C4CEEC40083E6C6 /* StringGenerator.swift */; };
+		C0CC8E292C4CF4350083E6C6 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D912C4CEEC40083E6C6 /* TeamMember.swift */; };
+		C0CC8E2A2C4CF4350083E6C6 /* CompanyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D892C4CEEC40083E6C6 /* CompanyObject.swift */; };
+		C0CC8E2B2C4CF4350083E6C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D932C4CEEC40083E6C6 /* User.swift */; };
+		C0CC8E2C2C4CF4350083E6C6 /* IdentifiableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8D2C4CEEC40083E6C6 /* IdentifiableImage.swift */; };
+		C0CC8E2D2C4CF4350083E6C6 /* CategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D882C4CEEC40083E6C6 /* CategoryObject.swift */; };
+		C0CC8E2E2C4CF4350083E6C6 /* DependencyGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8B2C4CEEC40083E6C6 /* DependencyGraph.swift */; };
+		C0CC8E2F2C4CF4350083E6C6 /* TweetGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D922C4CEEC40083E6C6 /* TweetGenerator.swift */; };
+		C0CC8E302C4CF4350083E6C6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8A2C4CEEC40083E6C6 /* Configuration.swift */; };
+		C0CC8E312C4CF4350083E6C6 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8F2C4CEEC40083E6C6 /* Project.swift */; };
+		C0CC8E322C4CF4350083E6C6 /* BriefHistoryImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D862C4CEEC40083E6C6 /* BriefHistoryImageObject.swift */; };
+		C0CC8E332C4CF4350083E6C6 /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8C2C4CEEC40083E6C6 /* Donation.swift */; };
+		C0CC8E342C4CF4350083E6C6 /* ActvityPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D842C4CEEC40083E6C6 /* ActvityPost.swift */; };
+		C0CC8E352C4CF4350083E6C6 /* BriefHistoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D872C4CEEC40083E6C6 /* BriefHistoryObject.swift */; };
+		C0CC8E362C4CF4420083E6C6 /* CategoryFilterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7E2C4CEEC40083E6C6 /* CategoryFilterScrollView.swift */; };
+		C0CC8E372C4CF4420083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7A2C4CEEC40083E6C6 /* ActivityFeedViewViewModelType.swift */; };
+		C0CC8E382C4CF4420083E6C6 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D812C4CEEC40083E6C6 /* ScrollViewOffset.swift */; };
+		C0CC8E392C4CF4420083E6C6 /* MapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7B2C4CEEC40083E6C6 /* MapViewViewModel.swift */; };
+		C0CC8E3A2C4CF4420083E6C6 /* RoundButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D802C4CEEC40083E6C6 /* RoundButtonView.swift */; };
+		C0CC8E3B2C4CF4420083E6C6 /* TipViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D822C4CEEC40083E6C6 /* TipViews.swift */; };
+		C0CC8E3C2C4CF4420083E6C6 /* LogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7F2C4CEEC40083E6C6 /* LogoImageView.swift */; };
+		C0CC8E3D2C4CF4420083E6C6 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7D2C4CEEC40083E6C6 /* BlurView.swift */; };
+		C0CC8E452C4CF4440083E6C6 /* CategoryFilterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7E2C4CEEC40083E6C6 /* CategoryFilterScrollView.swift */; };
+		C0CC8E462C4CF4440083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7A2C4CEEC40083E6C6 /* ActivityFeedViewViewModelType.swift */; };
+		C0CC8E472C4CF4440083E6C6 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D812C4CEEC40083E6C6 /* ScrollViewOffset.swift */; };
+		C0CC8E482C4CF4440083E6C6 /* MapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7B2C4CEEC40083E6C6 /* MapViewViewModel.swift */; };
+		C0CC8E492C4CF4440083E6C6 /* RoundButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D802C4CEEC40083E6C6 /* RoundButtonView.swift */; };
+		C0CC8E4A2C4CF4440083E6C6 /* TipViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D822C4CEEC40083E6C6 /* TipViews.swift */; };
+		C0CC8E4B2C4CF4440083E6C6 /* LogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7F2C4CEEC40083E6C6 /* LogoImageView.swift */; };
+		C0CC8E4C2C4CF4440083E6C6 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7D2C4CEEC40083E6C6 /* BlurView.swift */; };
+		C0CC8E542C4CF4450083E6C6 /* CategoryFilterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7E2C4CEEC40083E6C6 /* CategoryFilterScrollView.swift */; };
+		C0CC8E552C4CF4450083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7A2C4CEEC40083E6C6 /* ActivityFeedViewViewModelType.swift */; };
+		C0CC8E562C4CF4450083E6C6 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D812C4CEEC40083E6C6 /* ScrollViewOffset.swift */; };
+		C0CC8E572C4CF4450083E6C6 /* MapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7B2C4CEEC40083E6C6 /* MapViewViewModel.swift */; };
+		C0CC8E582C4CF4450083E6C6 /* RoundButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D802C4CEEC40083E6C6 /* RoundButtonView.swift */; };
+		C0CC8E592C4CF4450083E6C6 /* TipViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D822C4CEEC40083E6C6 /* TipViews.swift */; };
+		C0CC8E5A2C4CF4450083E6C6 /* LogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7F2C4CEEC40083E6C6 /* LogoImageView.swift */; };
+		C0CC8E5B2C4CF4450083E6C6 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7D2C4CEEC40083E6C6 /* BlurView.swift */; };
+		C0CC8E5C2C4CF44A0083E6C6 /* BaseMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D722C4CEEC40083E6C6 /* BaseMapView.swift */; };
+		C0CC8E5D2C4CF44A0083E6C6 /* CompanyHGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D742C4CEEC40083E6C6 /* CompanyHGrid.swift */; };
+		C0CC8E5E2C4CF44A0083E6C6 /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D772C4CEEC40083E6C6 /* MapAnnotationView.swift */; };
+		C0CC8E5F2C4CF44A0083E6C6 /* CompanyVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D762C4CEEC40083E6C6 /* CompanyVGrid.swift */; };
+		C0CC8E602C4CF44A0083E6C6 /* CompanyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D732C4CEEC40083E6C6 /* CompanyCardView.swift */; };
+		C0CC8E612C4CF44A0083E6C6 /* MapControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D782C4CEEC40083E6C6 /* MapControlPanelView.swift */; };
+		C0CC8E622C4CF44A0083E6C6 /* CompanyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D752C4CEEC40083E6C6 /* CompanyListView.swift */; };
+		C0CC8E632C4CF44B0083E6C6 /* BaseMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D722C4CEEC40083E6C6 /* BaseMapView.swift */; };
+		C0CC8E642C4CF44B0083E6C6 /* CompanyHGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D742C4CEEC40083E6C6 /* CompanyHGrid.swift */; };
+		C0CC8E652C4CF44B0083E6C6 /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D772C4CEEC40083E6C6 /* MapAnnotationView.swift */; };
+		C0CC8E662C4CF44B0083E6C6 /* CompanyVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D762C4CEEC40083E6C6 /* CompanyVGrid.swift */; };
+		C0CC8E672C4CF44B0083E6C6 /* CompanyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D732C4CEEC40083E6C6 /* CompanyCardView.swift */; };
+		C0CC8E682C4CF44B0083E6C6 /* MapControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D782C4CEEC40083E6C6 /* MapControlPanelView.swift */; };
+		C0CC8E692C4CF44B0083E6C6 /* CompanyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D752C4CEEC40083E6C6 /* CompanyListView.swift */; };
+		C0CC8E6A2C4CF44D0083E6C6 /* DonationCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D702C4CEEC40083E6C6 /* DonationCellView.swift */; };
+		C0CC8E6B2C4CF44E0083E6C6 /* DonationCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D702C4CEEC40083E6C6 /* DonationCellView.swift */; };
+		C0CC8E6C2C4CF4510083E6C6 /* CompanyProfileMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6B2C4CEEC40083E6C6 /* CompanyProfileMapView.swift */; };
+		C0CC8E6D2C4CF4510083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6D2C4CEEC40083E6C6 /* OurTeamPhotoScrollerView.swift */; };
+		C0CC8E6E2C4CF4510083E6C6 /* BriefHistoryPhotoScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6A2C4CEEC40083E6C6 /* BriefHistoryPhotoScrollerView.swift */; };
+		C0CC8E6F2C4CF4510083E6C6 /* CompanyProfileTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6C2C4CEEC40083E6C6 /* CompanyProfileTextView.swift */; };
+		C0CC8E702C4CF4510083E6C6 /* ProjectsScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6E2C4CEEC40083E6C6 /* ProjectsScrollerView.swift */; };
+		C0CC8E712C4CF4520083E6C6 /* CompanyProfileMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6B2C4CEEC40083E6C6 /* CompanyProfileMapView.swift */; };
+		C0CC8E722C4CF4520083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6D2C4CEEC40083E6C6 /* OurTeamPhotoScrollerView.swift */; };
+		C0CC8E732C4CF4520083E6C6 /* BriefHistoryPhotoScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6A2C4CEEC40083E6C6 /* BriefHistoryPhotoScrollerView.swift */; };
+		C0CC8E742C4CF4520083E6C6 /* CompanyProfileTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6C2C4CEEC40083E6C6 /* CompanyProfileTextView.swift */; };
+		C0CC8E752C4CF4520083E6C6 /* ProjectsScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D6E2C4CEEC40083E6C6 /* ProjectsScrollerView.swift */; };
+		C0CC8E762C4CF4570083E6C6 /* ActivityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D642C4CEEC40083E6C6 /* ActivityCellView.swift */; };
+		C0CC8E772C4CF4570083E6C6 /* ActivityFeedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D652C4CEEC40083E6C6 /* ActivityFeedScrollView.swift */; };
+		C0CC8E782C4CF4570083E6C6 /* ActvitiyFeedFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D662C4CEEC40083E6C6 /* ActvitiyFeedFilterView.swift */; };
+		C0CC8E792C4CF4570083E6C6 /* DonationProgessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D672C4CEEC40083E6C6 /* DonationProgessView.swift */; };
+		C0CC8E7A2C4CF4570083E6C6 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D682C4CEEC40083E6C6 /* MediaView.swift */; };
+		C0CC8E7B2C4CF4570083E6C6 /* ActivityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D642C4CEEC40083E6C6 /* ActivityCellView.swift */; };
+		C0CC8E7C2C4CF4570083E6C6 /* ActivityFeedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D652C4CEEC40083E6C6 /* ActivityFeedScrollView.swift */; };
+		C0CC8E7D2C4CF4570083E6C6 /* ActvitiyFeedFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D662C4CEEC40083E6C6 /* ActvitiyFeedFilterView.swift */; };
+		C0CC8E7E2C4CF4570083E6C6 /* DonationProgessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D672C4CEEC40083E6C6 /* DonationProgessView.swift */; };
+		C0CC8E7F2C4CF4570083E6C6 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D682C4CEEC40083E6C6 /* MediaView.swift */; };
+		C0CC8E802C4CF45A0083E6C6 /* CurvedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D612C4CEEC40083E6C6 /* CurvedRect.swift */; };
+		C0CC8E812C4CF45A0083E6C6 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D622C4CEEC40083E6C6 /* Triangle.swift */; };
+		C0CC8E822C4CF45B0083E6C6 /* CurvedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D612C4CEEC40083E6C6 /* CurvedRect.swift */; };
+		C0CC8E832C4CF45B0083E6C6 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D622C4CEEC40083E6C6 /* Triangle.swift */; };
+		C0CC8E842C4CF4770083E6C6 /* ActivityFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D9D2C4CEEC40083E6C6 /* ActivityFeedView.swift */; };
+		C0CC8E852C4CF4770083E6C6 /* MapTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8DA02C4CEEC40083E6C6 /* MapTabView.swift */; };
+		C0CC8E862C4CF4770083E6C6 /* CompanyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D9E2C4CEEC40083E6C6 /* CompanyProfileView.swift */; };
+		C0CC8E872C4CF4770083E6C6 /* DonationsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D9F2C4CEEC40083E6C6 /* DonationsTabView.swift */; };
+		C0CC8E882C4CF4770083E6C6 /* ActivityFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D9D2C4CEEC40083E6C6 /* ActivityFeedView.swift */; };
+		C0CC8E892C4CF4770083E6C6 /* MapTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8DA02C4CEEC40083E6C6 /* MapTabView.swift */; };
+		C0CC8E8A2C4CF4770083E6C6 /* CompanyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D9E2C4CEEC40083E6C6 /* CompanyProfileView.swift */; };
+		C0CC8E8B2C4CF4770083E6C6 /* DonationsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D9F2C4CEEC40083E6C6 /* DonationsTabView.swift */; };
+		C0CC8E8C2C4CF48E0083E6C6 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D982C4CEEC40083E6C6 /* View+Ext.swift */; };
+		C0CC8E8D2C4CF48E0083E6C6 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D962C4CEEC40083E6C6 /* Date+Ext.swift */; };
+		C0CC8E8E2C4CF48E0083E6C6 /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D972C4CEEC40083E6C6 /* Image+Ext.swift */; };
+		C0CC8E8F2C4CF48E0083E6C6 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D952C4CEEC40083E6C6 /* Color+Ext.swift */; };
+		C0CC8E902C4CF48F0083E6C6 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D982C4CEEC40083E6C6 /* View+Ext.swift */; };
+		C0CC8E912C4CF48F0083E6C6 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D962C4CEEC40083E6C6 /* Date+Ext.swift */; };
+		C0CC8E922C4CF48F0083E6C6 /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D972C4CEEC40083E6C6 /* Image+Ext.swift */; };
+		C0CC8E932C4CF48F0083E6C6 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D952C4CEEC40083E6C6 /* Color+Ext.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C08445902C4CD74B0034C236 /* CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompanyConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0CC8D5D2C4CEEC40083E6C6 /* (DEVELOPMENT) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(DEVELOPMENT) Configuration.xcconfig"; sourceTree = "<group>"; };
+		C0CC8D5E2C4CEEC40083E6C6 /* (OFFLINE) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(OFFLINE) Configuration.xcconfig"; sourceTree = "<group>"; };
+		C0CC8D5F2C4CEEC40083E6C6 /* (PROD) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(PROD) Configuration.xcconfig"; sourceTree = "<group>"; };
+		C0CC8D612C4CEEC40083E6C6 /* CurvedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedRect.swift; sourceTree = "<group>"; };
+		C0CC8D622C4CEEC40083E6C6 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		C0CC8D642C4CEEC40083E6C6 /* ActivityCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellView.swift; sourceTree = "<group>"; };
+		C0CC8D652C4CEEC40083E6C6 /* ActivityFeedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedScrollView.swift; sourceTree = "<group>"; };
+		C0CC8D662C4CEEC40083E6C6 /* ActvitiyFeedFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActvitiyFeedFilterView.swift; sourceTree = "<group>"; };
+		C0CC8D672C4CEEC40083E6C6 /* DonationProgessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationProgessView.swift; sourceTree = "<group>"; };
+		C0CC8D682C4CEEC40083E6C6 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
+		C0CC8D6A2C4CEEC40083E6C6 /* BriefHistoryPhotoScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefHistoryPhotoScrollerView.swift; sourceTree = "<group>"; };
+		C0CC8D6B2C4CEEC40083E6C6 /* CompanyProfileMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileMapView.swift; sourceTree = "<group>"; };
+		C0CC8D6C2C4CEEC40083E6C6 /* CompanyProfileTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileTextView.swift; sourceTree = "<group>"; };
+		C0CC8D6D2C4CEEC40083E6C6 /* OurTeamPhotoScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurTeamPhotoScrollerView.swift; sourceTree = "<group>"; };
+		C0CC8D6E2C4CEEC40083E6C6 /* ProjectsScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsScrollerView.swift; sourceTree = "<group>"; };
+		C0CC8D702C4CEEC40083E6C6 /* DonationCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationCellView.swift; sourceTree = "<group>"; };
+		C0CC8D722C4CEEC40083E6C6 /* BaseMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMapView.swift; sourceTree = "<group>"; };
+		C0CC8D732C4CEEC40083E6C6 /* CompanyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCardView.swift; sourceTree = "<group>"; };
+		C0CC8D742C4CEEC40083E6C6 /* CompanyHGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyHGrid.swift; sourceTree = "<group>"; };
+		C0CC8D752C4CEEC40083E6C6 /* CompanyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListView.swift; sourceTree = "<group>"; };
+		C0CC8D762C4CEEC40083E6C6 /* CompanyVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyVGrid.swift; sourceTree = "<group>"; };
+		C0CC8D772C4CEEC40083E6C6 /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
+		C0CC8D782C4CEEC40083E6C6 /* MapControlPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControlPanelView.swift; sourceTree = "<group>"; };
+		C0CC8D7A2C4CEEC40083E6C6 /* ActivityFeedViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedViewViewModelType.swift; sourceTree = "<group>"; };
+		C0CC8D7B2C4CEEC40083E6C6 /* MapViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewViewModel.swift; sourceTree = "<group>"; };
+		C0CC8D7D2C4CEEC40083E6C6 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		C0CC8D7E2C4CEEC40083E6C6 /* CategoryFilterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterScrollView.swift; sourceTree = "<group>"; };
+		C0CC8D7F2C4CEEC40083E6C6 /* LogoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImageView.swift; sourceTree = "<group>"; };
+		C0CC8D802C4CEEC40083E6C6 /* RoundButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButtonView.swift; sourceTree = "<group>"; };
+		C0CC8D812C4CEEC40083E6C6 /* ScrollViewOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
+		C0CC8D822C4CEEC40083E6C6 /* TipViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViews.swift; sourceTree = "<group>"; };
+		C0CC8D842C4CEEC40083E6C6 /* ActvityPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActvityPost.swift; sourceTree = "<group>"; };
+		C0CC8D852C4CEEC40083E6C6 /* ApplicationEnviorment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationEnviorment.swift; sourceTree = "<group>"; };
+		C0CC8D862C4CEEC40083E6C6 /* BriefHistoryImageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefHistoryImageObject.swift; sourceTree = "<group>"; };
+		C0CC8D872C4CEEC40083E6C6 /* BriefHistoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefHistoryObject.swift; sourceTree = "<group>"; };
+		C0CC8D882C4CEEC40083E6C6 /* CategoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryObject.swift; sourceTree = "<group>"; };
+		C0CC8D892C4CEEC40083E6C6 /* CompanyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyObject.swift; sourceTree = "<group>"; };
+		C0CC8D8A2C4CEEC40083E6C6 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		C0CC8D8B2C4CEEC40083E6C6 /* DependencyGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyGraph.swift; sourceTree = "<group>"; };
+		C0CC8D8C2C4CEEC40083E6C6 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
+		C0CC8D8D2C4CEEC40083E6C6 /* IdentifiableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableImage.swift; sourceTree = "<group>"; };
+		C0CC8D8E2C4CEEC40083E6C6 /* MediaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaData.swift; sourceTree = "<group>"; };
+		C0CC8D8F2C4CEEC40083E6C6 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		C0CC8D902C4CEEC40083E6C6 /* StringGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringGenerator.swift; sourceTree = "<group>"; };
+		C0CC8D912C4CEEC40083E6C6 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
+		C0CC8D922C4CEEC40083E6C6 /* TweetGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetGenerator.swift; sourceTree = "<group>"; };
+		C0CC8D932C4CEEC40083E6C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C0CC8D952C4CEEC40083E6C6 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		C0CC8D962C4CEEC40083E6C6 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		C0CC8D972C4CEEC40083E6C6 /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
+		C0CC8D982C4CEEC40083E6C6 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		C0CC8D9A2C4CEEC40083E6C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C0CC8D9B2C4CEEC40083E6C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C0CC8D9D2C4CEEC40083E6C6 /* ActivityFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedView.swift; sourceTree = "<group>"; };
+		C0CC8D9E2C4CEEC40083E6C6 /* CompanyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileView.swift; sourceTree = "<group>"; };
+		C0CC8D9F2C4CEEC40083E6C6 /* DonationsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsTabView.swift; sourceTree = "<group>"; };
+		C0CC8DA02C4CEEC40083E6C6 /* MapTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTabView.swift; sourceTree = "<group>"; };
+		C0CC8DD82C4CF1930083E6C6 /* CompanyConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyConnect.swift; sourceTree = "<group>"; };
+		C0CC8DDC2C4CF2670083E6C6 /* (OFFLINE) CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "(OFFLINE) CompanyConnect.app"; path = "/Users/marquavious/Developer/CompanyConnect/build/Debug-iphoneos/(OFFLINE) CompanyConnect.app"; sourceTree = "<absolute>"; };
+		C0CC8DDD2C4CF2840083E6C6 /* (DEVELOPMENT) CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "(DEVELOPMENT) CompanyConnect.app"; path = "/Users/marquavious/Developer/CompanyConnect/build/Debug-iphoneos/(DEVELOPMENT) CompanyConnect.app"; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C05ADEC22B0AC29D00F5B5ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08445382C4CCCC70034C236 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08445762C4CCF1F0034C236 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C05ADEBC2B0AC29D00F5B5ED = {
+			isa = PBXGroup;
+			children = (
+				C0CC8DA32C4CEEC40083E6C6 /* CompanyConnect */,
+				C08445902C4CD74B0034C236 /* CompanyConnect.app */,
+			);
+			sourceTree = "<group>";
+		};
+		C0CC8D602C4CEEC40083E6C6 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC8D5D2C4CEEC40083E6C6 /* (DEVELOPMENT) Configuration.xcconfig */,
+				C0CC8D5E2C4CEEC40083E6C6 /* (OFFLINE) Configuration.xcconfig */,
+				C0CC8D5F2C4CEEC40083E6C6 /* (PROD) Configuration.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		C0CC8D632C4CEEC40083E6C6 /* Custom Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC8D612C4CEEC40083E6C6 /* CurvedRect.swift */,
+				C0CC8D622C4CEEC40083E6C6 /* Triangle.swift */,
+			);
+			path = "Custom Shapes";
+			sourceTree = "<group>";
+		};
+		C0CC8D692C4CEEC40083E6C6 /* ActivityViews */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC8D642C4CEEC40083E6C6 /* ActivityCellView.swift */,
+				C0CC8D652C4CEEC40083E6C6 /* ActivityFeedScrollView.swift */,
+				C0CC8D662C4CEEC40083E6C6 /* ActvitiyFeedFilterView.swift */,
+				C0CC8D672C4CEEC40083E6C6 /* DonationProgessView.swift */,
+				C0CC8D682C4CEEC40083E6C6 /* MediaView.swift */,
+			);
+			path = ActivityViews;
+			sourceTree = "<group>";
+		};
+		C0CC8D6F2C4CEEC40083E6C6 /* CompanyProfileViews */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC8D6A2C4CEEC40083E6C6 /* BriefHistoryPhotoScrollerView.swift */,
+				C0CC8D6B2C4CEEC40083E6C6 /* CompanyProfileMapView.swift */,
+				C0CC8D6C2C4CEEC40083E6C6 /* CompanyProfileTextView.swift */,
+				C0CC8D6D2C4CEEC40083E6C6 /* OurTeamPhotoScrollerView.swift */,
+				C0CC8D6E2C4CEEC40083E6C6 /* ProjectsScrollerView.swift */,
+			);
+			path = CompanyProfileViews;
+			sourceTree = "<group>";
+		};
+		C0CC8D712C4CEEC40083E6C6 /* DonationViews */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC8D702C4CEEC40083E6C6 /* DonationCellView.swift */,
+			);
+			path = DonationViews;
+			sourceTree = "<group>";
+		};
+		C0CC8D792C4CEEC40083E6C6 /* MapViews */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC8D722C4CEEC40083E6C6 /* BaseMapView.swift */,
+				C0CC8D732C4CEEC40083E6C6 /* CompanyCardView.swift */,
+				C0CC8D742C4CEEC40083E6C6 /* CompanyHGrid.swift */,
+				C0CC8D752C4CEEC40083E6C6 /* CompanyListView.swift */,
+				C0CC8D762C4CEEC40083E6C6 /* CompanyVGrid.swift */,
+				C0CC8D772C4CEEC40083E6C6 /* MapAnnotationView.swift */,
+				C0CC8D782C4CEEC40083E6C6 /* MapControlPanelView.swift */,
+			);
+			path = MapViews;
+			sourceTree = "<group>";
+		};
+		C0CC8D7C2C4CEEC40083E6C6 /* View Models  */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC8D7A2C4CEEC40083E6C6 /* ActivityFeedViewViewModelType.swift */,
+				C0CC8D7B2C4CEEC40083E6C6 /* MapViewViewModel.swift */,
+			);
+			path = "View Models ";
+			sourceTree = "<group>";
+		};
+		C0CC8D832C4CEEC40083E6C6 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC8D692C4CEEC40083E6C6 /* ActivityViews */,
+				C0CC8D6F2C4CEEC40083E6C6 /* CompanyProfileViews */,
+				C0CC8D712C4CEEC40083E6C6 /* DonationViews */,
+				C0CC8D792C4CEEC40083E6C6 /* MapViews */,
+				C0CC8D7C2C4CEEC40083E6C6 /* View Models  */,
+				C0CC8D7D2C4CEEC40083E6C6 /* BlurView.swift */,
+				C0CC8D7E2C4CEEC40083E6C6 /* CategoryFilterScrollView.swift */,
+				C0CC8D7F2C4CEEC40083E6C6 /* LogoImageView.swift */,
+				C0CC8D802C4CEEC40083E6C6 /* RoundButtonView.swift */,
+				C0CC8D812C4CEEC40083E6C6 /* ScrollViewOffset.swift */,
+				C0CC8D822C4CEEC40083E6C6 /* TipViews.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		C0CC8D942C4CEEC40083E6C6 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC8D842C4CEEC40083E6C6 /* ActvityPost.swift */,
+				C0CC8D852C4CEEC40083E6C6 /* ApplicationEnviorment.swift */,
+				C0CC8D862C4CEEC40083E6C6 /* BriefHistoryImageObject.swift */,
+				C0CC8D872C4CEEC40083E6C6 /* BriefHistoryObject.swift */,
+				C0CC8D882C4CEEC40083E6C6 /* CategoryObject.swift */,
+				C0CC8D892C4CEEC40083E6C6 /* CompanyObject.swift */,
+				C0CC8D8A2C4CEEC40083E6C6 /* Configuration.swift */,
+				C0CC8D8B2C4CEEC40083E6C6 /* DependencyGraph.swift */,
+				C0CC8D8C2C4CEEC40083E6C6 /* Donation.swift */,
+				C0CC8D8D2C4CEEC40083E6C6 /* IdentifiableImage.swift */,
+				C0CC8D8E2C4CEEC40083E6C6 /* MediaData.swift */,
+				C0CC8D8F2C4CEEC40083E6C6 /* Project.swift */,
+				C0CC8D902C4CEEC40083E6C6 /* StringGenerator.swift */,
+				C0CC8D912C4CEEC40083E6C6 /* TeamMember.swift */,
+				C0CC8D922C4CEEC40083E6C6 /* TweetGenerator.swift */,
+				C0CC8D932C4CEEC40083E6C6 /* User.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		C0CC8D992C4CEEC40083E6C6 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC8D952C4CEEC40083E6C6 /* Color+Ext.swift */,
+				C0CC8D962C4CEEC40083E6C6 /* Date+Ext.swift */,
+				C0CC8D972C4CEEC40083E6C6 /* Image+Ext.swift */,
+				C0CC8D982C4CEEC40083E6C6 /* View+Ext.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		C0CC8D9C2C4CEEC40083E6C6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC8D9A2C4CEEC40083E6C6 /* Assets.xcassets */,
+				C0CC8D9B2C4CEEC40083E6C6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C0CC8DA12C4CEEC40083E6C6 /* TabViews */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC8D9D2C4CEEC40083E6C6 /* ActivityFeedView.swift */,
+				C0CC8D9E2C4CEEC40083E6C6 /* CompanyProfileView.swift */,
+				C0CC8D9F2C4CEEC40083E6C6 /* DonationsTabView.swift */,
+				C0CC8DA02C4CEEC40083E6C6 /* MapTabView.swift */,
+			);
+			path = TabViews;
+			sourceTree = "<group>";
+		};
+		C0CC8DA32C4CEEC40083E6C6 /* CompanyConnect */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC8DD82C4CF1930083E6C6 /* CompanyConnect.swift */,
+				C0CC8D602C4CEEC40083E6C6 /* Config */,
+				C0CC8D632C4CEEC40083E6C6 /* Custom Shapes */,
+				C0CC8D832C4CEEC40083E6C6 /* CustomViews */,
+				C0CC8D942C4CEEC40083E6C6 /* DataModels */,
+				C0CC8D992C4CEEC40083E6C6 /* Extentions */,
+				C0CC8D9C2C4CEEC40083E6C6 /* Preview Content */,
+				C0CC8DA12C4CEEC40083E6C6 /* TabViews */,
+			);
+			path = CompanyConnect;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C05ADEC42B0AC29D00F5B5ED /* CompanyConnect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C05ADED32B0AC29E00F5B5ED /* Build configuration list for PBXNativeTarget "CompanyConnect" */;
+			buildPhases = (
+				C05ADEC12B0AC29D00F5B5ED /* Sources */,
+				C05ADEC22B0AC29D00F5B5ED /* Frameworks */,
+				C05ADEC32B0AC29D00F5B5ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CompanyConnect;
+			productName = "SwfitUI Connect And Care";
+			productReference = C08445902C4CD74B0034C236 /* CompanyConnect.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C08445042C4CCCC70034C236 /* (OFFLINE) CompanyConnect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C084453C2C4CCCC70034C236 /* Build configuration list for PBXNativeTarget "(OFFLINE) CompanyConnect" */;
+			buildPhases = (
+				C08445052C4CCCC70034C236 /* Sources */,
+				C08445382C4CCCC70034C236 /* Frameworks */,
+				C08445392C4CCCC70034C236 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "(OFFLINE) CompanyConnect";
+			productName = "SwfitUI Connect And Care";
+			productReference = C0CC8DDC2C4CF2670083E6C6 /* (OFFLINE) CompanyConnect.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C08445422C4CCF1F0034C236 /* (DEVELOPMENT) CompanyConnect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C084457A2C4CCF1F0034C236 /* Build configuration list for PBXNativeTarget "(DEVELOPMENT) CompanyConnect" */;
+			buildPhases = (
+				C08445432C4CCF1F0034C236 /* Sources */,
+				C08445762C4CCF1F0034C236 /* Frameworks */,
+				C08445772C4CCF1F0034C236 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "(DEVELOPMENT) CompanyConnect";
+			productName = "SwfitUI Connect And Care";
+			productReference = C0CC8DDD2C4CF2840083E6C6 /* (DEVELOPMENT) CompanyConnect.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C05ADEBD2B0AC29D00F5B5ED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					C05ADEC42B0AC29D00F5B5ED = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = C05ADEC02B0AC29D00F5B5ED /* Build configuration list for PBXProject "CompanyConnect" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C05ADEBC2B0AC29D00F5B5ED;
+			productRefGroup = C05ADEBC2B0AC29D00F5B5ED;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C05ADEC42B0AC29D00F5B5ED /* CompanyConnect */,
+				C08445042C4CCCC70034C236 /* (OFFLINE) CompanyConnect */,
+				C08445422C4CCF1F0034C236 /* (DEVELOPMENT) CompanyConnect */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C05ADEC32B0AC29D00F5B5ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0CC8DE12C4CF3560083E6C6 /* Preview Assets.xcassets in Resources */,
+				C0CC8DDE2C4CF3370083E6C6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08445392C4CCCC70034C236 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0CC8DE22C4CF3560083E6C6 /* Preview Assets.xcassets in Resources */,
+				C0CC8DDF2C4CF3370083E6C6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08445772C4CCF1F0034C236 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0CC8DE32C4CF3570083E6C6 /* Preview Assets.xcassets in Resources */,
+				C0CC8DE02C4CF3370083E6C6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C05ADEC12B0AC29D00F5B5ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0CC8DA42C4CF0F80083E6C6 /* CurvedRect.swift in Sources */,
+				C0CC8DA52C4CF0F80083E6C6 /* Triangle.swift in Sources */,
+				C0CC8DA62C4CF0F80083E6C6 /* ActivityCellView.swift in Sources */,
+				C0CC8DA72C4CF0F80083E6C6 /* ActivityFeedScrollView.swift in Sources */,
+				C0CC8DA82C4CF0F80083E6C6 /* ActvitiyFeedFilterView.swift in Sources */,
+				C0CC8DA92C4CF0F80083E6C6 /* DonationProgessView.swift in Sources */,
+				C0CC8DAA2C4CF0F80083E6C6 /* MediaView.swift in Sources */,
+				C0CC8DAB2C4CF0F80083E6C6 /* BriefHistoryPhotoScrollerView.swift in Sources */,
+				C0CC8DAC2C4CF0F80083E6C6 /* CompanyProfileMapView.swift in Sources */,
+				C0CC8DAD2C4CF0F80083E6C6 /* CompanyProfileTextView.swift in Sources */,
+				C0CC8DAE2C4CF0F80083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,
+				C0CC8DAF2C4CF0F80083E6C6 /* ProjectsScrollerView.swift in Sources */,
+				C0CC8E362C4CF4420083E6C6 /* CategoryFilterScrollView.swift in Sources */,
+				C0CC8E372C4CF4420083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */,
+				C0CC8E382C4CF4420083E6C6 /* ScrollViewOffset.swift in Sources */,
+				C0CC8E392C4CF4420083E6C6 /* MapViewViewModel.swift in Sources */,
+				C0CC8E3A2C4CF4420083E6C6 /* RoundButtonView.swift in Sources */,
+				C0CC8E3B2C4CF4420083E6C6 /* TipViews.swift in Sources */,
+				C0CC8E3C2C4CF4420083E6C6 /* LogoImageView.swift in Sources */,
+				C0CC8E3D2C4CF4420083E6C6 /* BlurView.swift in Sources */,
+				C0CC8DB02C4CF0F80083E6C6 /* DonationCellView.swift in Sources */,
+				C0CC8DB12C4CF0F80083E6C6 /* BaseMapView.swift in Sources */,
+				C0CC8DB22C4CF0F80083E6C6 /* CompanyCardView.swift in Sources */,
+				C0CC8DB32C4CF0F80083E6C6 /* CompanyHGrid.swift in Sources */,
+				C0CC8DB42C4CF0F80083E6C6 /* CompanyListView.swift in Sources */,
+				C0CC8DB52C4CF0F80083E6C6 /* CompanyVGrid.swift in Sources */,
+				C0CC8DB62C4CF0F80083E6C6 /* MapAnnotationView.swift in Sources */,
+				C0CC8DB72C4CF0F80083E6C6 /* MapControlPanelView.swift in Sources */,
+				C0CC8DEA2C4CF4320083E6C6 /* ApplicationEnviorment.swift in Sources */,
+				C0CC8DEB2C4CF4320083E6C6 /* MediaData.swift in Sources */,
+				C0CC8DEC2C4CF4320083E6C6 /* StringGenerator.swift in Sources */,
+				C0CC8DED2C4CF4320083E6C6 /* TeamMember.swift in Sources */,
+				C0CC8DEE2C4CF4320083E6C6 /* CompanyObject.swift in Sources */,
+				C0CC8DEF2C4CF4320083E6C6 /* User.swift in Sources */,
+				C0CC8DF02C4CF4320083E6C6 /* IdentifiableImage.swift in Sources */,
+				C0CC8DF12C4CF4320083E6C6 /* CategoryObject.swift in Sources */,
+				C0CC8DF22C4CF4320083E6C6 /* DependencyGraph.swift in Sources */,
+				C0CC8DF32C4CF4320083E6C6 /* TweetGenerator.swift in Sources */,
+				C0CC8DF42C4CF4320083E6C6 /* Configuration.swift in Sources */,
+				C0CC8DF52C4CF4320083E6C6 /* Project.swift in Sources */,
+				C0CC8DF62C4CF4320083E6C6 /* BriefHistoryImageObject.swift in Sources */,
+				C0CC8DF72C4CF4320083E6C6 /* Donation.swift in Sources */,
+				C0CC8DF82C4CF4320083E6C6 /* ActvityPost.swift in Sources */,
+				C0CC8DF92C4CF4320083E6C6 /* BriefHistoryObject.swift in Sources */,
+				C0CC8DD92C4CF21B0083E6C6 /* CompanyConnect.swift in Sources */,
+				C0CC8DD02C4CF0F80083E6C6 /* Color+Ext.swift in Sources */,
+				C0CC8DD12C4CF0F80083E6C6 /* Date+Ext.swift in Sources */,
+				C0CC8DD22C4CF0F80083E6C6 /* Image+Ext.swift in Sources */,
+				C0CC8DD32C4CF0F80083E6C6 /* View+Ext.swift in Sources */,
+				C0CC8DD42C4CF0F80083E6C6 /* ActivityFeedView.swift in Sources */,
+				C0CC8DD52C4CF0F80083E6C6 /* CompanyProfileView.swift in Sources */,
+				C0CC8DD62C4CF0F80083E6C6 /* DonationsTabView.swift in Sources */,
+				C0CC8DD72C4CF0F80083E6C6 /* MapTabView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08445052C4CCCC70034C236 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0CC8DDA2C4CF21C0083E6C6 /* CompanyConnect.swift in Sources */,
+				C0CC8E082C4CF4330083E6C6 /* ApplicationEnviorment.swift in Sources */,
+				C0CC8E092C4CF4330083E6C6 /* MediaData.swift in Sources */,
+				C0CC8E0A2C4CF4330083E6C6 /* StringGenerator.swift in Sources */,
+				C0CC8E0B2C4CF4330083E6C6 /* TeamMember.swift in Sources */,
+				C0CC8E0C2C4CF4330083E6C6 /* CompanyObject.swift in Sources */,
+				C0CC8E452C4CF4440083E6C6 /* CategoryFilterScrollView.swift in Sources */,
+				C0CC8E462C4CF4440083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */,
+				C0CC8E472C4CF4440083E6C6 /* ScrollViewOffset.swift in Sources */,
+				C0CC8E482C4CF4440083E6C6 /* MapViewViewModel.swift in Sources */,
+				C0CC8E5C2C4CF44A0083E6C6 /* BaseMapView.swift in Sources */,
+				C0CC8E5D2C4CF44A0083E6C6 /* CompanyHGrid.swift in Sources */,
+				C0CC8E5E2C4CF44A0083E6C6 /* MapAnnotationView.swift in Sources */,
+				C0CC8E5F2C4CF44A0083E6C6 /* CompanyVGrid.swift in Sources */,
+				C0CC8E602C4CF44A0083E6C6 /* CompanyCardView.swift in Sources */,
+				C0CC8E612C4CF44A0083E6C6 /* MapControlPanelView.swift in Sources */,
+				C0CC8E842C4CF4770083E6C6 /* ActivityFeedView.swift in Sources */,
+				C0CC8E852C4CF4770083E6C6 /* MapTabView.swift in Sources */,
+				C0CC8E862C4CF4770083E6C6 /* CompanyProfileView.swift in Sources */,
+				C0CC8E872C4CF4770083E6C6 /* DonationsTabView.swift in Sources */,
+				C0CC8E622C4CF44A0083E6C6 /* CompanyListView.swift in Sources */,
+				C0CC8E492C4CF4440083E6C6 /* RoundButtonView.swift in Sources */,
+				C0CC8E4A2C4CF4440083E6C6 /* TipViews.swift in Sources */,
+				C0CC8E4B2C4CF4440083E6C6 /* LogoImageView.swift in Sources */,
+				C0CC8E4C2C4CF4440083E6C6 /* BlurView.swift in Sources */,
+				C0CC8E0D2C4CF4330083E6C6 /* User.swift in Sources */,
+				C0CC8E6C2C4CF4510083E6C6 /* CompanyProfileMapView.swift in Sources */,
+				C0CC8E6D2C4CF4510083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,
+				C0CC8E6E2C4CF4510083E6C6 /* BriefHistoryPhotoScrollerView.swift in Sources */,
+				C0CC8E802C4CF45A0083E6C6 /* CurvedRect.swift in Sources */,
+				C0CC8E812C4CF45A0083E6C6 /* Triangle.swift in Sources */,
+				C0CC8E6F2C4CF4510083E6C6 /* CompanyProfileTextView.swift in Sources */,
+				C0CC8E702C4CF4510083E6C6 /* ProjectsScrollerView.swift in Sources */,
+				C0CC8E0E2C4CF4330083E6C6 /* IdentifiableImage.swift in Sources */,
+				C0CC8E0F2C4CF4330083E6C6 /* CategoryObject.swift in Sources */,
+				C0CC8E6A2C4CF44D0083E6C6 /* DonationCellView.swift in Sources */,
+				C0CC8E102C4CF4330083E6C6 /* DependencyGraph.swift in Sources */,
+				C0CC8E112C4CF4330083E6C6 /* TweetGenerator.swift in Sources */,
+				C0CC8E122C4CF4330083E6C6 /* Configuration.swift in Sources */,
+				C0CC8E132C4CF4330083E6C6 /* Project.swift in Sources */,
+				C0CC8E142C4CF4330083E6C6 /* BriefHistoryImageObject.swift in Sources */,
+				C0CC8E152C4CF4330083E6C6 /* Donation.swift in Sources */,
+				C0CC8E762C4CF4570083E6C6 /* ActivityCellView.swift in Sources */,
+				C0CC8E8C2C4CF48E0083E6C6 /* View+Ext.swift in Sources */,
+				C0CC8E8D2C4CF48E0083E6C6 /* Date+Ext.swift in Sources */,
+				C0CC8E8E2C4CF48E0083E6C6 /* Image+Ext.swift in Sources */,
+				C0CC8E8F2C4CF48E0083E6C6 /* Color+Ext.swift in Sources */,
+				C0CC8E772C4CF4570083E6C6 /* ActivityFeedScrollView.swift in Sources */,
+				C0CC8E782C4CF4570083E6C6 /* ActvitiyFeedFilterView.swift in Sources */,
+				C0CC8E792C4CF4570083E6C6 /* DonationProgessView.swift in Sources */,
+				C0CC8E7A2C4CF4570083E6C6 /* MediaView.swift in Sources */,
+				C0CC8E162C4CF4330083E6C6 /* ActvityPost.swift in Sources */,
+				C0CC8E172C4CF4330083E6C6 /* BriefHistoryObject.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08445432C4CCF1F0034C236 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0CC8DDB2C4CF21C0083E6C6 /* CompanyConnect.swift in Sources */,
+				C0CC8E262C4CF4350083E6C6 /* ApplicationEnviorment.swift in Sources */,
+				C0CC8E272C4CF4350083E6C6 /* MediaData.swift in Sources */,
+				C0CC8E282C4CF4350083E6C6 /* StringGenerator.swift in Sources */,
+				C0CC8E292C4CF4350083E6C6 /* TeamMember.swift in Sources */,
+				C0CC8E2A2C4CF4350083E6C6 /* CompanyObject.swift in Sources */,
+				C0CC8E542C4CF4450083E6C6 /* CategoryFilterScrollView.swift in Sources */,
+				C0CC8E552C4CF4450083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */,
+				C0CC8E562C4CF4450083E6C6 /* ScrollViewOffset.swift in Sources */,
+				C0CC8E572C4CF4450083E6C6 /* MapViewViewModel.swift in Sources */,
+				C0CC8E632C4CF44B0083E6C6 /* BaseMapView.swift in Sources */,
+				C0CC8E642C4CF44B0083E6C6 /* CompanyHGrid.swift in Sources */,
+				C0CC8E652C4CF44B0083E6C6 /* MapAnnotationView.swift in Sources */,
+				C0CC8E662C4CF44B0083E6C6 /* CompanyVGrid.swift in Sources */,
+				C0CC8E672C4CF44B0083E6C6 /* CompanyCardView.swift in Sources */,
+				C0CC8E682C4CF44B0083E6C6 /* MapControlPanelView.swift in Sources */,
+				C0CC8E882C4CF4770083E6C6 /* ActivityFeedView.swift in Sources */,
+				C0CC8E892C4CF4770083E6C6 /* MapTabView.swift in Sources */,
+				C0CC8E8A2C4CF4770083E6C6 /* CompanyProfileView.swift in Sources */,
+				C0CC8E8B2C4CF4770083E6C6 /* DonationsTabView.swift in Sources */,
+				C0CC8E692C4CF44B0083E6C6 /* CompanyListView.swift in Sources */,
+				C0CC8E582C4CF4450083E6C6 /* RoundButtonView.swift in Sources */,
+				C0CC8E592C4CF4450083E6C6 /* TipViews.swift in Sources */,
+				C0CC8E5A2C4CF4450083E6C6 /* LogoImageView.swift in Sources */,
+				C0CC8E5B2C4CF4450083E6C6 /* BlurView.swift in Sources */,
+				C0CC8E2B2C4CF4350083E6C6 /* User.swift in Sources */,
+				C0CC8E712C4CF4520083E6C6 /* CompanyProfileMapView.swift in Sources */,
+				C0CC8E722C4CF4520083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,
+				C0CC8E732C4CF4520083E6C6 /* BriefHistoryPhotoScrollerView.swift in Sources */,
+				C0CC8E822C4CF45B0083E6C6 /* CurvedRect.swift in Sources */,
+				C0CC8E832C4CF45B0083E6C6 /* Triangle.swift in Sources */,
+				C0CC8E742C4CF4520083E6C6 /* CompanyProfileTextView.swift in Sources */,
+				C0CC8E752C4CF4520083E6C6 /* ProjectsScrollerView.swift in Sources */,
+				C0CC8E2C2C4CF4350083E6C6 /* IdentifiableImage.swift in Sources */,
+				C0CC8E2D2C4CF4350083E6C6 /* CategoryObject.swift in Sources */,
+				C0CC8E6B2C4CF44E0083E6C6 /* DonationCellView.swift in Sources */,
+				C0CC8E2E2C4CF4350083E6C6 /* DependencyGraph.swift in Sources */,
+				C0CC8E2F2C4CF4350083E6C6 /* TweetGenerator.swift in Sources */,
+				C0CC8E302C4CF4350083E6C6 /* Configuration.swift in Sources */,
+				C0CC8E312C4CF4350083E6C6 /* Project.swift in Sources */,
+				C0CC8E322C4CF4350083E6C6 /* BriefHistoryImageObject.swift in Sources */,
+				C0CC8E332C4CF4350083E6C6 /* Donation.swift in Sources */,
+				C0CC8E7B2C4CF4570083E6C6 /* ActivityCellView.swift in Sources */,
+				C0CC8E902C4CF48F0083E6C6 /* View+Ext.swift in Sources */,
+				C0CC8E912C4CF48F0083E6C6 /* Date+Ext.swift in Sources */,
+				C0CC8E922C4CF48F0083E6C6 /* Image+Ext.swift in Sources */,
+				C0CC8E932C4CF48F0083E6C6 /* Color+Ext.swift in Sources */,
+				C0CC8E7C2C4CF4570083E6C6 /* ActivityFeedScrollView.swift in Sources */,
+				C0CC8E7D2C4CF4570083E6C6 /* ActvitiyFeedFilterView.swift in Sources */,
+				C0CC8E7E2C4CF4570083E6C6 /* DonationProgessView.swift in Sources */,
+				C0CC8E7F2C4CF4570083E6C6 /* MediaView.swift in Sources */,
+				C0CC8E342C4CF4350083E6C6 /* ActvityPost.swift in Sources */,
+				C0CC8E352C4CF4350083E6C6 /* BriefHistoryObject.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C05ADED12B0AC29E00F5B5ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C05ADED22B0AC29E00F5B5ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C05ADED42B0AC29E00F5B5ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0CC8D5F2C4CEEC40083E6C6 /* (PROD) Configuration.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CompanyConnect/Preview Content\"";
+				DEVELOPMENT_TEAM = 44L8G96RH5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwfitUI-Connect-And-Care-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marqmakesapps.CompanyConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C05ADED52B0AC29E00F5B5ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CompanyConnect/Preview Content\"";
+				DEVELOPMENT_TEAM = 44L8G96RH5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwfitUI-Connect-And-Care-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marqmakesapps.CompanyConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C084453D2C4CCCC70034C236 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0CC8D5E2C4CEEC40083E6C6 /* (OFFLINE) Configuration.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CompanyConnect/Preview Content\"";
+				DEVELOPMENT_TEAM = 44L8G96RH5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(OFFLINE) SwiftUI Connect And Care-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marqmakesapps.CompanyConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C084453E2C4CCCC70034C236 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CompanyConnect/Preview Content\"";
+				DEVELOPMENT_TEAM = 44L8G96RH5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(OFFLINE) SwiftUI Connect And Care-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marqmakesapps.CompanyConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C084457B2C4CCF1F0034C236 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0CC8D5D2C4CEEC40083E6C6 /* (DEVELOPMENT) Configuration.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CompanyConnect/Preview Content\"";
+				DEVELOPMENT_TEAM = 44L8G96RH5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(DEVELOPMENT) SwiftUI Connect And Care-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marqmakesapps.CompanyConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C084457C2C4CCF1F0034C236 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CompanyConnect/Preview Content\"";
+				DEVELOPMENT_TEAM = 44L8G96RH5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "(DEVELOPMENT) SwiftUI Connect And Care-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marqmakesapps.CompanyConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C05ADEC02B0AC29D00F5B5ED /* Build configuration list for PBXProject "CompanyConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05ADED12B0AC29E00F5B5ED /* Debug */,
+				C05ADED22B0AC29E00F5B5ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C05ADED32B0AC29E00F5B5ED /* Build configuration list for PBXNativeTarget "CompanyConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05ADED42B0AC29E00F5B5ED /* Debug */,
+				C05ADED52B0AC29E00F5B5ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C084453C2C4CCCC70034C236 /* Build configuration list for PBXNativeTarget "(OFFLINE) CompanyConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C084453D2C4CCCC70034C236 /* Debug */,
+				C084453E2C4CCCC70034C236 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C084457A2C4CCF1F0034C236 /* Build configuration list for PBXNativeTarget "(DEVELOPMENT) CompanyConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C084457B2C4CCF1F0034C236 /* Debug */,
+				C084457C2C4CCF1F0034C236 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C05ADEBD2B0AC29D00F5B5ED /* Project object */;
+}
