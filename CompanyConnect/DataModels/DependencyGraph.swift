@@ -13,21 +13,21 @@ protocol DependencyGraphType {
 }
 
 class DependencyGraph: DependencyGraphType {
-    var activityFeedViewModel: ActivityFeedViewViewModelType = FakeHomeTabActivityFeed()
-    var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel(mapServiceType: OfflineMapService())
+    var activityFeedViewModel: ActivityFeedViewViewModelType = DevHomeTabActivityFeed() // Change
+    var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel(mapServiceType: OfflineMapService()) // Change
 }
 
 class OfflineDependencyGraph: DependencyGraphType {
-    var activityFeedViewModel: ActivityFeedViewViewModelType = StubbedActivityFeed(service: OfflinePostsService(postCount: 100))
+    var activityFeedViewModel: ActivityFeedViewViewModelType = OfflineActivityFeed(service: OfflinePostsService(postCount: 100))
     var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel(mapServiceType: OfflineMapService())
 }
 
 class IntegratedDependencyGraph: DependencyGraphType {
-    var activityFeedViewModel: ActivityFeedViewViewModelType = StubbedActivityFeed(service: OfflinePostsService(postCount: 100))
-    var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel(mapServiceType: OfflineMapService())
+    var activityFeedViewModel: ActivityFeedViewViewModelType = OfflineActivityFeed(service: OfflinePostsService(postCount: 100)) // Change
+    var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel(mapServiceType: OfflineMapService()) // Change
 }
 
 class DevlopmentDependencyGraph: DependencyGraphType {
-    var activityFeedViewModel: ActivityFeedViewViewModelType = FakeHomeTabActivityFeed()
-    var mapViewViewModel:  MapViewViewModelType = FakeMapViewViewModel()
+    var activityFeedViewModel: ActivityFeedViewViewModelType = DevHomeTabActivityFeed()
+    var mapViewViewModel:  MapViewViewModelType = DevMapViewViewModel()
 }

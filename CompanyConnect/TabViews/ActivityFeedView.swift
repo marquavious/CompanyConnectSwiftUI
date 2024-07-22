@@ -57,5 +57,5 @@ struct ActivityFeedView: View {
 }
 
 #Preview {
-    ActivityFeedView(viewModel: FakeHomeTabActivityFeed())
+    ActivityFeedView(viewModel: DevHomeTabActivityFeed())
 }

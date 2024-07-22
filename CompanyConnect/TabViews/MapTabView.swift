@@ -45,5 +45,5 @@ struct MapTabView: View {
 }
 
 #Preview {
-    MapTabView(viewModel: FakeMapViewViewModel())
+    MapTabView(viewModel: DevMapViewViewModel())
 }

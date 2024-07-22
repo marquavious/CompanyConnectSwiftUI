@@ -42,5 +42,5 @@ struct CompanyVGrid: View {
 }
 
 #Preview {
-    MapTabView(shouldShowListView: true, viewModel: FakeMapViewViewModel())
+    MapTabView(shouldShowListView: true, viewModel: DevMapViewViewModel())
 }

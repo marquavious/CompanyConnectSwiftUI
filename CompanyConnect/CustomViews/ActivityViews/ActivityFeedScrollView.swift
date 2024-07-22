@@ -66,5 +66,5 @@ struct ActivityFeedScrollView: View {
 }
 
 #Preview {
-    ActivityFeedView(viewModel: FakeHomeTabActivityFeed())
+    ActivityFeedView(viewModel: DevHomeTabActivityFeed())
 }

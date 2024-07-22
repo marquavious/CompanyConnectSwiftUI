@@ -12,6 +12,9 @@
 		C0B86C6E2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C712C4D1F8E00C853C0 /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B86C702C4D1F8E00C853C0 /* Data+Ext.swift */; };
 		C0B86C732C4D362600C853C0 /* Encodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B86C722C4D362600C853C0 /* Encodable+Ext.swift */; };
+		C0B86C752C4E00DE00C853C0 /* DonationsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B86C742C4E00DE00C853C0 /* DonationsViewViewModel.swift */; };
+		C0B86C762C4E019F00C853C0 /* DonationsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B86C742C4E00DE00C853C0 /* DonationsViewViewModel.swift */; };
+		C0B86C772C4E01A200C853C0 /* DonationsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B86C742C4E00DE00C853C0 /* DonationsViewViewModel.swift */; };
 		C0CC8DA42C4CF0F80083E6C6 /* CurvedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D612C4CEEC40083E6C6 /* CurvedRect.swift */; };
 		C0CC8DA52C4CF0F80083E6C6 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D622C4CEEC40083E6C6 /* Triangle.swift */; };
 		C0CC8DA62C4CF0F80083E6C6 /* ActivityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D642C4CEEC40083E6C6 /* ActivityCellView.swift */; };
@@ -193,6 +196,7 @@
 		C0B86C6F2C4D055700C853C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0B86C702C4D1F8E00C853C0 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
 		C0B86C722C4D362600C853C0 /* Encodable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Ext.swift"; sourceTree = "<group>"; };
+		C0B86C742C4E00DE00C853C0 /* DonationsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsViewViewModel.swift; sourceTree = "<group>"; };
 		C0CC8D5D2C4CEEC40083E6C6 /* (DEVELOPMENT) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(DEVELOPMENT) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0CC8D5E2C4CEEC40083E6C6 /* (OFFLINE) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(OFFLINE) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0CC8D612C4CEEC40083E6C6 /* CurvedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedRect.swift; sourceTree = "<group>"; };
@@ -363,6 +367,7 @@
 				C0CC8D7A2C4CEEC40083E6C6 /* ActivityFeedViewViewModelType.swift */,
 				C0CC8D7B2C4CEEC40083E6C6 /* MapViewViewModel.swift */,
 				C0B86C722C4D362600C853C0 /* Encodable+Ext.swift */,
+				C0B86C742C4E00DE00C853C0 /* DonationsViewViewModel.swift */,
 			);
 			path = "View Models ";
 			sourceTree = "<group>";
@@ -625,6 +630,7 @@
 				C0CC8DF02C4CF4320083E6C6 /* IdentifiableImage.swift in Sources */,
 				C0CC8DF12C4CF4320083E6C6 /* CategoryObject.swift in Sources */,
 				C0CC8DF22C4CF4320083E6C6 /* DependencyGraph.swift in Sources */,
+				C0B86C752C4E00DE00C853C0 /* DonationsViewViewModel.swift in Sources */,
 				C0CC8DF32C4CF4320083E6C6 /* TweetGenerator.swift in Sources */,
 				C0CC8DF42C4CF4320083E6C6 /* Configuration.swift in Sources */,
 				C0B86C712C4D1F8E00C853C0 /* Data+Ext.swift in Sources */,
@@ -661,6 +667,7 @@
 				C0CC8E472C4CF4440083E6C6 /* ScrollViewOffset.swift in Sources */,
 				C0CC8E482C4CF4440083E6C6 /* MapViewViewModel.swift in Sources */,
 				C0CC8E5C2C4CF44A0083E6C6 /* BaseMapView.swift in Sources */,
+				C0B86C762C4E019F00C853C0 /* DonationsViewViewModel.swift in Sources */,
 				C0CC8E5D2C4CF44A0083E6C6 /* CompanyHGrid.swift in Sources */,
 				C0CC8E5E2C4CF44A0083E6C6 /* MapAnnotationView.swift in Sources */,
 				C0CC8E5F2C4CF44A0083E6C6 /* CompanyVGrid.swift in Sources */,
@@ -721,6 +728,7 @@
 				C0CC8E562C4CF4450083E6C6 /* ScrollViewOffset.swift in Sources */,
 				C0CC8E572C4CF4450083E6C6 /* MapViewViewModel.swift in Sources */,
 				C0CC8E632C4CF44B0083E6C6 /* BaseMapView.swift in Sources */,
+				C0B86C772C4E01A200C853C0 /* DonationsViewViewModel.swift in Sources */,
 				C0CC8E642C4CF44B0083E6C6 /* CompanyHGrid.swift in Sources */,
 				C0CC8E652C4CF44B0083E6C6 /* MapAnnotationView.swift in Sources */,
 				C0CC8E662C4CF44B0083E6C6 /* CompanyVGrid.swift in Sources */,

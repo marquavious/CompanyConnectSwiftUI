@@ -18,7 +18,7 @@ protocol MapServiceType {
 }
 
 @Observable
-class FakeMapService: MapServiceType {
+class DevMapService: MapServiceType {
 
     func getMapData() async throws -> MapData {
         return CompanyObject.createFakeComapnyList()
@@ -99,7 +99,7 @@ class OfflineMapViewViewModel: MapViewViewModelType, ObservableObject {
 }
 
 @Observable
-class FakeMapViewViewModel: MapViewViewModelType, ObservableObject {
+class DevMapViewViewModel: MapViewViewModelType, ObservableObject {
 
     var mapData: MapData = CompanyObject.createFakeComapnyList()
     var selectedCategories = [Category]()

@@ -47,5 +47,5 @@ struct CompanyHGrid: View {
 }
 
 #Preview {
-    MapTabView(viewModel: FakeMapViewViewModel())
+    MapTabView(viewModel: DevMapViewViewModel())
 }

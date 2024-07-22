@@ -39,7 +39,7 @@ class OfflinePostsService: PostsServiceType {
 }
 
 @Observable
-class StubbedActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
+class OfflineActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     private (set) var service: PostsServiceType
     private var _posts = [ActvityPost]()
@@ -96,7 +96,7 @@ class StubbedActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 }
 
 @Observable
-class FakeCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
+class DevCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     init(company: CompanyObject) {
         _company = company
@@ -159,7 +159,7 @@ class FakeCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 }
 
 @Observable
-class FakeHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
+class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     private var _posts = TweetGenerator.returnStructuredTweetList()
     private var _selctedCategories = [Category]()
