@@ -64,7 +64,7 @@ struct MainView: View {
                 Label("Map", systemImage: "globe.americas")
             }
 
-            DonationsView(user: User.createFakeUserData()).tabItem {
+            DonationsView(viewModel: dependencyGraph.donationsViewViewModel).tabItem {
                 Label("Donations", systemImage: "dollarsign.circle")
             }
         }

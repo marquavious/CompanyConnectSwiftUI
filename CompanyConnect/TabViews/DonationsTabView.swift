@@ -22,18 +22,18 @@ struct DonationsView: View {
 
     @Environment (\.colorScheme) var colorScheme
 
-    let donationsViewViewModelType: DonationsViewViewModelType
+    let viewModel: DonationsViewViewModelType
 
     var body: some View {
         NavigationView {
             List {
                 Section {
-                    ForEach(donationsViewViewModelType.user.donations, id: \.id) {
+                    ForEach(viewModel.user.donations, id: \.id) {
                         DonationCellView(donation: $0)
                     }
                 }
                 Section {
-                    ForEach(donationsViewViewModelType.user.scheduledDonations, id: \.id) {
+                    ForEach(viewModel.user.scheduledDonations, id: \.id) {
                         DonationCellView(donation: $0)
                     }
                 }
@@ -66,5 +66,5 @@ struct DonationsView: View {
 }
 
 #Preview {
-    DonationsView(donationsViewViewModelType: DevDonationsViewViewModel())
+    DonationsView(viewModel: DevDonationsViewViewModel())
 }

@@ -62,5 +62,5 @@ struct DonationCellView: View {
 }
 
 #Preview {
-    DonationsView(user: User.createFakeUserData())
+    DonationsView(viewModel: DevDonationsViewViewModel())
 }
