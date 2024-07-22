@@ -27,16 +27,20 @@ struct OurTeamPhotoScrollerView: View {
             showsIndicators: false
         ) {
             LazyHGrid(rows: rows) {
-                ForEach(companyObject.team) { member in
+                ForEach(companyObject.team, id: \.name) { member in
                     VStack {
-                        member.image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(
-                                width: Constants.ProfilePictureSize.width,
-                                height: Constants.ProfilePictureSize.height
-                            )
-                            .clipShape(Circle())
+                        AsyncImage(url: URL(string: member.imageUrl)) { image in
+                            image
+                                .resizable()
+                                .scaledToFill()
+                        } placeholder: {
+                            Color.gray
+                        }
+                        .frame(
+                            width: Constants.ProfilePictureSize.width,
+                            height: Constants.ProfilePictureSize.height
+                        )
+                        .clipShape(Circle())
 
                         VStack(alignment: .center) {
                             Text(member.name)

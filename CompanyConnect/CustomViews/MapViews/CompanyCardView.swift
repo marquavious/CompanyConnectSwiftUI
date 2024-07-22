@@ -31,18 +31,23 @@ struct CompanyCardView: View {
                     .shadow(radius: colorScheme == .light ? 1 : 0)
                 HStack(alignment: .top) {
                     let photoSize = CGSize(width: cellSize.width / 3, height: cellSize.height)
-                    company.coverImage
-                        .resizable()
-                        .frame(width: photoSize.height)
-                        .id(company.id)
-                        .clipped()
-                        .cornerRadius(8)
-                        .mask(alignment: .bottomLeading) {
-                            CurvedRect(
-                                cornerRadius: 8,
-                                photoSize: Constants.LogoImageViewBackgroundSize
-                            )
-                        }
+                    AsyncImage(url: URL(string: company.coverImageUrl)) { image in
+                        image
+                            .resizable()
+                    } placeholder: {
+                        Color.gray
+                    }
+                    .frame(width: photoSize.height)
+                    .clipped()
+                    .cornerRadius(8)
+                    .mask(alignment: .bottomLeading) {
+                        CurvedRect(
+                            cornerRadius: 8,
+                            photoSize: Constants.LogoImageViewBackgroundSize
+                        )
+                    }
+
+
                     VStack(alignment: .leading, spacing: 2) {
                         Text(company.orginizationName)
                             .font(.headline)
@@ -57,10 +62,15 @@ struct CompanyCardView: View {
                     }
                 }
                 .overlay(alignment: .bottomLeading) {
-                    LogoImageView(
-                        logoImageViewData: company.logoImageData,
-                        size: Constants.LogoImageViewSize
-                    )
+                    AsyncImage(url: URL(string: company.logoImageUrl)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    } placeholder: {
+                        Color.gray
+                    }
+                    .frame(width: Constants.LogoImageViewSize.width, height: Constants.LogoImageViewSize.height)
+                    .clipShape(Circle())
                 }
                 .padding(8)
             }

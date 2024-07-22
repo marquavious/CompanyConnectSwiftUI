@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct ActvityPost: Hashable, Identifiable {
+struct ActvityPost: Codable, Hashable, Identifiable {
     
-    let id = UUID()
+    let id: String
     let company: CompanyObject
     let poster: TeamMember?
     let caption: String?
@@ -28,6 +28,7 @@ struct ActvityPost: Hashable, Identifiable {
 extension ActvityPost {
     static func createFakeActivityPost(media: MediaData? = nil, poster: TeamMember? = nil) -> ActvityPost {
         return ActvityPost(
+            id: UUID().uuidString, 
             company: CompanyObject.createFakeCompanyObject(),
             poster: poster,
             caption: "Here is a very informative post",

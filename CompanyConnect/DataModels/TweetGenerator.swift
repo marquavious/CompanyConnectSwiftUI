@@ -20,6 +20,7 @@ struct TweetGenerator {
             let tamMember = [TeamMember.generateRandomTeamList().shuffled().randomElement()]
 
             let post = ActvityPost(
+                id: UUID().uuidString,
                 company: company,
                 poster: Bool.random() ? tamMember.randomElement()! : nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -53,6 +54,7 @@ struct TweetGenerator {
             let tamMember = [company.team.shuffled().randomElement()]
 
             let post = ActvityPost(
+                id: UUID().uuidString,
                 company: company,
                 poster: Bool.random() ? tamMember.randomElement()! : nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -109,6 +111,7 @@ struct TweetGenerator {
 
         return [
             ActvityPost(
+                id: UUID().uuidString,
                 company: returnCompany(),
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -116,6 +119,7 @@ struct TweetGenerator {
                 hourAgoPosted: 1
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: returnCompany(),
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -123,6 +127,7 @@ struct TweetGenerator {
                 hourAgoPosted: 1
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -130,6 +135,7 @@ struct TweetGenerator {
                 hourAgoPosted: 2
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -137,6 +143,7 @@ struct TweetGenerator {
                 hourAgoPosted: 2
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -144,6 +151,7 @@ struct TweetGenerator {
                 hourAgoPosted: 3
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -151,6 +159,7 @@ struct TweetGenerator {
                 hourAgoPosted: 1
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -158,6 +167,7 @@ struct TweetGenerator {
                 hourAgoPosted: 3
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -165,6 +175,7 @@ struct TweetGenerator {
                 hourAgoPosted: 3
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -173,20 +184,22 @@ struct TweetGenerator {
             ),
 
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: .photoCarousel(
                     [
-                        IdentifiableImage.createFakeIdentifiableImage(),
-                        IdentifiableImage.createFakeIdentifiableImage(),
-                        IdentifiableImage.createFakeIdentifiableImage(),
-                        IdentifiableImage.createFakeIdentifiableImage()
+                        "imageUrl 1",
+                        "imageUrl 2",
+                        "imageUrl 3",
+                        "imageUrl 4"
                     ]
                 ),
                 hourAgoPosted: 4
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: "We're $200 away from our fundrasing goal! Thank you all for the support!",
@@ -194,6 +207,7 @@ struct TweetGenerator {
                 hourAgoPosted: 4
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -201,6 +215,7 @@ struct TweetGenerator {
                 hourAgoPosted: 5
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -208,6 +223,7 @@ struct TweetGenerator {
                 hourAgoPosted: 5
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -215,6 +231,7 @@ struct TweetGenerator {
                 hourAgoPosted: 5
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -222,6 +239,7 @@ struct TweetGenerator {
                 hourAgoPosted: 5
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -229,6 +247,7 @@ struct TweetGenerator {
                 hourAgoPosted: 6
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -236,6 +255,7 @@ struct TweetGenerator {
                 hourAgoPosted: 6
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -243,6 +263,7 @@ struct TweetGenerator {
                 hourAgoPosted: 7
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -250,6 +271,7 @@ struct TweetGenerator {
                 hourAgoPosted: 7
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -257,6 +279,7 @@ struct TweetGenerator {
                 hourAgoPosted: 8
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -264,6 +287,7 @@ struct TweetGenerator {
                 hourAgoPosted: 8
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(), 
@@ -271,6 +295,7 @@ struct TweetGenerator {
                 hourAgoPosted: 8
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -278,6 +303,7 @@ struct TweetGenerator {
                 hourAgoPosted: 9
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -285,6 +311,7 @@ struct TweetGenerator {
                 hourAgoPosted: 9
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -292,6 +319,7 @@ struct TweetGenerator {
                 hourAgoPosted: 9
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -299,6 +327,7 @@ struct TweetGenerator {
                 hourAgoPosted: 9
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -306,20 +335,22 @@ struct TweetGenerator {
                 hourAgoPosted: 10
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: .photoCarousel(
                     [
-                        IdentifiableImage.createFakeIdentifiableImage(),
-                        IdentifiableImage.createFakeIdentifiableImage(),
-                        IdentifiableImage.createFakeIdentifiableImage(),
-                        IdentifiableImage.createFakeIdentifiableImage()
+                        "imageUrl 1",
+                        "imageUrl 2",
+                        "imageUrl 3",
+                        "imageUrl 4"
                     ]
                 ),
                 hourAgoPosted: 10
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: "We're $200 away from our fundrasing goal! Thank you all for the support! ",
@@ -327,6 +358,7 @@ struct TweetGenerator {
                 hourAgoPosted: 10
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -334,6 +366,7 @@ struct TweetGenerator {
                 hourAgoPosted: 11
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -341,6 +374,7 @@ struct TweetGenerator {
                 hourAgoPosted: 11
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -348,6 +382,7 @@ struct TweetGenerator {
                 hourAgoPosted: 11
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -355,6 +390,7 @@ struct TweetGenerator {
                 hourAgoPosted: 12
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -362,6 +398,7 @@ struct TweetGenerator {
                 hourAgoPosted: 12
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
@@ -369,6 +406,7 @@ struct TweetGenerator {
                 hourAgoPosted: 13
             ),
             ActvityPost(
+                id: UUID().uuidString,
                 company: CompanyObject.createFakeComapnyList().randomElement()!,
                 poster: nil,
                 caption: StringGenerator.generateRandomActivityString(),

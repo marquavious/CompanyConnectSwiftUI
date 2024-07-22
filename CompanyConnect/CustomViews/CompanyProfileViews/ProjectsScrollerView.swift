@@ -31,10 +31,13 @@ struct ProjectsScrollerView: View {
                     VStack(spacing: .zero) {
                         Rectangle()
                             .overlay {
-                                project.image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(alignment: .center)
+                                AsyncImage(url: URL(string: project.imageUrl)) { image in
+                                    image
+                                        .resizable()
+                                } placeholder: {
+                                    Color.gray
+                                }
+                                .frame(alignment: .center)
                             }
                             .clipped()
 

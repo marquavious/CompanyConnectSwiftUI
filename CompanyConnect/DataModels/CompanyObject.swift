@@ -2,18 +2,29 @@ import Foundation
 import MapKit
 import SwiftUI
 
-struct CompanyObject: Identifiable, Hashable {
-    let id = UUID()
+struct Coordinate: Codable {
+    public var latitude: CLLocationDegrees
+    public var longitude: CLLocationDegrees
+}
+
+extension Coordinate {
+    func returnCLLocationCoordinate2D() -> CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+}
+
+struct CompanyObject: Codable, Identifiable, Hashable {
+    let id: String
     let orginizationName: String
-    let coordinate: CLLocationCoordinate2D
+    let coordinate: Coordinate
     let category: Category
-    let coverImage: Image
+    let coverImageUrl: String
     let missionStatement: String
     let bio: String
     let team: [TeamMember]
     let briefHistoryObject: BriefHistoryObject
     let projects: [Project]
-    let logoImageData: LogoImageViewData
+    let logoImageUrl: String
 
     public func hash(into hasher: inout Hasher) {
         return hasher.combine(id)
@@ -27,243 +38,205 @@ struct CompanyObject: Identifiable, Hashable {
 extension CompanyObject {
     static func createFakeCompanyObject() -> CompanyObject {
         CompanyObject(
+            id: "1",
             orginizationName: "Fake Company Inc.",
-            coordinate: CLLocationCoordinate2D(
+            coordinate: Coordinate(
                 latitude: CLLocationDegrees(Int.random(in: 0..<20)),
                 longitude: CLLocationDegrees(Int.random(in: -100..<20))
             ),
             category: Category.allCases.randomElement() ?? .community,
-            coverImage: Image.generateRadomImage(),
+            coverImageUrl: "imageUrl",
             missionStatement: "Mission Statement",
             bio: StringGenerator.generateShortString(),
             team: TeamMember.generateRandomTeamList(),
             briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
             projects: Project.generateFakeProjectList(),
-            logoImageData: LogoImageViewData(
-                systemLogo: Image.generateRadomLogo(),
-                logoBackground: Image.generateRadomImage(),
-                themeColor: Color.random()
-            )
+            logoImageUrl: "imageUrl"
         )
     }
 
     static func createFakeComapnyList() -> [CompanyObject] {
         [
             CompanyObject(
+                id: "2",
                 orginizationName: "Cars for Kids",
-                coordinate: CLLocationCoordinate2D(
+                coordinate: Coordinate(
                     latitude: 18.542952, longitude: -72.39234
                 ),
                 category: .community,
-                coverImage: Image("charleyrivers"),
+                coverImageUrl: "imageUrl",
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
-                logoImageData: LogoImageViewData(
-                    systemLogo: Image(systemName: "car.circle.fill"),
-                    logoBackground: Image.generateRadomImage(),
-                    themeColor: .orange
-                )
+                logoImageUrl: "imageUrl"
             ),
             CompanyObject(
+                id: "3",
                 orginizationName: "A.D.F.R.A",
-                coordinate: CLLocationCoordinate2D(
+                coordinate: Coordinate(
                     latitude: -22.859839, longitude: -43.267511
                 ),
                 category: .healthcare,
-                coverImage: Image("chilkoottrail"),
+                coverImageUrl: "imageUrl",
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
-                logoImageData: LogoImageViewData(
-                    systemLogo: Image(systemName: "cross.case.circle.fill"),
-                    logoBackground: Image.generateRadomImage(),
-                    themeColor: Color.random()
-                )
+                logoImageUrl: "imageUrl"
             ),
             CompanyObject(
+                id: "4",
                 orginizationName: "Ever Green",
-                coordinate: CLLocationCoordinate2D(
+                coordinate: Coordinate(
                     latitude: 30.053881, longitude: 31.238474
                 ),
                 category: .environmental,
-                coverImage: Image("chincoteague"),
+                coverImageUrl: "imageUrl",
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
-                logoImageData: LogoImageViewData(
-                    systemLogo: Image(systemName: "tree.circle.fill"),
-                    logoBackground: Image.generateRadomImage(),
-                    themeColor: Color.random()
-                )
+                logoImageUrl: "imageUrl"
             ),
             CompanyObject(
+                id: "5",
                 orginizationName: "EDU Global",
-                coordinate: CLLocationCoordinate2D(
+                coordinate: Coordinate(
                     latitude: 31.771959, longitude: 35.217018
                 ),
                 category: .education,
-                coverImage: Image("hiddenlake"),
+                coverImageUrl: "imageUrl",
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
-                logoImageData: LogoImageViewData(
-                    systemLogo: Image(systemName: "globe.europe.africa.fill"),
-                    logoBackground: Image.generateRadomImage(),
-                    themeColor: .green
-                )
+                logoImageUrl: "imageUrl"
             ),
             CompanyObject(
+                id: "6",
                 orginizationName: "True Vison",
-                coordinate: CLLocationCoordinate2D(
+                coordinate: Coordinate(
                     latitude: 41.9001, longitude: -71.0898
                 ),
                 category: .womensRights,
-                coverImage: Image("icybay"),
+                coverImageUrl: "imageUrl",
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
-                logoImageData: LogoImageViewData(
-                    systemLogo: Image(systemName: "eye.circle.fill"),
-                    logoBackground: Image.generateRadomImage(),
-                    themeColor: Color.random()
-                )
+                logoImageUrl: "imageUrl"
             ),
             CompanyObject(
+                id: "7",
                 orginizationName: "S.A.O.M",
-                coordinate: CLLocationCoordinate2D(
+                coordinate: Coordinate(
                     latitude: 43.84864, longitude: 18.35644
                 ),
                 category: .veterans,
-                coverImage: Image("lakemcdonald"),
+                coverImageUrl: "imageUrl",
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
-                logoImageData: LogoImageViewData(
-                    systemLogo: Image(systemName: "figure.walk.circle.fill"),
-                    logoBackground: nil,
-                    themeColor: Color(red: 28/255, green: 68/255, blue: 108/255)
-                )
+                logoImageUrl: "imageUrl"
             ),
             CompanyObject(
+                id: "8",
                 orginizationName: "People4All",
-                coordinate: CLLocationCoordinate2D(
+                coordinate: Coordinate(
                     latitude: 38.889931, longitude: -77.009003
                 ),
                 category: .humanRights,
-                coverImage: Image("rainbowlake"),
+                coverImageUrl: "imageUrl",
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
-                logoImageData: LogoImageViewData(
-                    systemLogo: Image(systemName: "peacesign"),
-                    logoBackground: nil,
-                    themeColor: .purple
-                )
+                logoImageUrl: "imageUrl"
             ),
             CompanyObject(
+                id: "9",
                 orginizationName: "VENTRA",
-                coordinate: CLLocationCoordinate2D(
+                coordinate: Coordinate(
                     latitude: -33.918861, longitude: 18.4233
                 ),
                 category: .indigenousRights,
-                coverImage: Image("silversalmoncreek"),
+                coverImageUrl: "imageUrl",
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
-                logoImageData: LogoImageViewData(
-                    systemLogo: Image(systemName: "circle.hexagongrid.fill"),
-                    logoBackground: nil,
-                    themeColor: .brown
-                )
+                logoImageUrl: "imageUrl"
             ),
             CompanyObject(
+                id: "10",
                 orginizationName: "Blue Aid",
-                coordinate: CLLocationCoordinate2D(
+                coordinate: Coordinate(
                     latitude: 11.562108, longitude: 104.888535
                 ),
                 category: .healthcare,
-                coverImage: Image("stmarylake"),
+                coverImageUrl: "imageUrl",
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
-                logoImageData: LogoImageViewData(
-                    systemLogo: Image(systemName: "rotate.3d.fill"),
-                    logoBackground: Image.generateRadomImage(),
-                    themeColor: .blue
-                )
+                logoImageUrl: "imageUrl"
             ),
             CompanyObject(
+                id: "11",
                 orginizationName: "Tree Vision",
-                coordinate: CLLocationCoordinate2D(
+                coordinate: Coordinate(
                     latitude: 6.4969, longitude: 2.6289
                 ),
                 category: .environmental,
-                coverImage: Image("turtlerock"),
+                coverImageUrl: "imageUrl",
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
-                logoImageData: LogoImageViewData(
-                    systemLogo: Image(systemName: "bird.circle.fill"),
-                    logoBackground: nil,
-                    themeColor: .cyan
-                )
+                logoImageUrl: "imageUrl"
             ),
             CompanyObject(
+                id: "12",
                 orginizationName: "Mantra",
-                coordinate: CLLocationCoordinate2D(
+                coordinate: Coordinate(
                     latitude: -16.5, longitude: -68.15
                 ),
                 category: .community,
-                coverImage: Image("twinlake"),
+                coverImageUrl: "imageUrl",
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
-                logoImageData: LogoImageViewData(
-                    systemLogo: Image(systemName: "arrow.up.left.arrow.down.right.circle.fill"),
-                    logoBackground: Image.generateRadomImage(),
-                    themeColor: .gray
-                )
+                logoImageUrl: "imageUrl"
+
             ),
             CompanyObject(
+                id: "13",
                 orginizationName: "G.H.G",
-                coordinate: CLLocationCoordinate2D(
+                coordinate: Coordinate(
                     latitude: 17.1522786, longitude: -89.0800227
                 ),
                 category: .healthcare,
-                coverImage: Image("umbagog"),
+                coverImageUrl: "imageUrl",
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
                 briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
-                logoImageData: LogoImageViewData(
-                    systemLogo: Image(systemName: "sun.and.horizon.circle.fill"),
-                    logoBackground: nil,
-                    themeColor: Color.random()
-                )
+                logoImageUrl: "imageUrl"
             )
         ].shuffled()
     }

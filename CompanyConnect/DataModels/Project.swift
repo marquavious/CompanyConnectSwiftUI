@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct Project: Hashable, Identifiable {
+struct Project: Codable, Hashable, Identifiable {
 
-    enum Status {
+    enum Status: String, Codable {
         case completed, inProgress, watingToBeFunded
 
         var displayName: String {
@@ -36,11 +36,11 @@ struct Project: Hashable, Identifiable {
         }
     }
 
-    let id = UUID()
+    let id: String
     let name: String
     let description: String
     let status: Status
-    let image: Image
+    let imageUrl: String
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
@@ -51,34 +51,39 @@ extension Project {
     static func generateFakeProjectList() -> [Project] {
         return [
             Project(
+                id: UUID().uuidString,
                 name: "Project 1",
                 description: StringGenerator.generateLongString(),
                 status: .completed,
-                image: Image.generateRadomImage()
+                imageUrl: "imageUrl"
             ),
             Project(
+                id: UUID().uuidString,
                 name: "Project 2",
                 description: StringGenerator.generateLongString(),
                 status: .inProgress,
-                image:  Image.generateRadomImage()
+                imageUrl: "imageUrl"
             ),
             Project(
+                id: UUID().uuidString,
                 name: "Project 3",
                 description: StringGenerator.generateLongString(),
                 status: .watingToBeFunded,
-                image: Image.generateRadomImage()
+                imageUrl: "imageUrl"
             ),
             Project(
+                id: UUID().uuidString,
                 name: "Project 4",
                 description: StringGenerator.generateLongString(),
                 status: .completed,
-                image: Image.generateRadomImage()
+                imageUrl: "imageUrl"
             ),
             Project(
+                id: UUID().uuidString, 
                 name: "Project 5",
                 description: StringGenerator.generateLongString(),
                 status: .watingToBeFunded,
-                image: Image.generateRadomImage()
+                imageUrl: "imageUrl"
             )
         ]
     }

@@ -8,7 +8,6 @@
 import Foundation
 
 protocol ActivityFeedViewViewModelType {
-//    func posts() -> [ActvityPost]
     func selctedCategories() ->[Category]
     func categories() -> [Category]
     func hasSelectedCategories() -> Bool
@@ -232,4 +231,3 @@ class FakeHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     }
 
 }
-

@@ -23,7 +23,7 @@ struct CompanyProfileMapView: View {
             bounds: mapCameraBounds,
             interactionModes: []
         ) {
-            Annotation(company.orginizationName, coordinate: company.coordinate) {
+            Annotation(company.orginizationName, coordinate: company.coordinate.returnCLLocationCoordinate2D()) {
                 MapAnnotationView(company: company)
             }
         }

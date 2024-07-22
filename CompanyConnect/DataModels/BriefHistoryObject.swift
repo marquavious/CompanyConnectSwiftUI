@@ -7,15 +7,10 @@
 
 import Foundation
 
-struct BriefHistoryObject: Hashable, Identifiable {
+struct BriefHistoryObject: Codable {
 
-    let id = UUID()
     let history: String
     let imageObjects: [BriefHistoryImageObject]
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
 }
 
 extension BriefHistoryObject {

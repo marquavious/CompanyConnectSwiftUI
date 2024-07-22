@@ -21,10 +21,10 @@ struct BaseMapView: View {
 
     var body: some View {
         Map(position: $defaultMapPosition, interactionModes: [.all]) {
-            ForEach(viewModel.presentedCompanies()) { company in
+            ForEach(viewModel.presentedCompanies(), id: \.orginizationName) { company in
                 Annotation(
                     company.orginizationName,
-                    coordinate: company.coordinate
+                    coordinate: company.coordinate.returnCLLocationCoordinate2D()
                 ) {
                     MapAnnotationView(company: company)
                         .onTapGesture {

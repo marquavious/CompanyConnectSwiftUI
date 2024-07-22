@@ -57,7 +57,7 @@ class OfflineMapViewViewModel: MapViewViewModelType, ObservableObject {
     }
     
     func categories() -> [Category] {
-        mapData.compactMap { $0.category }
+        Category.allCases
     }
 
     func selctedCategories() -> [Category] {
@@ -65,7 +65,7 @@ class OfflineMapViewViewModel: MapViewViewModelType, ObservableObject {
     }
 
     func hasSelectedCategories() -> Bool {
-        selectedCategories.isEmpty
+        !selectedCategories.isEmpty
     }
     
     func presentedCompanies() -> [CompanyObject] {
@@ -109,7 +109,7 @@ class FakeMapViewViewModel: MapViewViewModelType, ObservableObject {
     }
 
     func categories() -> [Category] {
-        mapData.compactMap { $0.category }
+        Category.allCases
     }
 
     func selctedCategories() -> [Category] {
@@ -117,7 +117,7 @@ class FakeMapViewViewModel: MapViewViewModelType, ObservableObject {
     }
 
     func hasSelectedCategories() -> Bool {
-        selectedCategories.isEmpty
+        !selectedCategories.isEmpty
     }
 
     func presentedCompanies() -> [CompanyObject] {

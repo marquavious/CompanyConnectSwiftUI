@@ -119,14 +119,26 @@ struct CompanyProfileView: View {
             handleNavigationBarAnimation(scrollViewOffset: offset)
         }) {
             GeometryReader { proxy in
-                company.coverImage
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .offset(y: -proxy.frame(in: .global).minY)
-                    .frame(
-                        width: UIScreen.main.bounds.width,
-                        height: max(proxy.frame(in: .global).minY + Constants.HeaderViewHeight, 0)
-                    )
+                AsyncImage(url: URL(string: company.coverImageUrl)) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .offset(y: -proxy.frame(in: .global).minY)
+                        .frame(
+                            width: UIScreen.main.bounds.width,
+                            height: max(proxy.frame(in: .global).minY + Constants.HeaderViewHeight, 0)
+                        )
+                        .ignoresSafeArea()
+
+                } placeholder: {
+                    Color.gray
+                        .offset(y: -proxy.frame(in: .global).minY)
+                        .frame(
+                            width: UIScreen.main.bounds.width,
+                            height: max(proxy.frame(in: .global).minY + Constants.HeaderViewHeight, 0)
+                        )
+                        .ignoresSafeArea()
+                }
             }
             .frame(height: Constants.HeaderViewHeight)
             .ignoresSafeArea()
@@ -134,10 +146,23 @@ struct CompanyProfileView: View {
             VStack(spacing: .zero) {
                 VStack(spacing: 8) {
                     HStack {
-                        LogoImageView(
-                            logoImageViewData: company.logoImageData,
-                            size: CGSize(width: 75, height: 75),
-                            overrideLogoWithFontSize: .largeTitle
+                        AsyncImage(url: URL(string: company.logoImageUrl)) { image in
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(
+                                    width: 75,
+                                    height: 75
+                                )
+                                .clipShape(Circle())
+
+                        } placeholder: {
+                            Color.gray
+                                .clipShape(Circle())
+                        }
+                        .frame(
+                            width: 75,
+                            height: 75
                         )
                         .overlay(Circle().stroke(.background, lineWidth: 3))
 

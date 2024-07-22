@@ -28,12 +28,23 @@ struct MediaView: View {
     func viewForMedia(_ media: MediaData) -> some View {
         switch media {
         case .photo(let photo):
-            photo.image
-                .resizable()
-                .scaledToFill()
-                .frame(height: Constants.MediaViewFrameHeight)
-                .clipShape(RoundedRectangle(cornerRadius: Constants.MediaViewCornerRadius))
-                .shadow(radius: colorScheme == .light ? 1 : 0)
+            AsyncImage(url: URL(string: photo)) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: Constants.MediaViewFrameHeight)
+                    .clipShape(RoundedRectangle(cornerRadius: Constants.MediaViewCornerRadius))
+                    .shadow(radius: colorScheme == .light ? 1 : 0)
+            } placeholder: {
+                Color.gray
+            }
+            .frame(
+                height:  Constants.MediaViewFrameHeight
+            )
+            .scaledToFill()
+            .frame(height: Constants.MediaViewFrameHeight)
+            .clipShape(RoundedRectangle(cornerRadius: Constants.MediaViewCornerRadius))
+            .shadow(radius: colorScheme == .light ? 1 : 0)
 
         case .photoCarousel(let images):
 
@@ -43,19 +54,44 @@ struct MediaView: View {
 
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: rows) {
-                        ForEach(images) { imageData in
-                            imageData.image
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: proxySize.width,
-                                       height: proxySize.height,
-                                       alignment: .center
+                        ForEach(images, id: \.self) { imageData in
+                            AsyncImage(url: URL(string: imageData)) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: proxySize.width,
+                                             height: proxySize.height,
+                                             alignment: .center
+                                    )
+                                    .clipShape(RoundedRectangle(cornerRadius: Constants.MediaViewCornerRadius))
+                                    .shadow(radius: colorScheme == .light ? 1 : 0)
+                                    .scrollTargetLayout()
+                            } placeholder: {
+                                Color.gray
+                                    .frame(width: proxySize.width,
+                                         height: proxySize.height,
+                                         alignment: .center
                                 )
                                 .clipShape(RoundedRectangle(cornerRadius: Constants.MediaViewCornerRadius))
                                 .shadow(radius: colorScheme == .light ? 1 : 0)
+                                .scrollTargetLayout()
+                            }
+                            .frame(
+                                height:  Constants.MediaViewFrameHeight
+                            )
+                            .frame(width: proxySize.width,
+                                     height: proxySize.height,
+                                     alignment: .center
+                            )
+                            .clipShape(RoundedRectangle(cornerRadius: Constants.MediaViewCornerRadius))
+                            .shadow(radius: colorScheme == .light ? 1 : 0)
+                            .scrollTargetLayout()
                         }
+                        .scrollTargetLayout()
                     }
                     .scrollTargetLayout()
+
+
                 }
                 .scrollClipDisabled()
                 .scrollTargetBehavior(.viewAligned)

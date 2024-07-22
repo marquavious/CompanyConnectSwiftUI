@@ -20,8 +20,6 @@ struct DonationsView: View {
         case RightToolbar = "plus.circle"
     }
 
-    var donationSalesTwo = Donation.generatePastDonations()
-
     @Environment (\.colorScheme) var colorScheme
 
     let user: User
@@ -30,12 +28,12 @@ struct DonationsView: View {
         NavigationView {
             List {
                 Section {
-                    ForEach(user.donations) {
+                    ForEach(user.donations, id: \.id) {
                         DonationCellView(donation: $0)
                     }
                 }
                 Section {
-                    ForEach(user.scheduledDonations) {
+                    ForEach(user.scheduledDonations, id: \.id) {
                         DonationCellView(donation: $0)
                     }
                 }
@@ -63,10 +61,8 @@ struct DonationsView: View {
                 }
                 .tint(colorScheme == .light ? .black:.white)
             }
-
         }
     }
-
 }
 
 #Preview {

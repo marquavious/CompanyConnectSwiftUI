@@ -10,6 +10,8 @@
 		C0B86C6C2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6D2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6E2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
+		C0B86C712C4D1F8E00C853C0 /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B86C702C4D1F8E00C853C0 /* Data+Ext.swift */; };
+		C0B86C732C4D362600C853C0 /* Encodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B86C722C4D362600C853C0 /* Encodable+Ext.swift */; };
 		C0CC8DA42C4CF0F80083E6C6 /* CurvedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D612C4CEEC40083E6C6 /* CurvedRect.swift */; };
 		C0CC8DA52C4CF0F80083E6C6 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D622C4CEEC40083E6C6 /* Triangle.swift */; };
 		C0CC8DA62C4CF0F80083E6C6 /* ActivityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D642C4CEEC40083E6C6 /* ActivityCellView.swift */; };
@@ -189,6 +191,8 @@
 		C0219F8D2C4D020200979B2E /* (OFFLINE) CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(OFFLINE) CompanyConnect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(PROD) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0B86C6F2C4D055700C853C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0B86C702C4D1F8E00C853C0 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
+		C0B86C722C4D362600C853C0 /* Encodable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Ext.swift"; sourceTree = "<group>"; };
 		C0CC8D5D2C4CEEC40083E6C6 /* (DEVELOPMENT) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(DEVELOPMENT) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0CC8D5E2C4CEEC40083E6C6 /* (OFFLINE) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(OFFLINE) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0CC8D612C4CEEC40083E6C6 /* CurvedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedRect.swift; sourceTree = "<group>"; };
@@ -358,6 +362,7 @@
 			children = (
 				C0CC8D7A2C4CEEC40083E6C6 /* ActivityFeedViewViewModelType.swift */,
 				C0CC8D7B2C4CEEC40083E6C6 /* MapViewViewModel.swift */,
+				C0B86C722C4D362600C853C0 /* Encodable+Ext.swift */,
 			);
 			path = "View Models ";
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				C0CC8D802C4CEEC40083E6C6 /* RoundButtonView.swift */,
 				C0CC8D812C4CEEC40083E6C6 /* ScrollViewOffset.swift */,
 				C0CC8D822C4CEEC40083E6C6 /* TipViews.swift */,
+				C0B86C702C4D1F8E00C853C0 /* Data+Ext.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -621,6 +627,7 @@
 				C0CC8DF22C4CF4320083E6C6 /* DependencyGraph.swift in Sources */,
 				C0CC8DF32C4CF4320083E6C6 /* TweetGenerator.swift in Sources */,
 				C0CC8DF42C4CF4320083E6C6 /* Configuration.swift in Sources */,
+				C0B86C712C4D1F8E00C853C0 /* Data+Ext.swift in Sources */,
 				C0CC8DF52C4CF4320083E6C6 /* Project.swift in Sources */,
 				C0CC8DF62C4CF4320083E6C6 /* BriefHistoryImageObject.swift in Sources */,
 				C0CC8DF72C4CF4320083E6C6 /* Donation.swift in Sources */,
@@ -628,6 +635,7 @@
 				C0CC8DF92C4CF4320083E6C6 /* BriefHistoryObject.swift in Sources */,
 				C0CC8DD92C4CF21B0083E6C6 /* CompanyConnect.swift in Sources */,
 				C0CC8DD02C4CF0F80083E6C6 /* Color+Ext.swift in Sources */,
+				C0B86C732C4D362600C853C0 /* Encodable+Ext.swift in Sources */,
 				C0CC8DD12C4CF0F80083E6C6 /* Date+Ext.swift in Sources */,
 				C0CC8DD22C4CF0F80083E6C6 /* Image+Ext.swift in Sources */,
 				C0CC8DD32C4CF0F80083E6C6 /* View+Ext.swift in Sources */,

@@ -8,16 +8,10 @@
 import Foundation
 import SwiftUI
 
-struct TeamMember: Hashable, Identifiable {
-
-    let id = UUID()
+struct TeamMember: Codable {
     let name: String
     let position: String
-    let image: Image
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
+    let imageUrl: String
 }
 
 extension TeamMember {
@@ -26,32 +20,32 @@ extension TeamMember {
             TeamMember(
                 name: "John Doe",
                 position: "CEO",
-                image: Image("face-1")
+                imageUrl: "imageUrl"
             ),
             TeamMember(
                 name: "Johnny A",
                 position: "Social Media",
-                image:  Image("face-2")
+                imageUrl: "imageUrl"
             ),
             TeamMember(
                 name: "Shea",
                 position: "Logistics",
-                image:  Image("face-3")
+                imageUrl: "imageUrl"
             ),
             TeamMember(
                 name: "Marq",
                 position: "Finance",
-                image: Image("face-4")
+                imageUrl: "imageUrl"
             ),
             TeamMember(
                 name: "Danna H",
                 position: "Fundraising Officer",
-                image:  Image("face-5")
+                imageUrl: "imageUrl"
             ),
             TeamMember(
                 name: "Janna Ho",
                 position: "Coordinator",
-                image:  Image("face-6")
+                imageUrl: "imageUrl"
             )
         ].shuffled()
     }

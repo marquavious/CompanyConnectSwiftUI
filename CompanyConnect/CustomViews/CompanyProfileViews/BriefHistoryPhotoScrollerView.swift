@@ -20,17 +20,21 @@ struct BriefHistoryPhotoScrollerView: View {
 
     var body: some View {
         TabView {
-            ForEach(companyObject.briefHistoryObject.imageObjects) { object in
+            ForEach(companyObject.briefHistoryObject.imageObjects, id: \.imageUrl) { object in
                 VStack {
-                    object.image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(
-                            height: Constants.ImageHeight,
-                            alignment: .center
-                        )
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                        .padding([.leading, .trailing])
+                    AsyncImage(url: URL(string: object.imageUrl)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    } placeholder: {
+                        Color.gray
+                    }
+                    .frame(
+                        height: Constants.ImageHeight,
+                        alignment: .center
+                    )
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .padding([.leading, .trailing])
 
                     Text(object.caption)
                         .font(.callout.italic())

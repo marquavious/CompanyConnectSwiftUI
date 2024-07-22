@@ -27,10 +27,20 @@ struct MapAnnotationView: View {
                         height: Constants.AnnotationSize.height
                     )
                     .overlay {
-                        LogoImageView(
-                            logoImageViewData: company.logoImageData,
-                            size: CGSize(width: Constants.LogoSize.width, height: Constants.LogoSize.height)
+                        AsyncImage(url: URL(string: company.coverImageUrl)) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+
+                        } placeholder: {
+                            Color.gray
+                        }
+                        .frame(
+                            width: Constants.LogoSize.width,
+                            height: Constants.LogoSize.height
                         )
+                        .clipShape(Circle())
+
                     }
                 Triangle()
                     .fill(Color.white.opacity(0.7))

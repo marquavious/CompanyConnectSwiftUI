@@ -16,8 +16,7 @@ struct CompanyConnect: App {
         do {
             configEnvString = try Configuration.value(for: ConfiKeys.APPLICATION_ENVIRONMENT.rawValue)
         } catch {
-            print(error)
-            fatalError("Could not load enviorment variable")
+            fatalError("Could not load APPLICATION_ENVIRONMENT variable")
         }
 
         if let enviorment = ApplicationEnviorment(rawValue: configEnvString) {
@@ -32,7 +31,7 @@ struct CompanyConnect: App {
                 return DevlopmentDependencyGraph()
             }
         } else {
-            fatalError("Could not load Application Enviorment")
+            fatalError("Could not crate DependencyGraph from Config.")
         }
     }()
 

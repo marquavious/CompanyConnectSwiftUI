@@ -19,10 +19,18 @@ struct DonationCellView: View {
 
     var body: some View {
         HStack {
-            LogoImageView(
-                logoImageViewData: donation.company.logoImageData,
-                size: Constants.LogoImageViewSize
+            AsyncImage(url: URL(string: donation.company.logoImageUrl)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            } placeholder: {
+                Color.gray
+            }
+            .frame(
+                width:  Constants.LogoImageViewSize.width,
+                height:  Constants.LogoImageViewSize.height
             )
+            .clipShape(Circle())
 
             VStack(alignment: .leading) {
                 Text(Date.parseDate(date: donation.date))

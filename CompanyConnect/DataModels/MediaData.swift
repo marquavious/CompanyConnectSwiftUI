@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-enum MediaData {
+enum MediaData: Codable {
     
-    case photo(IdentifiableImage)
-    case photoCarousel([IdentifiableImage])
+    case photo(String)
+    case photoCarousel([String])
     case donationProgress(Double, Double)
 
     var type: String {
@@ -28,14 +28,14 @@ enum MediaData {
 
 extension MediaData {
     static func createFakePhotoMedia() -> MediaData {
-        MediaData.photo(IdentifiableImage(image: Image.generateRadomImage()))
+        MediaData.photo("imageUrl")
     }
 
     static func createFakePhotoCarouselMedia() -> MediaData {
         MediaData.photoCarousel([
-            IdentifiableImage(image: Image.generateRadomImage()),
-            IdentifiableImage(image: Image.generateRadomImage()),
-            IdentifiableImage(image: Image.generateRadomImage())
+            "imageUrl 1",
+            "imageUrl 2",
+            "imageUrl 3"
         ])
     }
 

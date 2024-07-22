@@ -37,28 +37,50 @@ struct ActivityCellView: View {
         VStack {
             HStack(alignment: .top, spacing: Constants.ActivityCellPhotoContentPadding) {
                 if let poster = activityPost.poster {
-                    poster.image
-                        .resizable()
-                        .scaledToFill()
+                    AsyncImage(url: URL(string: poster.imageUrl)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    } placeholder: {
+                        Color.gray
+                    }
+                    .frame(
+                        width: Constants.ActivityCellProfilePictureSize.width,
+                        height: Constants.ActivityCellProfilePictureSize.height
+                    )
+                    .clipShape(Circle())
+                    .onTapGesture { posterSelected() }
+                    .overlay(alignment: .bottomTrailing) {
+                        AsyncImage(url: URL(string: activityPost.company.logoImageUrl)) { image in
+                            image
+                                .resizable()
+                                .scaledToFill()
+
+                        } placeholder: {
+                            Color.gray
+                        }
                         .frame(
-                            width: Constants.ActivityCellProfilePictureSize.width,
-                            height: Constants.ActivityCellProfilePictureSize.height
+                            width: Constants.ActivityCellProfilePictureBadgeSize.width,
+                            height: Constants.ActivityCellProfilePictureBadgeSize.height
                         )
                         .clipShape(Circle())
-                        .overlay(alignment: .bottomTrailing) {
-                            LogoImageView(
-                                logoImageViewData: activityPost.company.logoImageData,
-                                size: Constants.ActivityCellProfilePictureBadgeSize,
-                                overrideLogoWithFontSize: .caption2
-                            )
-                            .offset(x: 8, y: 8)
-                        }
-                        .onTapGesture { posterSelected() }
+                        .overlay(Circle().stroke(.background, lineWidth: 1))
+                        .offset(x: 5, y: 5)
+                    }
                 } else {
-                    LogoImageView(
-                        logoImageViewData: activityPost.company.logoImageData,
-                        size: Constants.ActivityCellProfilePictureSize
+                    AsyncImage(url: URL(string: activityPost.company.logoImageUrl)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+
+                    } placeholder: {
+                        Color.gray
+                    }
+                    .frame(
+                        width: Constants.ActivityCellProfilePictureSize.width,
+                        height: Constants.ActivityCellProfilePictureSize.height
                     )
+                    .clipShape(Circle())
                     .onTapGesture { posterSelected() }
                 }
 

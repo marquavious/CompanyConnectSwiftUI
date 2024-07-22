@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Donation: Hashable, Identifiable {
+struct Donation: Codable {
 
-    enum PaymentMethod: CaseIterable {
+    enum PaymentMethod: Codable, CaseIterable {
         case creditCard, paypal, applePay
 
         var displayName: String {
@@ -24,7 +24,7 @@ struct Donation: Hashable, Identifiable {
         }
     }
 
-    let id = UUID()
+    let id: String
     let amountInCents: Double
     let company: CompanyObject
     let date: Date
@@ -43,6 +43,7 @@ extension Donation {
         for _ in 0...donationCount {
             array.append(
                 Donation(
+                    id: UUID().uuidString,
                     amountInCents: Double.random(in: 0...500),
                     company: CompanyObject.createFakeCompanyObject(),
                     date: Calendar.current.date(
@@ -61,6 +62,7 @@ extension Donation {
         for _ in 0...donationCount {
             array.append(
                 Donation(
+                    id: UUID().uuidString,
                     amountInCents: Double.random(in: 0...500),
                     company: CompanyObject.createFakeCompanyObject(),
                     date: Calendar.current.date(

@@ -18,12 +18,12 @@ class DependencyGraph: DependencyGraphType {
 }
 
 class OfflineDependencyGraph: DependencyGraphType {
-    var activityFeedViewModel: ActivityFeedViewViewModelType = StubbedActivityFeed(service: OfflinePostsService(postCount: 50))
+    var activityFeedViewModel: ActivityFeedViewViewModelType = StubbedActivityFeed(service: OfflinePostsService(postCount: 100))
     var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel(mapServiceType: OfflineMapService())
 }
 
 class IntegratedDependencyGraph: DependencyGraphType {
-    var activityFeedViewModel: ActivityFeedViewViewModelType = StubbedActivityFeed(service: OfflinePostsService(postCount: 50))
+    var activityFeedViewModel: ActivityFeedViewViewModelType = StubbedActivityFeed(service: OfflinePostsService(postCount: 100))
     var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel(mapServiceType: OfflineMapService())
 }
 
