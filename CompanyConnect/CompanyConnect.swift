@@ -54,18 +54,36 @@ struct MainView: View {
 
     let dependencyGraph: DependencyGraphType
 
+    enum TabViewData: String {
+
+        case feed = "Feed"
+        case map = "Map"
+        case donations = "Donations"
+
+        var systemImageName: String {
+            switch self {
+            case .feed:
+                "bubble.circle.fill"
+            case .map:
+                "globe.americas"
+            case .donations:
+                "dollarsign.circle"
+            }
+        }
+    }
+
     var body: some View {
         TabView {
             ActivityFeedView(viewModel: dependencyGraph.activityFeedViewModel).tabItem {
-                Label("Feed", systemImage: "bubble.circle.fill")
+                Label(TabViewData.feed.rawValue, systemImage: TabViewData.feed.systemImageName)
             }
 
             MapTabView(viewModel: dependencyGraph.mapViewViewModel).tabItem {
-                Label("Map", systemImage: "globe.americas")
+                Label(TabViewData.map.rawValue, systemImage: TabViewData.map.systemImageName)
             }
 
             DonationsView(viewModel: dependencyGraph.donationsViewViewModel).tabItem {
-                Label("Donations", systemImage: "dollarsign.circle")
+                Label(TabViewData.donations.rawValue, systemImage: TabViewData.donations.systemImageName)
             }
         }
     }

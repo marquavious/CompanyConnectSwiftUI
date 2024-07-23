@@ -19,11 +19,11 @@ struct ProjectsScrollerView: View {
 
     @Environment(\.colorScheme) var colorScheme
 
-    let companyObject: CompanyObject
+    let projects: [Project]
 
     var body: some View {
         TabView {
-            ForEach(companyObject.projects) { project in
+            ForEach(projects) { project in
                 ZStack {
                     RoundedRectangle(cornerRadius: 8)
                         .fill(.background)
@@ -88,5 +88,5 @@ struct ProjectsScrollerView: View {
 }
 
 #Preview {
-    ProjectsScrollerView(companyObject: CompanyObject.createFakeComapnyList().first!)
+    ProjectsScrollerView(projects: Project.generateFakeProjectList())
 }

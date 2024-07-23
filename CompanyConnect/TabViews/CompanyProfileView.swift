@@ -8,6 +8,32 @@
 import SwiftUI
 import MapKit
 
+protocol CompanyProfileViewViewModelType {
+    var company: CompanyObject { get set }
+    var activityFeedViewModel: ActivityFeedViewViewModelType { get set }
+}
+
+class DevCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
+    var company: CompanyObject
+    var activityFeedViewModel: ActivityFeedViewViewModelType
+
+    init() {
+        let company: CompanyObject = CompanyObject.createFakeCompanyObject()
+        self.company = company
+        self.activityFeedViewModel = DevCompanyActivityFeed(company: company)
+    }
+}
+
+class CompanyProfileViewViewModel: CompanyProfileViewViewModelType {
+    var company: CompanyObject
+    var activityFeedViewModel: ActivityFeedViewViewModelType
+
+    init(company: CompanyObject) {
+        self.company = company
+        self.activityFeedViewModel = CompanyActivityFeed(company: company)
+    }
+}
+
 struct CompanyProfileView: View {
 
     struct Constants {
@@ -83,17 +109,15 @@ struct CompanyProfileView: View {
             case .missionStatements:
                 // For some reason EmptyView() Buggs out the insets
                 // So we go with this instead
-                Divider()
-                    .frame(height: .zero)
-                    .opacity(.zero)
+                Divider().frame(height: .zero).opacity(.zero)
             case .ourTeam:
-                OurTeamPhotoScrollerView(companyObject: companyObject)
+                OurTeamPhotoScrollerView(teamMembers: companyObject.team)
             case .briefHistory:
-                BriefHistoryPhotoScrollerView(companyObject: companyObject)
+                BriefHistoryPhotoScrollerView(briefHistoryObject: companyObject.briefHistoryObject)
             case .locations:
                 CompanyProfileMapView(company: companyObject)
             case .projects:
-                ProjectsScrollerView(companyObject: companyObject)
+                ProjectsScrollerView(projects: companyObject.projects)
             }
         }
     }
@@ -104,14 +128,12 @@ struct CompanyProfileView: View {
     @State private var currentTab: ProfileTabs = .about
     @State var showNavigationBar: Bool = false
 
-    private var viewModel: ActivityFeedViewViewModelType
-    private let company: CompanyObject
+    private let viewModel: CompanyProfileViewViewModelType
 
-    init(companyObject: CompanyObject) {
+    init(viewModel: CompanyProfileViewViewModelType) {
         UIPageControl.appearance().currentPageIndicatorTintColor = .gray
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
-        self.company = companyObject
-        self.viewModel = DevCompanyActivityFeed(company: companyObject)
+        self.viewModel = viewModel
     }
 
     var body: some View {
@@ -119,7 +141,7 @@ struct CompanyProfileView: View {
             handleNavigationBarAnimation(scrollViewOffset: offset)
         }) {
             GeometryReader { proxy in
-                AsyncImage(url: URL(string: company.coverImageUrl)) { image in
+                AsyncImage(url: URL(string: viewModel.company.coverImageUrl)) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -146,7 +168,7 @@ struct CompanyProfileView: View {
             VStack(spacing: .zero) {
                 VStack(spacing: 8) {
                     HStack {
-                        AsyncImage(url: URL(string: company.logoImageUrl)) { image in
+                        AsyncImage(url: URL(string: viewModel.company.logoImageUrl)) { image in
                             image
                                 .resizable()
                                 .scaledToFill()
@@ -184,12 +206,12 @@ struct CompanyProfileView: View {
                             .offset(y: 20)
                     }
                     VStack(alignment: .leading, spacing: 8) {
-                        Text(company.orginizationName)
+                        Text(viewModel.company.orginizationName)
                             .font(.title2)
                             .bold()
-                        Text("Current Projects: **\(company.projects.count)**")
+                        Text("Current Projects: **\(viewModel.company.projects.count)**")
 
-                        Text(company.bio)
+                        Text(viewModel.company.bio)
                             .font(.subheadline)
                     }
                     Picker("", selection: $currentTab) {
@@ -209,17 +231,17 @@ struct CompanyProfileView: View {
                     ForEach(AboutSections.allCases) { section in
                         CompanyProfileTextView(
                             titleText: section.sectionTitles,
-                            text: section.sectionDescriptionText(companyObject: company),
+                            text: section.sectionDescriptionText(companyObject: viewModel.company),
                             mediaLocation: section.sectionMediaLocation
                         ) {
-                            section.sectionView(companyObject: company)
+                            section.sectionView(companyObject: viewModel.company)
                         }
                     }
                     .offset(y: -50)
                 case .activity:
                     ActivityFeedScrollView(
                         shouldShowCategoryFilter: false,
-                        viewModel: viewModel
+                        viewModel: viewModel.activityFeedViewModel
                     )
                     .offset(y: Constants.ScrollViewOffset)
                 }
@@ -236,7 +258,7 @@ struct CompanyProfileView: View {
                 )
                 .opacity(showNavigationBar ? 1 : 0)
                 .overlay(alignment: .center) {
-                    Text(company.orginizationName)
+                    Text(viewModel.company.orginizationName)
                         .foregroundStyle(.white)
                         .fontWeight(.semibold)
                         .opacity(showNavigationBar ? 1 : 0)
@@ -274,5 +296,5 @@ struct CompanyProfileView: View {
 }
 
 #Preview {
-    CompanyProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
+    CompanyProfileView(viewModel: DevCompanyProfileViewViewModel())
 }

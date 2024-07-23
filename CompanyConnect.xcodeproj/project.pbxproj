@@ -366,7 +366,6 @@
 			children = (
 				C0CC8D7A2C4CEEC40083E6C6 /* ActivityFeedViewViewModelType.swift */,
 				C0CC8D7B2C4CEEC40083E6C6 /* MapViewViewModel.swift */,
-				C0B86C722C4D362600C853C0 /* Encodable+Ext.swift */,
 				C0B86C742C4E00DE00C853C0 /* DonationsViewViewModel.swift */,
 			);
 			path = "View Models ";
@@ -417,6 +416,7 @@
 		C0CC8D992C4CEEC40083E6C6 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				C0B86C722C4D362600C853C0 /* Encodable+Ext.swift */,
 				C0CC8D952C4CEEC40083E6C6 /* Color+Ext.swift */,
 				C0CC8D962C4CEEC40083E6C6 /* Date+Ext.swift */,
 				C0CC8D972C4CEEC40083E6C6 /* Image+Ext.swift */,

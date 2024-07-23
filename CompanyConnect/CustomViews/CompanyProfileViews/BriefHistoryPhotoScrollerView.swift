@@ -16,11 +16,11 @@ struct BriefHistoryPhotoScrollerView: View {
         static let CaptionPadding: CGFloat = 8
     }
 
-    let companyObject: CompanyObject
+    let briefHistoryObject: BriefHistoryObject
 
     var body: some View {
         TabView {
-            ForEach(companyObject.briefHistoryObject.imageObjects, id: \.imageUrl) { object in
+            ForEach(briefHistoryObject.imageObjects, id: \.imageUrl) { object in
                 VStack {
                     AsyncImage(url: URL(string: object.imageUrl)) { image in
                         image
@@ -53,5 +53,5 @@ struct BriefHistoryPhotoScrollerView: View {
 }
 
 #Preview {
-    CompanyProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
+    BriefHistoryPhotoScrollerView(briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject())
 }

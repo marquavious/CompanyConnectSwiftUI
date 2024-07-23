@@ -14,6 +14,7 @@ struct MapTabView: View {
     @State var shouldShowListView: Bool = false
     @State private var shouldLockMap: Bool = true
     @State private var selectedCompanies = [CompanyObject]()
+
     var viewModel: MapViewViewModelType
 
     var body: some View {
@@ -31,13 +32,16 @@ struct MapTabView: View {
                         viewModel: viewModel
                     )
 
-                    CompanyListView(shouldShowListView: $shouldShowListView, viewModel: viewModel) {
+                    CompanyListView(
+                        shouldShowListView: $shouldShowListView,
+                        viewModel: viewModel)
+                    {
                         selectedCompanies.append($0)
                     }
                 }
             }
             .navigationDestination(for: CompanyObject.self) {
-                CompanyProfileView(companyObject: $0)
+                CompanyProfileView(viewModel: CompanyProfileViewViewModel(company: $0))
             }
         }
     }
@@ -45,5 +49,6 @@ struct MapTabView: View {
 }
 
 #Preview {
-    MapTabView(viewModel: DevMapViewViewModel())
+    MapTabView(
+        viewModel: DevMapViewViewModel())
 }

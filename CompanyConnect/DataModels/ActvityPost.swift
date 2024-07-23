@@ -40,7 +40,7 @@ extension ActvityPost {
     static func createFakeActivityPostForCompany(company: CompanyObject) -> ActvityPost {
         ActvityPost.createFakeActivityPost(
             media: Bool.random() ? MediaData.generateRandomMedia() : nil,
-            poster:  Bool.random() ? (company.team.randomElement() ?? nil) : nil
+            poster:  Bool.random() ? TeamMember.generateRandomTeamMember() : nil
         )
     }
 }

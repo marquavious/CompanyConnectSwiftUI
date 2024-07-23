@@ -35,7 +35,7 @@ struct ActivityFeedView: View {
                 presentedNgos.append($0)
             }
             .navigationDestination(for: CompanyObject.self) {
-                CompanyProfileView(companyObject: $0)
+                CompanyProfileView(viewModel: CompanyProfileViewViewModel(company: $0))
             }
             .navigationTitle(Constants.NavigationTitle)
             .toolbar {
@@ -57,5 +57,7 @@ struct ActivityFeedView: View {
 }
 
 #Preview {
-    ActivityFeedView(viewModel: DevHomeTabActivityFeed())
+    ActivityFeedView(
+        viewModel: DevHomeTabActivityFeed()
+    )
 }

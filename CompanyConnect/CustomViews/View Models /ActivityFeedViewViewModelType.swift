@@ -95,6 +95,69 @@ class OfflineActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     }
 }
 
+@Observable // For Now
+class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
+
+    init(company: CompanyObject) {
+        _company = company
+        _posts = TweetGenerator.generateRandomTweetsFrom(company: company)
+    }
+
+    private let _company: CompanyObject
+    private var _posts: [ActvityPost]
+    private var _selctedCategories = [Category]()
+    private var _categories: [Category] = []
+
+    private var _hasSelected: Bool {
+        return !_selctedCategories.isEmpty
+    }
+
+    private var _presentedPosts: [ActvityPost] {
+        _posts
+    }
+
+    func resetSelectedCategories() {
+        _selctedCategories = []
+    }
+
+    func posts() -> [ActvityPost] {
+        Array(repeating: ActvityPost.createFakeActivityPostForCompany(company: _company), count: 50)
+    }
+
+    func selctedCategories() -> [Category] {
+        _selctedCategories
+    }
+
+    func categories() -> [Category] {
+        _categories
+    }
+
+    func hasSelectedCategories() -> Bool {
+        _hasSelected
+    }
+
+    func presentedPosts() -> [ActvityPost] {
+        _presentedPosts
+    }
+
+    func addToSelectedCategories(category: Category) {
+        _selctedCategories.append(category)
+    }
+
+    func removeCategory(category: Category) {
+        _selctedCategories.removeAll(where: { $0 == category })
+    }
+
+    func handleCategorySelection(_ category: Category) {
+        if _selctedCategories.contains(category) {
+            removeCategory(category: category)
+        } else if !_selctedCategories.contains(category) {
+            addToSelectedCategories(category: category)
+        }
+    }
+
+}
+
 @Observable
 class DevCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 

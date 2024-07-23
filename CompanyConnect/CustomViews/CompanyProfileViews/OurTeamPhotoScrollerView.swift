@@ -18,7 +18,7 @@ struct OurTeamPhotoScrollerView: View {
         static let CellPadding: CGFloat = 4
     }
 
-    let companyObject: CompanyObject
+    let teamMembers: [TeamMember]
     private let rows = [GridItem()]
 
     var body: some View {
@@ -27,7 +27,7 @@ struct OurTeamPhotoScrollerView: View {
             showsIndicators: false
         ) {
             LazyHGrid(rows: rows) {
-                ForEach(companyObject.team, id: \.name) { member in
+                ForEach(teamMembers, id: \.name) { member in
                     VStack {
                         AsyncImage(url: URL(string: member.imageUrl)) { image in
                             image
@@ -68,9 +68,5 @@ struct OurTeamPhotoScrollerView: View {
 }
 
 #Preview {
-    OurTeamPhotoScrollerView(companyObject: CompanyObject.createFakeComapnyList().randomElement()!)
-}
-
-#Preview {
-    CompanyProfileView(companyObject: CompanyObject.createFakeComapnyList().first!)
+    OurTeamPhotoScrollerView(teamMembers: TeamMember.generateRandomTeamList())
 }

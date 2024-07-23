@@ -81,7 +81,3 @@ struct CompanyCardView: View {
     }
 
 }
-
-#Preview {
-    MapTabView(viewModel: DevMapViewViewModel())
-}

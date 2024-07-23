@@ -56,7 +56,7 @@ struct TweetGenerator {
             let post = ActvityPost(
                 id: UUID().uuidString,
                 company: company,
-                poster: Bool.random() ? tamMember.randomElement()! : nil,
+                poster: Bool.random() ? TeamMember.generateRandomTeamMember() : nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: generateRandomMeda().shuffled().randomElement()!,
                 hourAgoPosted: Int.random(in: 1...19)
