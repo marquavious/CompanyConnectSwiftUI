@@ -21,9 +21,9 @@ struct CompanyObject: Codable, Identifiable, Hashable {
     let coverImageUrl: String
     let missionStatement: String
     let bio: String
-    let team: [TeamMember]
+    var team: [TeamMember]
     let briefHistoryObject: BriefHistoryObject
-    let projects: [Project]
+    var projects: [Project]
     let logoImageUrl: String
 
     public func hash(into hasher: inout Hasher) {
@@ -39,7 +39,7 @@ extension CompanyObject {
     static func createFakeCompanyObject() -> CompanyObject {
         CompanyObject(
             id: "1",
-            orginizationName: "Fake Company Inc.",
+            orginizationName: "Company Inc",
             coordinate: Coordinate(
                 latitude: CLLocationDegrees(Int.random(in: 0..<20)),
                 longitude: CLLocationDegrees(Int.random(in: -100..<20))

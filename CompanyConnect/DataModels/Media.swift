@@ -8,8 +8,9 @@
 import Foundation
 import SwiftUI
 
-enum MediaData: Codable {
-    
+enum Media: Codable {
+    static var allCases = ["photo", "photo_carousel", "donation_progress"]
+
     case photo(String)
     case photoCarousel([String])
     case donationProgress(Double, Double)
@@ -19,31 +20,31 @@ enum MediaData: Codable {
         case .photo(_):
             return "photo"
         case .photoCarousel(_):
-            return "photos"
+            return "photo_carousel"
         case .donationProgress(_, _):
-            return "donationProgress"
+            return "donation_progress"
         }
     }
 }
 
-extension MediaData {
-    static func createFakePhotoMedia() -> MediaData {
-        MediaData.photo("imageUrl")
+extension Media {
+    static func createFakePhotoMedia() -> Media {
+        Media.photo("imageUrl")
     }
 
-    static func createFakePhotoCarouselMedia() -> MediaData {
-        MediaData.photoCarousel([
+    static func createFakePhotoCarouselMedia() -> Media {
+        Media.photoCarousel([
             "imageUrl 1",
             "imageUrl 2",
             "imageUrl 3"
         ])
     }
 
-    static func createDonationProgressMedia() -> MediaData {
-        MediaData.donationProgress(Double.random(in: 0...500), Bool.random() ? 800 : 1000)
+    static func createDonationProgressMedia() -> Media {
+        Media.donationProgress(Double.random(in: 0...500), Bool.random() ? 800 : 1000)
     }
 
-    static func generateRandomMedia() -> MediaData {
+    static func generateRandomMedia() -> Media {
         [createFakePhotoMedia(),
         createFakePhotoCarouselMedia(),
         createDonationProgressMedia()

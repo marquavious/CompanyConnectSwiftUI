@@ -29,15 +29,17 @@ struct ActivityCellView: View {
     }
 
     let activityPost: ActvityPost
-    let posterSelected: () -> Void
-    let visitProfileTapped: () -> Void
+    let posterSelected: (() -> Void)?
+    let visitProfileTapped: (() -> Void)?
+
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         VStack {
+
             HStack(alignment: .top, spacing: Constants.ActivityCellPhotoContentPadding) {
-                if let poster = activityPost.poster {
-                    AsyncImage(url: URL(string: poster.imageUrl)) { image in
+                if let posterData = activityPost.poster {
+                    AsyncImage(url: URL(string: posterData.badgeImageUrl)) { image in
                         image
                             .resizable()
                             .scaledToFill()
@@ -49,9 +51,9 @@ struct ActivityCellView: View {
                         height: Constants.ActivityCellProfilePictureSize.height
                     )
                     .clipShape(Circle())
-                    .onTapGesture { posterSelected() }
+                    .onTapGesture { posterSelected?() }
                     .overlay(alignment: .bottomTrailing) {
-                        AsyncImage(url: URL(string: activityPost.company.logoImageUrl)) { image in
+                        AsyncImage(url: URL(string: activityPost.imageUrl)) { image in
                             image
                                 .resizable()
                                 .scaledToFill()
@@ -68,7 +70,7 @@ struct ActivityCellView: View {
                         .offset(x: 5, y: 5)
                     }
                 } else {
-                    AsyncImage(url: URL(string: activityPost.company.logoImageUrl)) { image in
+                    AsyncImage(url: URL(string: activityPost.imageUrl)) { image in
                         image
                             .resizable()
                             .scaledToFill()
@@ -81,13 +83,13 @@ struct ActivityCellView: View {
                         height: Constants.ActivityCellProfilePictureSize.height
                     )
                     .clipShape(Circle())
-                    .onTapGesture { posterSelected() }
+                    .onTapGesture { posterSelected?() }
                 }
 
                 VStack(alignment: .leading, spacing: Constants.ActivityCellInternalContentPadding) {
                     HStack(spacing: .zero) {
-                        if let poster = activityPost.poster {
-                            Text("\(poster.name)")
+                        if let posterData = activityPost.poster {
+                            Text("\(posterData.name)")
                                 .font(.subheadline)
                                 .bold()
 
@@ -99,9 +101,8 @@ struct ActivityCellView: View {
                         Text(activityPost.company.orginizationName)
                             .font(.subheadline)
                             .bold()
-                            .onTapGesture { posterSelected() }
 
-                        Text(" • \(activityPost.hourAgoPosted)h")
+                        Text(" • \(activityPost.date.timeAgoDisplay())")
                             .font(.subheadline)
                             .foregroundColor(.gray)
 
@@ -113,7 +114,7 @@ struct ActivityCellView: View {
                             }
                             Button("Visit Profile", systemImage: Icons.VisitProfile.rawValue) {
                                 // - TODO: IMPLIMENT PROFILE VISIT FLOW
-                                visitProfileTapped()
+//                                visitProfileTapped?()
                             }
                         } label: {
                             Label(String(), systemImage: Icons.ActionButton.rawValue)
@@ -132,10 +133,12 @@ struct ActivityCellView: View {
                             .frame(maxHeight: Constants.ActivityCellMediaViewMaxHeight)
                             .padding([.vertical], Constants.ActivityCellMedaiViewBottomPadding)
                     }
+                    
                 }
             }
             .padding([.top], Constants.ActivityCellContentTopPadding)
             .padding([.horizontal], Constants.ActivityCellContentHorizontalPadding)
+
         }
     }
 }

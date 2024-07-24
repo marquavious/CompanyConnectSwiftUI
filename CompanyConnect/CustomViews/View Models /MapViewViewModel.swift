@@ -11,7 +11,13 @@ protocol MapViewViewModelType {
     func handleSelectedCategory(_ category: Category)
 }
 
-typealias MapData = [CompanyObject]
+struct MapData: Codable {
+    let companyObjects: [CompanyObject]
+}
+
+//struct MapViewData: Codable {
+//    let companyObjects: [CompanyObject]
+//}
 
 protocol MapServiceType {
     func getMapData() async throws -> MapData
@@ -21,7 +27,7 @@ protocol MapServiceType {
 class DevMapService: MapServiceType {
 
     func getMapData() async throws -> MapData {
-        return CompanyObject.createFakeComapnyList()
+        return MapData(companyObjects: CompanyObject.createFakeComapnyList())
     }
 }
 
@@ -29,7 +35,7 @@ class DevMapService: MapServiceType {
 class OfflineMapService: MapServiceType {
 
     func getMapData() async throws -> MapData {
-        return []
+        return MapData(companyObjects: [])
     }
 }
 
@@ -37,7 +43,7 @@ class OfflineMapService: MapServiceType {
 class OfflineMapViewViewModel: MapViewViewModelType, ObservableObject {
 
     private let mapServiceType: MapServiceType
-    private var mapData: MapData = MapData()
+    private var mapData: MapData = MapData(companyObjects: [])
     private var selectedCategories = [Category]()
 
     init(mapServiceType: MapServiceType) {
@@ -53,7 +59,7 @@ class OfflineMapViewViewModel: MapViewViewModelType, ObservableObject {
     }
 
     func allCompanies() -> [CompanyObject] {
-        mapData
+        mapData.companyObjects
     }
     
     func categories() -> [Category] {
@@ -70,12 +76,12 @@ class OfflineMapViewViewModel: MapViewViewModelType, ObservableObject {
     
     func presentedCompanies() -> [CompanyObject] {
         if selectedCategories.isEmpty {
-            return mapData
+            return mapData.companyObjects
         }
 
         var tempArray = [CompanyObject]()
         for category in selectedCategories {
-            for company in mapData {
+            for company in mapData.companyObjects {
                 if company.category == category {
                     tempArray.append(company)
                 }
@@ -101,11 +107,11 @@ class OfflineMapViewViewModel: MapViewViewModelType, ObservableObject {
 @Observable
 class DevMapViewViewModel: MapViewViewModelType, ObservableObject {
 
-    var mapData: MapData = CompanyObject.createFakeComapnyList()
+    var mapData: MapData = MapData(companyObjects: CompanyObject.createFakeComapnyList())
     var selectedCategories = [Category]()
 
     func allCompanies() -> [CompanyObject] {
-        mapData
+        mapData.companyObjects
     }
 
     func categories() -> [Category] {
@@ -122,12 +128,12 @@ class DevMapViewViewModel: MapViewViewModelType, ObservableObject {
 
     func presentedCompanies() -> [CompanyObject] {
         if selectedCategories.isEmpty {
-            return mapData
+            return mapData.companyObjects
         }
 
         var tempArray = [CompanyObject]()
         for category in selectedCategories {
-            for company in mapData {
+            for company in mapData.companyObjects {
                 if company.category == category {
                     tempArray.append(company)
                 }

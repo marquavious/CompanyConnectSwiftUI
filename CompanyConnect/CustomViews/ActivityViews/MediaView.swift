@@ -18,14 +18,14 @@ struct MediaView: View {
 
     @Environment (\.colorScheme) var colorScheme
 
-    let media: MediaData
+    let media: Media
 
     var body: some View {
         viewForMedia(media)
     }
 
     @ViewBuilder
-    func viewForMedia(_ media: MediaData) -> some View {
+    func viewForMedia(_ media: Media) -> some View {
         switch media {
         case .photo(let photo):
             AsyncImage(url: URL(string: photo)) { image in

@@ -26,6 +26,7 @@ struct ActivityFeedScrollView: View {
     private let activityScrollerTipView = ActivityScrollerTipView()
 
     var body: some View {
+
         ScrollView(showsIndicators: false) {
             LazyVGrid(
                 columns: columns,
@@ -35,8 +36,7 @@ struct ActivityFeedScrollView: View {
                     TipView(activityScrollerTipView)
                         .padding([.horizontal], Constants.TipViewPadding)
                     ForEach(viewModel.presentedPosts()) { activityPost in
-                        ActivityCellView(
-                            activityPost: activityPost) {
+                        ActivityCellView(activityPost: activityPost) {
                                 ngoSelected?(activityPost.company)
                             } visitProfileTapped: {
                                 ngoSelected?(activityPost.company)

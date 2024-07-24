@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+/*
 struct TweetGenerator {
 
     static func generateRandomTweets() -> [ActvityPost] {
@@ -21,8 +22,8 @@ struct TweetGenerator {
 
             let post = ActvityPost(
                 id: UUID().uuidString,
-                company: company,
-                poster: Bool.random() ? tamMember.randomElement()! : nil,
+                companyName: company,
+                posterName: Bool.random() ? tamMember.randomElement()! : nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media:  generateRandomMeda().shuffled().randomElement()!,
                 hourAgoPosted: Int.random(in: 1...19)
@@ -55,8 +56,8 @@ struct TweetGenerator {
 
             let post = ActvityPost(
                 id: UUID().uuidString,
-                company: company,
-                poster: Bool.random() ? TeamMember.generateRandomTeamMember() : nil,
+                companyName: company,
+                posterName: Bool.random() ? TeamMember.generateRandomTeamMember() : nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: generateRandomMeda().shuffled().randomElement()!,
                 hourAgoPosted: Int.random(in: 1...19)
@@ -79,12 +80,12 @@ struct TweetGenerator {
         return ackposts.sorted { $0.hourAgoPosted < $1.hourAgoPosted }
     }
 
-    static func generateRandomMeda() -> [MediaData?] {
+    static func generateRandomMeda() -> [MediaDataType?] {
 
         var array = [
-            Bool.random() ? nil: ( Bool.random() ? nil : MediaData.createDonationProgressMedia()),
-            Bool.random() ? nil: MediaData.createFakePhotoCarouselMedia() ,
-            Bool.random() ? nil: MediaData.createFakePhotoMedia(),
+            Bool.random() ? nil: ( Bool.random() ? nil : MediaDataType.createDonationProgressMedia()),
+            Bool.random() ? nil: MediaDataType.createFakePhotoCarouselMedia() ,
+            Bool.random() ? nil: MediaDataType.createFakePhotoMedia(),
             nil,
             nil,
             nil
@@ -112,72 +113,72 @@ struct TweetGenerator {
         return [
             ActvityPost(
                 id: UUID().uuidString,
-                company: returnCompany(),
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: returnCompany(),
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 1
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: returnCompany(),
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: returnCompany(),
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
-                media: MediaData.createFakePhotoMedia(),
+                media: MediaDataType.createFakePhotoMedia(),
                 hourAgoPosted: 1
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 2
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 2
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
-                media: MediaData.createFakePhotoMedia(),
+                media: MediaDataType.createFakePhotoMedia(),
                 hourAgoPosted: 3
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 1
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 3
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 3
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 4
@@ -185,8 +186,8 @@ struct TweetGenerator {
 
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: .photoCarousel(
                     [
@@ -200,144 +201,144 @@ struct TweetGenerator {
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: "We're $200 away from our fundrasing goal! Thank you all for the support!",
                 media:.donationProgress(250, 500),
                 hourAgoPosted: 4
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 5
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
-                media: MediaData.createFakePhotoMedia(),
+                media: MediaDataType.createFakePhotoMedia(),
                 hourAgoPosted: 5
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 5
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media:  nil ,//.video("move-8"),
                 hourAgoPosted: 5
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
-                media: MediaData.createFakePhotoMedia(),
+                media: MediaDataType.createFakePhotoMedia(),
                 hourAgoPosted: 6
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 6
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil ,//.video("move-2"),
                 hourAgoPosted: 7
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 7
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
-                media: MediaData.createFakePhotoMedia(),
+                media: MediaDataType.createFakePhotoMedia(),
                 hourAgoPosted: 8
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 8
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(), 
-                media: MediaData.generateRandomMedia(),
+                media: MediaDataType.generateRandomMedia(),
                 hourAgoPosted: 8
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
-                media: MediaData.createFakePhotoMedia(),
+                media: MediaDataType.createFakePhotoMedia(),
                 hourAgoPosted: 9
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil ,//.video("move-1"),
                 hourAgoPosted: 9
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 9
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 9
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 10
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: .photoCarousel(
                     [
@@ -351,64 +352,64 @@ struct TweetGenerator {
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: "We're $200 away from our fundrasing goal! Thank you all for the support! ",
                 media:.donationProgress(250, 500),
                 hourAgoPosted: 10
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 11
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
-                media: MediaData.createFakePhotoMedia(),
+                media: MediaDataType.createFakePhotoMedia(),
                 hourAgoPosted: 11
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 11
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil, //.video("move-6"),
                 hourAgoPosted: 12
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
-                media: MediaData.createFakePhotoMedia(),
+                media: MediaDataType.createFakePhotoMedia(),
                 hourAgoPosted: 12
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: TeamMember.generateRandomTeamList().randomElement()!,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: TeamMember.generateRandomTeamList().randomElement()!,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 13
             ),
             ActvityPost(
                 id: UUID().uuidString,
-                company: CompanyObject.createFakeComapnyList().randomElement()!,
-                poster: nil,
+                companyName: CompanyObject.createFakeComapnyList().randomElement()!,
+                posterName: nil,
                 caption: StringGenerator.generateRandomActivityString(),
                 media: nil,
                 hourAgoPosted: 13
@@ -416,3 +417,4 @@ struct TweetGenerator {
         ]
     }
 }
+*/

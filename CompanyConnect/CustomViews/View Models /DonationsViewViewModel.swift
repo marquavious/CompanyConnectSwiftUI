@@ -8,20 +8,20 @@
 import Foundation
 
 protocol DonationsViewViewModelType {
-    var user: User { get }
+    var donations: [Donation] { get }
 }
 
 @Observable
 class DonationsViewViewModel: DonationsViewViewModelType {
 
-    let user: User
+    let donations: [Donation]
 
-    init(user: User) {
-        self.user = user
+    init(donations: [Donation]) {
+        self.donations = donations
     }
 }
 
 @Observable
 class DevDonationsViewViewModel: DonationsViewViewModelType {
-    let user: User = User.createFakeUserData()
+    let donations: [Donation] = Donation.generatePastDonations()
 }

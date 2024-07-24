@@ -8,13 +8,14 @@
 import Foundation
 
 struct ActvityPost: Codable, Hashable, Identifiable {
-    
+
     let id: String
-    let company: CompanyObject
-    let poster: TeamMember?
     let caption: String?
-    let media: MediaData?
-    let hourAgoPosted: Int
+    let imageUrl: String
+    let poster: ActvityPostPoster?
+    let media: Media?
+    let company: CompanyObject
+    let date: Date
 
     static func == (lhs: ActvityPost, rhs: ActvityPost) -> Bool {
         return lhs.id == rhs.id
@@ -26,21 +27,76 @@ struct ActvityPost: Codable, Hashable, Identifiable {
 }
 
 extension ActvityPost {
-    static func createFakeActivityPost(media: MediaData? = nil, poster: TeamMember? = nil) -> ActvityPost {
+    static func createFakeActivityPost(
+        media: Media? = (Bool.random() ? nil : Media.generateRandomMedia()),
+        poster: ActvityPostPoster? = (Bool.random() ? nil : ActvityPostPoster.generateRandomActvityPostPoster())
+    ) -> ActvityPost {
+        let company = CompanyObject.createFakeCompanyObject()
         return ActvityPost(
-            id: UUID().uuidString, 
-            company: CompanyObject.createFakeCompanyObject(),
+            id: UUID().uuidString,
+            caption: "Caption",
+            imageUrl: "imgUrl",
             poster: poster,
-            caption: "Here is a very informative post",
-            media: media,
-            hourAgoPosted: Int.random(in: 1..<20)
+            media: media, 
+            company: company,
+            date: Date()
         )
     }
 
     static func createFakeActivityPostForCompany(company: CompanyObject) -> ActvityPost {
         ActvityPost.createFakeActivityPost(
-            media: Bool.random() ? MediaData.generateRandomMedia() : nil,
-            poster:  Bool.random() ? TeamMember.generateRandomTeamMember() : nil
+            media: Bool.random() ? Media.generateRandomMedia() : nil,
+            poster:  Bool.random() ? ActvityPostPoster.generateRandomActvityPostPoster() : nil
         )
     }
 }
+
+struct ActvityPostPoster: Codable {
+    let id: String
+    let name: String
+    let badgeImageUrl: String
+}
+
+extension ActvityPostPoster {
+    static func generateRandomActvityPostPoster() -> ActvityPostPoster {
+        ActvityPostPoster(
+            id: "0001",
+            name: "John Doe",
+            badgeImageUrl: "imageUrl"
+        )
+    }
+}
+
+//struct ActvityPostData: Codable, Identifiable {
+//    let id: String
+//    let imageUrl: String
+//    let date: String
+//    let caption: String?
+//    let companyData: CompanyData
+//    let posterData: ActvityPostPosterData?
+//    let mediaData: MediaData?
+//}
+//
+//struct ActvityPostPosterData: Codable {
+//    let id: String
+//    let name: String
+//    let badgeImageUrl: String
+//}
+//
+//struct CompanyData: Codable, Identifiable {
+//    let id: String
+//    let category: Category
+//    let companyName: String
+//}
+//
+//struct TeamMemberData: Codable, Identifiable {
+//    let id: String
+//    let name: String
+//    let badgeImageUrl: String
+//}
+//
+//struct MediaData: Codable, Identifiable {
+//    let id: String
+//    let url: String
+//    let type: String
+//}

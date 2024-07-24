@@ -100,7 +100,7 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     init(company: CompanyObject) {
         _company = company
-        _posts = TweetGenerator.generateRandomTweetsFrom(company: company)
+        _posts = Array(repeating: ActvityPost.createFakeActivityPost(), count: 50)
     }
 
     private let _company: CompanyObject
@@ -163,7 +163,7 @@ class DevCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     init(company: CompanyObject) {
         _company = company
-        _posts = TweetGenerator.generateRandomTweetsFrom(company: company)
+        _posts = Array(repeating: ActvityPost.createFakeActivityPost(), count: 50)
     }
 
     private let _company: CompanyObject
@@ -184,7 +184,7 @@ class DevCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     }
 
     func posts() -> [ActvityPost] {
-        Array(repeating: ActvityPost.createFakeActivityPostForCompany(company: _company), count: 50)
+        _posts
     }
 
     func selctedCategories() -> [Category] {
@@ -224,9 +224,20 @@ class DevCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 @Observable
 class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
-    private var _posts = TweetGenerator.returnStructuredTweetList()
+    private var _posts = [ActvityPost]()
+//    TweetGenerator.returnStructuredTweetList()
     private var _selctedCategories = [Category]()
     private var _categories: [Category] = [.community,.healthcare, .environmental, .education,.womensRights,.veterans, .humanRights,.indigenousRights]
+
+    init() {
+
+        for _ in 0..<50 {
+            let company = CompanyObject.createFakeComapnyList().randomElement()!
+            _posts.append(
+                ActvityPost.createFakeActivityPost()
+            )
+        }
+    }
 
     private var _hasSelected: Bool {
         return !_selctedCategories.isEmpty
@@ -249,7 +260,7 @@ class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
         }
 
         return tempArray.sorted { post1, post2 in
-            post1.hourAgoPosted < post2.hourAgoPosted
+            post1.date < post2.date
         }
     }
 
@@ -258,7 +269,7 @@ class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     }
 
     func posts() -> [ActvityPost] {
-        return Array(repeating: ActvityPost.createFakeActivityPost(), count: 50)
+        return _posts
     }
 
     func selctedCategories() -> [Category] {
