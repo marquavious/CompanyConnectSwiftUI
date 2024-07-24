@@ -8,20 +8,24 @@
 import Foundation
 
 protocol DonationsViewViewModelType {
-    var donations: [Donation] { get }
+    var pastDonations: [Donation] { get }
+    var scheduledDonations: [Donation] { get }
 }
 
 @Observable
 class DonationsViewViewModel: DonationsViewViewModelType {
 
-    let donations: [Donation]
+    var pastDonations: [Donation]
+    var scheduledDonations: [Donation]
 
-    init(donations: [Donation]) {
-        self.donations = donations
+    init(pastDonations: [Donation], scheduledDonations: [Donation]) {
+        self.pastDonations = pastDonations
+        self.scheduledDonations = scheduledDonations
     }
 }
 
 @Observable
 class DevDonationsViewViewModel: DonationsViewViewModelType {
-    let donations: [Donation] = Donation.generatePastDonations()
+    let pastDonations: [Donation] = Donation.generatePastDonations()
+    let scheduledDonations: [Donation] = Donation.generateScheduledDonations()
 }

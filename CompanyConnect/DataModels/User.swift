@@ -19,7 +19,7 @@ extension User {
         User(
             name: "Johnny Appleseed",
             donations: Donation.generatePastDonations(),
-            scheduledDonations: Donation.generateSchedualedDonations()
+            scheduledDonations: Donation.generateScheduledDonations ()
         )
     }
 }

@@ -57,7 +57,7 @@ extension Donation {
         return array.sorted { $0.date < $1.date }
     }
 
-    static func generateSchedualedDonations(donationCount: Int = 5) -> [Donation] {
+    static func generateScheduledDonations(donationCount: Int = 5) -> [Donation] {
         var array = [Donation]()
         for _ in 0...donationCount {
             array.append(

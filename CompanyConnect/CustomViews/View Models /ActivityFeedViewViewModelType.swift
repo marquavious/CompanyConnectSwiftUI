@@ -225,14 +225,11 @@ class DevCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     private var _posts = [ActvityPost]()
-//    TweetGenerator.returnStructuredTweetList()
     private var _selctedCategories = [Category]()
     private var _categories: [Category] = [.community,.healthcare, .environmental, .education,.womensRights,.veterans, .humanRights,.indigenousRights]
 
     init() {
-
         for _ in 0..<50 {
-            let company = CompanyObject.createFakeComapnyList().randomElement()!
             _posts.append(
                 ActvityPost.createFakeActivityPost()
             )

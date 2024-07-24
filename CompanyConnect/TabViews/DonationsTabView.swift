@@ -28,12 +28,12 @@ struct DonationsView: View {
         NavigationView {
             List {
                 Section {
-                    ForEach(viewModel.user.donations, id: \.id) {
+                    ForEach(viewModel.pastDonations, id: \.id) {
                         DonationCellView(donation: $0)
                     }
                 }
                 Section {
-                    ForEach(viewModel.user.scheduledDonations, id: \.id) {
+                    ForEach(viewModel.scheduledDonations, id: \.id) {
                         DonationCellView(donation: $0)
                     }
                 }
