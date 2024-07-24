@@ -15,10 +15,6 @@ struct MapData: Codable {
     let companyObjects: [CompanyObject]
 }
 
-//struct MapViewData: Codable {
-//    let companyObjects: [CompanyObject]
-//}
-
 protocol MapServiceType {
     func getMapData() async throws -> MapData
 }
@@ -107,8 +103,13 @@ class OfflineMapViewViewModel: MapViewViewModelType, ObservableObject {
 @Observable
 class DevMapViewViewModel: MapViewViewModelType, ObservableObject {
 
-    var mapData: MapData = MapData(companyObjects: CompanyObject.createFakeComapnyList())
+    var mapData: MapData
     var selectedCategories = [Category]()
+
+    init() {
+        self.mapData = MapData(companyObjects: CompanyObject.createFakeComapnyList())
+        self.selectedCategories = selectedCategories
+    }
 
     func allCompanies() -> [CompanyObject] {
         mapData.companyObjects

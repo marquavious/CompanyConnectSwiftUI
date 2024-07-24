@@ -11,9 +11,9 @@ import SwiftUI
 enum Media: Codable {
     static var allCases = ["photo", "photo_carousel", "donation_progress"]
 
-    case photo(String)
-    case photoCarousel([String])
-    case donationProgress(Double, Double)
+    case photo(photoUrl:String)
+    case photoCarousel(photoUrls: [String])
+    case donationProgress(amountRaised:Double, total: Double)
 
     var type: String {
         switch self {
@@ -29,11 +29,11 @@ enum Media: Codable {
 
 extension Media {
     static func createFakePhotoMedia() -> Media {
-        Media.photo("imageUrl")
+        Media.photo(photoUrl: "imageUrl")
     }
 
     static func createFakePhotoCarouselMedia() -> Media {
-        Media.photoCarousel([
+        Media.photoCarousel(photoUrls: [
             "imageUrl 1",
             "imageUrl 2",
             "imageUrl 3"
@@ -41,7 +41,7 @@ extension Media {
     }
 
     static func createDonationProgressMedia() -> Media {
-        Media.donationProgress(Double.random(in: 0...500), Bool.random() ? 800 : 1000)
+        Media.donationProgress(amountRaised: Double.random(in: 0...500), total: Bool.random() ? 800 : 1000)
     }
 
     static func generateRandomMedia() -> Media {

@@ -8,6 +8,14 @@
 import Foundation
 
 extension Date {
+  static func randomWithin24Hours() -> Date {
+    let calendar = Calendar.current
+    let randomTimeOffset = TimeInterval.random(in: -1440...0) // -24 hours to +24 hours in seconds
+    return calendar.date(byAdding: .second, value: Int(randomTimeOffset), to: .now)!
+  }
+}
+
+extension Date {
     static func parseDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "M/d/yy"
@@ -18,28 +26,36 @@ extension Date {
 }
 
 extension Date {
-    func timeAgoDisplay() -> String {
+  static func timeAgo(for date: Date) -> String {
+    let formatter = ISO8601DateFormatter()
+    formatter.timeZone = TimeZone.current
 
-        let calendar = Calendar.current
-        let minuteAgo = calendar.date(byAdding: .minute, value: -1, to: Date())!
-        let hourAgo = calendar.date(byAdding: .hour, value: -1, to: Date())!
-        let dayAgo = calendar.date(byAdding: .day, value: -1, to: Date())!
-        let weekAgo = calendar.date(byAdding: .day, value: -7, to: Date())!
+    let now = Date()
+    let calendar = Calendar.current
 
-        if minuteAgo < self {
-            let diff = Calendar.current.dateComponents([.second], from: self, to: Date()).second ?? 0
-            return "\(diff) s"
-        } else if hourAgo < self {
-            let diff = Calendar.current.dateComponents([.minute], from: self, to: Date()).minute ?? 0
-            return "\(diff) m"
-        } else if dayAgo < self {
-            let diff = Calendar.current.dateComponents([.hour], from: self, to: Date()).hour ?? 0
-            return "\(diff) h"
-        } else if weekAgo < self {
-            let diff = Calendar.current.dateComponents([.day], from: self, to: Date()).day ?? 0
-            return "\(diff) d"
-        }
-        let diff = Calendar.current.dateComponents([.weekOfYear], from: self, to: Date()).weekOfYear ?? 0
-        return "\(diff) w"
+    let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date, to: now)
+
+    let year = components.year!
+    let month = components.month!
+    let day = components.day!
+    let hour = components.hour!
+    let minute = components.minute!
+    let second = components.second!
+
+    if year > 0 {
+      return formatter.string(from: date) // Use ISO 8601 for dates older than a year
+    } else if month > 0 {
+      return "\(month)mo" // "mo" for months
+    } else if day > 0 {
+      return "\(day)d" // "d" for days
+    } else if hour > 0 {
+      return "\(hour)h" // "h" for hours
+    } else if minute > 0 {
+      return "\(minute)m" // "m" for minutes
+    } else if second > 0 {
+      return "\(second)s"
+    } else {
+      return "now" // Less than a minute
     }
+  }
 }

@@ -102,7 +102,7 @@ struct ActivityCellView: View {
                             .font(.subheadline)
                             .bold()
 
-                        Text(" • \(activityPost.date.timeAgoDisplay())")
+                        Text(" • \(Date.timeAgo(for: activityPost.date))")
                             .font(.subheadline)
                             .foregroundColor(.gray)
 

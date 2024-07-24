@@ -1,0 +1,1174 @@
+{
+  "page" : 1,
+  "activity_posts" : [
+    {
+      "image_url" : "imgUrl",
+      "id" : "986903BE-0B8E-4A90-9FCB-CC02F6BA77BC",
+      "caption" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. #NGO",
+      "media" : {
+        "photo_carousel" : {
+          "photo_urls" : [
+            "imageUrl 1",
+            "imageUrl 2",
+            "imageUrl 3"
+          ]
+        }
+      },
+      "date" : "2024-07-24T03:53:45Z",
+      "company" : {
+        "team" : [
+          {
+            "id" : "69125CDD-FB2F-49F3-A8CC-8D0CD362FFF5",
+            "image_url" : "imageUrl",
+            "name" : "Marq",
+            "position" : "Finance"
+          },
+          {
+            "name" : "John Doe",
+            "image_url" : "imageUrl",
+            "position" : "CEO",
+            "id" : "A3648A4D-AB60-400B-941E-EB9E2F16101E"
+          },
+          {
+            "name" : "Shea",
+            "image_url" : "imageUrl",
+            "position" : "Logistics",
+            "id" : "6492FA11-76FD-4553-8307-ECC89D719740"
+          },
+          {
+            "id" : "E5689DD8-D83A-467D-8E2E-A48C87A40AC5",
+            "image_url" : "imageUrl",
+            "name" : "Janna Ho",
+            "position" : "Coordinator"
+          },
+          {
+            "position" : "Fundraising Officer",
+            "image_url" : "imageUrl",
+            "name" : "Danna H",
+            "id" : "A245404C-320D-4F28-8EE8-AC3882944D6D"
+          },
+          {
+            "position" : "Social Media",
+            "image_url" : "imageUrl",
+            "id" : "4F980089-6A06-4EA1-8DE6-285C0B82BDEC",
+            "name" : "Johnny A"
+          }
+        ],
+        "logo_image_url" : "imageUrl",
+        "cover_image_url" : "imageUrl",
+        "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "id" : "5A253167-8637-424D-877C-7A13FE3DB96F",
+        "coordinate" : {
+          "longitude" : -72.39234,
+          "latitude" : 18.542952
+        },
+        "orginization_name" : "Cars for Kids",
+        "brief_history_object" : {
+          "history" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "image_objects" : [
+            {
+              "image_url" : "imgurl",
+              "caption" : "25 Years later..."
+            },
+            {
+              "caption" : "Breaking ground!",
+              "image_url" : "imgurl"
+            },
+            {
+              "caption" : "Breaking ground!",
+              "image_url" : "imgurl"
+            }
+          ]
+        },
+        "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "projects" : [
+          {
+            "name" : "Project 1",
+            "id" : "DF88C37E-75FD-498E-8A8F-535B020E57A0",
+            "status" : "completed",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image_url" : "imageUrl"
+          },
+          {
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "status" : "inProgress",
+            "image_url" : "imageUrl",
+            "id" : "B37B0A2C-26DA-44DD-A9ED-D5909D04C190",
+            "name" : "Project 2"
+          },
+          {
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image_url" : "imageUrl",
+            "status" : "planning",
+            "name" : "Project 3",
+            "id" : "D35D02C3-C319-4EE8-B541-3D940386438E"
+          },
+          {
+            "image_url" : "imageUrl",
+            "status" : "completed",
+            "name" : "Project 4",
+            "id" : "E53CD2C0-B35F-4CCF-AF6A-2706F8663881",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          },
+          {
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "id" : "480368FD-1523-4803-B1D1-EA87A758344E",
+            "status" : "planning",
+            "name" : "Project 5",
+            "image_url" : "imageUrl"
+          }
+        ],
+        "category" : "community"
+      }
+    },
+    {
+      "poster" : {
+        "id" : "ADB6C190-DA25-44F1-8291-3D35B69CAF98",
+        "name" : "John Doe",
+        "badge_image_url" : "imageUrl"
+      },
+      "caption" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua... 🏡",
+      "date" : "2024-07-24T03:57:04Z",
+      "media" : {
+        "photo" : {
+          "photo_url" : "imageUrl"
+        }
+      },
+      "id" : "1C3440A9-BAD8-4754-9009-67A2CFD4F2DF",
+      "image_url" : "imgUrl",
+      "company" : {
+        "logo_image_url" : "imageUrl",
+        "category" : "community",
+        "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "id" : "3C043F7D-4372-47C3-89E4-5ACABC4C7ECF",
+        "orginization_name" : "Cars for Kids",
+        "team" : [
+          {
+            "image_url" : "imageUrl",
+            "name" : "Johnny A",
+            "id" : "D8281F39-EB9E-4EE0-BD79-83E53A2453E2",
+            "position" : "Social Media"
+          },
+          {
+            "id" : "FF7713FD-25C7-4E41-8D15-D50BBE5C3032",
+            "position" : "CEO",
+            "image_url" : "imageUrl",
+            "name" : "John Doe"
+          },
+          {
+            "id" : "B2070FBD-A2CA-4DD2-A8DA-F1D99D6FB133",
+            "position" : "Coordinator",
+            "name" : "Janna Ho",
+            "image_url" : "imageUrl"
+          },
+          {
+            "image_url" : "imageUrl",
+            "name" : "Marq",
+            "id" : "E58B845A-1F5B-4A14-BBCE-552C0479055F",
+            "position" : "Finance"
+          },
+          {
+            "position" : "Logistics",
+            "image_url" : "imageUrl",
+            "id" : "F1EBC03F-2C1E-4D13-A699-484B5169DA01",
+            "name" : "Shea"
+          },
+          {
+            "name" : "Danna H",
+            "image_url" : "imageUrl",
+            "position" : "Fundraising Officer",
+            "id" : "34EFD61D-BB3E-4EE5-8B86-4102FC8A2F34"
+          }
+        ],
+        "cover_image_url" : "imageUrl",
+        "coordinate" : {
+          "longitude" : -72.39234,
+          "latitude" : 18.542952
+        },
+        "brief_history_object" : {
+          "history" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "image_objects" : [
+            {
+              "caption" : "25 Years later...",
+              "image_url" : "imgurl"
+            },
+            {
+              "image_url" : "imgurl",
+              "caption" : "25 Years later..."
+            },
+            {
+              "caption" : "25 Years later...",
+              "image_url" : "imgurl"
+            }
+          ]
+        },
+        "projects" : [
+          {
+            "id" : "3864DC54-3C71-431F-A707-A25DFBB2D736",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image_url" : "imageUrl",
+            "status" : "completed",
+            "name" : "Project 1"
+          },
+          {
+            "id" : "BAF244C1-B172-4FFB-B4AD-92FF3D0B8ABE",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "name" : "Project 2",
+            "status" : "inProgress",
+            "image_url" : "imageUrl"
+          },
+          {
+            "id" : "F9B9A8E8-4600-478F-9D69-0B5B8F2265CE",
+            "status" : "planning",
+            "image_url" : "imageUrl",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "name" : "Project 3"
+          },
+          {
+            "status" : "completed",
+            "image_url" : "imageUrl",
+            "name" : "Project 4",
+            "id" : "2A0E792A-6087-4EE7-BCA8-F62A114C9892",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          },
+          {
+            "id" : "F3446B7A-BF3A-482A-A2D0-FB4469700904",
+            "status" : "planning",
+            "image_url" : "imageUrl",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "name" : "Project 5"
+          }
+        ]
+      }
+    },
+    {
+      "id" : "15115969-3207-406F-B411-8DA691C967F2",
+      "image_url" : "imgUrl",
+      "company" : {
+        "logo_image_url" : "imageUrl",
+        "brief_history_object" : {
+          "image_objects" : [
+            {
+              "image_url" : "imgurl",
+              "caption" : "Where it all began"
+            },
+            {
+              "image_url" : "imgurl",
+              "caption" : "Where it all began"
+            },
+            {
+              "caption" : "Where it all began",
+              "image_url" : "imgurl"
+            }
+          ],
+          "history" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        "cover_image_url" : "imageUrl",
+        "projects" : [
+          {
+            "id" : "4FD607C5-20FF-48F8-9AA3-760946FA3212",
+            "image_url" : "imageUrl",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "name" : "Project 1",
+            "status" : "completed"
+          },
+          {
+            "status" : "inProgress",
+            "name" : "Project 2",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "id" : "65D68CBE-7B90-48D0-9E0D-14723D7F7254",
+            "image_url" : "imageUrl"
+          },
+          {
+            "id" : "F6EC501D-5A1B-4F49-B62B-738174D47D0D",
+            "status" : "planning",
+            "image_url" : "imageUrl",
+            "name" : "Project 3",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          },
+          {
+            "name" : "Project 4",
+            "image_url" : "imageUrl",
+            "id" : "8416E7AC-3C43-4A77-8B31-54E3B6811C4E",
+            "status" : "completed",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          },
+          {
+            "id" : "2871B2E1-E167-46E6-8EE1-1F4E37B1A99D",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "status" : "planning",
+            "image_url" : "imageUrl",
+            "name" : "Project 5"
+          }
+        ],
+        "team" : [
+          {
+            "position" : "Finance",
+            "name" : "Marq",
+            "id" : "F75D3BF0-9A0F-4104-8968-371ED322194F",
+            "image_url" : "imageUrl"
+          },
+          {
+            "position" : "Social Media",
+            "id" : "AB5A340C-0A86-4574-B25B-836AEEE81F86",
+            "name" : "Johnny A",
+            "image_url" : "imageUrl"
+          },
+          {
+            "position" : "Logistics",
+            "name" : "Shea",
+            "image_url" : "imageUrl",
+            "id" : "C9CF3291-8602-4C17-A057-CB00DA891C58"
+          },
+          {
+            "position" : "Coordinator",
+            "name" : "Janna Ho",
+            "image_url" : "imageUrl",
+            "id" : "095700EB-3A21-437D-9A24-81C7D7370A29"
+          },
+          {
+            "position" : "CEO",
+            "image_url" : "imageUrl",
+            "name" : "John Doe",
+            "id" : "E5422B23-9715-45C2-8D92-1EF418A43A9C"
+          },
+          {
+            "image_url" : "imageUrl",
+            "position" : "Fundraising Officer",
+            "name" : "Danna H",
+            "id" : "6D4B014E-7A2C-4F67-B95A-8655098F5A8D"
+          }
+        ],
+        "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "category" : "community",
+        "orginization_name" : "Cars for Kids",
+        "id" : "CF094EED-7449-45A9-ACDF-4DA8E4244175",
+        "coordinate" : {
+          "latitude" : 18.542952,
+          "longitude" : -72.39234
+        }
+      },
+      "caption" : "Lorem ipsum! 🌾",
+      "media" : {
+        "photo" : {
+          "photo_url" : "imageUrl"
+        }
+      },
+      "date" : "2024-07-24T04:13:54Z"
+    },
+    {
+      "image_url" : "imgUrl",
+      "media" : {
+        "photo_carousel" : {
+          "photo_urls" : [
+            "imageUrl 1",
+            "imageUrl 2",
+            "imageUrl 3"
+          ]
+        }
+      },
+      "id" : "137B2881-FCA6-4B4E-8EAE-14A8167F034A",
+      "caption" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+      "company" : {
+        "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "id" : "4AB0E400-0C7C-4274-BF44-513D0FE27A2B",
+        "team" : [
+          {
+            "position" : "Fundraising Officer",
+            "image_url" : "imageUrl",
+            "id" : "1FCA2AE6-FFA4-4CBB-9930-3E44A5AB96C9",
+            "name" : "Danna H"
+          },
+          {
+            "position" : "Social Media",
+            "id" : "0B8C8D5D-ADF7-4561-BECA-08C9912C92F4",
+            "name" : "Johnny A",
+            "image_url" : "imageUrl"
+          },
+          {
+            "name" : "John Doe",
+            "id" : "FA2D0A1B-102F-4DC0-9AC1-0AB425BF1F57",
+            "position" : "CEO",
+            "image_url" : "imageUrl"
+          },
+          {
+            "id" : "1ED9BE1E-58AB-4F50-BFD4-9C99AC760473",
+            "image_url" : "imageUrl",
+            "position" : "Finance",
+            "name" : "Marq"
+          },
+          {
+            "id" : "521AC5C8-114D-4E5B-BBB7-253C40264ACC",
+            "position" : "Coordinator",
+            "name" : "Janna Ho",
+            "image_url" : "imageUrl"
+          },
+          {
+            "image_url" : "imageUrl",
+            "name" : "Shea",
+            "id" : "250CCBF6-39BC-4400-8C7B-6A8182B09D46",
+            "position" : "Logistics"
+          }
+        ],
+        "cover_image_url" : "imageUrl",
+        "coordinate" : {
+          "longitude" : -71.0898,
+          "latitude" : 41.9001
+        },
+        "orginization_name" : "True Vison",
+        "category" : "womensRights",
+        "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "projects" : [
+          {
+            "name" : "Project 1",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image_url" : "imageUrl",
+            "status" : "completed",
+            "id" : "02562688-39C7-43CB-9C26-860FCD3D7ECE"
+          },
+          {
+            "status" : "inProgress",
+            "id" : "206561A5-1B85-4225-9715-F29D4E0DFED2",
+            "name" : "Project 2",
+            "image_url" : "imageUrl",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          },
+          {
+            "name" : "Project 3",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image_url" : "imageUrl",
+            "id" : "45255248-40A0-497A-8D0B-A4A2E80ED853",
+            "status" : "planning"
+          },
+          {
+            "name" : "Project 4",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "status" : "completed",
+            "id" : "F1D5F884-E44E-4A54-95CA-3918BF95E532",
+            "image_url" : "imageUrl"
+          },
+          {
+            "id" : "423C7881-FAC3-4837-8F84-4E6A5673A59A",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "name" : "Project 5",
+            "image_url" : "imageUrl",
+            "status" : "planning"
+          }
+        ],
+        "logo_image_url" : "imageUrl",
+        "brief_history_object" : {
+          "history" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "image_objects" : [
+            {
+              "caption" : "Breaking ground!",
+              "image_url" : "imgurl"
+            },
+            {
+              "caption" : "Where it all began",
+              "image_url" : "imgurl"
+            },
+            {
+              "caption" : "Where it all began",
+              "image_url" : "imgurl"
+            }
+          ]
+        }
+      },
+      "date" : "2024-07-24T03:52:52Z"
+    },
+    {
+      "poster" : {
+        "badge_image_url" : "imageUrl",
+        "id" : "0FDB83F0-90CD-4CEC-8071-A2EFE77ABF5B",
+        "name" : "John Doe"
+      },
+      "date" : "2024-07-24T03:56:33Z",
+      "caption" : "Lorem ipsum dolor sit amet, consectetur adipiscing?",
+      "company" : {
+        "logo_image_url" : "imageUrl",
+        "projects" : [
+          {
+            "status" : "completed",
+            "id" : "E8F784C9-7A97-4BF0-B5A8-8E514B03210E",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image_url" : "imageUrl",
+            "name" : "Project 1"
+          },
+          {
+            "image_url" : "imageUrl",
+            "name" : "Project 2",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "id" : "87D8AB46-D0FA-4E39-B5F7-75B631B570F3",
+            "status" : "inProgress"
+          },
+          {
+            "image_url" : "imageUrl",
+            "name" : "Project 3",
+            "id" : "6B882136-4FD8-46CF-BC84-A0A12B00AE21",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "status" : "planning"
+          },
+          {
+            "id" : "0CE0B7C3-4AB5-4CE0-954F-367F374A5DD8",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image_url" : "imageUrl",
+            "status" : "completed",
+            "name" : "Project 4"
+          },
+          {
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image_url" : "imageUrl",
+            "id" : "1B75BF9E-7A40-4C13-88CB-D3C1091E1B72",
+            "status" : "planning",
+            "name" : "Project 5"
+          }
+        ],
+        "id" : "027B9CBC-ECA3-49C8-A72B-C0ECAEA3B693",
+        "orginization_name" : "People4All",
+        "category" : "humanRights",
+        "coordinate" : {
+          "longitude" : -77.009003,
+          "latitude" : 38.889931
+        },
+        "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "cover_image_url" : "imageUrl",
+        "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "team" : [
+          {
+            "image_url" : "imageUrl",
+            "id" : "56EE2BF7-9B87-4737-90ED-63C854AE3A28",
+            "position" : "Social Media",
+            "name" : "Johnny A"
+          },
+          {
+            "image_url" : "imageUrl",
+            "position" : "Finance",
+            "name" : "Marq",
+            "id" : "D5E1A325-9F5A-42DA-8B56-CF69B22DE30E"
+          },
+          {
+            "position" : "Logistics",
+            "image_url" : "imageUrl",
+            "id" : "19CD0A34-1597-412D-B709-3E7A8AC822A8",
+            "name" : "Shea"
+          },
+          {
+            "name" : "John Doe",
+            "position" : "CEO",
+            "id" : "CE324F59-448C-4492-AA36-9DB57A611EEC",
+            "image_url" : "imageUrl"
+          },
+          {
+            "position" : "Coordinator",
+            "name" : "Janna Ho",
+            "image_url" : "imageUrl",
+            "id" : "E135EB81-B772-4725-A8DF-4FF822120561"
+          },
+          {
+            "id" : "D03AF0AA-99FB-46AE-8D73-CD500C3D12C2",
+            "position" : "Fundraising Officer",
+            "name" : "Danna H",
+            "image_url" : "imageUrl"
+          }
+        ],
+        "brief_history_object" : {
+          "image_objects" : [
+            {
+              "caption" : "25 Years later...",
+              "image_url" : "imgurl"
+            },
+            {
+              "caption" : "Breaking ground!",
+              "image_url" : "imgurl"
+            },
+            {
+              "image_url" : "imgurl",
+              "caption" : "Where it all began"
+            }
+          ],
+          "history" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      },
+      "id" : "3133FE8B-4BD6-4E02-955C-7DDD0522B00C",
+      "image_url" : "imgUrl"
+    },
+    {
+      "id" : "C9FC35FE-073D-46C9-873A-4755F6860A30",
+      "caption" : "Lorem ipsum. 🌎",
+      "company" : {
+        "orginization_name" : "Tree Vision",
+        "category" : "environmental",
+        "coordinate" : {
+          "latitude" : 6.4969,
+          "longitude" : 2.6289
+        },
+        "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "team" : [
+          {
+            "position" : "Fundraising Officer",
+            "image_url" : "imageUrl",
+            "name" : "Danna H",
+            "id" : "F5B2C656-2630-409F-8372-8965434EC75B"
+          },
+          {
+            "image_url" : "imageUrl",
+            "id" : "63A1B029-4E50-478F-B574-9910320EC5AA",
+            "name" : "Shea",
+            "position" : "Logistics"
+          },
+          {
+            "position" : "Social Media",
+            "image_url" : "imageUrl",
+            "id" : "80224141-BE37-433F-9772-470C0B36E6E9",
+            "name" : "Johnny A"
+          },
+          {
+            "name" : "John Doe",
+            "id" : "473CD636-C9C1-442B-A460-AD8E6181DEDA",
+            "position" : "CEO",
+            "image_url" : "imageUrl"
+          },
+          {
+            "position" : "Coordinator",
+            "name" : "Janna Ho",
+            "image_url" : "imageUrl",
+            "id" : "516C1C9F-BB61-458D-9A5A-FB2D78454F64"
+          },
+          {
+            "id" : "C72648C9-4A28-4F0A-9068-FE70621C72F7",
+            "position" : "Finance",
+            "image_url" : "imageUrl",
+            "name" : "Marq"
+          }
+        ],
+        "brief_history_object" : {
+          "image_objects" : [
+            {
+              "caption" : "Where it all began",
+              "image_url" : "imgurl"
+            },
+            {
+              "caption" : "Breaking ground!",
+              "image_url" : "imgurl"
+            },
+            {
+              "image_url" : "imgurl",
+              "caption" : "25 Years later..."
+            }
+          ],
+          "history" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        "projects" : [
+          {
+            "name" : "Project 1",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "id" : "E10BBB2A-EBDE-49B4-B6E9-552CF411F292",
+            "status" : "completed",
+            "image_url" : "imageUrl"
+          },
+          {
+            "id" : "1C47BDFC-E185-4AF0-A059-2789196CD12C",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "status" : "inProgress",
+            "image_url" : "imageUrl",
+            "name" : "Project 2"
+          },
+          {
+            "id" : "A4A96718-36DC-4EF3-81B1-6D6B35E604D1",
+            "status" : "planning",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image_url" : "imageUrl",
+            "name" : "Project 3"
+          },
+          {
+            "image_url" : "imageUrl",
+            "id" : "C3DCFAC1-C23C-480E-9BF4-98AE0B5E0762",
+            "status" : "completed",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "name" : "Project 4"
+          },
+          {
+            "image_url" : "imageUrl",
+            "status" : "planning",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "id" : "E6E23E36-5F38-4A91-955B-D57E9D03ED93",
+            "name" : "Project 5"
+          }
+        ],
+        "cover_image_url" : "imageUrl",
+        "id" : "75F248C1-BC24-4AB9-B3F7-1133AA6B0CCB",
+        "logo_image_url" : "imageUrl",
+        "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      "image_url" : "imgUrl",
+      "date" : "2024-07-24T04:12:20Z"
+    },
+    {
+      "image_url" : "imgUrl",
+      "date" : "2024-07-24T04:16:14Z",
+      "id" : "33FC68AD-4703-4955-92BD-8653E91213AD",
+      "caption" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt?",
+      "media" : {
+        "photo" : {
+          "photo_url" : "imageUrl"
+        }
+      },
+      "company" : {
+        "team" : [
+          {
+            "id" : "C9146608-C9A7-4B42-B5AC-22961D9686C9",
+            "position" : "Fundraising Officer",
+            "image_url" : "imageUrl",
+            "name" : "Danna H"
+          },
+          {
+            "name" : "Janna Ho",
+            "id" : "54D3E9FE-9F48-4A9A-AEA0-3919124CFD00",
+            "position" : "Coordinator",
+            "image_url" : "imageUrl"
+          },
+          {
+            "name" : "John Doe",
+            "position" : "CEO",
+            "id" : "41CE3DF6-1C0F-4B18-9A33-D9F89611AAD1",
+            "image_url" : "imageUrl"
+          },
+          {
+            "position" : "Social Media",
+            "id" : "2C76A4C7-EC10-4C3D-A24B-2C912B1BA50F",
+            "name" : "Johnny A",
+            "image_url" : "imageUrl"
+          },
+          {
+            "image_url" : "imageUrl",
+            "name" : "Shea",
+            "position" : "Logistics",
+            "id" : "897930F4-A0E8-4A00-9049-9973E4D11E55"
+          },
+          {
+            "image_url" : "imageUrl",
+            "name" : "Marq",
+            "position" : "Finance",
+            "id" : "0775188D-2B79-4161-A248-CCBEE3055A46"
+          }
+        ],
+        "logo_image_url" : "imageUrl",
+        "brief_history_object" : {
+          "image_objects" : [
+            {
+              "caption" : "25 Years later...",
+              "image_url" : "imgurl"
+            },
+            {
+              "caption" : "25 Years later...",
+              "image_url" : "imgurl"
+            },
+            {
+              "caption" : "Where it all began",
+              "image_url" : "imgurl"
+            }
+          ],
+          "history" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        "orginization_name" : "People4All",
+        "cover_image_url" : "imageUrl",
+        "projects" : [
+          {
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "id" : "0A3EC7A0-D9DB-493F-8ABC-650538E0A6E3",
+            "image_url" : "imageUrl",
+            "name" : "Project 1",
+            "status" : "completed"
+          },
+          {
+            "name" : "Project 2",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image_url" : "imageUrl",
+            "status" : "inProgress",
+            "id" : "81A03E9B-71FE-4172-A49A-5AF94ADCACD8"
+          },
+          {
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "status" : "planning",
+            "image_url" : "imageUrl",
+            "name" : "Project 3",
+            "id" : "9002A141-7ABC-4790-8E48-AE71A2F3716E"
+          },
+          {
+            "image_url" : "imageUrl",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "name" : "Project 4",
+            "status" : "completed",
+            "id" : "11478AC1-7B3A-47E2-AFA7-C73DBF2BF7FC"
+          },
+          {
+            "name" : "Project 5",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "status" : "planning",
+            "image_url" : "imageUrl",
+            "id" : "67112EEE-DB10-4248-B480-C6858C4C49B6"
+          }
+        ],
+        "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "coordinate" : {
+          "longitude" : -77.009003,
+          "latitude" : 38.889931
+        },
+        "category" : "humanRights",
+        "id" : "246CC637-273D-4CCF-B49A-2DF201AADA01",
+        "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    },
+    {
+      "media" : {
+        "photo" : {
+          "photo_url" : "imageUrl"
+        }
+      },
+      "id" : "6389A29D-3FF2-4F1F-BB50-A5CB0476F7E9",
+      "caption" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+      "image_url" : "imgUrl",
+      "company" : {
+        "projects" : [
+          {
+            "status" : "completed",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "name" : "Project 1",
+            "image_url" : "imageUrl",
+            "id" : "749AD32C-25E3-439E-8B54-E2AFFA6BE869"
+          },
+          {
+            "id" : "24044244-BFB8-4B86-8DDD-17E0B0193CF7",
+            "status" : "inProgress",
+            "image_url" : "imageUrl",
+            "name" : "Project 2",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          },
+          {
+            "name" : "Project 3",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "status" : "planning",
+            "id" : "9C43C00A-06C4-4DFC-94D5-D538943D8B23",
+            "image_url" : "imageUrl"
+          },
+          {
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "name" : "Project 4",
+            "status" : "completed",
+            "image_url" : "imageUrl",
+            "id" : "7DF909A4-FE51-41F4-86C0-6C447DBB8585"
+          },
+          {
+            "id" : "6F7B58D4-C4E1-400F-AFEC-70463E616248",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "name" : "Project 5",
+            "image_url" : "imageUrl",
+            "status" : "planning"
+          }
+        ],
+        "brief_history_object" : {
+          "history" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "image_objects" : [
+            {
+              "image_url" : "imgurl",
+              "caption" : "Breaking ground!"
+            },
+            {
+              "image_url" : "imgurl",
+              "caption" : "Breaking ground!"
+            },
+            {
+              "caption" : "Breaking ground!",
+              "image_url" : "imgurl"
+            }
+          ]
+        },
+        "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "id" : "09E222DF-68FC-4463-B5E0-A1BB185C6127",
+        "orginization_name" : "EDU Global",
+        "coordinate" : {
+          "latitude" : 31.771959,
+          "longitude" : 35.217018
+        },
+        "category" : "education",
+        "cover_image_url" : "imageUrl",
+        "team" : [
+          {
+            "id" : "B0AC735D-42C2-43B2-806B-3AC9C8442E29",
+            "image_url" : "imageUrl",
+            "position" : "CEO",
+            "name" : "John Doe"
+          },
+          {
+            "id" : "3C53F16E-92E3-4DCF-B2B5-56C5BEBC2178",
+            "position" : "Coordinator",
+            "image_url" : "imageUrl",
+            "name" : "Janna Ho"
+          },
+          {
+            "id" : "E94E4BED-242B-4FDB-B86D-467E6CEC5CFB",
+            "image_url" : "imageUrl",
+            "position" : "Finance",
+            "name" : "Marq"
+          },
+          {
+            "id" : "19D9B819-4501-4853-9550-063E942B36E0",
+            "position" : "Social Media",
+            "image_url" : "imageUrl",
+            "name" : "Johnny A"
+          },
+          {
+            "position" : "Fundraising Officer",
+            "image_url" : "imageUrl",
+            "id" : "C73E24DE-960F-4662-8BBC-D56E98204036",
+            "name" : "Danna H"
+          },
+          {
+            "image_url" : "imageUrl",
+            "position" : "Logistics",
+            "id" : "6DB5E3D4-511A-4EE1-9A36-730574EF1502",
+            "name" : "Shea"
+          }
+        ],
+        "logo_image_url" : "imageUrl"
+      },
+      "date" : "2024-07-24T03:52:22Z"
+    },
+    {
+      "caption" : "Lorem ipsum!",
+      "image_url" : "imgUrl",
+      "company" : {
+        "orginization_name" : "VENTRA",
+        "team" : [
+          {
+            "id" : "E797DD70-7498-4E66-81E6-AEC85838EEE2",
+            "image_url" : "imageUrl",
+            "position" : "Social Media",
+            "name" : "Johnny A"
+          },
+          {
+            "position" : "CEO",
+            "id" : "CECBBEE9-0FB2-4CDE-BE6A-9DAEFC5EE2C7",
+            "image_url" : "imageUrl",
+            "name" : "John Doe"
+          },
+          {
+            "name" : "Janna Ho",
+            "image_url" : "imageUrl",
+            "position" : "Coordinator",
+            "id" : "389F77F9-E670-4E5E-AF30-252C127E5FB3"
+          },
+          {
+            "id" : "941E6BF4-04F2-421C-AF6F-DE814681DBE3",
+            "name" : "Marq",
+            "image_url" : "imageUrl",
+            "position" : "Finance"
+          },
+          {
+            "id" : "1E72987D-91CB-4ADA-AA5A-0F80DB816B82",
+            "name" : "Shea",
+            "image_url" : "imageUrl",
+            "position" : "Logistics"
+          },
+          {
+            "position" : "Fundraising Officer",
+            "image_url" : "imageUrl",
+            "id" : "D6BA1677-99BF-4F58-BA4E-2977F89B62DF",
+            "name" : "Danna H"
+          }
+        ],
+        "brief_history_object" : {
+          "history" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "image_objects" : [
+            {
+              "caption" : "Where it all began",
+              "image_url" : "imgurl"
+            },
+            {
+              "image_url" : "imgurl",
+              "caption" : "Where it all began"
+            },
+            {
+              "image_url" : "imgurl",
+              "caption" : "Breaking ground!"
+            }
+          ]
+        },
+        "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "category" : "indigenousRights",
+        "projects" : [
+          {
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image_url" : "imageUrl",
+            "name" : "Project 1",
+            "id" : "E287DCF6-0BAE-4167-A25E-A70AAE261ED9",
+            "status" : "completed"
+          },
+          {
+            "image_url" : "imageUrl",
+            "name" : "Project 2",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "id" : "2CC3ECE0-EC94-4F99-97DF-8AB90A514A32",
+            "status" : "inProgress"
+          },
+          {
+            "image_url" : "imageUrl",
+            "name" : "Project 3",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "id" : "BC8E01CF-A647-4850-B3A4-39DC52529178",
+            "status" : "planning"
+          },
+          {
+            "image_url" : "imageUrl",
+            "id" : "21D66408-C177-4F6D-B7CC-9566068149DF",
+            "name" : "Project 4",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "status" : "completed"
+          },
+          {
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "id" : "44CEF0F4-EF5D-42AC-9C99-759D22F6BFC8",
+            "status" : "planning",
+            "image_url" : "imageUrl",
+            "name" : "Project 5"
+          }
+        ],
+        "id" : "21326934-5B89-49F3-B6CE-252F9E8AA878",
+        "logo_image_url" : "imageUrl",
+        "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "cover_image_url" : "imageUrl",
+        "coordinate" : {
+          "longitude" : 18.4233,
+          "latitude" : -33.918861
+        }
+      },
+      "poster" : {
+        "badge_image_url" : "imageUrl",
+        "id" : "2FD01972-4D18-4BE7-AC41-2D9F00C83CB6",
+        "name" : "John Doe"
+      },
+      "id" : "96479D12-B476-4814-9AE2-1CDD54689136",
+      "date" : "2024-07-24T03:57:00Z",
+      "media" : {
+        "donation_progress" : {
+          "amount_raised" : 129.0700423140943,
+          "total" : 1000
+        }
+      }
+    },
+    {
+      "image_url" : "imgUrl",
+      "company" : {
+        "team" : [
+          {
+            "position" : "Social Media",
+            "name" : "Johnny A",
+            "image_url" : "imageUrl",
+            "id" : "5D06156F-3B6A-4135-99BB-18CBB7B99CF8"
+          },
+          {
+            "name" : "Danna H",
+            "id" : "17242918-AFF1-41FE-8ACE-197D475C76B8",
+            "image_url" : "imageUrl",
+            "position" : "Fundraising Officer"
+          },
+          {
+            "position" : "Coordinator",
+            "name" : "Janna Ho",
+            "id" : "88B9DC33-815F-462D-8D0B-02D8550AE23C",
+            "image_url" : "imageUrl"
+          },
+          {
+            "name" : "John Doe",
+            "id" : "001F7842-B36C-469D-BA36-0F03CEFBF8F4",
+            "image_url" : "imageUrl",
+            "position" : "CEO"
+          },
+          {
+            "id" : "79F0CD9A-255E-4107-916D-F42EDF4B2792",
+            "position" : "Finance",
+            "image_url" : "imageUrl",
+            "name" : "Marq"
+          },
+          {
+            "id" : "8343A62D-6311-4B3A-ADA0-7E9D45628550",
+            "position" : "Logistics",
+            "image_url" : "imageUrl",
+            "name" : "Shea"
+          }
+        ],
+        "logo_image_url" : "imageUrl",
+        "projects" : [
+          {
+            "image_url" : "imageUrl",
+            "name" : "Project 1",
+            "status" : "completed",
+            "id" : "ECF19742-903E-4C4A-ABDC-22585C3A53E8",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          },
+          {
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "id" : "5F71AA71-2553-49D3-845B-9F0BAE98B3FE",
+            "status" : "inProgress",
+            "name" : "Project 2",
+            "image_url" : "imageUrl"
+          },
+          {
+            "image_url" : "imageUrl",
+            "id" : "2D8E0A59-D422-47BC-811A-8F80B963F6A7",
+            "name" : "Project 3",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "status" : "planning"
+          },
+          {
+            "id" : "A9AAD91E-A58D-45E0-A2BB-D6C5DDAAAE35",
+            "image_url" : "imageUrl",
+            "status" : "completed",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "name" : "Project 4"
+          },
+          {
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image_url" : "imageUrl",
+            "status" : "planning",
+            "id" : "1009EBE2-8EEC-49DA-BB95-4D5396322C98",
+            "name" : "Project 5"
+          }
+        ],
+        "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "category" : "womensRights",
+        "cover_image_url" : "imageUrl",
+        "orginization_name" : "True Vison",
+        "coordinate" : {
+          "longitude" : -71.0898,
+          "latitude" : 41.9001
+        },
+        "brief_history_object" : {
+          "history" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "image_objects" : [
+            {
+              "image_url" : "imgurl",
+              "caption" : "Where it all began"
+            },
+            {
+              "caption" : "Breaking ground!",
+              "image_url" : "imgurl"
+            },
+            {
+              "caption" : "Where it all began",
+              "image_url" : "imgurl"
+            }
+          ]
+        },
+        "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "id" : "7C1AB6C7-57DD-4156-AF97-968F061E4A63"
+      },
+      "id" : "4D7B4BE7-26CE-4D46-B9F9-8A7A54A91055",
+      "date" : "2024-07-24T04:03:48Z",
+      "caption" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."
+    }
+  ]
+}

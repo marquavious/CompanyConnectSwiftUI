@@ -1,0 +1,107 @@
+{
+    "company_object" {
+        "logo_image_url" : "imageUrl",
+        "category" : "environmental",
+        "cover_image_url" : "imageUrl",
+        "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "coordinate" : {
+            "latitude" : 30.053881,
+            "longitude" : 31.238474
+        },
+        "team" : [
+            {
+                "position" : "CEO",
+                "id" : "E870B4CD-BBBC-4A55-ABB5-0BF5221A81DA",
+                "name" : "John Doe",
+                "image_url" : "imageUrl"
+            },
+            {
+                "name" : "Janna Ho",
+                "id" : "2854F3A2-7E2F-45A3-BE8D-94C19E64702D",
+                "position" : "Coordinator",
+                "image_url" : "imageUrl"
+            },
+            {
+                "id" : "CE94AC90-6C48-4C57-8FC6-9CD84A64C695",
+                "name" : "Johnny A",
+                "image_url" : "imageUrl",
+                "position" : "Social Media"
+            },
+            {
+                "id" : "5FB86139-96AD-4BC6-AC78-E63CF88A5B6C",
+                "position" : "Fundraising Officer",
+                "image_url" : "imageUrl",
+                "name" : "Danna H"
+            },
+            {
+                "name" : "Shea",
+                "position" : "Logistics",
+                "image_url" : "imageUrl",
+                "id" : "7FB71E38-8706-4CA1-ADEF-B9C66488C10B"
+            },
+            {
+                "name" : "Marq",
+                "image_url" : "imageUrl",
+                "id" : "E3E1FA95-A519-44CD-BA24-4921270C38CC",
+                "position" : "Finance"
+            }
+        ],
+        "brief_history_object" : {
+            "history" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image_objects" : [
+                {
+                    "image_url" : "imgurl",
+                    "caption" : "Where it all began"
+                },
+                {
+                    "image_url" : "imgurl",
+                    "caption" : "25 Years later..."
+                },
+                {
+                    "caption" : "Where it all began",
+                    "image_url" : "imgurl"
+                }
+            ]
+        },
+        "orginization_name" : "Ever Green",
+        "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "projects" : [
+            {
+                "id" : "FEDF616D-07BF-4A2C-A18F-4197B774C50A",
+                "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "name" : "Project 1",
+                "status" : "completed",
+                "image_url" : "imageUrl"
+            },
+            {
+                "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "status" : "inProgress",
+                "image_url" : "imageUrl",
+                "id" : "63486371-E5B6-4600-8BBA-075B03EFDDF1",
+                "name" : "Project 2"
+            },
+            {
+                "id" : "9121C417-A903-4753-AE7B-7FCB1ED040A8",
+                "image_url" : "imageUrl",
+                "name" : "Project 3",
+                "status" : "planning",
+                "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            {
+                "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "id" : "2F3408B1-6176-45FC-B2DF-BBFA28988657",
+                "name" : "Project 4",
+                "status" : "completed",
+                "image_url" : "imageUrl"
+            },
+            {
+                "image_url" : "imageUrl",
+                "status" : "planning",
+                "id" : "9E71407D-F9F9-449E-9484-F0F92F30B4E4",
+                "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "name" : "Project 5"
+            }
+        ],
+        "id" : "BE728D87-AD9E-4EB3-A707-FA39561C97CC"
+    }
+}

@@ -10,6 +10,23 @@
 		C01ACA472C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA462C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift */; };
 		C01ACA492C50961600A77B5E /* MapViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA482C50961600A77B5E /* MapViewJSONResponse.swift */; };
 		C01ACA4B2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA4A2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift */; };
+		C01ACA4C2C50A69E00A77B5E /* ActivityFeedViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA4A2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift */; };
+		C01ACA4D2C50A69E00A77B5E /* CompanyProfileViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA462C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift */; };
+		C01ACA4E2C50A69E00A77B5E /* MapViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA482C50961600A77B5E /* MapViewJSONResponse.swift */; };
+		C01ACA4F2C50A69F00A77B5E /* ActivityFeedViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA4A2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift */; };
+		C01ACA502C50A69F00A77B5E /* CompanyProfileViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA462C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift */; };
+		C01ACA512C50A69F00A77B5E /* MapViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA482C50961600A77B5E /* MapViewJSONResponse.swift */; };
+		C01ACA522C50A78200A77B5E /* Encodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B86C722C4D362600C853C0 /* Encodable+Ext.swift */; };
+		C01ACA532C50A78200A77B5E /* Encodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B86C722C4D362600C853C0 /* Encodable+Ext.swift */; };
+		C01ACA562C50B85600A77B5E /* ActivityfeedJsonResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = C01ACA552C50B85600A77B5E /* ActivityfeedJsonResponse.json */; };
+		C01ACA582C50BDB300A77B5E /* MapViewJsonResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = C01ACA572C50BDB300A77B5E /* MapViewJsonResponse.json */; };
+		C01ACA5A2C50BE8100A77B5E /* CompanyProfileViewResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = C01ACA592C50BE8000A77B5E /* CompanyProfileViewResponse.json */; };
+		C01ACA5C2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA5B2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift */; };
+		C01ACA5D2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA5B2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift */; };
+		C01ACA5E2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA5B2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift */; };
+		C01ACA602C50C2A900A77B5E /* DonationsViewJsonResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = C01ACA5F2C50C2A900A77B5E /* DonationsViewJsonResponse.json */; };
+		C01ACA612C50C2A900A77B5E /* DonationsViewJsonResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = C01ACA5F2C50C2A900A77B5E /* DonationsViewJsonResponse.json */; };
+		C01ACA622C50C2A900A77B5E /* DonationsViewJsonResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = C01ACA5F2C50C2A900A77B5E /* DonationsViewJsonResponse.json */; };
 		C0B86C6C2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6D2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6E2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
@@ -195,6 +212,11 @@
 		C01ACA462C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileViewJSONResponse.swift; sourceTree = "<group>"; };
 		C01ACA482C50961600A77B5E /* MapViewJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewJSONResponse.swift; sourceTree = "<group>"; };
 		C01ACA4A2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedViewJSONResponse.swift; sourceTree = "<group>"; };
+		C01ACA552C50B85600A77B5E /* ActivityfeedJsonResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityfeedJsonResponse.json; sourceTree = "<group>"; };
+		C01ACA572C50BDB300A77B5E /* MapViewJsonResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MapViewJsonResponse.json; sourceTree = "<group>"; };
+		C01ACA592C50BE8000A77B5E /* CompanyProfileViewResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CompanyProfileViewResponse.json; sourceTree = "<group>"; };
+		C01ACA5B2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsViewJSONResponse.swift; sourceTree = "<group>"; };
+		C01ACA5F2C50C2A900A77B5E /* DonationsViewJsonResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DonationsViewJsonResponse.json; sourceTree = "<group>"; };
 		C0219F882C4CFDC200979B2E /* (DEVELOPMENT) CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(DEVELOPMENT) CompanyConnect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0219F892C4CFE9100979B2E /* CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompanyConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0219F8D2C4D020200979B2E /* (OFFLINE) CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(OFFLINE) CompanyConnect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -289,6 +311,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C01ACA542C50B83B00A77B5E /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				C01ACA5F2C50C2A900A77B5E /* DonationsViewJsonResponse.json */,
+				C01ACA592C50BE8000A77B5E /* CompanyProfileViewResponse.json */,
+				C01ACA572C50BDB300A77B5E /* MapViewJsonResponse.json */,
+				C01ACA552C50B85600A77B5E /* ActivityfeedJsonResponse.json */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
 		C05ADEBC2B0AC29D00F5B5ED = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +337,7 @@
 			children = (
 				C01ACA462C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift */,
 				C01ACA482C50961600A77B5E /* MapViewJSONResponse.swift */,
+				C01ACA5B2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift */,
 				C01ACA4A2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift */,
 			);
 			path = "JSON Objects";
@@ -347,7 +381,6 @@
 			isa = PBXGroup;
 			children = (
 				C0CC8D6A2C4CEEC40083E6C6 /* BriefHistoryPhotoScrollerView.swift */,
-				C0CC8D6B2C4CEEC40083E6C6 /* CompanyProfileMapView.swift */,
 				C0CC8D6C2C4CEEC40083E6C6 /* CompanyProfileTextView.swift */,
 				C0CC8D6D2C4CEEC40083E6C6 /* OurTeamPhotoScrollerView.swift */,
 				C0CC8D6E2C4CEEC40083E6C6 /* ProjectsScrollerView.swift */,
@@ -372,6 +405,7 @@
 				C0CC8D752C4CEEC40083E6C6 /* CompanyListView.swift */,
 				C0CC8D762C4CEEC40083E6C6 /* CompanyVGrid.swift */,
 				C0CC8D772C4CEEC40083E6C6 /* MapAnnotationView.swift */,
+				C0CC8D6B2C4CEEC40083E6C6 /* CompanyProfileMapView.swift */,
 				C0CC8D782C4CEEC40083E6C6 /* MapControlPanelView.swift */,
 			);
 			path = MapViews;
@@ -465,6 +499,7 @@
 		C0CC8DA32C4CEEC40083E6C6 /* CompanyConnect */ = {
 			isa = PBXGroup;
 			children = (
+				C01ACA542C50B83B00A77B5E /* Stubs */,
 				C0CC8DD82C4CF1930083E6C6 /* CompanyConnect.swift */,
 				C0CC8D602C4CEEC40083E6C6 /* Config */,
 				C0CC8D632C4CEEC40083E6C6 /* Custom Shapes */,
@@ -572,8 +607,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0CC8DE12C4CF3560083E6C6 /* Preview Assets.xcassets in Resources */,
+				C01ACA5A2C50BE8100A77B5E /* CompanyProfileViewResponse.json in Resources */,
+				C01ACA562C50B85600A77B5E /* ActivityfeedJsonResponse.json in Resources */,
+				C01ACA582C50BDB300A77B5E /* MapViewJsonResponse.json in Resources */,
 				C0CC8E9B2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */,
 				C0B86C6C2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */,
+				C01ACA602C50C2A900A77B5E /* DonationsViewJsonResponse.json in Resources */,
 				C0CC8DDE2C4CF3370083E6C6 /* Assets.xcassets in Resources */,
 				C0CC8E972C4CF9BE0083E6C6 /* (DEVELOPMENT) CompanyConnect-Info.plist in Resources */,
 			);
@@ -586,6 +625,7 @@
 				C0CC8DE22C4CF3560083E6C6 /* Preview Assets.xcassets in Resources */,
 				C0CC8E9C2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */,
 				C0B86C6D2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */,
+				C01ACA612C50C2A900A77B5E /* DonationsViewJsonResponse.json in Resources */,
 				C0CC8DDF2C4CF3370083E6C6 /* Assets.xcassets in Resources */,
 				C0CC8E982C4CF9BE0083E6C6 /* (DEVELOPMENT) CompanyConnect-Info.plist in Resources */,
 			);
@@ -598,6 +638,7 @@
 				C0CC8DE32C4CF3570083E6C6 /* Preview Assets.xcassets in Resources */,
 				C0CC8E9D2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */,
 				C0B86C6E2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */,
+				C01ACA622C50C2A900A77B5E /* DonationsViewJsonResponse.json in Resources */,
 				C0CC8DE02C4CF3370083E6C6 /* Assets.xcassets in Resources */,
 				C0CC8E992C4CF9BE0083E6C6 /* (DEVELOPMENT) CompanyConnect-Info.plist in Resources */,
 			);
@@ -635,6 +676,7 @@
 				C0CC8DB12C4CF0F80083E6C6 /* BaseMapView.swift in Sources */,
 				C01ACA4B2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift in Sources */,
 				C0CC8DB22C4CF0F80083E6C6 /* CompanyCardView.swift in Sources */,
+				C01ACA5C2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift in Sources */,
 				C0CC8DB32C4CF0F80083E6C6 /* CompanyHGrid.swift in Sources */,
 				C0CC8DB42C4CF0F80083E6C6 /* CompanyListView.swift in Sources */,
 				C0CC8DB52C4CF0F80083E6C6 /* CompanyVGrid.swift in Sources */,
@@ -678,11 +720,15 @@
 			files = (
 				C0CC8DDA2C4CF21C0083E6C6 /* CompanyConnect.swift in Sources */,
 				C0CC8E082C4CF4330083E6C6 /* ApplicationEnviorment.swift in Sources */,
+				C01ACA5D2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift in Sources */,
 				C0CC8E092C4CF4330083E6C6 /* Media.swift in Sources */,
 				C0CC8E0A2C4CF4330083E6C6 /* StringGenerator.swift in Sources */,
 				C0CC8E0B2C4CF4330083E6C6 /* TeamMember.swift in Sources */,
 				C0CC8E0C2C4CF4330083E6C6 /* CompanyObject.swift in Sources */,
 				C0CC8E452C4CF4440083E6C6 /* CategoryFilterScrollView.swift in Sources */,
+				C01ACA4F2C50A69F00A77B5E /* ActivityFeedViewJSONResponse.swift in Sources */,
+				C01ACA502C50A69F00A77B5E /* CompanyProfileViewJSONResponse.swift in Sources */,
+				C01ACA512C50A69F00A77B5E /* MapViewJSONResponse.swift in Sources */,
 				C0CC8E462C4CF4440083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */,
 				C0CC8E472C4CF4440083E6C6 /* ScrollViewOffset.swift in Sources */,
 				C0CC8E482C4CF4440083E6C6 /* MapViewViewModel.swift in Sources */,
@@ -702,6 +748,7 @@
 				C0CC8E4A2C4CF4440083E6C6 /* TipViews.swift in Sources */,
 				C0CC8E4B2C4CF4440083E6C6 /* LogoImageView.swift in Sources */,
 				C0CC8E4C2C4CF4440083E6C6 /* BlurView.swift in Sources */,
+				C01ACA522C50A78200A77B5E /* Encodable+Ext.swift in Sources */,
 				C0CC8E0D2C4CF4330083E6C6 /* User.swift in Sources */,
 				C0CC8E6C2C4CF4510083E6C6 /* CompanyProfileMapView.swift in Sources */,
 				C0CC8E6D2C4CF4510083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,
@@ -739,11 +786,15 @@
 			files = (
 				C0CC8DDB2C4CF21C0083E6C6 /* CompanyConnect.swift in Sources */,
 				C0CC8E262C4CF4350083E6C6 /* ApplicationEnviorment.swift in Sources */,
+				C01ACA5E2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift in Sources */,
 				C0CC8E272C4CF4350083E6C6 /* Media.swift in Sources */,
 				C0CC8E282C4CF4350083E6C6 /* StringGenerator.swift in Sources */,
 				C0CC8E292C4CF4350083E6C6 /* TeamMember.swift in Sources */,
 				C0CC8E2A2C4CF4350083E6C6 /* CompanyObject.swift in Sources */,
 				C0CC8E542C4CF4450083E6C6 /* CategoryFilterScrollView.swift in Sources */,
+				C01ACA4C2C50A69E00A77B5E /* ActivityFeedViewJSONResponse.swift in Sources */,
+				C01ACA4D2C50A69E00A77B5E /* CompanyProfileViewJSONResponse.swift in Sources */,
+				C01ACA4E2C50A69E00A77B5E /* MapViewJSONResponse.swift in Sources */,
 				C0CC8E552C4CF4450083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */,
 				C0CC8E562C4CF4450083E6C6 /* ScrollViewOffset.swift in Sources */,
 				C0CC8E572C4CF4450083E6C6 /* MapViewViewModel.swift in Sources */,
@@ -763,6 +814,7 @@
 				C0CC8E592C4CF4450083E6C6 /* TipViews.swift in Sources */,
 				C0CC8E5A2C4CF4450083E6C6 /* LogoImageView.swift in Sources */,
 				C0CC8E5B2C4CF4450083E6C6 /* BlurView.swift in Sources */,
+				C01ACA532C50A78200A77B5E /* Encodable+Ext.swift in Sources */,
 				C0CC8E2B2C4CF4350083E6C6 /* User.swift in Sources */,
 				C0CC8E712C4CF4520083E6C6 /* CompanyProfileMapView.swift in Sources */,
 				C0CC8E722C4CF4520083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,

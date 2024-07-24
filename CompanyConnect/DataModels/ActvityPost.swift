@@ -31,15 +31,15 @@ extension ActvityPost {
         media: Media? = (Bool.random() ? nil : Media.generateRandomMedia()),
         poster: ActvityPostPoster? = (Bool.random() ? nil : ActvityPostPoster.generateRandomActvityPostPoster())
     ) -> ActvityPost {
-        let company = CompanyObject.createFakeCompanyObject()
+        let company = CompanyObject.createFakeComapnyList().randomElement()!
         return ActvityPost(
             id: UUID().uuidString,
-            caption: "Caption",
+            caption: StringGenerator.generateRandomActivityString(),
             imageUrl: "imgUrl",
             poster: poster,
             media: media, 
             company: company,
-            date: Date()
+            date: Date.randomWithin24Hours()
         )
     }
 
@@ -60,7 +60,7 @@ struct ActvityPostPoster: Codable {
 extension ActvityPostPoster {
     static func generateRandomActvityPostPoster() -> ActvityPostPoster {
         ActvityPostPoster(
-            id: "0001",
+            id: UUID().uuidString,
             name: "John Doe",
             badgeImageUrl: "imageUrl"
         )

@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-/*
 struct TweetGenerator {
 
     static func generateRandomTweets() -> [ActvityPost] {
@@ -18,15 +17,20 @@ struct TweetGenerator {
         for _ in (1..<50) {
 
             let company = CompanyObject.createFakeComapnyList().shuffled().randomElement()!
-            let tamMember = [TeamMember.generateRandomTeamList().shuffled().randomElement()]
+            let tamMember = company.team.randomElement()!
 
             let post = ActvityPost(
                 id: UUID().uuidString,
-                companyName: company,
-                posterName: Bool.random() ? tamMember.randomElement()! : nil,
                 caption: StringGenerator.generateRandomActivityString(),
-                media:  generateRandomMeda().shuffled().randomElement()!,
-                hourAgoPosted: Int.random(in: 1...19)
+                imageUrl: "imge_url",
+                poster: ActvityPostPoster(
+                    id: tamMember.id,
+                    name: tamMember.name,
+                    badgeImageUrl: "imge_url"
+                ),
+                media: generateRandomMeda().shuffled().randomElement()!,
+                company: company,
+                date: Date.randomWithin24Hours()
             )
 
             ackposts.append(post)
@@ -43,7 +47,7 @@ struct TweetGenerator {
             }
         }
 
-        return ackposts.sorted { $0.hourAgoPosted < $1.hourAgoPosted }
+        return ackposts.sorted { $0.date < $1.date }
     }
 
     static func generateRandomTweetsFrom(company: CompanyObject) -> [ActvityPost] {
@@ -52,15 +56,20 @@ struct TweetGenerator {
 
         for _ in (1..<50) {
 
-            let tamMember = [company.team.shuffled().randomElement()]
+            let tamMember = company.team.shuffled().randomElement()!
 
             let post = ActvityPost(
                 id: UUID().uuidString,
-                companyName: company,
-                posterName: Bool.random() ? TeamMember.generateRandomTeamMember() : nil,
                 caption: StringGenerator.generateRandomActivityString(),
+                imageUrl: "imge_url",
+                poster: ActvityPostPoster(
+                    id: tamMember.id,
+                    name: tamMember.name,
+                    badgeImageUrl: "imge_url"
+                ),
                 media: generateRandomMeda().shuffled().randomElement()!,
-                hourAgoPosted: Int.random(in: 1...19)
+                company: company,
+                date: Date.randomWithin24Hours()
             )
 
             ackposts.append(post)
@@ -77,15 +86,15 @@ struct TweetGenerator {
             }
         }
 
-        return ackposts.sorted { $0.hourAgoPosted < $1.hourAgoPosted }
+        return ackposts.sorted { $0.date < $1.date }
     }
 
-    static func generateRandomMeda() -> [MediaDataType?] {
+    static func generateRandomMeda() -> [Media?] {
 
         var array = [
-            Bool.random() ? nil: ( Bool.random() ? nil : MediaDataType.createDonationProgressMedia()),
-            Bool.random() ? nil: MediaDataType.createFakePhotoCarouselMedia() ,
-            Bool.random() ? nil: MediaDataType.createFakePhotoMedia(),
+            Bool.random() ? nil: ( Bool.random() ? nil : Media.createDonationProgressMedia()),
+            Bool.random() ? nil: Media.createFakePhotoCarouselMedia() ,
+            Bool.random() ? nil: Media.createFakePhotoMedia(),
             nil,
             nil,
             nil
@@ -103,7 +112,9 @@ struct TweetGenerator {
 
         return array
     }
+}
 
+/*
     static func returnStructuredTweetList() -> [ActvityPost] {
 
         func returnCompany() -> CompanyObject {

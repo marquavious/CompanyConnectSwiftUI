@@ -18,47 +18,47 @@ struct TeamMember: Codable {
 extension TeamMember {
     static func generateRandomTeamMember() -> TeamMember {
         TeamMember(
-                id: "0001",
-                name: "John Doe",
-                position: "CEO",
-                imageUrl: "imageUrl"
-            )
+            id: UUID().uuidString,
+            name: "John Doe",
+            position: "CEO",
+            imageUrl: "imageUrl"
+        )
     }
 
     static func generateRandomTeamList() -> [TeamMember] {
-         [
+        [
             TeamMember(
-                id: "0001",
+                id: UUID().uuidString,
                 name: "John Doe",
                 position: "CEO",
                 imageUrl: "imageUrl"
             ),
             TeamMember(
-                id: "0002",
+                id: UUID().uuidString,
                 name: "Johnny A",
                 position: "Social Media",
                 imageUrl: "imageUrl"
             ),
             TeamMember(
-                id: "0003",
+                id: UUID().uuidString,
                 name: "Shea",
                 position: "Logistics",
                 imageUrl: "imageUrl"
             ),
             TeamMember(
-                id: "0004",
+                id: UUID().uuidString,
                 name: "Marq",
                 position: "Finance",
                 imageUrl: "imageUrl"
             ),
             TeamMember(
-                id: "0005",
+                id: UUID().uuidString,
                 name: "Danna H",
                 position: "Fundraising Officer",
                 imageUrl: "imageUrl"
             ),
             TeamMember(
-                id: "0006",
+                id: UUID().uuidString,
                 name: "Janna Ho",
                 position: "Coordinator",
                 imageUrl: "imageUrl"

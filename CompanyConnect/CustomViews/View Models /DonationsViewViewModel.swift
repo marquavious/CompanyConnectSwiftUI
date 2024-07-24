@@ -26,6 +26,12 @@ class DonationsViewViewModel: DonationsViewViewModelType {
 
 @Observable
 class DevDonationsViewViewModel: DonationsViewViewModelType {
-    let pastDonations: [Donation] = Donation.generatePastDonations()
-    let scheduledDonations: [Donation] = Donation.generateScheduledDonations()
+    var pastDonations: [Donation]
+    var scheduledDonations: [Donation]
+    init() {
+        let pastDonations: [Donation] = Donation.generatePastDonations()
+        let scheduledDonations: [Donation] = Donation.generateScheduledDonations()
+        self.pastDonations = pastDonations
+        self.scheduledDonations = scheduledDonations
+    }
 }

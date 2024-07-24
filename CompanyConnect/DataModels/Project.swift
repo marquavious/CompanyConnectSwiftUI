@@ -11,7 +11,7 @@ import SwiftUI
 struct Project: Codable, Hashable, Identifiable {
 
     enum Status: String, Codable {
-        case completed, inProgress, watingToBeFunded
+        case completed, inProgress, planning
 
         var displayName: String {
             switch self {
@@ -19,8 +19,8 @@ struct Project: Codable, Hashable, Identifiable {
                 return "COMPLETED"
             case .inProgress:
                 return "IN PROGRESS"
-            case .watingToBeFunded:
-                return "FUNDRAISING"
+            case .planning:
+                return "PLANNING"
             }
         }
 
@@ -30,7 +30,7 @@ struct Project: Codable, Hashable, Identifiable {
                 return Color(red: 28/255, green: 68/255, blue: 108/255)
             case .inProgress:
                 return .orange
-            case .watingToBeFunded:
+            case .planning:
                 return .red
             }
         }
@@ -68,7 +68,7 @@ extension Project {
                 id: UUID().uuidString,
                 name: "Project 3",
                 description: StringGenerator.generateLongString(),
-                status: .watingToBeFunded,
+                status: .planning,
                 imageUrl: "imageUrl"
             ),
             Project(
@@ -82,7 +82,7 @@ extension Project {
                 id: UUID().uuidString, 
                 name: "Project 5",
                 description: StringGenerator.generateLongString(),
-                status: .watingToBeFunded,
+                status: .planning,
                 imageUrl: "imageUrl"
             )
         ]

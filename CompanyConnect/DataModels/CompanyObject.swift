@@ -38,7 +38,7 @@ struct CompanyObject: Codable, Identifiable, Hashable {
 extension CompanyObject {
     static func createFakeCompanyObject() -> CompanyObject {
         CompanyObject(
-            id: "1",
+            id: UUID().uuidString,
             orginizationName: "Company Inc",
             coordinate: Coordinate(
                 latitude: CLLocationDegrees(Int.random(in: 0..<20)),
@@ -58,7 +58,7 @@ extension CompanyObject {
     static func createFakeComapnyList() -> [CompanyObject] {
         [
             CompanyObject(
-                id: "2",
+                id: UUID().uuidString,
                 orginizationName: "Cars for Kids",
                 coordinate: Coordinate(
                     latitude: 18.542952, longitude: -72.39234
@@ -73,7 +73,7 @@ extension CompanyObject {
                 logoImageUrl: "imageUrl"
             ),
             CompanyObject(
-                id: "3",
+                id: UUID().uuidString,
                 orginizationName: "A.D.F.R.A",
                 coordinate: Coordinate(
                     latitude: -22.859839, longitude: -43.267511
@@ -88,7 +88,7 @@ extension CompanyObject {
                 logoImageUrl: "imageUrl"
             ),
             CompanyObject(
-                id: "4",
+                id: UUID().uuidString,
                 orginizationName: "Ever Green",
                 coordinate: Coordinate(
                     latitude: 30.053881, longitude: 31.238474
@@ -103,7 +103,7 @@ extension CompanyObject {
                 logoImageUrl: "imageUrl"
             ),
             CompanyObject(
-                id: "5",
+                id: UUID().uuidString,
                 orginizationName: "EDU Global",
                 coordinate: Coordinate(
                     latitude: 31.771959, longitude: 35.217018
@@ -118,7 +118,7 @@ extension CompanyObject {
                 logoImageUrl: "imageUrl"
             ),
             CompanyObject(
-                id: "6",
+                id: UUID().uuidString,
                 orginizationName: "True Vison",
                 coordinate: Coordinate(
                     latitude: 41.9001, longitude: -71.0898
@@ -133,7 +133,7 @@ extension CompanyObject {
                 logoImageUrl: "imageUrl"
             ),
             CompanyObject(
-                id: "7",
+                id: UUID().uuidString,
                 orginizationName: "S.A.O.M",
                 coordinate: Coordinate(
                     latitude: 43.84864, longitude: 18.35644
@@ -148,7 +148,7 @@ extension CompanyObject {
                 logoImageUrl: "imageUrl"
             ),
             CompanyObject(
-                id: "8",
+                id: UUID().uuidString,
                 orginizationName: "People4All",
                 coordinate: Coordinate(
                     latitude: 38.889931, longitude: -77.009003
@@ -163,7 +163,7 @@ extension CompanyObject {
                 logoImageUrl: "imageUrl"
             ),
             CompanyObject(
-                id: "9",
+                id: UUID().uuidString,
                 orginizationName: "VENTRA",
                 coordinate: Coordinate(
                     latitude: -33.918861, longitude: 18.4233
@@ -178,7 +178,7 @@ extension CompanyObject {
                 logoImageUrl: "imageUrl"
             ),
             CompanyObject(
-                id: "10",
+                id: UUID().uuidString,
                 orginizationName: "Blue Aid",
                 coordinate: Coordinate(
                     latitude: 11.562108, longitude: 104.888535
@@ -193,7 +193,7 @@ extension CompanyObject {
                 logoImageUrl: "imageUrl"
             ),
             CompanyObject(
-                id: "11",
+                id: UUID().uuidString,
                 orginizationName: "Tree Vision",
                 coordinate: Coordinate(
                     latitude: 6.4969, longitude: 2.6289
@@ -208,7 +208,7 @@ extension CompanyObject {
                 logoImageUrl: "imageUrl"
             ),
             CompanyObject(
-                id: "12",
+                id: UUID().uuidString,
                 orginizationName: "Mantra",
                 coordinate: Coordinate(
                     latitude: -16.5, longitude: -68.15
@@ -224,7 +224,7 @@ extension CompanyObject {
 
             ),
             CompanyObject(
-                id: "13",
+                id: UUID().uuidString,
                 orginizationName: "G.H.G",
                 coordinate: Coordinate(
                     latitude: 17.1522786, longitude: -89.0800227
