@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C01ACA442C4F54D700A77B5E /* ActivityFeedJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA432C4F54D700A77B5E /* ActivityFeedJSONResponse.swift */; };
+		C01ACA472C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA462C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift */; };
+		C01ACA492C50961600A77B5E /* MapViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA482C50961600A77B5E /* MapViewJSONResponse.swift */; };
+		C01ACA4B2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA4A2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift */; };
 		C0B86C6C2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6D2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6E2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
@@ -190,7 +192,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C01ACA432C4F54D700A77B5E /* ActivityFeedJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedJSONResponse.swift; sourceTree = "<group>"; };
+		C01ACA462C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileViewJSONResponse.swift; sourceTree = "<group>"; };
+		C01ACA482C50961600A77B5E /* MapViewJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewJSONResponse.swift; sourceTree = "<group>"; };
+		C01ACA4A2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedViewJSONResponse.swift; sourceTree = "<group>"; };
 		C0219F882C4CFDC200979B2E /* (DEVELOPMENT) CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(DEVELOPMENT) CompanyConnect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0219F892C4CFE9100979B2E /* CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompanyConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0219F8D2C4D020200979B2E /* (OFFLINE) CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(OFFLINE) CompanyConnect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,7 +302,9 @@
 		C0B86C792C4F488800C853C0 /* JSON Objects */ = {
 			isa = PBXGroup;
 			children = (
-				C01ACA432C4F54D700A77B5E /* ActivityFeedJSONResponse.swift */,
+				C01ACA462C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift */,
+				C01ACA482C50961600A77B5E /* MapViewJSONResponse.swift */,
+				C01ACA4A2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift */,
 			);
 			path = "JSON Objects";
 			sourceTree = "<group>";
@@ -613,6 +619,7 @@
 				C0CC8DAA2C4CF0F80083E6C6 /* MediaView.swift in Sources */,
 				C0CC8DAB2C4CF0F80083E6C6 /* BriefHistoryPhotoScrollerView.swift in Sources */,
 				C0CC8DAC2C4CF0F80083E6C6 /* CompanyProfileMapView.swift in Sources */,
+				C01ACA472C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift in Sources */,
 				C0CC8DAD2C4CF0F80083E6C6 /* CompanyProfileTextView.swift in Sources */,
 				C0CC8DAE2C4CF0F80083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,
 				C0CC8DAF2C4CF0F80083E6C6 /* ProjectsScrollerView.swift in Sources */,
@@ -626,6 +633,7 @@
 				C0CC8E3D2C4CF4420083E6C6 /* BlurView.swift in Sources */,
 				C0CC8DB02C4CF0F80083E6C6 /* DonationCellView.swift in Sources */,
 				C0CC8DB12C4CF0F80083E6C6 /* BaseMapView.swift in Sources */,
+				C01ACA4B2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift in Sources */,
 				C0CC8DB22C4CF0F80083E6C6 /* CompanyCardView.swift in Sources */,
 				C0CC8DB32C4CF0F80083E6C6 /* CompanyHGrid.swift in Sources */,
 				C0CC8DB42C4CF0F80083E6C6 /* CompanyListView.swift in Sources */,
@@ -646,9 +654,9 @@
 				C0CC8DF42C4CF4320083E6C6 /* Configuration.swift in Sources */,
 				C0B86C712C4D1F8E00C853C0 /* Data+Ext.swift in Sources */,
 				C0CC8DF52C4CF4320083E6C6 /* Project.swift in Sources */,
+				C01ACA492C50961600A77B5E /* MapViewJSONResponse.swift in Sources */,
 				C0CC8DF62C4CF4320083E6C6 /* BriefHistoryImageObject.swift in Sources */,
 				C0CC8DF72C4CF4320083E6C6 /* Donation.swift in Sources */,
-				C01ACA442C4F54D700A77B5E /* ActivityFeedJSONResponse.swift in Sources */,
 				C0CC8DF82C4CF4320083E6C6 /* ActvityPost.swift in Sources */,
 				C0CC8DF92C4CF4320083E6C6 /* BriefHistoryObject.swift in Sources */,
 				C0CC8DD92C4CF21B0083E6C6 /* CompanyConnect.swift in Sources */,

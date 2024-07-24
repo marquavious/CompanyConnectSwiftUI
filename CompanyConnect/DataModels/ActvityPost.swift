@@ -66,37 +66,3 @@ extension ActvityPostPoster {
         )
     }
 }
-
-//struct ActvityPostData: Codable, Identifiable {
-//    let id: String
-//    let imageUrl: String
-//    let date: String
-//    let caption: String?
-//    let companyData: CompanyData
-//    let posterData: ActvityPostPosterData?
-//    let mediaData: MediaData?
-//}
-//
-//struct ActvityPostPosterData: Codable {
-//    let id: String
-//    let name: String
-//    let badgeImageUrl: String
-//}
-//
-//struct CompanyData: Codable, Identifiable {
-//    let id: String
-//    let category: Category
-//    let companyName: String
-//}
-//
-//struct TeamMemberData: Codable, Identifiable {
-//    let id: String
-//    let name: String
-//    let badgeImageUrl: String
-//}
-//
-//struct MediaData: Codable, Identifiable {
-//    let id: String
-//    let url: String
-//    let type: String
-//}
