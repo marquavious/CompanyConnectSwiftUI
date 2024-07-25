@@ -18,12 +18,12 @@ protocol ActivityFeedViewViewModelType {
     func handleCategorySelection(_ category: Category)
 }
 
-protocol PostsServiceType {
+protocol ActivityPostsServiceType {
     func getPosts() async throws -> [ActvityPost]
 }
 
 @Observable
-class OfflinePostsService: PostsServiceType {
+class OfflinePostsService: ActivityPostsServiceType {
     let postCount: Int
 
     init(postCount: Int) {
@@ -41,12 +41,12 @@ class OfflinePostsService: PostsServiceType {
 @Observable
 class OfflineActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
-    private (set) var service: PostsServiceType
+    private (set) var service: ActivityPostsServiceType
     private var _posts = [ActvityPost]()
     private var _selctedCategories = [Category]()
     private var _categories: [Category] = []
 
-    init(service: PostsServiceType) {
+    init(service: ActivityPostsServiceType) {
         self.service = service
     }
 

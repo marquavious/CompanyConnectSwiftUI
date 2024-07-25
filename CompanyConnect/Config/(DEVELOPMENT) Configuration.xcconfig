@@ -9,3 +9,4 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 APPLICATION_ENVIRONMENT = DEVELOPMENT
+BASE_URL = thisurldoesnotmatter.com

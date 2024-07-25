@@ -9,3 +9,4 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 APPLICATION_ENVIRONMENT = PRODUCTION
+BASE_URL = comapnyconnect.com

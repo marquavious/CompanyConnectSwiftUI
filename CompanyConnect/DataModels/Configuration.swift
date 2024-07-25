@@ -11,6 +11,7 @@ import Foundation
 
 enum ConfiKeys: String {
     case APPLICATION_ENVIRONMENT = "APPLICATION_ENVIRONMENT"
+    case BASE_URL = "BASE_URL"
 }
 
 enum Configuration {
