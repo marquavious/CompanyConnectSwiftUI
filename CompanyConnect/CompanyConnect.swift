@@ -7,8 +7,6 @@
 
 import SwiftUI
 import TipKit
-import OHHTTPStubs
-import OHHTTPStubsSwift
 
 @main
 struct CompanyConnect: App {
@@ -46,7 +44,6 @@ struct CompanyConnect: App {
     }
 
     init() {
-
     #if DEBUG
         stubsHandler.setupStubs()
     #endif
@@ -56,28 +53,6 @@ struct CompanyConnect: App {
         try? Tips.configure() // Tips.showTipsForTesting([CompletionToDeleteTip.self])
     #endif
     }
-}
-
-class OHHTTPStubsHandler: NSObject {
-
-    func setupStubs() {
-        stub(condition: isPath("/activity_feed")) { _ in
-            let stubPath = OHPathForFile("ActivityfeedJsonResponse.json", type(of: self))
-            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
-        }
-
-        stub(condition: isPath("/mapdata")) { _ in
-            let stubPath = OHPathForFile("MapViewJsonResponse.json", type(of: self))
-            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
-        }
-
-        stub(condition: isPath("/donations")) { _ in
-            let stubPath = OHPathForFile("DonationsViewJsonResponse.json", type(of: self))
-            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
-        }
-
-    }
-
 }
 
 struct MainView: View {
