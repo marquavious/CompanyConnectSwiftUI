@@ -48,6 +48,9 @@
 		C032F7152C54617500473328 /* OHHTTPStubsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */; };
 		C032F7162C54617500473328 /* OHHTTPStubsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */; };
 		C032F7172C54617500473328 /* OHHTTPStubsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */; };
+		C032F7192C5467FD00473328 /* UIDevice+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F7182C5467FD00473328 /* UIDevice+Ext.swift */; };
+		C032F71A2C5467FD00473328 /* UIDevice+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F7182C5467FD00473328 /* UIDevice+Ext.swift */; };
+		C032F71B2C5467FD00473328 /* UIDevice+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F7182C5467FD00473328 /* UIDevice+Ext.swift */; };
 		C0B86C6C2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6D2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6E2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
@@ -244,6 +247,7 @@
 		C0219F892C4CFE9100979B2E /* CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompanyConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0219F8D2C4D020200979B2E /* (OFFLINE) CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(OFFLINE) CompanyConnect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OHHTTPStubsHandler.swift; sourceTree = "<group>"; };
+		C032F7182C5467FD00473328 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
 		C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(PROD) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0B86C6F2C4D055700C853C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0B86C702C4D1F8E00C853C0 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
@@ -356,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				C0B86C792C4F488800C853C0 /* JSON Objects */,
+				C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */,
 				C01ACA692C530D9B00A77B5E /* URLBuilder.swift */,
 				C01ACA6D2C53197800A77B5E /* HTTPDataDownloader.swift */,
 			);
@@ -379,7 +384,6 @@
 				C01ACA482C50961600A77B5E /* MapViewJSONResponse.swift */,
 				C01ACA5B2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift */,
 				C01ACA4A2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift */,
-				C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */,
 			);
 			path = "JSON Objects";
 			sourceTree = "<group>";
@@ -512,6 +516,7 @@
 				C0CC8D962C4CEEC40083E6C6 /* Date+Ext.swift */,
 				C0CC8D972C4CEEC40083E6C6 /* Image+Ext.swift */,
 				C0CC8D982C4CEEC40083E6C6 /* View+Ext.swift */,
+				C032F7182C5467FD00473328 /* UIDevice+Ext.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -539,9 +544,9 @@
 		C0CC8DA32C4CEEC40083E6C6 /* CompanyConnect */ = {
 			isa = PBXGroup;
 			children = (
+				C0CC8DD82C4CF1930083E6C6 /* CompanyConnect.swift */,
 				C01ACA682C530D7B00A77B5E /* Networking */,
 				C01ACA542C50B83B00A77B5E /* Stubs */,
-				C0CC8DD82C4CF1930083E6C6 /* CompanyConnect.swift */,
 				C0CC8D602C4CEEC40083E6C6 /* Config */,
 				C0CC8D632C4CEEC40083E6C6 /* Custom Shapes */,
 				C0CC8D832C4CEEC40083E6C6 /* CustomViews */,
@@ -768,6 +773,7 @@
 				C0CC8DF92C4CF4320083E6C6 /* BriefHistoryObject.swift in Sources */,
 				C0CC8DD92C4CF21B0083E6C6 /* CompanyConnect.swift in Sources */,
 				C0CC8DD02C4CF0F80083E6C6 /* Color+Ext.swift in Sources */,
+				C032F7192C5467FD00473328 /* UIDevice+Ext.swift in Sources */,
 				C0B86C732C4D362600C853C0 /* Encodable+Ext.swift in Sources */,
 				C0CC8DD12C4CF0F80083E6C6 /* Date+Ext.swift in Sources */,
 				C0CC8DD22C4CF0F80083E6C6 /* Image+Ext.swift in Sources */,
@@ -788,6 +794,7 @@
 				C01ACA5D2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift in Sources */,
 				C0CC8E092C4CF4330083E6C6 /* Media.swift in Sources */,
 				C01ACA6F2C53197800A77B5E /* HTTPDataDownloader.swift in Sources */,
+				C032F71A2C5467FD00473328 /* UIDevice+Ext.swift in Sources */,
 				C0CC8E0A2C4CF4330083E6C6 /* StringGenerator.swift in Sources */,
 				C0CC8E0B2C4CF4330083E6C6 /* TeamMember.swift in Sources */,
 				C0CC8E0C2C4CF4330083E6C6 /* CompanyObject.swift in Sources */,
@@ -857,6 +864,7 @@
 				C01ACA5E2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift in Sources */,
 				C0CC8E272C4CF4350083E6C6 /* Media.swift in Sources */,
 				C01ACA702C53197800A77B5E /* HTTPDataDownloader.swift in Sources */,
+				C032F71B2C5467FD00473328 /* UIDevice+Ext.swift in Sources */,
 				C0CC8E282C4CF4350083E6C6 /* StringGenerator.swift in Sources */,
 				C0CC8E292C4CF4350083E6C6 /* TeamMember.swift in Sources */,
 				C0CC8E2A2C4CF4350083E6C6 /* CompanyObject.swift in Sources */,
