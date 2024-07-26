@@ -4,5 +4,7 @@
 <dict>
 	<key>APPLICATION_ENVIRONMENT</key>
 	<string>${APPLICATION_ENVIRONMENT}</string>
+	<key>BASE_URL</key>
+	<string>${BASE_URL}</string>
 </dict>
 </plist>

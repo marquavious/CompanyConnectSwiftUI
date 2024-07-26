@@ -7,6 +7,8 @@
 
 import SwiftUI
 import TipKit
+import OHHTTPStubs
+import OHHTTPStubsSwift
 
 @main
 struct CompanyConnect: App {
@@ -35,6 +37,8 @@ struct CompanyConnect: App {
         }
     }()
 
+    private let stubsHandler = OHHTTPStubsHandler()
+
     var body: some Scene {
         WindowGroup {
             MainView(dependencyGraph: dependencyGraph)
@@ -42,10 +46,25 @@ struct CompanyConnect: App {
     }
 
     init() {
+
+    #if DEBUG
+        stubsHandler.setupStubs()
+    #endif
+
     #if RELEASE
         try? Tips.resetDatastore() // Purge all TipKit related data.
         try? Tips.configure() // Tips.showTipsForTesting([CompletionToDeleteTip.self])
     #endif
+    }
+}
+
+class OHHTTPStubsHandler: NSObject {
+
+    func setupStubs() {
+        stub(condition: isPath("/activity_feed")) { _ in
+            let stubPath = OHPathForFile("ActivityfeedJsonResponse.json", type(of: self))
+            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
+        }
     }
 
 }

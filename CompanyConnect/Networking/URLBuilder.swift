@@ -16,22 +16,22 @@ enum URLBuilder {
         urlBuilder()
     }
 
-    private var baseURL: String {
-        do {
-            return try Configuration.value(for: ConfiKeys.BASE_URL.rawValue) as String
-        } catch {
-            fatalError("Could not load BASE_URL variable")
-        }
-    }
-
-    private var path: String {
+    public var path: String {
         switch self {
-        case .activityFeed(_):
+        case .activityFeed:
             "/activity_feed"
         case .mapdata:
             "/mapdata"
         case .donations(_):
             "/donations"
+        }
+    }
+
+    private var baseURL: String {
+        do {
+            return try Configuration.value(for: ConfiKeys.BASE_URL.rawValue) as String
+        } catch {
+            fatalError("Could not load BASE_URL variable")
         }
     }
 

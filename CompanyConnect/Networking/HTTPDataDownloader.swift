@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol HTTPDataDownloaderProtocol {
+protocol HTTPDataDownloader {
     func getData<T: Decodable>(as type: T.Type, from url: URL) async throws -> T
 }
 
-class HTTPDataDownloader: HTTPDataDownloaderProtocol {
+extension HTTPDataDownloader {
     func getData<T: Decodable>(as type: T.Type, from url: URL) async throws -> T {
         let (data, response) = try await URLSession.shared.data(from: url)
 
@@ -24,7 +24,10 @@ class HTTPDataDownloader: HTTPDataDownloaderProtocol {
         }
 
         do {
-            return try JSONDecoder().decode(type, from: data)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            decoder.dateDecodingStrategy = .iso8601
+            return try decoder.decode(type, from: data)
         } catch {
             throw HTTPDataDownloaderError.DecodeingError(error: error.localizedDescription)
         }

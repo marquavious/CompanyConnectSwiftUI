@@ -37,6 +37,9 @@ struct ActivityFeedView: View {
             .navigationDestination(for: CompanyObject.self) {
                 CompanyProfileView(viewModel: CompanyProfileViewViewModel(company: $0))
             }
+            .task {
+                await viewModel.loadPosts()
+            }
             .navigationTitle(Constants.NavigationTitle)
             .toolbar {
                 Button(

@@ -8,6 +8,7 @@
 import Foundation
 
 protocol ActivityFeedViewViewModelType {
+    var currentPage: Int { get set }
     func selctedCategories() ->[Category]
     func categories() -> [Category]
     func hasSelectedCategories() -> Bool
@@ -16,31 +17,25 @@ protocol ActivityFeedViewViewModelType {
     func addToSelectedCategories(category: Category)
     func removeCategory(category: Category)
     func handleCategorySelection(_ category: Category)
+    func loadPosts() async
 }
 
 protocol ActivityPostsServiceType {
-    func getPosts() async throws -> [ActvityPost]
+    func getPosts(forPage page: Int) async throws -> ActivityFeedJSONResponse
 }
 
 @Observable
-class OfflinePostsService: ActivityPostsServiceType {
-    let postCount: Int
-
-    init(postCount: Int) {
-        self.postCount = postCount
-    }
-
-    func getPosts() async throws -> [ActvityPost] {
-        return Array(
-            repeating: ActvityPost.createFakeActivityPost(),
-            count: postCount
-        )
+class OfflineActivityPostsService: ActivityPostsServiceType, HTTPDataDownloader {
+    @MainActor
+    func getPosts(forPage page: Int) async throws -> ActivityFeedJSONResponse {
+        return try await getData(as: ActivityFeedJSONResponse.self, from: URLBuilder.activityFeed(page: "\(page)").url)
     }
 }
 
 @Observable
 class OfflineActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
+    var currentPage = 1
     private (set) var service: ActivityPostsServiceType
     private var _posts = [ActvityPost]()
     private var _selctedCategories = [Category]()
@@ -52,9 +47,12 @@ class OfflineActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     func loadPosts() async {
         do {
-            self._posts = try await service.getPosts()
+            let response = try await service.getPosts(forPage: currentPage)
+            print(response)
+            currentPage = (response.page + 1)
+            _posts.append(contentsOf: response.activityPosts)
         } catch {
-            // Handle Error
+            fatalError(error.localizedDescription) // Handle
         }
     }
 
@@ -97,6 +95,7 @@ class OfflineActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
 @Observable // For Now
 class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
+    var currentPage = 1
 
     init(company: CompanyObject) {
         _company = company
@@ -119,6 +118,8 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     func resetSelectedCategories() {
         _selctedCategories = []
     }
+
+    func loadPosts() async { }
 
     func posts() -> [ActvityPost] {
         Array(repeating: ActvityPost.createFakeActivityPostForCompany(company: _company), count: 50)
@@ -160,6 +161,7 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
 @Observable
 class DevCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
+    var currentPage = 1
 
     init(company: CompanyObject) {
         _company = company
@@ -182,6 +184,8 @@ class DevCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     func resetSelectedCategories() {
         _selctedCategories = []
     }
+
+    func loadPosts() async { }
 
     func posts() -> [ActvityPost] {
         _posts
@@ -234,6 +238,7 @@ extension Encodable {
 
 @Observable
 class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
+    var currentPage = 1
 
     private var _posts = [ActvityPost]()
     private var _selctedCategories = [Category]()
@@ -275,6 +280,8 @@ class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     func resetSelectedCategories() {
         _selctedCategories = []
     }
+
+    func loadPosts() async { }
 
     func posts() -> [ActvityPost] {
         return _posts
