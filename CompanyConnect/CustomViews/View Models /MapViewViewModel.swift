@@ -16,7 +16,7 @@ struct MapData: Codable {
     let companyObjects: [CompanyObject]
 }
 
-protocol MapServiceType {
+protocol MapServiceType: HTTPDataDownloader {
     func getMapData() async throws -> MapViewJSONResponse
 }
 
@@ -29,7 +29,7 @@ class DevMapService: MapServiceType {
 }
 
 @Observable
-class OfflineMapService: MapServiceType, HTTPDataDownloader {
+class OfflineMapService: MapServiceType {
 
     func getMapData() async throws -> MapViewJSONResponse {
         return try await getData(as: MapViewJSONResponse.self, from: URLBuilder.mapdata.url)

@@ -71,6 +71,11 @@ class OHHTTPStubsHandler: NSObject {
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
         }
 
+        stub(condition: isPath("/donations")) { _ in
+            let stubPath = OHPathForFile("DonationsViewJsonResponse.json", type(of: self))
+            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
+        }
+
     }
 
 }

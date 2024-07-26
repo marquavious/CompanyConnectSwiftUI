@@ -22,7 +22,7 @@ class DependencyGraph: DependencyGraphType {
 class OfflineDependencyGraph: DependencyGraphType {
     var activityFeedViewModel: ActivityFeedViewViewModelType = OfflineActivityFeed(service: OfflineActivityPostsService())
     var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel()
-    var donationsViewViewModel: DonationsViewViewModelType = DevDonationsViewViewModel()
+    var donationsViewViewModel: DonationsViewViewModelType = OfflineDonationsViewViewModel()
 }
 
 class IntegratedDependencyGraph: DependencyGraphType {

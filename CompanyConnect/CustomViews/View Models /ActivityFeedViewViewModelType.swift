@@ -20,12 +20,12 @@ protocol ActivityFeedViewViewModelType {
     func loadPosts() async
 }
 
-protocol ActivityPostsServiceType {
+protocol ActivityPostsServiceType: HTTPDataDownloader {
     func getPosts(forPage page: Int) async throws -> ActivityFeedJSONResponse
 }
 
 @Observable
-class OfflineActivityPostsService: ActivityPostsServiceType, HTTPDataDownloader {
+class OfflineActivityPostsService: ActivityPostsServiceType {
     @MainActor
     func getPosts(forPage page: Int) async throws -> ActivityFeedJSONResponse {
         return try await getData(as: ActivityFeedJSONResponse.self, from: URLBuilder.activityFeed(page: "\(page)").url)

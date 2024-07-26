@@ -61,6 +61,8 @@ struct DonationsView: View {
                 }
                 .tint(colorScheme == .light ? .black:.white)
             }
+        }.task {
+            await viewModel.loadDonationsData()
         }
     }
 }
