@@ -15,19 +15,19 @@ protocol DependencyGraphType {
 
 class DependencyGraph: DependencyGraphType {
     var activityFeedViewModel: ActivityFeedViewViewModelType = DevHomeTabActivityFeed() // Change
-    var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel(mapServiceType: OfflineMapService()) // Change
+    var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel() // Change
     var donationsViewViewModel: DonationsViewViewModelType = DevDonationsViewViewModel()
 }
 
 class OfflineDependencyGraph: DependencyGraphType {
     var activityFeedViewModel: ActivityFeedViewViewModelType = OfflineActivityFeed(service: OfflineActivityPostsService())
-    var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel(mapServiceType: OfflineMapService())
+    var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel()
     var donationsViewViewModel: DonationsViewViewModelType = DevDonationsViewViewModel()
 }
 
 class IntegratedDependencyGraph: DependencyGraphType {
     var activityFeedViewModel: ActivityFeedViewViewModelType = OfflineActivityFeed(service: OfflineActivityPostsService()) // Change
-    var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel(mapServiceType: OfflineMapService()) // Change
+    var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel() // Change
     var donationsViewViewModel: DonationsViewViewModelType = DevDonationsViewViewModel()
 }
 

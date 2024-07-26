@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 
 protocol MapViewViewModelType {
+    func loadMapData() async
     func allCompanies() -> [CompanyObject]
     func categories() -> [Category]
     func selctedCategories() -> [Category]
@@ -16,41 +17,38 @@ struct MapData: Codable {
 }
 
 protocol MapServiceType {
-    func getMapData() async throws -> MapData
+    func getMapData() async throws -> MapViewJSONResponse
 }
 
 @Observable
 class DevMapService: MapServiceType {
 
-    func getMapData() async throws -> MapData {
-        return MapData(companyObjects: CompanyObject.createFakeComapnyList())
+    func getMapData() async throws -> MapViewJSONResponse {
+        return MapViewJSONResponse(companyObjects: CompanyObject.createFakeComapnyList())
     }
 }
 
 @Observable
-class OfflineMapService: MapServiceType {
+class OfflineMapService: MapServiceType, HTTPDataDownloader {
 
-    func getMapData() async throws -> MapData {
-        return MapData(companyObjects: [])
+    func getMapData() async throws -> MapViewJSONResponse {
+        return try await getData(as: MapViewJSONResponse.self, from: URLBuilder.mapdata.url)
     }
 }
 
 @Observable
 class OfflineMapViewViewModel: MapViewViewModelType, ObservableObject {
 
-    private let mapServiceType: MapServiceType
+    private let mapServiceType: MapServiceType = OfflineMapService()
     private var mapData: MapData = MapData(companyObjects: [])
     private var selectedCategories = [Category]()
 
-    init(mapServiceType: MapServiceType) {
-        self.mapServiceType = mapServiceType
-    }
-
     func loadMapData() async {
         do {
-            mapData = try await mapServiceType.getMapData()
+            let mapViewJSONResponse = try await mapServiceType.getMapData()
+            mapData = MapData(companyObjects: mapViewJSONResponse.companyObjects)
         } catch {
-            // Handle Error
+            fatalError(error.localizedDescription)
         }
     }
 
@@ -103,12 +101,11 @@ class OfflineMapViewViewModel: MapViewViewModelType, ObservableObject {
 @Observable
 class DevMapViewViewModel: MapViewViewModelType, ObservableObject {
 
-    var mapData: MapData
+    var mapData: MapData = MapData(companyObjects: [])
     var selectedCategories = [Category]()
 
-    init() {
-        self.mapData = MapData(companyObjects: CompanyObject.createFakeComapnyList())
-        self.selectedCategories = selectedCategories
+    func loadMapData() async { 
+        mapData = MapData(companyObjects: CompanyObject.createFakeComapnyList())
     }
 
     func allCompanies() -> [CompanyObject] {

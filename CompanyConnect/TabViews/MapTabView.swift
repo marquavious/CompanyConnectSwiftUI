@@ -43,6 +43,9 @@ struct MapTabView: View {
             .navigationDestination(for: CompanyObject.self) {
                 CompanyProfileView(viewModel: CompanyProfileViewViewModel(company: $0))
             }
+            .task {
+                await viewModel.loadMapData()
+            }
         }
     }
 

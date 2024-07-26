@@ -65,6 +65,12 @@ class OHHTTPStubsHandler: NSObject {
             let stubPath = OHPathForFile("ActivityfeedJsonResponse.json", type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
         }
+
+        stub(condition: isPath("/mapdata")) { _ in
+            let stubPath = OHPathForFile("MapViewJsonResponse.json", type(of: self))
+            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
+        }
+
     }
 
 }

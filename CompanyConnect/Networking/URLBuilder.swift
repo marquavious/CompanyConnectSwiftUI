@@ -22,7 +22,7 @@ enum URLBuilder {
             "/activity_feed"
         case .mapdata:
             "/mapdata"
-        case .donations(_):
+        case .donations:
             "/donations"
         }
     }

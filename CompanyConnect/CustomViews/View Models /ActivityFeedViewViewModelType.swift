@@ -48,7 +48,6 @@ class OfflineActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     func loadPosts() async {
         do {
             let response = try await service.getPosts(forPage: currentPage)
-            print(response)
             currentPage = (response.page + 1)
             _posts.append(contentsOf: response.activityPosts)
         } catch {
