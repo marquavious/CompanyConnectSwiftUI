@@ -35,11 +35,23 @@ struct CompanyConnect: App {
         }
     }()
 
+    #if DEBUG
     private let stubsHandler = OHHTTPStubsHandler()
+    #endif
+
+    @State private var showingSheet = false
 
     var body: some Scene {
         WindowGroup {
-            MainView(dependencyGraph: dependencyGraph)
+            MainView(
+                dependencyGraph: dependencyGraph
+            )
+            .onShake {
+                showingSheet.toggle()
+            }
+            .sheet(isPresented: $showingSheet) {
+                SheetView()
+            }
         }
     }
 
