@@ -12,13 +12,18 @@ struct TweakWindowView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        VStack {
-            Button("Dismiss") {
-                dismiss()
+        NavigationView {
+            VStack {
+                TweakWindowUIViewControllerRepresentable()
             }
-            TweakWindowUIViewControllerRepresentable()
+            .edgesIgnoringSafeArea(.bottom)
+            .navigationTitle("CC Tweaks")
+            .toolbar {
+                Button("Close") {
+                    dismiss()
+                }
+            }
         }
-        .padding([.vertical])
     }
 }
 
@@ -40,8 +45,16 @@ struct TweakWindowUIViewControllerRepresentable: UIViewControllerRepresentable {
 
 class UIViewControllerTweakWindow: UIViewController {
 
+    struct Constants {
+        static let pickerHeight: CGFloat = 260
+        static let toolbarHeight: CGFloat = 35
+        static let tableCellHeight: CGFloat = 40
+    }
+
     private let tweakManager = CCTweakManager.shared
     private var selectedTweak: CCTweaks?
+
+    private lazy var hidePickerViewContainerTopConstraint = pickerContainerView.topAnchor.constraint(equalTo: view.bottomAnchor)
 
     private lazy var tweakManagerTableView: UITableView = {
         let table = UITableView()
@@ -53,24 +66,26 @@ class UIViewControllerTweakWindow: UIViewController {
     }()
 
     private lazy var pickerContainerView: UIView = {
-        let pickerView = UIView(frame: CGRect(x: 0, y: view.frame.height + 260, width: view.frame.width, height: 260))
+        let pickerView = UIView()
         pickerView.backgroundColor = .white
         pickerView.translatesAutoresizingMaskIntoConstraints = false
         return pickerView
     }()
 
     private lazy var picker: UIPickerView = {
-        let picker = UIPickerView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 260))
+        let picker = UIPickerView()
         picker.isUserInteractionEnabled = true
         picker.delegate = self
         picker.dataSource = self
+        picker.translatesAutoresizingMaskIntoConstraints = false
         return picker
     }()
 
     private lazy var toolBar: UIToolbar = {
-        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
+        let toolBar = UIToolbar()
         toolBar.sizeToFit()
         toolBar.isUserInteractionEnabled = true
+        toolBar.translatesAutoresizingMaskIntoConstraints = false
         let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.doneButtonPressed))
         toolBar.setItems([button], animated: true)
         return toolBar
@@ -92,30 +107,46 @@ class UIViewControllerTweakWindow: UIViewController {
 
         view.addSubview(pickerContainerView)
         NSLayoutConstraint.activate([
+            hidePickerViewContainerTopConstraint,
             pickerContainerView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            pickerContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 260),
-            pickerContainerView.heightAnchor.constraint(equalToConstant: 260)
+            pickerContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            pickerContainerView.heightAnchor.constraint(equalToConstant: Constants.pickerHeight)
         ])
 
         pickerContainerView.addSubview(picker)
+        NSLayoutConstraint.activate([
+            picker.leadingAnchor.constraint(equalTo: pickerContainerView.leadingAnchor),
+            picker.trailingAnchor.constraint(equalTo: pickerContainerView.trailingAnchor),
+            picker.bottomAnchor.constraint(equalTo: pickerContainerView.bottomAnchor),
+            picker.topAnchor.constraint(equalTo: pickerContainerView.topAnchor)
+        ])
+
         pickerContainerView.addSubview(toolBar)
+        NSLayoutConstraint.activate([
+            toolBar.leadingAnchor.constraint(equalTo: pickerContainerView.leadingAnchor),
+            toolBar.trailingAnchor.constraint(equalTo: pickerContainerView.trailingAnchor),
+            toolBar.topAnchor.constraint(equalTo: pickerContainerView.topAnchor),
+            toolBar.heightAnchor.constraint(equalToConstant: Constants.toolbarHeight)
+        ])
     }
 
-    private func appearPickerView() {
+    private func showPickerView() {
+        hidePickerViewContainerTopConstraint.isActive = false
         UIView.animate(withDuration: 0.3, animations: {
-            self.pickerContainerView.frame = CGRect(x: 0, y: self.view.bounds.height - self.pickerContainerView.bounds.size.height, width: self.pickerContainerView.bounds.size.width, height: self.pickerContainerView.bounds.size.height)
+            self.view.layoutIfNeeded()
         })
     }
 
     private func hidePickerView() {
+        hidePickerViewContainerTopConstraint.isActive = true
         UIView.animate(withDuration: 0.3, animations: {
-            self.pickerContainerView.frame = CGRect(x: 0, y: self.view.bounds.height, width: self.pickerContainerView.bounds.size.width, height: self.pickerContainerView.bounds.size.height)
+            self.view.layoutIfNeeded()
         })
     }
 
-    private func showPickerView() {
+    private func shouldShowPickerView() {
         hightlightSelectedTweakOption()
-        appearPickerView()
+        showPickerView()
     }
 
     private func tweakValueTitleFor(row: Int) -> String {
@@ -179,7 +210,7 @@ extension UIViewControllerTweakWindow: UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        40
+        Constants.tableCellHeight
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -189,7 +220,7 @@ extension UIViewControllerTweakWindow: UITableViewDelegate, UITableViewDataSourc
         selectedTweak = unwrappedSelectedTweak
         tableView.deselectRow(at: indexPath, animated: true)
         picker.reloadAllComponents()
-        showPickerView()
+        shouldShowPickerView()
     }
 }
 

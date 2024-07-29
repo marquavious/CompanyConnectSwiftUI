@@ -40,11 +40,11 @@ enum InternetSpeedTweak: Int, Tweakable {
     var optionDisplayName: String {
         switch self {
         case .simulateSlowInternetConnection:
-            "Slow Speed"
+            "Slow"
         case .simulateNormlInternetSpeed:
-            "Normal Speed"
+            "Normal"
         case .simulateFastInternetConnection:
-            "Fast Speed"
+            "Fast"
         }
     }
 
