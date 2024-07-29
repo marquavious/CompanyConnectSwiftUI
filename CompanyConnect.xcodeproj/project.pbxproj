@@ -54,9 +54,9 @@
 		C032F71E2C546FB000473328 /* TweakWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F71D2C546FB000473328 /* TweakWindowView.swift */; };
 		C032F71F2C546FB000473328 /* TweakWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F71D2C546FB000473328 /* TweakWindowView.swift */; };
 		C032F7202C546FB000473328 /* TweakWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F71D2C546FB000473328 /* TweakWindowView.swift */; };
-		C032F7222C54700200473328 /* InternetSpeedTweak.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F7212C54700200473328 /* InternetSpeedTweak.swift */; };
-		C032F7232C54700200473328 /* InternetSpeedTweak.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F7212C54700200473328 /* InternetSpeedTweak.swift */; };
-		C032F7242C54700200473328 /* InternetSpeedTweak.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F7212C54700200473328 /* InternetSpeedTweak.swift */; };
+		C032F7222C54700200473328 /* Tweaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F7212C54700200473328 /* Tweaks.swift */; };
+		C032F7232C54700200473328 /* Tweaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F7212C54700200473328 /* Tweaks.swift */; };
+		C032F7242C54700200473328 /* Tweaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032F7212C54700200473328 /* Tweaks.swift */; };
 		C0B86C6C2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6D2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6E2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
@@ -261,7 +261,7 @@
 		C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OHHTTPStubsHandler.swift; sourceTree = "<group>"; };
 		C032F7182C5467FD00473328 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
 		C032F71D2C546FB000473328 /* TweakWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakWindowView.swift; sourceTree = "<group>"; };
-		C032F7212C54700200473328 /* InternetSpeedTweak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetSpeedTweak.swift; sourceTree = "<group>"; };
+		C032F7212C54700200473328 /* Tweaks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweaks.swift; sourceTree = "<group>"; };
 		C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(PROD) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0B86C6F2C4D055700C853C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0B86C702C4D1F8E00C853C0 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
@@ -387,7 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				C032F71D2C546FB000473328 /* TweakWindowView.swift */,
-				C032F7212C54700200473328 /* InternetSpeedTweak.swift */,
+				C032F7212C54700200473328 /* Tweaks.swift */,
 				C0D6B1AF2C57116C00777D49 /* Tweakable.swift */,
 				C0D6B1AB2C5710BA00777D49 /* CCTweakManager.swift */,
 			);
@@ -776,7 +776,7 @@
 				C01ACA5C2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift in Sources */,
 				C032F71E2C546FB000473328 /* TweakWindowView.swift in Sources */,
 				C0CC8DB32C4CF0F80083E6C6 /* CompanyHGrid.swift in Sources */,
-				C032F7222C54700200473328 /* InternetSpeedTweak.swift in Sources */,
+				C032F7222C54700200473328 /* Tweaks.swift in Sources */,
 				C0CC8DB42C4CF0F80083E6C6 /* CompanyListView.swift in Sources */,
 				C0CC8DB52C4CF0F80083E6C6 /* CompanyVGrid.swift in Sources */,
 				C01ACA6E2C53197800A77B5E /* HTTPDataDownloader.swift in Sources */,
@@ -878,7 +878,7 @@
 				C0CC8E762C4CF4570083E6C6 /* ActivityCellView.swift in Sources */,
 				C0CC8E8C2C4CF48E0083E6C6 /* View+Ext.swift in Sources */,
 				C0CC8E8D2C4CF48E0083E6C6 /* Date+Ext.swift in Sources */,
-				C032F7232C54700200473328 /* InternetSpeedTweak.swift in Sources */,
+				C032F7232C54700200473328 /* Tweaks.swift in Sources */,
 				C0CC8E8E2C4CF48E0083E6C6 /* Image+Ext.swift in Sources */,
 				C0CC8E8F2C4CF48E0083E6C6 /* Color+Ext.swift in Sources */,
 				C0CC8E772C4CF4570083E6C6 /* ActivityFeedScrollView.swift in Sources */,
@@ -952,7 +952,7 @@
 				C0CC8E7B2C4CF4570083E6C6 /* ActivityCellView.swift in Sources */,
 				C0CC8E902C4CF48F0083E6C6 /* View+Ext.swift in Sources */,
 				C0CC8E912C4CF48F0083E6C6 /* Date+Ext.swift in Sources */,
-				C032F7242C54700200473328 /* InternetSpeedTweak.swift in Sources */,
+				C032F7242C54700200473328 /* Tweaks.swift in Sources */,
 				C0CC8E922C4CF48F0083E6C6 /* Image+Ext.swift in Sources */,
 				C0CC8E932C4CF48F0083E6C6 /* Color+Ext.swift in Sources */,
 				C0CC8E7C2C4CF4570083E6C6 /* ActivityFeedScrollView.swift in Sources */,

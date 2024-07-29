@@ -7,8 +7,10 @@
 
 import Foundation
 
-protocol Tweakable {
+protocol Tweakable: CaseIterable {
     associatedtype T
     func value() -> T
+    var displayName: String { get }
+    static var tweakWindowName: String { get }
     static var key: String { get }
 }

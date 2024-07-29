@@ -50,7 +50,7 @@ struct CompanyConnect: App {
                 showingSheet.toggle()
             }
             .sheet(isPresented: $showingSheet) {
-                SheetView()
+                TweakWindowView()
             }
         }
     }

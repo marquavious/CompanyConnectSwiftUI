@@ -7,24 +7,39 @@
 
 import Foundation
 
+enum Tweaks: Int, CaseIterable {
+    case internetSpeed = 0
+
+    var key: String {
+        switch self {
+        case .internetSpeed:
+            InternetSpeedTweak.key
+        }
+    }
+
+    var displayName: String {
+        switch self {
+        case .internetSpeed:
+            InternetSpeedTweak.tweakWindowName
+        }
+    }
+
+    var numberOfOptions: Int {
+        switch self {
+        case .internetSpeed:
+            InternetSpeedTweak.allCases.count
+        }
+    }
+}
+
 class CCTweakManager {
 
     static let shared = CCTweakManager()
 
     private init () { }
 
-    enum Tweak {
-        case internetSpeed
 
-        var key: String {
-            switch self {
-            case .internetSpeed:
-                InternetSpeedTweak.key
-            }
-        }
-    }
-
-    func retreiveTweakValue(tweak: Tweak) -> any Tweakable {
+    func retreiveTweakValue(tweak: Tweaks) -> any Tweakable {
         switch tweak {
         case .internetSpeed:
             if let tweakValue = retriveTweakInUserDefaults(tweak: tweak) as TimeInterval?,
@@ -36,29 +51,29 @@ class CCTweakManager {
         }
     }
 
-    func saveTweakValue<T>(tweak: Tweak, value: T) {
+    func saveTweakValue<T>(tweak: Tweaks, value: T) {
         switch tweak {
         case .internetSpeed:
             saveTweakInUserDefaults(tweak: tweak, value: value)
         }
     }
 
-    func resetTwekValue(tweak: Tweak) {
+    func resetTwekValue(tweak: Tweaks) {
         switch tweak {
         case .internetSpeed:
             resetTweakInUserDefaults(tweak: .internetSpeed)
         }
     }
 
-    private func saveTweakInUserDefaults<T>(tweak: Tweak, value: T) {
+    private func saveTweakInUserDefaults<T>(tweak: Tweaks, value: T) {
         UserDefaults.standard.setValue(value, forKey: tweak.key)
     }
 
-    private func retriveTweakInUserDefaults<T>(tweak: Tweak) -> T? {
+    private func retriveTweakInUserDefaults<T>(tweak: Tweaks) -> T? {
         UserDefaults.standard.value(forKey: tweak.key) as? T ?? nil
     }
 
-    private func resetTweakInUserDefaults(tweak: Tweak) {
+    private func resetTweakInUserDefaults(tweak: Tweaks) {
         UserDefaults.standard.removeObject(forKey: tweak.key)
     }
 }

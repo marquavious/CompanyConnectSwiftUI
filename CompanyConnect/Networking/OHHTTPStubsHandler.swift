@@ -15,7 +15,7 @@ class OHHTTPStubsHandler: NSObject {
 
     func setupStubs() {
         stub(condition: isPath("/activity_feed")) { [weak self]  _ in
-            guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.weakSelfError)}
+            guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.memoryError)}
             let stubPath = OHPathForFile("ActivityfeedJsonResponse.json", type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
                 .responseTime(
@@ -24,7 +24,7 @@ class OHHTTPStubsHandler: NSObject {
         }
 
         stub(condition: isPath("/mapdata")) { [weak self]  _ in
-            guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.weakSelfError)}
+            guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.memoryError)}
             let stubPath = OHPathForFile("MapViewJsonResponse.json", type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
                 .responseTime(
@@ -33,7 +33,7 @@ class OHHTTPStubsHandler: NSObject {
         }
 
         stub(condition: isPath("/donations")) { [weak self]  _ in
-            guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.weakSelfError)}
+            guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.memoryError)}
             let stubPath = OHPathForFile("DonationsViewJsonResponse.json", type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
                 .responseTime(
@@ -46,5 +46,5 @@ class OHHTTPStubsHandler: NSObject {
 }
 
 enum OHHTTPStubsHandlerError: Error {
-    case weakSelfError
+    case memoryError
 }
