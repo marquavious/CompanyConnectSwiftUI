@@ -11,7 +11,7 @@ import OHHTTPStubsSwift
 
 class OHHTTPStubsHandler: NSObject {
 
-    private let internetResponseTime: TimeInterval = CCTweakManager.shared.retreiveTweakValue(tweak: .internetSpeed).value() as! TimeInterval
+    private let internetResponseTime: TimeInterval = CCTweakManager.shared.retreiveTweakValue(tweak: .internetSpeed).value as! TimeInterval
 
     func setupStubs() {
         stub(condition: isPath("/activity_feed")) { [weak self]  _ in

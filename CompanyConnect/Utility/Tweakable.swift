@@ -9,8 +9,9 @@ import Foundation
 
 protocol Tweakable: CaseIterable {
     associatedtype T
-    func value() -> T
-    var displayName: String { get }
-    static var tweakWindowName: String { get }
+    var value: T { get }
+    var optionDisplayName : String { get }
+    static var title: String { get }
     static var key: String { get }
+    static var options: [String: String] { get }
 }

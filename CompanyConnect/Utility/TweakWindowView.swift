@@ -17,7 +17,7 @@ struct TweakWindowView: View {
                 dismiss()
             }
             TweakWindowViewStruct()
-        }
+        }.padding([.vertical])
     }
 }
 
@@ -51,8 +51,7 @@ class UIViewControllerTweakWindow: UIViewController {
 
     var pickerView: UIView!
     var picker: UIPickerView!
-
-    var selectedTweak = InternetSpeedTweak(rawValue: 0)!
+    var selectedTweak: CCTweaks?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +71,7 @@ class UIViewControllerTweakWindow: UIViewController {
             tweakManagerTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
 
+        // TODO: - HIDE TOOLBAR
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
         toolBar.sizeToFit()
         let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.done))
@@ -100,6 +100,7 @@ class UIViewControllerTweakWindow: UIViewController {
 
         picker.delegate = self
         picker.dataSource = self
+
     }
 
     func appearPickerView() {
@@ -127,11 +128,24 @@ class UIViewControllerTweakWindow: UIViewController {
     }
 
     func appearPickerAction() {
+        // Higlight Selected row on load
         appearPickerView()
     }
 
     @objc func done() {
         view.endEditing(true)
+        if let selectedTweak {
+            switch selectedTweak {
+            case .internetSpeed:
+                guard let value = InternetSpeedTweak(rawValue: picker.selectedRow(inComponent: 0))?.value else {
+                    fatalError("Attempted to create InternetSpeedTweak from non-existant option")
+                }
+                CCTweakManager.shared.saveTweakValue(
+                    tweak: selectedTweak,
+                    value: value
+                )
+            }
+        }
         tweakManagerTableView.reloadData()
         disappearPickerView()
     }
@@ -139,13 +153,13 @@ class UIViewControllerTweakWindow: UIViewController {
 
 extension UIViewControllerTweakWindow: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Tweaks.allCases.count
+        CCTweaks.allCases.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let row = indexPath.row
-        cell.textLabel?.text = "\(Tweaks.allCases[row].displayName): \(tweakValueNameForRow(row: row))"
+        cell.textLabel?.text = "\(CCTweaks.allCases[row].title): \(tweakValueNameForRow(row: row))"
         cell.accessoryType = .disclosureIndicator
         return cell
     }
@@ -155,32 +169,32 @@ extension UIViewControllerTweakWindow: UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let unwrappedSelectedTweak = CCTweaks(rawValue: indexPath.row) else {
+            fatalError("Attempted to create CCTweak from non-existant option")
+        }
+        selectedTweak = unwrappedSelectedTweak
         tableView.deselectRow(at: indexPath, animated: true)
+        picker.reloadAllComponents()
         appearPickerAction()
     }
 
     private func tweakValueNameForRow(row: Int) -> String {
-        guard let tweak = Tweaks(rawValue: row) else { fatalError() }
+        guard let tweak = CCTweaks(rawValue: row) else { fatalError() }
         switch tweak {
         case .internetSpeed:
-            return CCTweakManager.shared.retreiveTweakValue(tweak: .internetSpeed).displayName
+            return tweak.currentConfigurationTitle
         }
     }
-
 }
 
 extension UIViewControllerTweakWindow: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        InternetSpeedTweak.allCases.count
+        return selectedTweak?.options.count ?? 0
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        InternetSpeedTweak.allCases[row].displayName
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        CCTweakManager.shared.saveTweakValue(tweak: Tweaks.internetSpeed, value: row)
+        selectedTweak?.options[String(row)]
     }
 }
