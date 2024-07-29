@@ -41,6 +41,7 @@ class CCTweakManager {
 
     private func saveTweakInUserDefaults<T>(tweak: CCTweaks, value: T) {
         UserDefaults.standard.setValue(value, forKey: tweak.key)
+        UserDefaults.standard.synchronize()
     }
 
     private func retriveTweakInUserDefaults<T>(tweak: CCTweaks) -> T? {
@@ -49,5 +50,6 @@ class CCTweakManager {
 
     private func resetTweakInUserDefaults(tweak: CCTweaks) {
         UserDefaults.standard.removeObject(forKey: tweak.key)
+        UserDefaults.standard.synchronize()
     }
 }

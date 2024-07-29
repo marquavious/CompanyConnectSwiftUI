@@ -16,8 +16,9 @@ struct TweakWindowView: View {
             Button("Dismiss") {
                 dismiss()
             }
-            TweakWindowViewStruct()
-        }.padding([.vertical])
+            TweakWindowUIViewControllerRepresentable()
+        }
+        .padding([.vertical])
     }
 }
 
@@ -25,11 +26,10 @@ struct TweakWindowView: View {
     TweakWindowView()
 }
 
-struct TweakWindowViewStruct: UIViewControllerRepresentable {
+struct TweakWindowUIViewControllerRepresentable: UIViewControllerRepresentable {
 
     func makeUIViewController(context: Context) -> some UIViewController {
-        let viewController = UIViewControllerTweakWindow()
-        return viewController
+        return UIViewControllerTweakWindow()
     }
 
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
@@ -40,30 +40,49 @@ struct TweakWindowViewStruct: UIViewControllerRepresentable {
 
 class UIViewControllerTweakWindow: UIViewController {
 
-    let tweakManager = CCTweakManager.shared
+    private let tweakManager = CCTweakManager.shared
+    private var selectedTweak: CCTweaks?
 
-    lazy var tweakManagerTableView: UITableView = {
+    private lazy var tweakManagerTableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.delegate = self
+        table.dataSource = self
         return table
     }()
 
-    var pickerView: UIView!
-    var picker: UIPickerView!
-    var selectedTweak: CCTweaks?
+    private lazy var pickerContainerView: UIView = {
+        let pickerView = UIView(frame: CGRect(x: 0, y: view.frame.height + 260, width: view.frame.width, height: 260))
+        pickerView.backgroundColor = .white
+        pickerView.translatesAutoresizingMaskIntoConstraints = false
+        return pickerView
+    }()
+
+    private lazy var picker: UIPickerView = {
+        let picker = UIPickerView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 260))
+        picker.isUserInteractionEnabled = true
+        picker.delegate = self
+        picker.dataSource = self
+        return picker
+    }()
+
+    private lazy var toolBar: UIToolbar = {
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
+        toolBar.sizeToFit()
+        toolBar.isUserInteractionEnabled = true
+        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.doneButtonPressed))
+        toolBar.setItems([button], animated: true)
+        return toolBar
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
 
-    func setupView() {
-        tweakManagerTableView.delegate = self
-        tweakManagerTableView.dataSource = self
-
+    private func setupView() {
         view.addSubview(tweakManagerTableView)
-
         NSLayoutConstraint.activate([
             tweakManagerTableView.topAnchor.constraint(equalTo: view.topAnchor),
             tweakManagerTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -71,83 +90,78 @@ class UIViewControllerTweakWindow: UIViewController {
             tweakManagerTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
 
-        // TODO: - HIDE TOOLBAR
-        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
-        toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.done))
-        toolBar.setItems([button], animated: true)
-        toolBar.isUserInteractionEnabled = true
-
-        pickerView = UIView(frame: CGRect(x: 0, y: view.frame.height + 260, width: view.frame.width, height: 260))
-
-        view.addSubview(pickerView)
-
-        pickerView.translatesAutoresizingMaskIntoConstraints = false
-
+        view.addSubview(pickerContainerView)
         NSLayoutConstraint.activate([
-            pickerView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            pickerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 260),
-            pickerView.heightAnchor.constraint(equalToConstant: 260)
+            pickerContainerView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            pickerContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 260),
+            pickerContainerView.heightAnchor.constraint(equalToConstant: 260)
         ])
 
-        pickerView.backgroundColor = .white
-
-        picker = UIPickerView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 260))
-        pickerView.addSubview(picker)
-
-        picker.isUserInteractionEnabled = true
-        pickerView.addSubview(toolBar)
-
-        picker.delegate = self
-        picker.dataSource = self
-
+        pickerContainerView.addSubview(picker)
+        pickerContainerView.addSubview(toolBar)
     }
 
-    func appearPickerView() {
+    private func appearPickerView() {
         UIView.animate(withDuration: 0.3, animations: {
-            self.pickerView.frame = CGRect(x: 0, y: self.view.bounds.height - self.pickerView.bounds.size.height, width: self.pickerView.bounds.size.width, height: self.pickerView.bounds.size.height)
+            self.pickerContainerView.frame = CGRect(x: 0, y: self.view.bounds.height - self.pickerContainerView.bounds.size.height, width: self.pickerContainerView.bounds.size.width, height: self.pickerContainerView.bounds.size.height)
         })
     }
 
-    func disappearPickerView() {
+    private func hidePickerView() {
         UIView.animate(withDuration: 0.3, animations: {
-            self.pickerView.frame = CGRect(x: 0, y: self.view.bounds.height, width: self.pickerView.bounds.size.width, height: self.pickerView.bounds.size.height)
+            self.pickerContainerView.frame = CGRect(x: 0, y: self.view.bounds.height, width: self.pickerContainerView.bounds.size.width, height: self.pickerContainerView.bounds.size.height)
         })
     }
 
-    func setupPicker(){
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-
-        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
-        toolBar.sizeToFit()
-
-        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.done))
-        toolBar.setItems([button], animated: true)
-        toolBar.isUserInteractionEnabled = true
-    }
-
-    func appearPickerAction() {
-        // Higlight Selected row on load
+    private func showPickerView() {
+        hightlightSelectedTweakOption()
         appearPickerView()
     }
 
-    @objc func done() {
-        view.endEditing(true)
-        if let selectedTweak {
-            switch selectedTweak {
-            case .internetSpeed:
-                guard let value = InternetSpeedTweak(rawValue: picker.selectedRow(inComponent: 0))?.value else {
-                    fatalError("Attempted to create InternetSpeedTweak from non-existant option")
-                }
-                CCTweakManager.shared.saveTweakValue(
-                    tweak: selectedTweak,
-                    value: value
-                )
-            }
+    private func tweakValueTitleFor(row: Int) -> String {
+        guard let tweak = CCTweaks(rawValue: row) else { fatalError() }
+        switch tweak {
+        case .internetSpeed:
+            return tweak.currentConfigurationTitle
         }
+    }
+
+    private func hightlightSelectedTweakOption() {
+        guard let selectedTweak else { return }
+        var rowValue = 0
+
+        switch selectedTweak {
+        case .internetSpeed:
+            if let tweakValue = tweakManager.retreiveTweakValue(tweak: .internetSpeed).value as? TimeInterval,
+               let tweak = InternetSpeedTweak(value: tweakValue) { rowValue = tweak.rawValue }
+        }
+
+        picker.selectRow(
+            rowValue,
+            inComponent: 0,
+            animated: false
+        )
+    }
+
+    private func saveSelectedTweekSetting() {
+        guard let selectedTweak else { return }
+        switch selectedTweak {
+        case .internetSpeed:
+            guard let value = InternetSpeedTweak(rawValue: picker.selectedRow(inComponent: 0))?.value else {
+                fatalError("Attempted to create InternetSpeedTweak from non-existant option")
+            }
+            tweakManager.saveTweakValue(
+                tweak: selectedTweak,
+                value: value
+            )
+        }
+    }
+
+    @objc private func doneButtonPressed() {
+        view.endEditing(true)
+        saveSelectedTweekSetting()
+        hidePickerView()
         tweakManagerTableView.reloadData()
-        disappearPickerView()
     }
 }
 
@@ -159,7 +173,7 @@ extension UIViewControllerTweakWindow: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let row = indexPath.row
-        cell.textLabel?.text = "\(CCTweaks.allCases[row].title): \(tweakValueNameForRow(row: row))"
+        cell.textLabel?.text = "\(CCTweaks.allCases[row].title): \(tweakValueTitleFor(row: row))"
         cell.accessoryType = .disclosureIndicator
         return cell
     }
@@ -175,23 +189,17 @@ extension UIViewControllerTweakWindow: UITableViewDelegate, UITableViewDataSourc
         selectedTweak = unwrappedSelectedTweak
         tableView.deselectRow(at: indexPath, animated: true)
         picker.reloadAllComponents()
-        appearPickerAction()
-    }
-
-    private func tweakValueNameForRow(row: Int) -> String {
-        guard let tweak = CCTweaks(rawValue: row) else { fatalError() }
-        switch tweak {
-        case .internetSpeed:
-            return tweak.currentConfigurationTitle
-        }
+        showPickerView()
     }
 }
 
 extension UIViewControllerTweakWindow: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return selectedTweak?.options.count ?? 0
+        selectedTweak?.options.count ?? 0
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
