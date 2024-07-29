@@ -8,8 +8,8 @@
 import Foundation
 import OHHTTPStubs
 
-enum InternetSpeedTweak: Double, Tweakable {
-    typealias T = Double
+enum InternetSpeedTweak: TimeInterval, Tweakable {
+    typealias T = TimeInterval
 
     case simulateSlowInternetConnection = 0
     case simulateNormlInternetSpeed
@@ -19,7 +19,7 @@ enum InternetSpeedTweak: Double, Tweakable {
         "InternetSpeedTweakKey"
     }
 
-    func value() -> Double {
+    func value() -> TimeInterval {
         switch self {
         case .simulateSlowInternetConnection:
             OHHTTPStubsDownloadSpeedGPRS

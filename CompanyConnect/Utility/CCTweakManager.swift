@@ -9,6 +9,10 @@ import Foundation
 
 class CCTweakManager {
 
+    static let shared = CCTweakManager()
+
+    private init () { }
+
     enum Tweak {
         case internetSpeed
 
@@ -23,12 +27,19 @@ class CCTweakManager {
     func retreiveTweakValue(tweak: Tweak) -> any Tweakable {
         switch tweak {
         case .internetSpeed:
-            if let tweakValue = retiveTweakInUserDefaults(tweak: tweak) as Double?,
+            if let tweakValue = retriveTweakInUserDefaults(tweak: tweak) as TimeInterval?,
                let internetSpeedTweak = InternetSpeedTweak(rawValue: tweakValue) {
                 return internetSpeedTweak
             } else {
                 return InternetSpeedTweak.simulateNormlInternetSpeed
             }
+        }
+    }
+
+    func saveTweakValue<T>(tweak: Tweak, value: T) {
+        switch tweak {
+        case .internetSpeed:
+            saveTweakInUserDefaults(tweak: tweak, value: value)
         }
     }
 
@@ -40,10 +51,10 @@ class CCTweakManager {
     }
 
     private func saveTweakInUserDefaults<T>(tweak: Tweak, value: T) {
-        UserDefaults.standard.setValue(T.self, forKey: tweak.key)
+        UserDefaults.standard.setValue(value, forKey: tweak.key)
     }
 
-    private func retiveTweakInUserDefaults<T>(tweak: Tweak) -> T? {
+    private func retriveTweakInUserDefaults<T>(tweak: Tweak) -> T? {
         UserDefaults.standard.value(forKey: tweak.key) as? T ?? nil
     }
 

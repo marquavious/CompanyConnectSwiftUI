@@ -11,22 +11,40 @@ import OHHTTPStubsSwift
 
 class OHHTTPStubsHandler: NSObject {
 
+    private let internetResponseTime: TimeInterval = CCTweakManager.shared.retreiveTweakValue(tweak: .internetSpeed).value() as! TimeInterval
+
     func setupStubs() {
-        stub(condition: isPath("/activity_feed")) { _ in
+        stub(condition: isPath("/activity_feed")) { [weak self]  _ in
+            guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.weakSelfError)}
             let stubPath = OHPathForFile("ActivityfeedJsonResponse.json", type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
+                .responseTime(
+                    internetResponseTime
+                )
         }
 
-        stub(condition: isPath("/mapdata")) { _ in
+        stub(condition: isPath("/mapdata")) { [weak self]  _ in
+            guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.weakSelfError)}
             let stubPath = OHPathForFile("MapViewJsonResponse.json", type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
+                .responseTime(
+                    internetResponseTime
+                )
         }
 
-        stub(condition: isPath("/donations")) { _ in
+        stub(condition: isPath("/donations")) { [weak self]  _ in
+            guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.weakSelfError)}
             let stubPath = OHPathForFile("DonationsViewJsonResponse.json", type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
+                .responseTime(
+                    internetResponseTime
+                )
         }
 
     }
 
+}
+
+enum OHHTTPStubsHandlerError: Error {
+    case weakSelfError
 }
