@@ -111,5 +111,5 @@ struct MediaView: View {
 }
 
 #Preview {
-    ActivityFeedView(viewModel: DevHomeTabActivityFeed())
+    ActivityFeedTabView(viewModel: DevHomeTabActivityFeed())
 }

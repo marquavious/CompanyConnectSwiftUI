@@ -8,6 +8,7 @@
 import Foundation
 
 protocol ActivityFeedViewViewModelType {
+    var loadingState: LoadingState { get }
     var currentPage: Int { get set }
     func selctedCategories() ->[Category]
     func categories() -> [Category]
@@ -36,6 +37,7 @@ class OfflineActivityPostsService: ActivityPostsServiceType {
 class OfflineActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     var currentPage = 1
+    var loadingState: LoadingState = .loading
     private (set) var service: ActivityPostsServiceType
     private var _posts = [ActvityPost]()
     private var _selctedCategories = [Category]()
@@ -46,12 +48,20 @@ class OfflineActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     }
 
     func loadPosts() async {
+        loadingState = .loading
         do {
             let response = try await service.getPosts(forPage: currentPage)
             currentPage = (response.page + 1)
             _posts.append(contentsOf: response.activityPosts)
+            loadingState = .fetched
         } catch {
-            fatalError(error.localizedDescription) // Handle
+            let nsError = error as NSError
+            if nsError.domain == NSURLErrorDomain,
+                nsError.code == NSURLErrorCancelled {
+                //Handle cancellation
+            } else {
+                loadingState = .error(error)
+            }
         }
     }
 
@@ -95,6 +105,7 @@ class OfflineActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 @Observable // For Now
 class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     var currentPage = 1
+    var loadingState: LoadingState = . loading
 
     init(company: CompanyObject) {
         _company = company
@@ -161,6 +172,7 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 @Observable
 class DevCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     var currentPage = 1
+    var loadingState: LoadingState = .fetched
 
     init(company: CompanyObject) {
         _company = company
@@ -242,8 +254,10 @@ class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     private var _posts = [ActvityPost]()
     private var _selctedCategories = [Category]()
     private var _categories: [Category] = [.community,.healthcare, .environmental, .education,.womensRights,.veterans, .humanRights,.indigenousRights]
+    var loadingState: LoadingState
 
-    init() {
+    init(loadingState: LoadingState = .loading) {
+        self.loadingState = loadingState
         for _ in 0..<50 {
             _posts.append(
                 ActvityPost.createFakeActivityPost()

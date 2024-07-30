@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 
 protocol MapViewViewModelType {
+    var loadingState: LoadingState { get }
     func loadMapData() async
     func allCompanies() -> [CompanyObject]
     func categories() -> [Category]
@@ -43,12 +44,23 @@ class OfflineMapViewViewModel: MapViewViewModelType, ObservableObject {
     private var mapData: MapData = MapData(companyObjects: [])
     private var selectedCategories = [Category]()
 
+    var loadingState: LoadingState = .loading
+
     func loadMapData() async {
+        loadingState = .loading
         do {
             let mapViewJSONResponse = try await mapServiceType.getMapData()
             mapData = MapData(companyObjects: mapViewJSONResponse.companyObjects)
+            loadingState = .fetched
         } catch {
-            fatalError(error.localizedDescription)
+            let nsError = error as NSError
+            if nsError.domain == NSURLErrorDomain,
+                nsError.code == NSURLErrorCancelled {
+                //Handle cancellation
+            } else {
+                //Handle failure
+                loadingState = .error(error)
+            }
         }
     }
 
@@ -103,6 +115,12 @@ class DevMapViewViewModel: MapViewViewModelType, ObservableObject {
 
     var mapData: MapData = MapData(companyObjects: [])
     var selectedCategories = [Category]()
+
+    var loadingState: LoadingState
+
+    init(loadingState: LoadingState = .loading) {
+        self.loadingState = loadingState
+    }
 
     func loadMapData() async { 
         mapData = MapData(companyObjects: CompanyObject.createFakeComapnyList())

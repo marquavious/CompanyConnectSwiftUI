@@ -144,5 +144,5 @@ struct ActivityCellView: View {
 }
 
 #Preview {
-    ActivityFeedView(viewModel: DevHomeTabActivityFeed())
+    ActivityFeedTabView(viewModel: DevHomeTabActivityFeed())
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 protocol DonationsViewViewModelType {
+    var loadingState: LoadingState { get }
     func loadDonationsData() async
     var pastDonations: [Donation] { get }
     var scheduledDonations: [Donation] { get }
@@ -25,25 +26,35 @@ class OfflineDonationsServiceType: DonationsViewServiceType {
 
 @Observable
 class OfflineDonationsViewViewModel: DonationsViewViewModelType {
+    var loadingState: LoadingState = . loading
     var pastDonations = [Donation]()
     var scheduledDonations = [Donation]()
 
     private let service = OfflineDonationsServiceType()
 
     func loadDonationsData() async {
+        loadingState = .loading
         do {
             let donationsData = try await service.getDonationsData(forUserID: "")
             pastDonations = donationsData.pastDonations
             scheduledDonations = donationsData.scheduledDonations
+            loadingState = .fetched
         } catch {
-            fatalError(error.localizedDescription)
+            let nsError = error as NSError
+            if nsError.domain == NSURLErrorDomain,
+                nsError.code == NSURLErrorCancelled {
+                //Handle cancellation
+            } else {
+                //Handle failure
+                loadingState = .error(error)
+            }
         }
     }
 }
 
 @Observable
 class DonationsViewViewModel: DonationsViewViewModelType {
-
+    var loadingState: LoadingState = .fetched
     var pastDonations: [Donation]
     var scheduledDonations: [Donation]
 
@@ -52,19 +63,21 @@ class DonationsViewViewModel: DonationsViewViewModelType {
         self.scheduledDonations = scheduledDonations
     }
 
-    func loadDonationsData() async { }
+    func loadDonationsData() async { loadingState = .fetched}
 }
 
 @Observable
 class DevDonationsViewViewModel: DonationsViewViewModelType {
+    var loadingState: LoadingState
     var pastDonations: [Donation]
     var scheduledDonations: [Donation]
     
-    init() {
+    init(loadingState: LoadingState = .fetched) {
         let pastDonations: [Donation] = Donation.generatePastDonations()
         let scheduledDonations: [Donation] = Donation.generateScheduledDonations()
         self.pastDonations = pastDonations
         self.scheduledDonations = scheduledDonations
+        self.loadingState = loadingState
     }
 
     func loadDonationsData() async { }

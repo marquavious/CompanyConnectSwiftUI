@@ -19,39 +19,66 @@ struct MapTabView: View {
 
     var body: some View {
         NavigationStack(path: $selectedCompanies) {
-            ZStack {
-                BaseMapView(viewModel: viewModel) {
-                     selectedCompanies.append($0)
-                }
-
-                VStack(spacing: .zero) {
-                    Spacer()
-
-                    MapControlPanelView(
-                        shouldShowListView: $shouldShowListView,
-                        viewModel: viewModel
-                    )
-
-                    CompanyListView(
-                        shouldShowListView: $shouldShowListView,
-                        viewModel: viewModel)
-                    {
-                        selectedCompanies.append($0)
+            switch viewModel.loadingState {
+            case .loading:
+                Map().overlay(alignment: .center) {
+                    Rectangle()
+                        .fill(.background)
+                        .ignoresSafeArea()
+                        .opacity(0.9)
+                    VStack(spacing: 0) {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle())
+                            .frame(width: 50, height: 50)
+                        Text("Loading Map Data...")
+                            .foregroundColor(.gray)
                     }
                 }
-            }
-            .navigationDestination(for: CompanyObject.self) {
-                CompanyProfileView(viewModel: CompanyProfileViewViewModel(company: $0))
-            }
-            .task {
-                await viewModel.loadMapData()
+            case .fetched:
+                ZStack {
+                    BaseMapView(viewModel: viewModel) {
+                        selectedCompanies.append($0)
+                    }
+
+                    VStack(spacing: .zero) {
+                        Spacer()
+                        MapControlPanelView(
+                            shouldShowListView: $shouldShowListView,
+                            viewModel: viewModel
+                        )
+
+                        CompanyListView(
+                            shouldShowListView: $shouldShowListView,
+                            viewModel: viewModel)
+                        {
+                            selectedCompanies.append($0)
+                        }
+                    }
+                }
+                .navigationDestination(for: CompanyObject.self) {
+                    CompanyProfileView(viewModel: CompanyProfileViewViewModel(company: $0))
+                }
+            case .error:
+                // Handle Error
+                Text("OOOPS :)")
             }
         }
+        .task {
+            await fetchMapData()
+        }
+    }
+
+    private func fetchMapData() async {
+        await viewModel.loadMapData()
     }
 
 }
 
 #Preview {
     MapTabView(
-        viewModel: DevMapViewViewModel())
+        viewModel: DevMapViewViewModel(loadingState: .error(DevError.error)))
+}
+
+enum DevError: Error {
+    case error
 }
