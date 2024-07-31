@@ -64,7 +64,9 @@ struct MapTabView: View {
             }
         }
         .task {
-            await fetchMapData()
+            if viewModel.loadingState != .fetched {
+                await fetchMapData()
+            }
         }
     }
 

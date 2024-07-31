@@ -256,9 +256,9 @@ class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     private var _categories: [Category] = [.community,.healthcare, .environmental, .education,.womensRights,.veterans, .humanRights,.indigenousRights]
     var loadingState: LoadingState
 
-    init(loadingState: LoadingState = .loading) {
+    init(postCount: Int = 50, loadingState: LoadingState = .fetched) {
         self.loadingState = loadingState
-        for _ in 0..<50 {
+        for _ in 0..<postCount {
             _posts.append(
                 ActvityPost.createFakeActivityPost()
             )

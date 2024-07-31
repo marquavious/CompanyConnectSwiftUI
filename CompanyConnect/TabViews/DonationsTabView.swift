@@ -79,7 +79,9 @@ struct DonationsView: View {
             }
         }
         .task {
-            await viewModel.loadDonationsData()
+            if viewModel.loadingState != .fetched {
+                await viewModel.loadDonationsData()
+            }
         }
     }
 

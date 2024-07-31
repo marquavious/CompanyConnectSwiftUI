@@ -36,7 +36,6 @@ struct ActivityCellView: View {
 
     var body: some View {
         VStack {
-
             HStack(alignment: .top, spacing: Constants.ActivityCellPhotoContentPadding) {
                 if let posterData = activityPost.poster {
                     AsyncImage(url: URL(string: posterData.badgeImageUrl)) { image in
@@ -114,7 +113,6 @@ struct ActivityCellView: View {
                             }
                             Button("Visit Profile", systemImage: Icons.VisitProfile.rawValue) {
                                 // - TODO: IMPLIMENT PROFILE VISIT FLOW
-//                                visitProfileTapped?()
                             }
                         } label: {
                             Label(String(), systemImage: Icons.ActionButton.rawValue)
@@ -140,6 +138,7 @@ struct ActivityCellView: View {
             .padding([.horizontal], Constants.ActivityCellContentHorizontalPadding)
 
         }
+        .background(.background)
     }
 }
 

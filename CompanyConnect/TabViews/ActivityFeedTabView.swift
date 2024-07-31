@@ -67,7 +67,9 @@ struct ActivityFeedTabView: View {
             }
         }
         .task {
-            await fetchPost()
+            if viewModel.loadingState != .fetched {
+                await fetchPost()
+            }
         }
     }
 
@@ -78,6 +80,6 @@ struct ActivityFeedTabView: View {
 
 #Preview {
     ActivityFeedTabView(
-        viewModel: DevHomeTabActivityFeed(loadingState: .fetched)
+        viewModel: DevHomeTabActivityFeed(postCount: 5, loadingState: .fetched)
     )
 }
