@@ -8,7 +8,6 @@
 import SwiftUI
 
 extension View {
-    
     func hideKeyboard() {
         UIApplication.shared.sendAction(
             #selector(UIResponder.resignFirstResponder),
@@ -19,7 +18,6 @@ extension View {
     }
 
 }
-
 
 extension View {
     func onShake(perform action: @escaping () -> Void) -> some View {
