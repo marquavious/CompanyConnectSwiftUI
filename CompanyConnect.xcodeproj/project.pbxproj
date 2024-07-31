@@ -591,8 +591,8 @@
 		C0CC8DA32C4CEEC40083E6C6 /* CompanyConnect */ = {
 			isa = PBXGroup;
 			children = (
-				C032F71C2C546F9700473328 /* Utility */,
 				C0CC8DD82C4CF1930083E6C6 /* CompanyConnect.swift */,
+				C032F71C2C546F9700473328 /* Utility */,
 				C01ACA682C530D7B00A77B5E /* Networking */,
 				C01ACA542C50B83B00A77B5E /* Stubs */,
 				C0CC8D602C4CEEC40083E6C6 /* Config */,
