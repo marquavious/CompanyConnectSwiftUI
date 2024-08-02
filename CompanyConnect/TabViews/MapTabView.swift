@@ -55,9 +55,9 @@ struct MapTabView: View {
                         }
                     }
                 }
-//                .navigationDestination(for: CompanyObject.self) {
-//                    CompanyProfileView(viewModel: CompanyProfileViewViewModel(company: $0))
-//                }
+                .navigationDestination(for: CompanyObject.self) {
+                    CompanyProfileView(viewModel: CompanyProfileViewViewModel(company: $0))
+                }
             case .error:
                 // Handle Error
                 Text("OOOPS :)")

@@ -46,15 +46,11 @@ struct ActivityFeedTabView: View {
                 ){
                     presentedNgos.append($0)
                 }
-//                .navigationDestination(for: CompanyObject.self) {
-////                    CompanyProfileView(
-//                    /*CompanyProfileView*/(viewModel: any CompanyProfileViewViewModelType)
-////                    CompanyProfileView(
-////                        viewModel: CompanyProfileViewViewModel(
-////                            companyID: $0, companyProfileViewService: any CompanyProfileViewServiceType
-////                        )
-////                    )
-//                }
+                .navigationDestination(for: String.self) {
+                    CompanyProfileView(
+                        viewModel: CompanyProfileViewViewModel(companyID: $0)
+                    )
+                }
                 .navigationTitle(Constants.NavigationTitle)
                 .toolbar {
                     Button(

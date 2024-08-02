@@ -407,6 +407,7 @@
 		C032F71C2C546F9700473328 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				C0CC8D922C4CEEC40083E6C6 /* TweetGenerator.swift */,
 				C032F71D2C546FB000473328 /* TweakWindowView.swift */,
 				C0FDF0ED2C5791D8009501F2 /* CCTweaks.swift */,
 				C032F7212C54700200473328 /* InternetSpeedTweak.swift */,
@@ -558,7 +559,6 @@
 				C0CC8D8F2C4CEEC40083E6C6 /* Project.swift */,
 				C0CC8D902C4CEEC40083E6C6 /* StringGenerator.swift */,
 				C0CC8D912C4CEEC40083E6C6 /* TeamMember.swift */,
-				C0CC8D922C4CEEC40083E6C6 /* TweetGenerator.swift */,
 				C0CC8D932C4CEEC40083E6C6 /* User.swift */,
 			);
 			path = DataModels;

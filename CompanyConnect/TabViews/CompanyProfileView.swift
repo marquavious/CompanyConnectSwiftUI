@@ -114,6 +114,23 @@ class CompanyProfileViewViewModel: CompanyProfileViewViewModelType {
             service: ActivityPostsService()
         )
     }
+
+    convenience init(company: CompanyObject) {
+        self.init(companyID: company.id)
+        self.bio = company.bio
+        self.team = company.team
+        self.projects = company.projects
+        self.logoImageUrl = company.logoImageUrl
+        self.coverImageUrl = company.coverImageUrl
+        self.coordinates = company.coordinates
+        self.missionStatement = company.missionStatement
+        self.orginizationName = company.orginizationName
+        self.briefHistoryObject = company.briefHistoryObject
+        self.activityFeedViewModel = CompanyActivityFeed(
+            companyID: company.id,
+            service: ActivityPostsService()
+        )
+    }
 }
 
 class OfflineCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
