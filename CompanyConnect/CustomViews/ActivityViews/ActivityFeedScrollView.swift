@@ -21,7 +21,7 @@ struct ActivityFeedScrollView: View {
     @Environment(\.colorScheme) var colorScheme
 
     var viewModel: ActivityFeedViewViewModelType
-    var ngoSelected: ((CompanyObject) -> Void)?
+    var ngoSelected: ((_ companyID: String) -> Void)?
     private let columns = [GridItem(.flexible())]
     private let activityScrollerTipView = ActivityScrollerTipView()
 
@@ -37,10 +37,10 @@ struct ActivityFeedScrollView: View {
                         .padding([.horizontal], Constants.TipViewPadding)
                     ForEach(viewModel.presentedPosts()) { activityPost in
                         ActivityCellView(activityPost: activityPost) {
-                                ngoSelected?(activityPost.company)
-                            } visitProfileTapped: {
-                                ngoSelected?(activityPost.company)
-                            }
+                            ngoSelected?(activityPost.company.id)
+                        } visitProfileTapped: {
+                            ngoSelected?(activityPost.company.id)
+                        }
 
                         Divider()
                     }

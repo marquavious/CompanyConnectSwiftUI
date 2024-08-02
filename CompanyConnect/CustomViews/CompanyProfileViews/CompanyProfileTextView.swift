@@ -60,5 +60,7 @@ struct CompanyProfileTextView<Content: View>: View {
 }
 
 #Preview {
-    CompanyProfileView(viewModel: DevCompanyProfileViewViewModel())
+    CompanyProfileView(
+        viewModel: DevCompanyProfileViewViewModel(company: CompanyObject.createFakeCompanyObject())
+    )
 }

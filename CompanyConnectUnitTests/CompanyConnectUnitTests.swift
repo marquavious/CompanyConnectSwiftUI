@@ -14,7 +14,7 @@ final class CompanyConnectUnitTests: XCTestCase {
         let companyObject = CompanyObject(
             id: "id",
             orginizationName: "Name",
-            coordinate: Coordinate(
+            coordinate: Coordinates(
                 latitude: 0,
                 longitude: 0
             ),

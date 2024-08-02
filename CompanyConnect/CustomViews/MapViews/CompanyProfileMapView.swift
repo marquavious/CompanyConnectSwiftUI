@@ -15,7 +15,9 @@ struct CompanyProfileMapView: View {
         static let Height: CGFloat = 200
     }
 
-    let company: CompanyObject
+    let coordinate: Coordinates
+    let annotaionUrl: String
+    let annotaionName: String
     private let mapCameraBounds = MapCameraBounds(minimumDistance: 4500, maximumDistance: 4500)
 
     var body: some View {
@@ -23,8 +25,8 @@ struct CompanyProfileMapView: View {
             bounds: mapCameraBounds,
             interactionModes: []
         ) {
-            Annotation(company.orginizationName, coordinate: company.coordinate.returnCLLocationCoordinate2D()) {
-                MapAnnotationView(company: company)
+            Annotation(annotaionName, coordinate: coordinate.returnCLLocationCoordinate2D()) {
+                MapAnnotationView(annotaionUrl: annotaionUrl)
             }
         }
         .frame(height: Constants.Height)
@@ -36,5 +38,9 @@ struct CompanyProfileMapView: View {
 }
 
 #Preview {
-    CompanyProfileMapView(company: CompanyObject.createFakeCompanyObject())
+    CompanyProfileMapView(
+        coordinate: Coordinates(latitude: 0, longitude: 0),
+        annotaionUrl: "img_url",
+        annotaionName: "Annotaion"
+    )
 }

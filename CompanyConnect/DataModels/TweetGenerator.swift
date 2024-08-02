@@ -17,19 +17,24 @@ struct TweetGenerator {
         for _ in (1..<50) {
 
             let company = CompanyObject.createFakeComapnyList().shuffled().randomElement()!
+            let companyPostData = CompanyActivityPostData(
+                id: company.id,
+                name: company.orginizationName,
+                logoUrl: company.coverImageUrl
+            )
             let tamMember = company.team.randomElement()!
 
             let post = ActvityPost(
                 id: UUID().uuidString,
                 caption: StringGenerator.generateRandomActivityString(),
                 imageUrl: "imge_url",
-                poster: ActvityPostPoster(
+                poster: PosterData(
                     id: tamMember.id,
                     name: tamMember.name,
-                    badgeImageUrl: "imge_url"
+                    imageUrl: "imge_url"
                 ),
                 media: generateRandomMeda().shuffled().randomElement()!,
-                company: company,
+                company: companyPostData,
                 date: Date.randomWithin24Hours()
             )
 
@@ -57,18 +62,23 @@ struct TweetGenerator {
         for _ in (1..<50) {
 
             let tamMember = company.team.shuffled().randomElement()!
+            let companyPostData = CompanyActivityPostData(
+                id: company.id,
+                name: company.orginizationName,
+                logoUrl: company.coverImageUrl
+            )
 
             let post = ActvityPost(
                 id: UUID().uuidString,
                 caption: StringGenerator.generateRandomActivityString(),
                 imageUrl: "imge_url",
-                poster: ActvityPostPoster(
+                poster: PosterData(
                     id: tamMember.id,
                     name: tamMember.name,
-                    badgeImageUrl: "imge_url"
+                    imageUrl: "imge_url"
                 ),
                 media: generateRandomMeda().shuffled().randomElement()!,
-                company: company,
+                company: companyPostData,
                 date: Date.randomWithin24Hours()
             )
 

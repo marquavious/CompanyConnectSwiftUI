@@ -19,7 +19,7 @@ struct DonationCellView: View {
 
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: donation.company.logoImageUrl)) { image in
+            AsyncImage(url: URL(string: donation.comapnyLogoUrl)) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -27,8 +27,8 @@ struct DonationCellView: View {
                 Color.gray
             }
             .frame(
-                width:  Constants.LogoImageViewSize.width,
-                height:  Constants.LogoImageViewSize.height
+                width: Constants.LogoImageViewSize.width,
+                height: Constants.LogoImageViewSize.height
             )
             .clipShape(Circle())
 
@@ -37,16 +37,16 @@ struct DonationCellView: View {
                     .font(.subheadline)
                     .bold()
 
-                Text(donation.company.category.name)
+                Text(donation.category.name)
                     .font(.system(size: 13))
                     .lineLimit(1)
                     .fontWeight(.semibold)
                     .padding([.vertical, .horizontal], Constants.CategoryNamePadding)
                     .foregroundColor(.white)
-                    .background(donation.company.category.color)
+                    .background(donation.category.color)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
 
-                Text(donation.company.orginizationName)
+                Text(donation.orginizationName)
             }
 
             Spacer()

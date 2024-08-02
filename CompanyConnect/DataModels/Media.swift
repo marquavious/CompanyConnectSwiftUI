@@ -8,20 +8,24 @@
 import Foundation
 import SwiftUI
 
+struct PhotoCarouselData: Codable, Hashable {
+    let index: Int
+    let imageUrl: String
+}
+
 enum Media: Codable {
-    static var allCases = ["photo", "photo_carousel", "donation_progress"]
 
     case photo(photoUrl:String)
-    case photoCarousel(photoUrls: [String])
+    case photoCarousel(carousel: [PhotoCarouselData])
     case donationProgress(amountRaised:Double, total: Double)
 
     var type: String {
         switch self {
-        case .photo(_):
+        case .photo:
             return "photo"
-        case .photoCarousel(_):
+        case .photoCarousel:
             return "photo_carousel"
-        case .donationProgress(_, _):
+        case .donationProgress:
             return "donation_progress"
         }
     }
@@ -33,10 +37,10 @@ extension Media {
     }
 
     static func createFakePhotoCarouselMedia() -> Media {
-        Media.photoCarousel(photoUrls: [
-            "imageUrl 1",
-            "imageUrl 2",
-            "imageUrl 3"
+        Media.photoCarousel(carousel: [
+            PhotoCarouselData(index: 0, imageUrl: "imageUrl 1"),
+            PhotoCarouselData(index: 1, imageUrl: "imageUrl 2"),
+            PhotoCarouselData(index: 2, imageUrl: "imageUrl 3")
         ])
     }
 

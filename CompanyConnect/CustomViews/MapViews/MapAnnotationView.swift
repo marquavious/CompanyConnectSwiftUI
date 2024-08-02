@@ -15,7 +15,7 @@ struct MapAnnotationView: View {
         static let LogoSize: CGSize = CGSize(width: 30, height: 30)
     }
 
-    @State var company: CompanyObject
+    let annotaionUrl: String
 
     var body: some View {
         ZStack {
@@ -27,7 +27,7 @@ struct MapAnnotationView: View {
                         height: Constants.AnnotationSize.height
                     )
                     .overlay {
-                        AsyncImage(url: URL(string: company.coverImageUrl)) { image in
+                        AsyncImage(url: URL(string: annotaionUrl)) { image in
                             image
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
@@ -53,5 +53,5 @@ struct MapAnnotationView: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    MapAnnotationView(company: CompanyObject.createFakeComapnyList().first!)
+    MapAnnotationView(annotaionUrl: "img_url")
 }

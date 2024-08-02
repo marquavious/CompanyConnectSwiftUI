@@ -2,12 +2,12 @@ import Foundation
 import MapKit
 import SwiftUI
 
-struct Coordinate: Codable {
+struct Coordinates: Codable {
     public var latitude: CLLocationDegrees
     public var longitude: CLLocationDegrees
 }
 
-extension Coordinate {
+extension Coordinates {
     func returnCLLocationCoordinate2D() -> CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
@@ -16,7 +16,7 @@ extension Coordinate {
 struct CompanyObject: Codable, Identifiable, Hashable {
     let id: String
     let orginizationName: String
-    let coordinate: Coordinate
+    let coordinates: Coordinates
     let category: Category
     let coverImageUrl: String
     let missionStatement: String
@@ -40,7 +40,7 @@ extension CompanyObject {
         CompanyObject(
             id: UUID().uuidString,
             orginizationName: "Company Inc",
-            coordinate: Coordinate(
+            coordinates: Coordinates(
                 latitude: CLLocationDegrees(Int.random(in: 0..<20)),
                 longitude: CLLocationDegrees(Int.random(in: -100..<20))
             ),
@@ -60,7 +60,7 @@ extension CompanyObject {
             CompanyObject(
                 id: UUID().uuidString,
                 orginizationName: "Cars for Kids",
-                coordinate: Coordinate(
+                coordinates: Coordinates(
                     latitude: 18.542952, longitude: -72.39234
                 ),
                 category: .community,
@@ -75,7 +75,7 @@ extension CompanyObject {
             CompanyObject(
                 id: UUID().uuidString,
                 orginizationName: "A.D.F.R.A",
-                coordinate: Coordinate(
+                coordinates: Coordinates(
                     latitude: -22.859839, longitude: -43.267511
                 ),
                 category: .healthcare,
@@ -90,7 +90,7 @@ extension CompanyObject {
             CompanyObject(
                 id: UUID().uuidString,
                 orginizationName: "Ever Green",
-                coordinate: Coordinate(
+                coordinates: Coordinates(
                     latitude: 30.053881, longitude: 31.238474
                 ),
                 category: .environmental,
@@ -105,7 +105,7 @@ extension CompanyObject {
             CompanyObject(
                 id: UUID().uuidString,
                 orginizationName: "EDU Global",
-                coordinate: Coordinate(
+                coordinates: Coordinates(
                     latitude: 31.771959, longitude: 35.217018
                 ),
                 category: .education,
@@ -120,7 +120,7 @@ extension CompanyObject {
             CompanyObject(
                 id: UUID().uuidString,
                 orginizationName: "True Vison",
-                coordinate: Coordinate(
+                coordinates: Coordinates(
                     latitude: 41.9001, longitude: -71.0898
                 ),
                 category: .womensRights,
@@ -135,7 +135,7 @@ extension CompanyObject {
             CompanyObject(
                 id: UUID().uuidString,
                 orginizationName: "S.A.O.M",
-                coordinate: Coordinate(
+                coordinates: Coordinates(
                     latitude: 43.84864, longitude: 18.35644
                 ),
                 category: .veterans,
@@ -150,7 +150,7 @@ extension CompanyObject {
             CompanyObject(
                 id: UUID().uuidString,
                 orginizationName: "People4All",
-                coordinate: Coordinate(
+                coordinates: Coordinates(
                     latitude: 38.889931, longitude: -77.009003
                 ),
                 category: .humanRights,
@@ -165,7 +165,7 @@ extension CompanyObject {
             CompanyObject(
                 id: UUID().uuidString,
                 orginizationName: "VENTRA",
-                coordinate: Coordinate(
+                coordinates: Coordinates(
                     latitude: -33.918861, longitude: 18.4233
                 ),
                 category: .indigenousRights,
@@ -180,7 +180,7 @@ extension CompanyObject {
             CompanyObject(
                 id: UUID().uuidString,
                 orginizationName: "Blue Aid",
-                coordinate: Coordinate(
+                coordinates: Coordinates(
                     latitude: 11.562108, longitude: 104.888535
                 ),
                 category: .healthcare,
@@ -195,7 +195,7 @@ extension CompanyObject {
             CompanyObject(
                 id: UUID().uuidString,
                 orginizationName: "Tree Vision",
-                coordinate: Coordinate(
+                coordinates: Coordinates(
                     latitude: 6.4969, longitude: 2.6289
                 ),
                 category: .environmental,
@@ -210,7 +210,7 @@ extension CompanyObject {
             CompanyObject(
                 id: UUID().uuidString,
                 orginizationName: "Mantra",
-                coordinate: Coordinate(
+                coordinates: Coordinates(
                     latitude: -16.5, longitude: -68.15
                 ),
                 category: .community,
@@ -226,7 +226,7 @@ extension CompanyObject {
             CompanyObject(
                 id: UUID().uuidString,
                 orginizationName: "G.H.G",
-                coordinate: Coordinate(
+                coordinates: Coordinates(
                     latitude: 17.1522786, longitude: -89.0800227
                 ),
                 category: .healthcare,

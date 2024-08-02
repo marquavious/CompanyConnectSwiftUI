@@ -8,8 +8,8 @@
 import Foundation
 
 protocol DonationsViewViewModelType {
-    var loadingState: LoadingState { get }
     func loadDonationsData() async
+    var loadingState: LoadingState { get }
     var pastDonations: [Donation] { get }
     var scheduledDonations: [Donation] { get }
 }
@@ -39,15 +39,20 @@ class OfflineDonationsViewViewModel: DonationsViewViewModelType {
             pastDonations = donationsData.pastDonations
             scheduledDonations = donationsData.scheduledDonations
             loadingState = .fetched
+        } catch let DecodingError.dataCorrupted(context) {
+            print("UM?", context)
+        } catch let DecodingError.keyNotFound(key, context) {
+            print("Key '\(key)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch let DecodingError.valueNotFound(value, context) {
+            print("Value '\(value)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch let DecodingError.typeMismatch(type, context)  {
+            print("Type '\(type)' mismatch:", context.debugDescription)
+            print("codingPath:", context.codingPath)
         } catch {
-            let nsError = error as NSError
-            if nsError.domain == NSURLErrorDomain,
-                nsError.code == NSURLErrorCancelled {
-                //Handle cancellation
-            } else {
-                //Handle failure
-                loadingState = .error(error)
-            }
+            print("error: ", error)
+            loadingState = .error(error)
         }
     }
 }

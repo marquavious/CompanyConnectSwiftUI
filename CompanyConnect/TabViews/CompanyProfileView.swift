@@ -8,29 +8,132 @@
 import SwiftUI
 import MapKit
 
+protocol CompanyProfileViewServiceType: HTTPDataDownloader {
+    func getCompnayInfo() async throws -> CompanyProfileViewJSONResponse
+}
+
+@Observable
+class DevCompanyProfileViewService: CompanyProfileViewServiceType {
+    @MainActor
+    func getCompnayInfo() async throws -> CompanyProfileViewJSONResponse {
+        return try await getData(as: CompanyProfileViewJSONResponse.self, from: URLBuilder.activityFeed.url)
+    }
+}
+
+@Observable
+class OfflineCompanyProfileViewService: CompanyProfileViewServiceType {
+    @MainActor
+    func getCompnayInfo() async throws -> CompanyProfileViewJSONResponse {
+        return try await getData(as: CompanyProfileViewJSONResponse.self, from: URLBuilder.activityFeed.url)
+    }
+}
+
 protocol CompanyProfileViewViewModelType {
-    var company: CompanyObject { get set }
+    var bio: String { get set }
+    var team: [TeamMember] { get set }
+    var projects: [Project] { get set }
+    var logoImageUrl: String { get set }
+    var coverImageUrl: String { get set }
+    var coordinates: Coordinates { get set }
+    var missionStatement: String { get set }
+    var orginizationName: String { get set }
+    var briefHistoryObject: BriefHistoryObject { get set }
     var activityFeedViewModel: ActivityFeedViewViewModelType { get set }
 }
 
 class DevCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
-    var company: CompanyObject
+    var bio: String
+    var team: [TeamMember]
+    var projects: [Project]
+    var logoImageUrl: String
+    var coverImageUrl: String
+    var coordinates: Coordinates
+    var missionStatement: String
+    var orginizationName: String
+    var briefHistoryObject: BriefHistoryObject
     var activityFeedViewModel: ActivityFeedViewViewModelType
 
-    init() {
-        let company: CompanyObject = CompanyObject.createFakeCompanyObject()
-        self.company = company
-        self.activityFeedViewModel = DevCompanyActivityFeed(company: company)
+    init(
+        bio: String,
+        team: [TeamMember],
+        projects: [Project],
+        logoImageUrl: String,
+        coverImageUrl: String,
+        coordinates: Coordinates,
+        missionStatement: String,
+        orginizationName: String,
+        briefHistoryObject: BriefHistoryObject,
+        activityFeedViewModel: ActivityFeedViewViewModelType)
+    {
+        self.bio = bio
+        self.team = team
+        self.projects = projects
+        self.logoImageUrl = logoImageUrl
+        self.coverImageUrl = coverImageUrl
+        self.coordinates = coordinates
+        self.missionStatement = missionStatement
+        self.orginizationName = orginizationName
+        self.briefHistoryObject = briefHistoryObject
+        self.activityFeedViewModel = activityFeedViewModel
     }
+
+    convenience init(company: CompanyObject) {
+        let company: CompanyObject = CompanyObject.createFakeCompanyObject()
+        let activityFeedViewModel = DevCompanyActivityFeed()
+        self.init(
+            bio: company.bio,
+            team: company.team,
+            projects: company.projects,
+            logoImageUrl: company.logoImageUrl,
+            coverImageUrl: company.coverImageUrl,
+            coordinates: company.coordinates,
+            missionStatement: company.missionStatement,
+            orginizationName: company.orginizationName,
+            briefHistoryObject: company.briefHistoryObject,
+            activityFeedViewModel: activityFeedViewModel
+        )
+    }
+
 }
 
 class CompanyProfileViewViewModel: CompanyProfileViewViewModelType {
-    var company: CompanyObject
+    var bio: String = ""
+    var team: [TeamMember] = []
+    var projects: [Project] = []
+    var logoImageUrl: String = ""
+    var coverImageUrl: String = ""
+    var coordinates: Coordinates = Coordinates(latitude: 0, longitude: 0)
+    var missionStatement: String = ""
+    var orginizationName: String = ""
+    var briefHistoryObject: BriefHistoryObject = BriefHistoryObject(history: "", imageObjects: [])
     var activityFeedViewModel: ActivityFeedViewViewModelType
 
-    init(company: CompanyObject) {
-        self.company = company
-        self.activityFeedViewModel = CompanyActivityFeed(company: company)
+    init(companyID: String) {
+        self.activityFeedViewModel = CompanyActivityFeed(
+            companyID: companyID,
+            service: ActivityPostsService()
+        )
+    }
+}
+
+class OfflineCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
+    var bio: String = ""
+    var team: [TeamMember] = []
+    var projects: [Project] = []
+    var logoImageUrl: String = ""
+    var coverImageUrl: String = ""
+    var coordinates: Coordinates = Coordinates(latitude: 0, longitude: 0)
+    var missionStatement: String = ""
+    var orginizationName: String = ""
+    var briefHistoryObject: BriefHistoryObject = BriefHistoryObject(history: "", imageObjects: [])
+    var activityFeedViewModel: ActivityFeedViewViewModelType
+    var companyProfileViewService = OfflineCompanyProfileViewService()
+
+    init(companyID: String) {
+        self.activityFeedViewModel = CompanyActivityFeed(
+            companyID: companyID,
+            service: OfflineActivityPostsService()
+        )
     }
 }
 
@@ -88,36 +191,40 @@ struct CompanyProfileView: View {
             }
         }
 
-        func sectionDescriptionText(companyObject: CompanyObject) -> String? {
+        func sectionDescriptionText(viewModel: CompanyProfileViewViewModelType) -> String? {
             switch self {
             case .missionStatements:
-                companyObject.missionStatement
+                viewModel.missionStatement
             case .ourTeam:
                 nil
             case .briefHistory:
-                companyObject.briefHistoryObject.history
+                viewModel.briefHistoryObject.history
             case .locations:
-                companyObject.missionStatement
+                viewModel.missionStatement
             case .projects:
                 nil
             }
         }
 
         @ViewBuilder
-        func sectionView(companyObject: CompanyObject) -> some View {
+        func sectionView(viewModel: CompanyProfileViewViewModelType) -> some View {
             switch self {
             case .missionStatements:
                 // For some reason EmptyView() Buggs out the insets
                 // So we go with this instead
                 Divider().frame(height: .zero).opacity(.zero)
             case .ourTeam:
-                OurTeamPhotoScrollerView(teamMembers: companyObject.team)
+                OurTeamPhotoScrollerView(teamMembers: viewModel.team)
             case .briefHistory:
-                BriefHistoryPhotoScrollerView(briefHistoryObject: companyObject.briefHistoryObject)
+                BriefHistoryPhotoScrollerView(briefHistoryObject: viewModel.briefHistoryObject)
             case .locations:
-                CompanyProfileMapView(company: companyObject)
+                CompanyProfileMapView(
+                    coordinate: viewModel.coordinates,
+                    annotaionUrl: viewModel.logoImageUrl,
+                    annotaionName: viewModel.orginizationName
+                )
             case .projects:
-                ProjectsScrollerView(projects: companyObject.projects)
+                ProjectsScrollerView(projects: viewModel.projects)
             }
         }
     }
@@ -141,7 +248,7 @@ struct CompanyProfileView: View {
             handleNavigationBarAnimation(scrollViewOffset: offset)
         }) {
             GeometryReader { proxy in
-                AsyncImage(url: URL(string: viewModel.company.coverImageUrl)) { image in
+                AsyncImage(url: URL(string: viewModel.coverImageUrl)) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -168,7 +275,7 @@ struct CompanyProfileView: View {
             VStack(spacing: .zero) {
                 VStack(spacing: 8) {
                     HStack {
-                        AsyncImage(url: URL(string: viewModel.company.logoImageUrl)) { image in
+                        AsyncImage(url: URL(string: viewModel.logoImageUrl)) { image in
                             image
                                 .resizable()
                                 .scaledToFill()
@@ -206,12 +313,12 @@ struct CompanyProfileView: View {
                             .offset(y: 20)
                     }
                     VStack(alignment: .leading, spacing: 8) {
-                        Text(viewModel.company.orginizationName)
+                        Text(viewModel.orginizationName)
                             .font(.title2)
                             .bold()
-                        Text("Current Projects: **\(viewModel.company.projects.count)**")
+                        Text("Current Projects: **\(viewModel.projects.count)**")
 
-                        Text(viewModel.company.bio)
+                        Text(viewModel.bio)
                             .font(.subheadline)
                     }
                     Picker("", selection: $currentTab) {
@@ -231,10 +338,10 @@ struct CompanyProfileView: View {
                     ForEach(AboutSections.allCases) { section in
                         CompanyProfileTextView(
                             titleText: section.sectionTitles,
-                            text: section.sectionDescriptionText(companyObject: viewModel.company),
+                            text: section.sectionDescriptionText(viewModel: viewModel),
                             mediaLocation: section.sectionMediaLocation
                         ) {
-                            section.sectionView(companyObject: viewModel.company)
+                            section.sectionView(viewModel: viewModel)
                         }
                     }
                     .offset(y: -50)
@@ -258,7 +365,7 @@ struct CompanyProfileView: View {
                 )
                 .opacity(showNavigationBar ? 1 : 0)
                 .overlay(alignment: .center) {
-                    Text(viewModel.company.orginizationName)
+                    Text(viewModel.orginizationName)
                         .foregroundStyle(.white)
                         .fontWeight(.semibold)
                         .opacity(showNavigationBar ? 1 : 0)
@@ -296,5 +403,7 @@ struct CompanyProfileView: View {
 }
 
 #Preview {
-    CompanyProfileView(viewModel: DevCompanyProfileViewViewModel())
+    CompanyProfileView(
+        viewModel: DevCompanyProfileViewViewModel(company: CompanyObject.createFakeCompanyObject())
+    )
 }

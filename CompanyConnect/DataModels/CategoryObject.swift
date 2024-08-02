@@ -11,10 +11,15 @@ import Observation
 
 enum Category: String, Codable, CaseIterable, Identifiable {
 
-    case healthcare, womensRights,
-         humanRights, environmental,
-         community, conflictReleief,
-         veterans, education, indigenousRights
+    case healthcare = "health_care"
+    case womensRights = "womens_rights"
+    case humanRights = "human_rights"
+    case environmental = "environmental"
+    case community = "community"
+    case conflictReleief = "conflict_releief"
+    case veterans = "veterans"
+    case education = "education"
+    case indigenousRights = "indigenous_rights"
 
     var name: String {
         switch self {
@@ -77,6 +82,5 @@ enum Category: String, Codable, CaseIterable, Identifiable {
 
     static func createCategoryList() -> [Category] {
         return Self.allCases.map { $0 }
-
     }
 }

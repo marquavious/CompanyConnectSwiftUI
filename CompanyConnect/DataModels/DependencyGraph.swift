@@ -20,13 +20,13 @@ class DependencyGraph: DependencyGraphType {
 }
 
 class OfflineDependencyGraph: DependencyGraphType {
-    var activityFeedViewModel: ActivityFeedViewViewModelType = OfflineActivityFeed(service: OfflineActivityPostsService())
+    var activityFeedViewModel: ActivityFeedViewViewModelType = OfflineActivityFeed()
     var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel()
     var donationsViewViewModel: DonationsViewViewModelType = OfflineDonationsViewViewModel()
 }
 
 class IntegratedDependencyGraph: DependencyGraphType {
-    var activityFeedViewModel: ActivityFeedViewViewModelType = OfflineActivityFeed(service: OfflineActivityPostsService()) // Change
+    var activityFeedViewModel: ActivityFeedViewViewModelType = OfflineActivityFeed() // Change
     var mapViewViewModel:  MapViewViewModelType = OfflineMapViewViewModel() // Change
     var donationsViewViewModel: DonationsViewViewModelType = DevDonationsViewViewModel()
 }

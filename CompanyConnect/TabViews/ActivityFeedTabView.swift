@@ -8,6 +8,8 @@
 import SwiftUI
 import TipKit
 
+typealias CompanyID =  String
+
 struct ActivityFeedTabView: View {
 
     struct Constants {
@@ -20,7 +22,7 @@ struct ActivityFeedTabView: View {
     }
 
     @Environment (\.colorScheme) var colorScheme
-    @State private var presentedNgos: [CompanyObject] = []
+    @State private var presentedNgos: [CompanyID] = []
     @State private var shouldShowFilter: Bool = false
 
     var viewModel: ActivityFeedViewViewModelType
@@ -44,9 +46,15 @@ struct ActivityFeedTabView: View {
                 ){
                     presentedNgos.append($0)
                 }
-                .navigationDestination(for: CompanyObject.self) {
-                    CompanyProfileView(viewModel: CompanyProfileViewViewModel(company: $0))
-                }
+//                .navigationDestination(for: CompanyObject.self) {
+////                    CompanyProfileView(
+//                    /*CompanyProfileView*/(viewModel: any CompanyProfileViewViewModelType)
+////                    CompanyProfileView(
+////                        viewModel: CompanyProfileViewViewModel(
+////                            companyID: $0, companyProfileViewService: any CompanyProfileViewServiceType
+////                        )
+////                    )
+//                }
                 .navigationTitle(Constants.NavigationTitle)
                 .toolbar {
                     Button(

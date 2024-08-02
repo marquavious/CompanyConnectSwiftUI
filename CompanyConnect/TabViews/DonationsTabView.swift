@@ -39,7 +39,7 @@ struct DonationsView: View {
             case .fetched:
                 List {
                     Section {
-                        ForEach(viewModel.pastDonations, id: \.id) {
+                        ForEach(viewModel.pastDonations) {
                             DonationCellView(donation: $0)
                         }
                     }
@@ -72,7 +72,7 @@ struct DonationsView: View {
                     }
                     .tint(colorScheme == .light ? .black:.white)
                 }
-            case .error:
+            case .error(let error):
                 // Handle Error
                 Text("OOOPS :)")
                     .navigationTitle(Constants.NavigationTitle)

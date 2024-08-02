@@ -46,7 +46,10 @@ struct MediaView: View {
             .clipShape(RoundedRectangle(cornerRadius: Constants.MediaViewCornerRadius))
             .shadow(radius: colorScheme == .light ? 1 : 0)
 
-        case .photoCarousel(let images):
+        case .photoCarousel(let imageData):
+            let imageData = imageData.sorted { dataOne, dataTwo in
+                dataOne.index < dataTwo.index
+            }
 
             GeometryReader { proxy in
                 let proxySize = proxy.frame(in: .local)
@@ -54,8 +57,8 @@ struct MediaView: View {
 
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: rows) {
-                        ForEach(images, id: \.self) { imageData in
-                            AsyncImage(url: URL(string: imageData)) { image in
+                        ForEach(imageData, id: \.self) { imageData in
+                            AsyncImage(url: URL(string: imageData.imageUrl)) { image in
                                 image
                                     .resizable()
                                     .scaledToFill()

@@ -8,6 +8,5 @@
 import Foundation
 
 struct ActivityFeedJSONResponse: Codable {
-    let page: Int
     let activityPosts: [ActvityPost]
 }

@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Donation: Codable {
+struct Donation: Codable, Identifiable {
 
-    enum PaymentMethod: Codable, CaseIterable {
-        case creditCard, paypal, applePay
+    enum PaymentMethod: String, Codable, CaseIterable {
+        case creditCard = "credit_card", paypal = "paypal", applePay = "apple_pay"
 
         var displayName: String {
             switch self {
@@ -26,9 +26,11 @@ struct Donation: Codable {
 
     let id: String
     let amountInCents: Double
-    let company: CompanyObject
     let date: Date
     let paymentMethod: PaymentMethod
+    let orginizationName: String
+    let category: Category
+    let comapnyLogoUrl: String
 }
 
 extension Donation {
@@ -45,12 +47,15 @@ extension Donation {
                 Donation(
                     id: UUID().uuidString,
                     amountInCents: Double.random(in: 0...500),
-                    company: CompanyObject.createFakeCompanyObject(),
                     date: Calendar.current.date(
                         byAdding: .day,
                         value: Int.random(in: -10 ... -1),
                         to: Date())!,
-                    paymentMethod: PaymentMethod.allCases.randomElement()!)
+                    paymentMethod: PaymentMethod.allCases.randomElement()!, 
+                    orginizationName: "Company",
+                    category: Category.allCases.randomElement()!,
+                    comapnyLogoUrl: "img_url"
+                )
             )
         }
 
@@ -64,12 +69,15 @@ extension Donation {
                 Donation(
                     id: UUID().uuidString,
                     amountInCents: Double.random(in: 0...500),
-                    company: CompanyObject.createFakeCompanyObject(),
                     date: Calendar.current.date(
                         byAdding: .day,
                         value: Int.random(in: 1 ... 10),
                         to: Date())!,
-                    paymentMethod: PaymentMethod.allCases.randomElement()!)
+                    paymentMethod: PaymentMethod.allCases.randomElement()!,
+                    orginizationName: "Company",
+                    category: Category.allCases.randomElement()!,
+                    comapnyLogoUrl: "img_url"
+                )
             )
         }
 

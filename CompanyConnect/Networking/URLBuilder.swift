@@ -8,23 +8,13 @@
 import Foundation
 
 enum URLBuilder {
-    case activityFeed(page: String)
+    case activityFeed
     case mapdata
     case donations(userID: String)
+    case companyProfile(companyID: String)
 
     public var url: URL {
         urlBuilder()
-    }
-
-    public var path: String {
-        switch self {
-        case .activityFeed:
-            "/activity_feed"
-        case .mapdata:
-            "/mapdata"
-        case .donations:
-            "/donations"
-        }
     }
 
     private var baseURL: String {
@@ -35,15 +25,28 @@ enum URLBuilder {
         }
     }
 
+    public var path: String {
+        switch self {
+        case .activityFeed:
+            "/activity_feed"
+        case .mapdata:
+            "/mapdata"
+        case .donations:
+            "/donations"
+        case .companyProfile:
+            "/company_profile"
+        }
+    }
+
     private var queryItems: [URLQueryItem]? {
         switch self {
-        case .activityFeed(page: let page):
-            [
-                URLQueryItem(name: "page", value: page)
-            ]
         case .donations(userID: let userID):
             [
                 URLQueryItem(name: "user_id", value: userID)
+            ]
+        case .companyProfile(companyID: let companyID):
+            [
+                URLQueryItem(name: "company_id", value: companyID)
             ]
         default:
             nil

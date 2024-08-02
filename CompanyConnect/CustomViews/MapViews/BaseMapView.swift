@@ -24,9 +24,9 @@ struct BaseMapView: View {
             ForEach(viewModel.presentedCompanies(), id: \.orginizationName) { company in
                 Annotation(
                     company.orginizationName,
-                    coordinate: company.coordinate.returnCLLocationCoordinate2D()
+                    coordinate: company.coordinates.returnCLLocationCoordinate2D()
                 ) {
-                    MapAnnotationView(company: company)
+                    MapAnnotationView(annotaionUrl: company.logoImageUrl)
                         .onTapGesture {
                             didSelectCompany(company)
                         }

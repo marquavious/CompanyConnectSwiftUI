@@ -38,7 +38,7 @@ struct ActivityCellView: View {
         VStack {
             HStack(alignment: .top, spacing: Constants.ActivityCellPhotoContentPadding) {
                 if let posterData = activityPost.poster {
-                    AsyncImage(url: URL(string: posterData.badgeImageUrl)) { image in
+                    AsyncImage(url: URL(string: posterData.imageUrl)) { image in
                         image
                             .resizable()
                             .scaledToFill()
@@ -52,7 +52,7 @@ struct ActivityCellView: View {
                     .clipShape(Circle())
                     .onTapGesture { posterSelected?() }
                     .overlay(alignment: .bottomTrailing) {
-                        AsyncImage(url: URL(string: activityPost.imageUrl)) { image in
+                        AsyncImage(url: URL(string: activityPost.company.logoUrl)) { image in
                             image
                                 .resizable()
                                 .scaledToFill()
@@ -97,7 +97,7 @@ struct ActivityCellView: View {
                                 .foregroundColor(.gray)
                         }
 
-                        Text(activityPost.company.orginizationName)
+                        Text(activityPost.company.name)
                             .font(.subheadline)
                             .bold()
 
