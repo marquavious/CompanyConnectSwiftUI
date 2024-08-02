@@ -5,7 +5,7 @@
       "category" : "environmental",
       "cover_image_url" : "imageUrl",
       "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "coordinate" : {
+      "coordinates" : {
         "latitude" : 30.053881,
         "longitude" : 31.238474
       },
@@ -76,7 +76,7 @@
         },
         {
           "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "status" : "inProgress",
+          "status" : "in_progress",
           "image_url" : "imageUrl",
           "id" : "63486371-E5B6-4600-8BBA-075B03EFDDF1",
           "name" : "Project 2"
@@ -107,7 +107,7 @@
     },
     {
       "cover_image_url" : "imageUrl",
-      "coordinate" : {
+      "coordinates" : {
         "longitude" : -72.39234,
         "latitude" : 18.542952
       },
@@ -180,7 +180,7 @@
         },
         {
           "name" : "Project 2",
-          "status" : "inProgress",
+          "status" : "in_progress",
           "id" : "550C0C98-0618-4131-9E89-2CC7FD244A50",
           "image_url" : "imageUrl",
           "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -269,12 +269,12 @@
       "cover_image_url" : "imageUrl",
       "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "coordinate" : {
+      "coordinates" : {
         "longitude" : 18.4233,
         "latitude" : -33.918861
       },
       "orginization_name" : "VENTRA",
-      "category" : "indigenousRights",
+      "category" : "indigenous_rights",
       "logo_image_url" : "imageUrl",
       "projects" : [
         {
@@ -286,7 +286,7 @@
         },
         {
           "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "status" : "inProgress",
+          "status" : "in_progress",
           "image_url" : "imageUrl",
           "name" : "Project 2",
           "id" : "57F45315-5052-4E72-AF08-DE8B9035CB21"
@@ -329,7 +329,7 @@
           "image_url" : "imageUrl",
           "name" : "Project 2",
           "id" : "318BBC55-030B-4F4D-B967-A283B432B2FB",
-          "status" : "inProgress",
+          "status" : "in_progress",
           "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
@@ -354,7 +354,7 @@
           "image_url" : "imageUrl"
         }
       ],
-      "coordinate" : {
+      "coordinates" : {
         "latitude" : 43.84864,
         "longitude" : 18.35644
       },
@@ -433,7 +433,7 @@
           "image_url" : "imageUrl",
           "name" : "Project 2",
           "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "status" : "inProgress",
+          "status" : "in_progress",
           "id" : "1680D399-EC08-4CA8-B41F-0E22BDC4BE0D"
         },
         {
@@ -497,7 +497,7 @@
         }
       ],
       "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "category" : "humanRights",
+      "category" : "human_rights",
       "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "brief_history_object" : {
         "history" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -516,7 +516,7 @@
           }
         ]
       },
-      "coordinate" : {
+      "coordinates" : {
         "latitude" : 38.889931,
         "longitude" : -77.009003
       },
@@ -527,7 +527,7 @@
     },
     {
       "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "coordinate" : {
+      "coordinates" : {
         "latitude" : 31.771959,
         "longitude" : 35.217018
       },
@@ -600,7 +600,7 @@
           "id" : "586AFA50-1029-4262-8BED-BDEDAD45D5F7"
         },
         {
-          "status" : "inProgress",
+          "status" : "in_progress",
           "id" : "490CF053-F90E-49CA-8A5D-AC55591CFA5C",
           "name" : "Project 2",
           "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -691,7 +691,7 @@
         "history" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       },
       "category" : "community",
-      "coordinate" : {
+      "coordinates" : {
         "latitude" : -16.5,
         "longitude" : -68.15
       },
@@ -710,7 +710,7 @@
           "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           "id" : "369A0846-64FB-464C-B3A9-EF13D14FB8ED",
           "name" : "Project 2",
-          "status" : "inProgress"
+          "status" : "in_progress"
         },
         {
           "image_url" : "imageUrl",
@@ -759,7 +759,7 @@
       "category" : "healthcare",
       "logo_image_url" : "imageUrl",
       "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "coordinate" : {
+      "coordinates" : {
         "longitude" : -43.267511,
         "latitude" : -22.859839
       },
@@ -777,7 +777,7 @@
           "id" : "7C3FC2B3-8333-4C80-B1BE-ED344343363E",
           "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           "name" : "Project 2",
-          "status" : "inProgress"
+          "status" : "in_progress"
         },
         {
           "status" : "planning",
@@ -914,7 +914,7 @@
           "name" : "Project 2",
           "image_url" : "imageUrl",
           "id" : "B6C95024-8E7F-4C0B-A53E-C4349F673CE7",
-          "status" : "inProgress",
+          "status" : "in_progress",
           "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
@@ -939,7 +939,7 @@
           "status" : "planning"
         }
       ],
-      "coordinate" : {
+      "coordinates" : {
         "latitude" : 17.1522786,
         "longitude" : -89.0800227
       },
@@ -948,7 +948,7 @@
     {
       "logo_image_url" : "imageUrl",
       "cover_image_url" : "imageUrl",
-      "coordinate" : {
+      "coordinates" : {
         "longitude" : 104.888535,
         "latitude" : 11.562108
       },
@@ -983,7 +983,7 @@
         },
         {
           "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "status" : "inProgress",
+          "status" : "in_progress",
           "name" : "Project 2",
           "id" : "95A76F1C-38D5-4FE6-89A8-803E0BC427F2",
           "image_url" : "imageUrl"
@@ -1064,7 +1064,7 @@
           "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           "name" : "Project 2",
           "id" : "68AA1A8E-A389-464B-BAE2-BE943DF1B9A6",
-          "status" : "inProgress"
+          "status" : "in_progress"
         },
         {
           "name" : "Project 3",
@@ -1091,7 +1091,7 @@
       "logo_image_url" : "imageUrl",
       "orginization_name" : "Tree Vision",
       "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "coordinate" : {
+      "coordinates" : {
         "longitude" : 2.6289,
         "latitude" : 6.4969
       },
@@ -1156,12 +1156,12 @@
       }
     },
     {
-      "coordinate" : {
+      "coordinates" : {
         "latitude" : 41.9001,
         "longitude" : -71.0898
       },
       "orginization_name" : "True Vison",
-      "category" : "womensRights",
+      "category" : "womens_rights",
       "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "team" : [
         {
@@ -1232,7 +1232,7 @@
         {
           "name" : "Project 2",
           "id" : "7CC9643C-C35A-4155-8679-69A8EBC9D3C1",
-          "status" : "inProgress",
+          "status" : "in_progress",
           "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           "image_url" : "imageUrl"
         },

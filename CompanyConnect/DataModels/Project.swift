@@ -11,7 +11,7 @@ import SwiftUI
 struct Project: Codable, Hashable, Identifiable {
 
     enum Status: String, Codable {
-        case completed, inProgress, planning
+        case completed = "completed", inProgress = "in_progress", planning = "planning"
 
         var displayName: String {
             switch self {

@@ -11,7 +11,7 @@ import Observation
 
 enum Category: String, Codable, CaseIterable, Identifiable {
 
-    case healthcare = "health_care"
+    case healthcare = "healthcare"
     case womensRights = "womens_rights"
     case humanRights = "human_rights"
     case environmental = "environmental"

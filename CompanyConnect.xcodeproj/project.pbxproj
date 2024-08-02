@@ -227,12 +227,6 @@
 		C0CC8E9B2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0CC8E9A2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist */; };
 		C0CC8E9C2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0CC8E9A2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist */; };
 		C0CC8E9D2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0CC8E9A2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist */; };
-		C0D40F3E2C58DAC100250129 /* ActivityfeedJsonResponsePage2.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D40F3B2C58DAC100250129 /* ActivityfeedJsonResponsePage2.json */; };
-		C0D40F3F2C58DAC100250129 /* ActivityfeedJsonResponsePage2.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D40F3B2C58DAC100250129 /* ActivityfeedJsonResponsePage2.json */; };
-		C0D40F402C58DAC100250129 /* ActivityfeedJsonResponsePage2.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D40F3B2C58DAC100250129 /* ActivityfeedJsonResponsePage2.json */; };
-		C0D40F412C58DAC100250129 /* ActivityfeedJsonResponsePage3.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D40F3C2C58DAC100250129 /* ActivityfeedJsonResponsePage3.json */; };
-		C0D40F422C58DAC100250129 /* ActivityfeedJsonResponsePage3.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D40F3C2C58DAC100250129 /* ActivityfeedJsonResponsePage3.json */; };
-		C0D40F432C58DAC100250129 /* ActivityfeedJsonResponsePage3.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D40F3C2C58DAC100250129 /* ActivityfeedJsonResponsePage3.json */; };
 		C0D40F442C58DAC100250129 /* ActivityfeedJsonResponsePage1.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D40F3D2C58DAC100250129 /* ActivityfeedJsonResponsePage1.json */; };
 		C0D40F452C58DAC100250129 /* ActivityfeedJsonResponsePage1.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D40F3D2C58DAC100250129 /* ActivityfeedJsonResponsePage1.json */; };
 		C0D40F462C58DAC100250129 /* ActivityfeedJsonResponsePage1.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D40F3D2C58DAC100250129 /* ActivityfeedJsonResponsePage1.json */; };
@@ -340,8 +334,6 @@
 		C0CC8DD82C4CF1930083E6C6 /* CompanyConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyConnect.swift; sourceTree = "<group>"; };
 		C0CC8E962C4CF9BE0083E6C6 /* (DEVELOPMENT) CompanyConnect-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "(DEVELOPMENT) CompanyConnect-Info.plist"; sourceTree = "<group>"; };
 		C0CC8E9A2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "(OFFLINE) CompnayConnect-Info.plist"; sourceTree = "<group>"; };
-		C0D40F3B2C58DAC100250129 /* ActivityfeedJsonResponsePage2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityfeedJsonResponsePage2.json; sourceTree = "<group>"; };
-		C0D40F3C2C58DAC100250129 /* ActivityfeedJsonResponsePage3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityfeedJsonResponsePage3.json; sourceTree = "<group>"; };
 		C0D40F3D2C58DAC100250129 /* ActivityfeedJsonResponsePage1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityfeedJsonResponsePage1.json; sourceTree = "<group>"; };
 		C0D6B1AB2C5710BA00777D49 /* CCTweakManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTweakManager.swift; sourceTree = "<group>"; };
 		C0D6B1AF2C57116C00777D49 /* Tweakable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweakable.swift; sourceTree = "<group>"; };
@@ -396,8 +388,6 @@
 				C01ACA572C50BDB300A77B5E /* MapViewJsonResponse.json */,
 				C01ACA592C50BE8000A77B5E /* CompanyProfileViewResponse.json */,
 				C0D40F3D2C58DAC100250129 /* ActivityfeedJsonResponsePage1.json */,
-				C0D40F3B2C58DAC100250129 /* ActivityfeedJsonResponsePage2.json */,
-				C0D40F3C2C58DAC100250129 /* ActivityfeedJsonResponsePage3.json */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -770,11 +760,9 @@
 			files = (
 				C0CC8DE12C4CF3560083E6C6 /* Preview Assets.xcassets in Resources */,
 				C01ACA5A2C50BE8100A77B5E /* CompanyProfileViewResponse.json in Resources */,
-				C0D40F412C58DAC100250129 /* ActivityfeedJsonResponsePage3.json in Resources */,
 				C01ACA582C50BDB300A77B5E /* MapViewJsonResponse.json in Resources */,
 				C0CC8E9B2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */,
 				C0D40F442C58DAC100250129 /* ActivityfeedJsonResponsePage1.json in Resources */,
-				C0D40F3E2C58DAC100250129 /* ActivityfeedJsonResponsePage2.json in Resources */,
 				C0B86C6C2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */,
 				C01ACA602C50C2A900A77B5E /* DonationsViewJsonResponse.json in Resources */,
 				C0CC8DDE2C4CF3370083E6C6 /* Assets.xcassets in Resources */,
@@ -789,11 +777,9 @@
 				C0CC8DE22C4CF3560083E6C6 /* Preview Assets.xcassets in Resources */,
 				C0CC8E9C2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */,
 				C0B86C6D2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */,
-				C0D40F422C58DAC100250129 /* ActivityfeedJsonResponsePage3.json in Resources */,
 				C01ACA732C533BD900A77B5E /* CompanyProfileViewResponse.json in Resources */,
 				C01ACA742C533BD900A77B5E /* MapViewJsonResponse.json in Resources */,
 				C0D40F452C58DAC100250129 /* ActivityfeedJsonResponsePage1.json in Resources */,
-				C0D40F3F2C58DAC100250129 /* ActivityfeedJsonResponsePage2.json in Resources */,
 				C01ACA612C50C2A900A77B5E /* DonationsViewJsonResponse.json in Resources */,
 				C0CC8DDF2C4CF3370083E6C6 /* Assets.xcassets in Resources */,
 				C0CC8E982C4CF9BE0083E6C6 /* (DEVELOPMENT) CompanyConnect-Info.plist in Resources */,
@@ -807,11 +793,9 @@
 				C0CC8DE32C4CF3570083E6C6 /* Preview Assets.xcassets in Resources */,
 				C0CC8E9D2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */,
 				C0B86C6E2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */,
-				C0D40F432C58DAC100250129 /* ActivityfeedJsonResponsePage3.json in Resources */,
 				C01ACA752C533BD900A77B5E /* CompanyProfileViewResponse.json in Resources */,
 				C01ACA762C533BD900A77B5E /* MapViewJsonResponse.json in Resources */,
 				C0D40F462C58DAC100250129 /* ActivityfeedJsonResponsePage1.json in Resources */,
-				C0D40F402C58DAC100250129 /* ActivityfeedJsonResponsePage2.json in Resources */,
 				C01ACA622C50C2A900A77B5E /* DonationsViewJsonResponse.json in Resources */,
 				C0CC8DE02C4CF3370083E6C6 /* Assets.xcassets in Resources */,
 				C0CC8E992C4CF9BE0083E6C6 /* (DEVELOPMENT) CompanyConnect-Info.plist in Resources */,

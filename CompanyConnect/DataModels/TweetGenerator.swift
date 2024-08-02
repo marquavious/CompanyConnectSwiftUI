@@ -17,7 +17,7 @@ struct TweetGenerator {
         for _ in (1..<50) {
 
             let company = CompanyObject.createFakeComapnyList().shuffled().randomElement()!
-            let companyPostData = CompanyActivityPostData(
+            let companyPostData = CompanyData(
                 id: company.id,
                 name: company.orginizationName,
                 logoUrl: company.coverImageUrl
@@ -62,7 +62,7 @@ struct TweetGenerator {
         for _ in (1..<50) {
 
             let tamMember = company.team.shuffled().randomElement()!
-            let companyPostData = CompanyActivityPostData(
+            let companyPostData = CompanyData(
                 id: company.id,
                 name: company.orginizationName,
                 logoUrl: company.coverImageUrl

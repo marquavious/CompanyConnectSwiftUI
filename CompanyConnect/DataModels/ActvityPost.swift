@@ -14,7 +14,7 @@ struct ActvityPost: Codable, Hashable, Identifiable {
     let imageUrl: String
     let poster: PosterData?
     let media: Media?
-    let company: CompanyActivityPostData
+    let company: CompanyData
     let date: Date
 
     static func == (lhs: ActvityPost, rhs: ActvityPost) -> Bool {
@@ -32,7 +32,7 @@ extension ActvityPost {
         poster: PosterData? = (Bool.random() ? nil : PosterData.generateRandomActvityPostPoster())
     ) -> ActvityPost {
         let company = CompanyObject.createFakeComapnyList().randomElement()!
-        let companyPostData = CompanyActivityPostData(
+        let companyPostData = CompanyData(
             id: company.id,
             name: company.orginizationName,
             logoUrl: company.coverImageUrl
@@ -56,7 +56,7 @@ extension ActvityPost {
     }
 }
 
-struct CompanyActivityPostData: Codable {
+struct CompanyData: Codable {
     let id: String
     let name: String
     let logoUrl: String
