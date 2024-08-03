@@ -8,152 +8,6 @@
 import SwiftUI
 import MapKit
 
-protocol CompanyProfileViewServiceType: HTTPDataDownloader {
-    func getCompnayInfo() async throws -> CompanyProfileViewJSONResponse
-}
-
-@Observable
-class DevCompanyProfileViewService: CompanyProfileViewServiceType {
-    @MainActor
-    func getCompnayInfo() async throws -> CompanyProfileViewJSONResponse {
-        return try await getData(as: CompanyProfileViewJSONResponse.self, from: URLBuilder.activityFeed.url)
-    }
-}
-
-@Observable
-class OfflineCompanyProfileViewService: CompanyProfileViewServiceType {
-    @MainActor
-    func getCompnayInfo() async throws -> CompanyProfileViewJSONResponse {
-        return try await getData(as: CompanyProfileViewJSONResponse.self, from: URLBuilder.activityFeed.url)
-    }
-}
-
-protocol CompanyProfileViewViewModelType {
-    var bio: String { get set }
-    var team: [TeamMember] { get set }
-    var projects: [Project] { get set }
-    var logoImageUrl: String { get set }
-    var coverImageUrl: String { get set }
-    var coordinates: Coordinates { get set }
-    var missionStatement: String { get set }
-    var orginizationName: String { get set }
-    var briefHistoryObject: BriefHistoryObject { get set }
-    var activityFeedViewModel: ActivityFeedViewViewModelType { get set }
-}
-
-class DevCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
-    var bio: String
-    var team: [TeamMember]
-    var projects: [Project]
-    var logoImageUrl: String
-    var coverImageUrl: String
-    var coordinates: Coordinates
-    var missionStatement: String
-    var orginizationName: String
-    var briefHistoryObject: BriefHistoryObject
-    var activityFeedViewModel: ActivityFeedViewViewModelType
-
-    init(
-        bio: String,
-        team: [TeamMember],
-        projects: [Project],
-        logoImageUrl: String,
-        coverImageUrl: String,
-        coordinates: Coordinates,
-        missionStatement: String,
-        orginizationName: String,
-        briefHistoryObject: BriefHistoryObject,
-        activityFeedViewModel: ActivityFeedViewViewModelType)
-    {
-        self.bio = bio
-        self.team = team
-        self.projects = projects
-        self.logoImageUrl = logoImageUrl
-        self.coverImageUrl = coverImageUrl
-        self.coordinates = coordinates
-        self.missionStatement = missionStatement
-        self.orginizationName = orginizationName
-        self.briefHistoryObject = briefHistoryObject
-        self.activityFeedViewModel = activityFeedViewModel
-    }
-
-    convenience init(company: CompanyObject) {
-        let company: CompanyObject = CompanyObject.createFakeCompanyObject()
-        let activityFeedViewModel = DevCompanyActivityFeed()
-        self.init(
-            bio: company.bio,
-            team: company.team,
-            projects: company.projects,
-            logoImageUrl: company.logoImageUrl,
-            coverImageUrl: company.coverImageUrl,
-            coordinates: company.coordinates,
-            missionStatement: company.missionStatement,
-            orginizationName: company.orginizationName,
-            briefHistoryObject: company.briefHistoryObject,
-            activityFeedViewModel: activityFeedViewModel
-        )
-    }
-
-}
-
-class CompanyProfileViewViewModel: CompanyProfileViewViewModelType {
-    var bio: String = ""
-    var team: [TeamMember] = []
-    var projects: [Project] = []
-    var logoImageUrl: String = ""
-    var coverImageUrl: String = ""
-    var coordinates: Coordinates = Coordinates(latitude: 0, longitude: 0)
-    var missionStatement: String = ""
-    var orginizationName: String = ""
-    var briefHistoryObject: BriefHistoryObject = BriefHistoryObject(history: "", imageObjects: [])
-    var activityFeedViewModel: ActivityFeedViewViewModelType
-
-    init(companyID: String) {
-        self.activityFeedViewModel = CompanyActivityFeed(
-            companyID: companyID,
-            service: ActivityPostsService()
-        )
-    }
-
-    convenience init(company: CompanyObject) {
-        self.init(companyID: company.id)
-        self.bio = company.bio
-        self.team = company.team
-        self.projects = company.projects
-        self.logoImageUrl = company.logoImageUrl
-        self.coverImageUrl = company.coverImageUrl
-        self.coordinates = company.coordinates
-        self.missionStatement = company.missionStatement
-        self.orginizationName = company.orginizationName
-        self.briefHistoryObject = company.briefHistoryObject
-        self.activityFeedViewModel = CompanyActivityFeed(
-            companyID: company.id,
-            service: ActivityPostsService()
-        )
-    }
-}
-
-class OfflineCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
-    var bio: String = ""
-    var team: [TeamMember] = []
-    var projects: [Project] = []
-    var logoImageUrl: String = ""
-    var coverImageUrl: String = ""
-    var coordinates: Coordinates = Coordinates(latitude: 0, longitude: 0)
-    var missionStatement: String = ""
-    var orginizationName: String = ""
-    var briefHistoryObject: BriefHistoryObject = BriefHistoryObject(history: "", imageObjects: [])
-    var activityFeedViewModel: ActivityFeedViewViewModelType
-    var companyProfileViewService = OfflineCompanyProfileViewService()
-
-    init(companyID: String) {
-        self.activityFeedViewModel = CompanyActivityFeed(
-            companyID: companyID,
-            service: OfflineActivityPostsService()
-        )
-    }
-}
-
 struct CompanyProfileView: View {
 
     struct Constants {
@@ -166,21 +20,21 @@ struct CompanyProfileView: View {
         case about, activity
     }
 
-    enum AboutSections: Int, CaseIterable, Identifiable {
+    enum AboutSection: Int, CaseIterable, Identifiable {
 
-        case missionStatements
+        case missionStatement
         case ourTeam
         case briefHistory
         case locations
         case projects
 
         var id: String {
-            return sectionTitles
+            return title
         }
 
-        var sectionTitles: String {
+        var title: String {
             switch self {
-            case .missionStatements:
+            case .missionStatement:
                 "Mission Statement"
             case .ourTeam:
                 "Our Team"
@@ -193,24 +47,24 @@ struct CompanyProfileView: View {
             }
         }
 
-        var sectionMediaLocation: MediaLocation {
+        var mediaPlacement: MediaLocation {
             switch self {
-            case .missionStatements:
-                    .bottom
+            case .missionStatement:
+                .bottom
             case .ourTeam:
-                    .bottom
+                .bottom
             case .briefHistory:
-                    .bottom
+                .bottom
             case .locations:
-                    .middle
+                .middle
             case .projects:
-                    .middle
+                .middle
             }
         }
 
-        func sectionDescriptionText(viewModel: CompanyProfileViewViewModelType) -> String? {
+        func descriptionText(viewModel: CompanyProfileViewViewModelType) -> String? {
             switch self {
-            case .missionStatements:
+            case .missionStatement:
                 viewModel.missionStatement
             case .ourTeam:
                 nil
@@ -224,9 +78,9 @@ struct CompanyProfileView: View {
         }
 
         @ViewBuilder
-        func sectionView(viewModel: CompanyProfileViewViewModelType) -> some View {
+        func view(viewModel: CompanyProfileViewViewModelType) -> some View {
             switch self {
-            case .missionStatements:
+            case .missionStatement:
                 // For some reason EmptyView() Buggs out the insets
                 // So we go with this instead
                 Divider().frame(height: .zero).opacity(.zero)
@@ -352,13 +206,13 @@ struct CompanyProfileView: View {
 
                 switch currentTab {
                 case .about:
-                    ForEach(AboutSections.allCases) { section in
+                    ForEach(AboutSection.allCases) { section in
                         CompanyProfileTextView(
-                            titleText: section.sectionTitles,
-                            text: section.sectionDescriptionText(viewModel: viewModel),
-                            mediaLocation: section.sectionMediaLocation
+                            titleText: section.title,
+                            text: section.descriptionText(viewModel: viewModel),
+                            mediaLocation: section.mediaPlacement
                         ) {
-                            section.sectionView(viewModel: viewModel)
+                            section.view(viewModel: viewModel)
                         }
                     }
                     .offset(y: -50)
