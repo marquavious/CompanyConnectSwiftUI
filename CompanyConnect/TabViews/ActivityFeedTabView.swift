@@ -46,10 +46,10 @@ struct ActivityFeedTabView: View {
                 ){
                     presentedNgos.append($0)
                 }
-                .navigationDestination(for: String.self) {
-                    CompanyProfileView(
-                        viewModel: CompanyProfileViewViewModel(companyID: $0)
-                    )
+                .navigationDestination(for: String.self) { _ in
+//                    CompanyProfileView(
+//                        viewModel: CompanyProfileViewViewModel(companyID: $0)
+//                    )
                 }
                 .navigationTitle(Constants.NavigationTitle)
                 .toolbar {

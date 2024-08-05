@@ -14,7 +14,14 @@ class OHHTTPStubsHandler: NSObject {
     private let internetResponseTime: TimeInterval = CCTweakManager.shared.retreiveTweakValue(tweak: .internetSpeed).value as! TimeInterval
 
     func setupStubs() {
-        setupActivityfeedStubs()
+        stub(condition: isPath("/activity_feed")) { [weak self]  _ in
+            guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.memoryError)}
+            let stubPath = OHPathForFile("ActivityfeedJsonResponsePage1.json", type(of: self))
+            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
+                .responseTime(
+                    internetResponseTime
+                )
+        }
 
         stub(condition: isPath("/mapdata")) { [weak self]  _ in
             guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.memoryError)}
@@ -34,17 +41,15 @@ class OHHTTPStubsHandler: NSObject {
                 )
         }
 
-    }
-
-    func setupActivityfeedStubs() {
-        stub(condition: isPath("/activity_feed")) { [weak self]  _ in
+        stub(condition: isPath("/company_profile")) { [weak self]  _ in
             guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.memoryError)}
-            let stubPath = OHPathForFile("ActivityfeedJsonResponsePage1.json", type(of: self))
+            let stubPath = OHPathForFile("CompanyProfileViewResponse.json", type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
                 .responseTime(
                     internetResponseTime
                 )
         }
+
     }
 
 }

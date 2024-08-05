@@ -7,128 +7,128 @@
 
 import Foundation
 
-protocol CompanyProfileViewViewModelType {
-    var bio: String { get set }
-    var team: [TeamMember] { get set }
-    var projects: [Project] { get set }
-    var logoImageUrl: String { get set }
-    var coverImageUrl: String { get set }
-    var coordinates: Coordinates { get set }
-    var missionStatement: String { get set }
-    var orginizationName: String { get set }
-    var briefHistoryObject: BriefHistoryObject { get set }
-    var activityFeedViewModel: ActivityFeedViewViewModelType { get set }
+// I migt have to start merging these loading states
+enum CompanyProfileLoadingState: Equatable {
+
+    case idle
+    case loading
+    case fetched(CompanyObject)
+    case error(Error)
+
+    static func == (lhs: CompanyProfileLoadingState, rhs: CompanyProfileLoadingState) -> Bool {
+        switch (lhs, rhs) {
+        case (.loading, .loading), (.fetched, .fetched):
+            true
+        case let (.error(lhsError), .error(rhsError)):
+            lhsError.localizedDescription == rhsError.localizedDescription
+        default:
+            false
+        }
+    }
 }
 
+protocol CompanyProfileViewViewModelType {
+    var loadingState: CompanyProfileLoadingState { get set }
+    var activityFeedViewModel: ActivityFeedViewViewModelType { get set }
+    var companyProfileViewService: CompanyProfileViewServiceType { get set }
+    func loadCompanyProfile(companyID: String) async
+}
+
+@Observable
 class DevCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
-    var bio: String
-    var team: [TeamMember]
-    var projects: [Project]
-    var logoImageUrl: String
-    var coverImageUrl: String
-    var coordinates: Coordinates
-    var missionStatement: String
-    var orginizationName: String
-    var briefHistoryObject: BriefHistoryObject
     var activityFeedViewModel: ActivityFeedViewViewModelType
+    var companyProfileViewService: CompanyProfileViewServiceType
+    var loadingState: CompanyProfileLoadingState
 
     init(
-        bio: String,
-        team: [TeamMember],
-        projects: [Project],
-        logoImageUrl: String,
-        coverImageUrl: String,
-        coordinates: Coordinates,
-        missionStatement: String,
-        orginizationName: String,
-        briefHistoryObject: BriefHistoryObject,
-        activityFeedViewModel: ActivityFeedViewViewModelType)
+        activityFeedViewModel: ActivityFeedViewViewModelType,
+        companyProfileViewService: CompanyProfileViewServiceType,
+        loadingState: CompanyProfileLoadingState)
     {
-        self.bio = bio
-        self.team = team
-        self.projects = projects
-        self.logoImageUrl = logoImageUrl
-        self.coverImageUrl = coverImageUrl
-        self.coordinates = coordinates
-        self.missionStatement = missionStatement
-        self.orginizationName = orginizationName
-        self.briefHistoryObject = briefHistoryObject
         self.activityFeedViewModel = activityFeedViewModel
+        self.companyProfileViewService = companyProfileViewService
+        self.loadingState = loadingState
     }
 
-    convenience init(company: CompanyObject) {
+    convenience init(company: CompanyObject, loadingState: CompanyProfileLoadingState = .idle) {
         let company: CompanyObject = CompanyObject.createFakeCompanyObject()
         let activityFeedViewModel = DevCompanyActivityFeed()
+        let companyProfileViewService = DevCompanyProfileViewService()
         self.init(
-            bio: company.bio,
-            team: company.team,
-            projects: company.projects,
-            logoImageUrl: company.logoImageUrl,
-            coverImageUrl: company.coverImageUrl,
-            coordinates: company.coordinates,
-            missionStatement: company.missionStatement,
-            orginizationName: company.orginizationName,
-            briefHistoryObject: company.briefHistoryObject,
-            activityFeedViewModel: activityFeedViewModel
+            activityFeedViewModel: activityFeedViewModel,
+            companyProfileViewService: companyProfileViewService,
+            loadingState: loadingState
         )
+    }
+
+    func loadCompanyProfile(companyID: String) async {
+        loadingState = .loading
+        do {
+            let companyResponse = try await companyProfileViewService.getCompnayInfo(companyID: companyID)
+            loadingState = .fetched(companyResponse.companyObject)
+        } catch {
+            let nsError = error as NSError
+            if nsError.domain == NSURLErrorDomain,
+               nsError.code == NSURLErrorCancelled {
+                //Handle cancellation
+            } else {
+                loadingState = .error(error)
+            }
+        }
     }
 
 }
 
+@Observable
 class CompanyProfileViewViewModel: CompanyProfileViewViewModelType {
-    var bio: String = ""
-    var team: [TeamMember] = []
-    var projects: [Project] = []
-    var logoImageUrl: String = ""
-    var coverImageUrl: String = ""
-    var coordinates: Coordinates = Coordinates(latitude: 0, longitude: 0)
-    var missionStatement: String = ""
-    var orginizationName: String = ""
-    var briefHistoryObject: BriefHistoryObject = BriefHistoryObject(history: "", imageObjects: [])
     var activityFeedViewModel: ActivityFeedViewViewModelType
+    var companyProfileViewService: CompanyProfileViewServiceType
+    var loadingState: CompanyProfileLoadingState = .idle
 
-    init(companyID: String) {
+    init() {
         self.activityFeedViewModel = CompanyActivityFeed(
-            companyID: companyID,
-            service: ActivityPostsService()
+            companyID: "ID", service: ActivityPostsService() // COMEBACK TO THIS
         )
+        self.companyProfileViewService = CompanyProfileViewService()
     }
 
-    convenience init(company: CompanyObject) {
-        self.init(companyID: company.id)
-        self.bio = company.bio
-        self.team = company.team
-        self.projects = company.projects
-        self.logoImageUrl = company.logoImageUrl
-        self.coverImageUrl = company.coverImageUrl
-        self.coordinates = company.coordinates
-        self.missionStatement = company.missionStatement
-        self.orginizationName = company.orginizationName
-        self.briefHistoryObject = company.briefHistoryObject
-        self.activityFeedViewModel = CompanyActivityFeed(
-            companyID: company.id,
-            service: ActivityPostsService()
-        )
+    func loadCompanyProfile(companyID: String) async {
+        loadingState = .loading
+        do {
+            let companyResponse = try await companyProfileViewService.getCompnayInfo(companyID: companyID)
+            loadingState = .fetched(companyResponse.companyObject)
+        } catch {
+            let nsError = error as NSError
+            if nsError.domain == NSURLErrorDomain,
+               nsError.code == NSURLErrorCancelled {
+                //Handle cancellation
+            } else {
+                loadingState = .error(error)
+            }
+        }
     }
+
 }
 
+@Observable
 class OfflineCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
-    var bio: String = ""
-    var team: [TeamMember] = []
-    var projects: [Project] = []
-    var logoImageUrl: String = ""
-    var coverImageUrl: String = ""
-    var coordinates: Coordinates = Coordinates(latitude: 0, longitude: 0)
-    var missionStatement: String = ""
-    var orginizationName: String = ""
-    var briefHistoryObject: BriefHistoryObject = BriefHistoryObject(history: "", imageObjects: [])
-    var activityFeedViewModel: ActivityFeedViewViewModelType
-    var companyProfileViewService = OfflineCompanyProfileViewService()
+    var activityFeedViewModel: ActivityFeedViewViewModelType = OfflineActivityFeed()
+    var companyProfileViewService: CompanyProfileViewServiceType = OfflineCompanyProfileViewService()
+    var loadingState: CompanyProfileLoadingState = .idle
 
-    init(companyID: String) {
-        self.activityFeedViewModel = CompanyActivityFeed(
-            companyID: companyID,
-            service: OfflineActivityPostsService()
-        )
+    func loadCompanyProfile(companyID: String) async {
+        loadingState = .loading
+        do {
+            let companyResponse = try await companyProfileViewService.getCompnayInfo(companyID: companyID)
+            loadingState = .fetched(companyResponse.companyObject)
+        } catch {
+            let nsError = error as NSError
+            if nsError.domain == NSURLErrorDomain,
+               nsError.code == NSURLErrorCancelled {
+                //Handle cancellation
+            } else {
+                loadingState = .error(error)
+            }
+        }
     }
 }

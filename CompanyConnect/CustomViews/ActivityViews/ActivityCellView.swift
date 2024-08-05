@@ -29,8 +29,7 @@ struct ActivityCellView: View {
     }
 
     let activityPost: ActvityPost
-    let posterSelected: (() -> Void)?
-    let visitProfileTapped: (() -> Void)?
+    let companySelected: (() -> Void)?
 
     @Environment(\.colorScheme) var colorScheme
 
@@ -50,7 +49,6 @@ struct ActivityCellView: View {
                         height: Constants.ActivityCellProfilePictureSize.height
                     )
                     .clipShape(Circle())
-                    .onTapGesture { posterSelected?() }
                     .overlay(alignment: .bottomTrailing) {
                         AsyncImage(url: URL(string: activityPost.company.logoUrl)) { image in
                             image
@@ -68,6 +66,7 @@ struct ActivityCellView: View {
                         .overlay(Circle().stroke(.background, lineWidth: 1))
                         .offset(x: 5, y: 5)
                     }
+                    .onTapGesture { companySelected?() }
                 } else {
                     AsyncImage(url: URL(string: activityPost.imageUrl)) { image in
                         image
@@ -82,7 +81,7 @@ struct ActivityCellView: View {
                         height: Constants.ActivityCellProfilePictureSize.height
                     )
                     .clipShape(Circle())
-                    .onTapGesture { posterSelected?() }
+                    .onTapGesture { companySelected?() }
                 }
 
                 VStack(alignment: .leading, spacing: Constants.ActivityCellInternalContentPadding) {
@@ -100,6 +99,7 @@ struct ActivityCellView: View {
                         Text(activityPost.company.name)
                             .font(.subheadline)
                             .bold()
+                            .onTapGesture { companySelected?() }
 
                         Text(" • \(Date.timeAgo(for: activityPost.date))")
                             .font(.subheadline)
@@ -112,7 +112,7 @@ struct ActivityCellView: View {
                                 // - TODO: IMPLIMENT SHARE
                             }
                             Button("Visit Profile", systemImage: Icons.VisitProfile.rawValue) {
-                                // - TODO: IMPLIMENT PROFILE VISIT FLOW
+                                companySelected?()
                             }
                         } label: {
                             Label(String(), systemImage: Icons.ActionButton.rawValue)
@@ -129,7 +129,7 @@ struct ActivityCellView: View {
                     if let media = activityPost.media {
                         MediaView(media: media)
                             .frame(maxHeight: Constants.ActivityCellMediaViewMaxHeight)
-                            .padding([.vertical], Constants.ActivityCellMedaiViewBottomPadding)
+                            .padding([.bottom], Constants.ActivityCellMedaiViewBottomPadding)
                     }
                     
                 }

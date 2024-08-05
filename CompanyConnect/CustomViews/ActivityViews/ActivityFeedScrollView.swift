@@ -38,8 +38,6 @@ struct ActivityFeedScrollView: View {
                     ForEach(viewModel.presentedPosts()) { activityPost in
                         ActivityCellView(activityPost: activityPost) {
                             ngoSelected?(activityPost.company.id)
-                        } visitProfileTapped: {
-                            ngoSelected?(activityPost.company.id)
                         }
 
                         Divider()
