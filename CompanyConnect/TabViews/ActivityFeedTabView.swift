@@ -24,6 +24,7 @@ struct ActivityFeedTabView: View {
     @Environment (\.colorScheme) var colorScheme
     @State private var presentedNgos: [CompanyID] = []
     @State private var shouldShowFilter: Bool = false
+    let coordinator: NavigationCoordinatorType
 
     var viewModel: ActivityFeedViewViewModelType
 
@@ -44,6 +45,7 @@ struct ActivityFeedTabView: View {
                     shouldShowCategoryFilter: true,
                     viewModel: viewModel
                 ){
+//                    coordinator.navigateToCompanyPage($0)
                     presentedNgos.append($0)
                 }
                 .navigationDestination(for: String.self) { _ in
@@ -84,6 +86,6 @@ struct ActivityFeedTabView: View {
 
 #Preview {
     ActivityFeedTabView(
-        viewModel: DevHomeTabActivityFeed(postCount: 5, loadingState: .fetched)
+        coordinator: DevNavigationCoordinator(), viewModel: DevHomeTabActivityFeed(postCount: 5, loadingState: .fetched)
     )
 }

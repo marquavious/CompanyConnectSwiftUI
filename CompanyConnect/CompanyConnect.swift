@@ -11,29 +11,8 @@ import TipKit
 @main
 struct CompanyConnect: App {
 
-    private let dependencyGraph: DependencyGraphType = {
-        let configEnvString: String
-        do {
-            configEnvString = try Configuration.value(for: ConfiKeys.APPLICATION_ENVIRONMENT.rawValue)
-        } catch {
-            fatalError("Could not load APPLICATION_ENVIRONMENT variable")
-        }
-
-        if let enviorment = ApplicationEnviorment(rawValue: configEnvString) {
-            switch enviorment {
-            case .production:
-                return DependencyGraph()
-            case .offline:
-                return OfflineDependencyGraph()
-            case .integrated:
-                return IntegratedDependencyGraph()
-            case .development:
-                return DevlopmentDependencyGraph()
-            }
-        } else {
-            fatalError("Could not crate DependencyGraph from Config.")
-        }
-    }()
+    private let dependencyGraph: DependencyGraphType
+    private let navigationCoordinator: NavigationCoordinatorType
 
     #if DEBUG
     private let stubsHandler = OHHTTPStubsHandler()
@@ -44,7 +23,8 @@ struct CompanyConnect: App {
     var body: some Scene {
         WindowGroup {
             MainView(
-                dependencyGraph: dependencyGraph
+                dependencyGraph: dependencyGraph, 
+                coordinator: navigationCoordinator
             )
             .onShake {
                 showingSheet.toggle()
@@ -56,6 +36,34 @@ struct CompanyConnect: App {
     }
 
     init() {
+
+        let contents: (dependancyGraph: DependencyGraphType, navigationCoordinator: NavigationCoordinatorType) = {
+            let configEnvString: String
+            do {
+                configEnvString = try Configuration.value(for: ConfiKeys.APPLICATION_ENVIRONMENT.rawValue)
+            } catch {
+                fatalError("Could not load APPLICATION_ENVIRONMENT variable")
+            }
+
+            if let enviorment = ApplicationEnviorment(rawValue: configEnvString) {
+                switch enviorment {
+                case .production:
+                    return (DependencyGraph(), NavigationCoordinator())
+                case .offline:
+                    return (OfflineDependencyGraph(), OfflineNavigationCoordinator())
+                case .integrated:
+                    return (IntegratedDependencyGraph(), DevNavigationCoordinator())
+                case .development:
+                    return (DevlopmentDependencyGraph(), DevNavigationCoordinator())
+                }
+            } else {
+                fatalError("Could not crate DependencyGraph from Config.")
+            }
+        }()
+
+        self.navigationCoordinator = contents.navigationCoordinator
+        self.dependencyGraph = contents.dependancyGraph
+
     #if DEBUG
         stubsHandler.setupStubs()
     #endif
@@ -70,9 +78,9 @@ struct CompanyConnect: App {
 struct MainView: View {
 
     let dependencyGraph: DependencyGraphType
+    let coordinator: NavigationCoordinatorType
 
     enum TabViewData: String {
-
         case feed = "Feed"
         case map = "Map"
         case donations = "Donations"
@@ -91,7 +99,7 @@ struct MainView: View {
 
     var body: some View {
         TabView {
-            ActivityFeedTabView(viewModel: dependencyGraph.activityFeedViewModel).tabItem {
+            ActivityFeedTabView(coordinator: coordinator, viewModel: dependencyGraph.activityFeedViewModel).tabItem {
                 Label(TabViewData.feed.rawValue, systemImage: TabViewData.feed.systemImageName)
             }
 
@@ -107,5 +115,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(dependencyGraph: DevlopmentDependencyGraph())
+    MainView(dependencyGraph: DevlopmentDependencyGraph(), coordinator: DevNavigationCoordinator())
 }

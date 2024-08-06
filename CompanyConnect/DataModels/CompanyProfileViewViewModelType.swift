@@ -50,8 +50,7 @@ class DevCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
         self.loadingState = loadingState
     }
 
-    convenience init(company: CompanyObject, loadingState: CompanyProfileLoadingState = .idle) {
-        let company: CompanyObject = CompanyObject.createFakeCompanyObject()
+    convenience init(loadingState: CompanyProfileLoadingState = .idle) {
         let activityFeedViewModel = DevCompanyActivityFeed()
         let companyProfileViewService = DevCompanyProfileViewService()
         self.init(

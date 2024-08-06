@@ -65,6 +65,10 @@
 		C07E5A572C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift */; };
 		C07E5A582C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift */; };
 		C07E5A592C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift */; };
+		C07F2B5B2C60877C002BEABB /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F2B5A2C60877C002BEABB /* NavigationCoordinator.swift */; };
+		C07F2B5C2C60877C002BEABB /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F2B5A2C60877C002BEABB /* NavigationCoordinator.swift */; };
+		C07F2B5D2C60877C002BEABB /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F2B5A2C60877C002BEABB /* NavigationCoordinator.swift */; };
+		C07F2B5E2C60877C002BEABB /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F2B5A2C60877C002BEABB /* NavigationCoordinator.swift */; };
 		C0B86C6C2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6D2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6E2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
@@ -283,6 +287,7 @@
 		C047FE652C59DC26008A6E36 /* CompanyConnectUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyConnectUnitTests.swift; sourceTree = "<group>"; };
 		C07E5A4F2C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileViewViewModelType.swift; sourceTree = "<group>"; };
 		C07E5A552C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileViewServiceType.swift; sourceTree = "<group>"; };
+		C07F2B5A2C60877C002BEABB /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(PROD) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0B86C6F2C4D055700C853C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0B86C702C4D1F8E00C853C0 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
@@ -423,6 +428,7 @@
 				C032F7212C54700200473328 /* InternetSpeedTweak.swift */,
 				C0D6B1AF2C57116C00777D49 /* Tweakable.swift */,
 				C0D6B1AB2C5710BA00777D49 /* CCTweakManager.swift */,
+				C07F2B5A2C60877C002BEABB /* NavigationCoordinator.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -823,6 +829,7 @@
 			files = (
 				C07E5A592C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */,
 				C047FE662C59DC26008A6E36 /* CompanyConnectUnitTests.swift in Sources */,
+				C07F2B5E2C60877C002BEABB /* NavigationCoordinator.swift in Sources */,
 				C07E5A532C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -879,6 +886,7 @@
 				C0CC8DF32C4CF4320083E6C6 /* TweetGenerator.swift in Sources */,
 				C0CC8DF42C4CF4320083E6C6 /* Configuration.swift in Sources */,
 				C0B86C712C4D1F8E00C853C0 /* Data+Ext.swift in Sources */,
+				C07F2B5B2C60877C002BEABB /* NavigationCoordinator.swift in Sources */,
 				C0CC8DF52C4CF4320083E6C6 /* Project.swift in Sources */,
 				C07E5A502C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */,
 				C01ACA492C50961600A77B5E /* MapViewJSONResponse.swift in Sources */,
@@ -953,6 +961,7 @@
 				C0CC8E812C4CF45A0083E6C6 /* Triangle.swift in Sources */,
 				C0CC8E6F2C4CF4510083E6C6 /* CompanyProfileTextView.swift in Sources */,
 				C0CC8E702C4CF4510083E6C6 /* ProjectsScrollerView.swift in Sources */,
+				C07F2B5C2C60877C002BEABB /* NavigationCoordinator.swift in Sources */,
 				C0CC8E0F2C4CF4330083E6C6 /* CategoryObject.swift in Sources */,
 				C0CC8E6A2C4CF44D0083E6C6 /* DonationCellView.swift in Sources */,
 				C0CC8E102C4CF4330083E6C6 /* DependencyGraph.swift in Sources */,
@@ -1028,6 +1037,7 @@
 				C0CC8E832C4CF45B0083E6C6 /* Triangle.swift in Sources */,
 				C0CC8E742C4CF4520083E6C6 /* CompanyProfileTextView.swift in Sources */,
 				C0CC8E752C4CF4520083E6C6 /* ProjectsScrollerView.swift in Sources */,
+				C07F2B5D2C60877C002BEABB /* NavigationCoordinator.swift in Sources */,
 				C0CC8E2D2C4CF4350083E6C6 /* CategoryObject.swift in Sources */,
 				C0CC8E6B2C4CF44E0083E6C6 /* DonationCellView.swift in Sources */,
 				C0CC8E2E2C4CF4350083E6C6 /* DependencyGraph.swift in Sources */,

@@ -312,9 +312,6 @@ struct CompanyProfileView: View {
 
 }
 
-#Preview {
-    let co = CompanyObject.createFakeCompanyObject()
-    return CompanyProfileView(
-        viewModel: DevCompanyProfileViewViewModel(company: co), companyID: co.id
-    )
-}
+//#Preview {
+//    CompanyProfileView()
+//}

@@ -43,5 +43,5 @@ struct ActvitiyFeedFilterView: View {
 }
 
 #Preview {
-    ActivityFeedTabView(viewModel: DevHomeTabActivityFeed())
+    ActivityFeedTabView(coordinator: DevNavigationCoordinator(), viewModel: DevHomeTabActivityFeed())
 }
