@@ -142,6 +142,6 @@ struct ActivityCellView: View {
     }
 }
 
-#Preview {
-    ActivityFeedTabView(coordinator: DevNavigationCoordinator(), viewModel: DevHomeTabActivityFeed())
+#Preview(traits: .sizeThatFitsLayout) {
+    ActivityCellView(activityPost: ActvityPost.createFakeActivityPost(), companySelected: {  })
 }

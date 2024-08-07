@@ -38,6 +38,10 @@
 		C01ACA742C533BD900A77B5E /* MapViewJsonResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = C01ACA572C50BDB300A77B5E /* MapViewJsonResponse.json */; };
 		C01ACA752C533BD900A77B5E /* CompanyProfileViewResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = C01ACA592C50BE8000A77B5E /* CompanyProfileViewResponse.json */; };
 		C01ACA762C533BD900A77B5E /* MapViewJsonResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = C01ACA572C50BDB300A77B5E /* MapViewJsonResponse.json */; };
+		C023F3BA2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C023F3B92C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift */; };
+		C023F3BB2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C023F3B92C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift */; };
+		C023F3BC2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C023F3B92C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift */; };
+		C023F3BD2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C023F3B92C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift */; };
 		C032F70D2C5460A900473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70C2C5460A900473328 /* OHHTTPStubs */; };
 		C032F70F2C5460A900473328 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70E2C5460A900473328 /* OHHTTPStubsSwift */; };
 		C032F7112C54612000473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F7102C54612000473328 /* OHHTTPStubs */; };
@@ -279,6 +283,7 @@
 		C0219F882C4CFDC200979B2E /* (DEVELOPMENT) CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(DEVELOPMENT) CompanyConnect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0219F892C4CFE9100979B2E /* CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompanyConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0219F8D2C4D020200979B2E /* (OFFLINE) CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(OFFLINE) CompanyConnect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C023F3B92C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakWindowUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OHHTTPStubsHandler.swift; sourceTree = "<group>"; };
 		C032F7182C5467FD00473328 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
 		C032F71D2C546FB000473328 /* TweakWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakWindowView.swift; sourceTree = "<group>"; };
@@ -419,15 +424,24 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		C023F3B82C6317280066B741 /* Tweaks */ = {
+			isa = PBXGroup;
+			children = (
+				C0D6B1AB2C5710BA00777D49 /* CCTweakManager.swift */,
+				C0D6B1AF2C57116C00777D49 /* Tweakable.swift */,
+				C032F71D2C546FB000473328 /* TweakWindowView.swift */,
+				C023F3B92C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift */,
+				C032F7212C54700200473328 /* InternetSpeedTweak.swift */,
+				C0FDF0ED2C5791D8009501F2 /* CCTweaks.swift */,
+			);
+			path = Tweaks;
+			sourceTree = "<group>";
+		};
 		C032F71C2C546F9700473328 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				C023F3B82C6317280066B741 /* Tweaks */,
 				C0CC8D922C4CEEC40083E6C6 /* TweetGenerator.swift */,
-				C032F71D2C546FB000473328 /* TweakWindowView.swift */,
-				C0FDF0ED2C5791D8009501F2 /* CCTweaks.swift */,
-				C032F7212C54700200473328 /* InternetSpeedTweak.swift */,
-				C0D6B1AF2C57116C00777D49 /* Tweakable.swift */,
-				C0D6B1AB2C5710BA00777D49 /* CCTweakManager.swift */,
 				C07F2B5A2C60877C002BEABB /* NavigationCoordinator.swift */,
 			);
 			path = Utility;
@@ -827,6 +841,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C023F3BD2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */,
 				C07E5A592C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */,
 				C047FE662C59DC26008A6E36 /* CompanyConnectUnitTests.swift in Sources */,
 				C07F2B5E2C60877C002BEABB /* NavigationCoordinator.swift in Sources */,
@@ -853,6 +868,7 @@
 				C0CC8DAE2C4CF0F80083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,
 				C0CC8DAF2C4CF0F80083E6C6 /* ProjectsScrollerView.swift in Sources */,
 				C01ACA6A2C530D9B00A77B5E /* URLBuilder.swift in Sources */,
+				C023F3BA2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */,
 				C0CC8E362C4CF4420083E6C6 /* CategoryFilterScrollView.swift in Sources */,
 				C0CC8E372C4CF4420083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */,
 				C0CC8E382C4CF4420083E6C6 /* ScrollViewOffset.swift in Sources */,
@@ -955,6 +971,7 @@
 				C0CC8E6D2C4CF4510083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,
 				C032F7162C54617500473328 /* OHHTTPStubsHandler.swift in Sources */,
 				C0FDF0EF2C5791D8009501F2 /* CCTweaks.swift in Sources */,
+				C023F3BB2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */,
 				C0CC8E6E2C4CF4510083E6C6 /* BriefHistoryPhotoScrollerView.swift in Sources */,
 				C01ACA6B2C530D9B00A77B5E /* URLBuilder.swift in Sources */,
 				C0CC8E802C4CF45A0083E6C6 /* CurvedRect.swift in Sources */,
@@ -1031,6 +1048,7 @@
 				C0CC8E722C4CF4520083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,
 				C032F7172C54617500473328 /* OHHTTPStubsHandler.swift in Sources */,
 				C0FDF0F02C5791D8009501F2 /* CCTweaks.swift in Sources */,
+				C023F3BC2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */,
 				C0CC8E732C4CF4520083E6C6 /* BriefHistoryPhotoScrollerView.swift in Sources */,
 				C01ACA6C2C530D9B00A77B5E /* URLBuilder.swift in Sources */,
 				C0CC8E822C4CF45B0083E6C6 /* CurvedRect.swift in Sources */,

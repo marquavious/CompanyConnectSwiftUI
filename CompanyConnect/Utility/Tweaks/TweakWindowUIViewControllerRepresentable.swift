@@ -1,35 +1,13 @@
 //
-//  TweakWindowView.swift
+//  TweakWindowUIViewControllerRepresentable.swift
 //  CompanyConnect
 //
-//  Created by Marquavious Draggon on 7/26/24.
+//  Created by Marquavious Draggon on 8/6/24.
 //
 
 import Foundation
 import SwiftUI
 
-struct TweakWindowView: View {
-    @Environment(\.dismiss) var dismiss
-
-    var body: some View {
-        NavigationView {
-            VStack {
-                TweakWindowUIViewControllerRepresentable()
-            }
-            .edgesIgnoringSafeArea(.bottom)
-            .navigationTitle("CC Tweaks")
-            .toolbar {
-                Button("Close") {
-                    dismiss()
-                }
-            }
-        }
-    }
-}
-
-#Preview {
-    TweakWindowView()
-}
 
 struct TweakWindowUIViewControllerRepresentable: UIViewControllerRepresentable {
 
