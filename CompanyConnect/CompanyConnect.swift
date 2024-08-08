@@ -12,7 +12,7 @@ import TipKit
 struct CompanyConnect: App {
 
     private let dependencyGraph: DependencyGraphType
-    private let navigationCoordinator: NavigationCoordinatorType
+    private let navigationCoordinator: NavigationCoordinator
 
     #if DEBUG
     private let stubsHandler = OHHTTPStubsHandler()
@@ -23,8 +23,7 @@ struct CompanyConnect: App {
     var body: some Scene {
         WindowGroup {
             MainView(
-                dependencyGraph: dependencyGraph, 
-                coordinator: navigationCoordinator
+                dependencyGraph: dependencyGraph
             )
             .onShake {
                 showingSheet.toggle()
@@ -33,11 +32,13 @@ struct CompanyConnect: App {
                 TweakWindowView()
             }
         }
+        .environmentObject(navigationCoordinator)
+
     }
 
     init() {
 
-        let contents: (dependancyGraph: DependencyGraphType, navigationCoordinator: NavigationCoordinatorType) = {
+        let contents: (dependancyGraph: DependencyGraphType, navigationCoordinator: NavigationCoordinator) = {
             let configEnvString: String
             do {
                 configEnvString = try Configuration.value(for: ConfiKeys.APPLICATION_ENVIRONMENT.rawValue)
@@ -78,7 +79,7 @@ struct CompanyConnect: App {
 struct MainView: View {
 
     let dependencyGraph: DependencyGraphType
-    let coordinator: NavigationCoordinatorType
+    @EnvironmentObject var coordinator: NavigationCoordinator
 
     enum TabViewData: String {
         case feed = "Feed"
@@ -98,22 +99,31 @@ struct MainView: View {
     }
 
     var body: some View {
-        TabView {
-            ActivityFeedTabView(coordinator: coordinator, viewModel: dependencyGraph.activityFeedViewModel).tabItem {
-                Label(TabViewData.feed.rawValue, systemImage: TabViewData.feed.systemImageName)
-            }
+        NavigationStack(path: $coordinator.path) {
+            TabView {
+                ActivityFeedTabView(viewModel: dependencyGraph.activityFeedViewModel).tabItem {
+                    Label(TabViewData.feed.rawValue, systemImage: TabViewData.feed.systemImageName)
+                }
+                .navigationDestination(for: Page.self) { page in
+                    switch page {
+                    case .companyProfileView(let id):
+                        CompanyProfileView(viewModel: DevCompanyProfileViewViewModel())
+                    }
+                }
 
-            MapTabView(viewModel: dependencyGraph.mapViewViewModel).tabItem {
-                Label(TabViewData.map.rawValue, systemImage: TabViewData.map.systemImageName)
-            }
+                MapTabView(viewModel: dependencyGraph.mapViewViewModel).tabItem {
+                    Label(TabViewData.map.rawValue, systemImage: TabViewData.map.systemImageName)
+                }
 
-            DonationsView(viewModel: dependencyGraph.donationsViewViewModel).tabItem {
-                Label(TabViewData.donations.rawValue, systemImage: TabViewData.donations.systemImageName)
+                DonationsView(viewModel: dependencyGraph.donationsViewViewModel).tabItem {
+                    Label(TabViewData.donations.rawValue, systemImage: TabViewData.donations.systemImageName)
+                }
             }
         }
+        .environmentObject(coordinator)
     }
 }
 
-#Preview {
-    MainView(dependencyGraph: DevlopmentDependencyGraph(), coordinator: DevNavigationCoordinator())
-}
+//#Preview {
+//    MainView(dependencyGraph: DevlopmentDependencyGraph(), coordinator: DevNavigationCoordinator())
+//}

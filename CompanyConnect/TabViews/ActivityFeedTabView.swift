@@ -24,12 +24,13 @@ struct ActivityFeedTabView: View {
     @Environment (\.colorScheme) var colorScheme
     @State private var presentedNgos: [CompanyID] = []
     @State private var shouldShowFilter: Bool = false
-    let coordinator: NavigationCoordinatorType
+    @EnvironmentObject var coordinator: NavigationCoordinator
 
     var viewModel: ActivityFeedViewViewModelType
 
     var body: some View {
-        NavigationStack(path: $presentedNgos) {
+//        NavigationStack(path: $presentedNgos) {
+        Group {
             switch viewModel.loadingState {
             case .loading:
                 VStack(spacing: 0) {
@@ -46,13 +47,14 @@ struct ActivityFeedTabView: View {
                     viewModel: viewModel
                 ){
 //                    coordinator.navigateToCompanyPage($0)
-                    presentedNgos.append($0)
+//                    presentedNgos.append($0)
+                    coordinator.navigateToCompanyPage($0)
                 }
-                .navigationDestination(for: String.self) { _ in
+//                .navigationDestination(for: String.self) { _ in
 //                    CompanyProfileView(
 //                        viewModel: CompanyProfileViewViewModel(companyID: $0)
 //                    )
-                }
+//                }
                 .navigationTitle(Constants.NavigationTitle)
                 .toolbar {
                     Button(
@@ -84,8 +86,8 @@ struct ActivityFeedTabView: View {
     }
 }
 
-#Preview {
-    ActivityFeedTabView(
-        coordinator: DevNavigationCoordinator(), viewModel: DevHomeTabActivityFeed(postCount: 5, loadingState: .fetched)
-    )
-}
+//#Preview {
+////    ActivityFeedTabView(
+////        coordinator: DevNavigationCoordinator(), viewModel: DevHomeTabActivityFeed(postCount: 5, loadingState: .fetched)
+////    )
+//}

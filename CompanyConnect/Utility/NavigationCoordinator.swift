@@ -8,17 +8,8 @@
 import Foundation
 import SwiftUI
 
-protocol NavigationCoordinatorType {
-    var path: NavigationPath { get set }
-    var companyProfileViewViewModel: CompanyProfileViewViewModelType { get set }
-    func navigateToRoot()
-    func navigateToCompanyPage(_ companyId: String)
-}
-
-@Observable
-final class NavigationCoordinator: NavigationCoordinatorType {
-    var path = NavigationPath()
-    var companyProfileViewViewModel: CompanyProfileViewViewModelType = CompanyProfileViewViewModel()
+class NavigationCoordinator: ObservableObject {
+    @Published var path = NavigationPath()
 
     func navigateToRoot() {
         path.removeLast(path.count)
@@ -29,54 +20,40 @@ final class NavigationCoordinator: NavigationCoordinatorType {
     }
 
     @ViewBuilder
+    func buildPage(page: Page) -> some View {
+        fatalError("Must Override")
+    }
+}
+
+@Observable
+final class ProdNavigationCoordinator: NavigationCoordinator {
+    @ViewBuilder
     func buildPage(page: Page) -> some View  {
         switch page {
         case .companyProfileView(let id):
-            CompanyProfileView(viewModel: companyProfileViewViewModel, companyID: id)
+            CompanyProfileView(viewModel: CompanyProfileViewViewModel(id: id))
         }
     }
 }
 
 @Observable
-final class DevNavigationCoordinator: NavigationCoordinatorType {
-    var path = NavigationPath()
-    var companyProfileViewViewModel: CompanyProfileViewViewModelType = DevCompanyProfileViewViewModel()
-
-    func navigateToRoot() {
-        path.removeLast(path.count)
-    }
-
-    func navigateToCompanyPage(_ companyId: String) {
-        path.append(Page.companyProfileView(companyID: companyId))
-    }
-
+final class DevNavigationCoordinator: NavigationCoordinator {
     @ViewBuilder
     func buildPage(page: Page) -> some View  {
         switch page {
-        case .companyProfileView(let id):
-            CompanyProfileView(viewModel: companyProfileViewViewModel, companyID: id)
+        case .companyProfileView:
+            CompanyProfileView(viewModel: DevCompanyProfileViewViewModel())
         }
     }
 }
 
 @Observable
-final class OfflineNavigationCoordinator: NavigationCoordinatorType {
-    var path = NavigationPath()
-    var companyProfileViewViewModel: CompanyProfileViewViewModelType = OfflineCompanyProfileViewViewModel()
-
-    func navigateToRoot() {
-        path.removeLast(path.count)
-    }
-
-    func navigateToCompanyPage(_ companyId: String) {
-        path.append(Page.companyProfileView(companyID: companyId))
-    }
-
+final class OfflineNavigationCoordinator: NavigationCoordinator {
     @ViewBuilder
     func buildPage(page: Page) -> some View  {
         switch page {
-        case .companyProfileView(let id):
-            CompanyProfileView(viewModel: companyProfileViewViewModel, companyID: id)
+        case .companyProfileView:
+            CompanyProfileView(viewModel: OfflineCompanyProfileViewViewModel())
         }
     }
 }

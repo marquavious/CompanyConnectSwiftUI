@@ -28,23 +28,27 @@ enum CompanyProfileLoadingState: Equatable {
 }
 
 protocol CompanyProfileViewViewModelType {
+    var companyID: String { get set }
     var loadingState: CompanyProfileLoadingState { get set }
     var activityFeedViewModel: ActivityFeedViewViewModelType { get set }
     var companyProfileViewService: CompanyProfileViewServiceType { get set }
-    func loadCompanyProfile(companyID: String) async
+    func loadCompanyProfile() async
 }
 
 @Observable
 class DevCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
+    var companyID: String
     var activityFeedViewModel: ActivityFeedViewViewModelType
     var companyProfileViewService: CompanyProfileViewServiceType
     var loadingState: CompanyProfileLoadingState
 
     init(
+        id: String,
         activityFeedViewModel: ActivityFeedViewViewModelType,
         companyProfileViewService: CompanyProfileViewServiceType,
         loadingState: CompanyProfileLoadingState)
     {
+        self.companyID = id
         self.activityFeedViewModel = activityFeedViewModel
         self.companyProfileViewService = companyProfileViewService
         self.loadingState = loadingState
@@ -54,13 +58,14 @@ class DevCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
         let activityFeedViewModel = DevCompanyActivityFeed()
         let companyProfileViewService = DevCompanyProfileViewService()
         self.init(
+            id: "Doesn't Matter",
             activityFeedViewModel: activityFeedViewModel,
             companyProfileViewService: companyProfileViewService,
             loadingState: loadingState
         )
     }
 
-    func loadCompanyProfile(companyID: String) async {
+    func loadCompanyProfile() async {
         loadingState = .loading
         do {
             let companyResponse = try await companyProfileViewService.getCompnayInfo(companyID: companyID)
@@ -80,18 +85,20 @@ class DevCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
 
 @Observable
 class CompanyProfileViewViewModel: CompanyProfileViewViewModelType {
+    var companyID: String
     var activityFeedViewModel: ActivityFeedViewViewModelType
     var companyProfileViewService: CompanyProfileViewServiceType
     var loadingState: CompanyProfileLoadingState = .idle
 
-    init() {
+    init(id: String) {
+        self.companyID = id
         self.activityFeedViewModel = CompanyActivityFeed(
-            companyID: "ID", service: ActivityPostsService() // COMEBACK TO THIS
+            companyID: id, service: ActivityPostsService() // COMEBACK TO THIS
         )
         self.companyProfileViewService = CompanyProfileViewService()
     }
 
-    func loadCompanyProfile(companyID: String) async {
+    func loadCompanyProfile() async {
         loadingState = .loading
         do {
             let companyResponse = try await companyProfileViewService.getCompnayInfo(companyID: companyID)
@@ -111,11 +118,12 @@ class CompanyProfileViewViewModel: CompanyProfileViewViewModelType {
 
 @Observable
 class OfflineCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
+    var companyID: String = "ID"
     var activityFeedViewModel: ActivityFeedViewViewModelType = OfflineActivityFeed()
     var companyProfileViewService: CompanyProfileViewServiceType = OfflineCompanyProfileViewService()
     var loadingState: CompanyProfileLoadingState = .idle
 
-    func loadCompanyProfile(companyID: String) async {
+    func loadCompanyProfile() async {
         loadingState = .loading
         do {
             let companyResponse = try await companyProfileViewService.getCompnayInfo(companyID: companyID)

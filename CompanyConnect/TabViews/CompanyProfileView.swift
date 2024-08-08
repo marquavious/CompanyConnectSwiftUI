@@ -107,13 +107,11 @@ struct CompanyProfileView: View {
     @State var showNavigationBar: Bool = false
 
     private let viewModel: CompanyProfileViewViewModelType
-    let companyID: String
 
-    init(viewModel: CompanyProfileViewViewModelType, companyID: String) {
+    init(viewModel: CompanyProfileViewViewModelType) {
         UIPageControl.appearance().currentPageIndicatorTintColor = .gray
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
         self.viewModel = viewModel
-        self.companyID = companyID
     }
 
     var body: some View {
@@ -141,7 +139,7 @@ struct CompanyProfileView: View {
                             case .error:
                                 break
                             case .idle:
-                                await viewModel.loadCompanyProfile(companyID: companyID)
+                                await viewModel.loadCompanyProfile()
                             }
                         }
                     }

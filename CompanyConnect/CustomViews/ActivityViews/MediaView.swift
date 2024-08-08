@@ -113,6 +113,6 @@ struct MediaView: View {
 
 }
 
-#Preview {
-    ActivityFeedTabView(coordinator: DevNavigationCoordinator(), viewModel: DevHomeTabActivityFeed())
-}
+//#Preview {
+//    ActivityFeedTabView(coordinator: DevNavigationCoordinator(), viewModel: DevHomeTabActivityFeed())
+//}
