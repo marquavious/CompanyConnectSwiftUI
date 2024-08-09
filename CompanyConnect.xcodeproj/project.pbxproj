@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0128D5F2C65C830008EB561 /* HTTPDownloaderTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0128D5E2C65C830008EB561 /* HTTPDownloaderTwo.swift */; };
+		C0128D602C65C830008EB561 /* HTTPDownloaderTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0128D5E2C65C830008EB561 /* HTTPDownloaderTwo.swift */; };
+		C0128D612C65C830008EB561 /* HTTPDownloaderTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0128D5E2C65C830008EB561 /* HTTPDownloaderTwo.swift */; };
+		C0128D622C65C830008EB561 /* HTTPDownloaderTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0128D5E2C65C830008EB561 /* HTTPDownloaderTwo.swift */; };
 		C01ACA472C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA462C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift */; };
 		C01ACA492C50961600A77B5E /* MapViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA482C50961600A77B5E /* MapViewJSONResponse.swift */; };
 		C01ACA4B2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA4A2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift */; };
@@ -271,6 +275,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C0128D5E2C65C830008EB561 /* HTTPDownloaderTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPDownloaderTwo.swift; sourceTree = "<group>"; };
 		C01ACA462C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileViewJSONResponse.swift; sourceTree = "<group>"; };
 		C01ACA482C50961600A77B5E /* MapViewJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewJSONResponse.swift; sourceTree = "<group>"; };
 		C01ACA4A2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedViewJSONResponse.swift; sourceTree = "<group>"; };
@@ -419,6 +424,7 @@
 				C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */,
 				C01ACA692C530D9B00A77B5E /* URLBuilder.swift */,
 				C01ACA6D2C53197800A77B5E /* HTTPDataDownloader.swift */,
+				C0128D5E2C65C830008EB561 /* HTTPDownloaderTwo.swift */,
 				C0FDF0F12C589F6E009501F2 /* LoadingState.swift */,
 			);
 			path = Networking;
@@ -842,6 +848,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C023F3BD2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */,
+				C0128D622C65C830008EB561 /* HTTPDownloaderTwo.swift in Sources */,
 				C07E5A592C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */,
 				C047FE662C59DC26008A6E36 /* CompanyConnectUnitTests.swift in Sources */,
 				C07F2B5E2C60877C002BEABB /* NavigationCoordinator.swift in Sources */,
@@ -872,6 +879,7 @@
 				C0CC8E362C4CF4420083E6C6 /* CategoryFilterScrollView.swift in Sources */,
 				C0CC8E372C4CF4420083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */,
 				C0CC8E382C4CF4420083E6C6 /* ScrollViewOffset.swift in Sources */,
+				C0128D5F2C65C830008EB561 /* HTTPDownloaderTwo.swift in Sources */,
 				C0CC8E392C4CF4420083E6C6 /* MapViewViewModel.swift in Sources */,
 				C0CC8E3A2C4CF4420083E6C6 /* RoundButtonView.swift in Sources */,
 				C0CC8E3B2C4CF4420083E6C6 /* TipViews.swift in Sources */,
@@ -937,6 +945,7 @@
 				C0CC8E092C4CF4330083E6C6 /* Media.swift in Sources */,
 				C07E5A512C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */,
 				C01ACA6F2C53197800A77B5E /* HTTPDataDownloader.swift in Sources */,
+				C0128D602C65C830008EB561 /* HTTPDownloaderTwo.swift in Sources */,
 				C032F71A2C5467FD00473328 /* UIDevice+Ext.swift in Sources */,
 				C0CC8E0A2C4CF4330083E6C6 /* StringGenerator.swift in Sources */,
 				C0CC8E0B2C4CF4330083E6C6 /* TeamMember.swift in Sources */,
@@ -1014,6 +1023,7 @@
 				C0CC8E272C4CF4350083E6C6 /* Media.swift in Sources */,
 				C07E5A522C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */,
 				C01ACA702C53197800A77B5E /* HTTPDataDownloader.swift in Sources */,
+				C0128D612C65C830008EB561 /* HTTPDownloaderTwo.swift in Sources */,
 				C032F71B2C5467FD00473328 /* UIDevice+Ext.swift in Sources */,
 				C0CC8E282C4CF4350083E6C6 /* StringGenerator.swift in Sources */,
 				C0CC8E292C4CF4350083E6C6 /* TeamMember.swift in Sources */,

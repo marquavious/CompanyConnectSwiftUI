@@ -105,18 +105,20 @@ struct CompanyProfileView: View {
     @State var showActivityFeed: Bool = true
     @State private var currentTab: ProfileTabs = .about
     @State var showNavigationBar: Bool = false
+    @State var loadingState: CompanyProfileLoadingState = .idle
 
-    private let viewModel: CompanyProfileViewViewModelType
+    var companyID: String
+    var companyProfileViewService: CompanyProfileViewServiceType = OfflineCompanyProfileViewService()
 
-    init(viewModel: CompanyProfileViewViewModelType) {
+    init(companyID: String) {
+        self.companyID = companyID
         UIPageControl.appearance().currentPageIndicatorTintColor = .gray
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
-        self.viewModel = viewModel
     }
 
     var body: some View {
         Group {
-            switch viewModel.loadingState {
+            switch loadingState {
             case .loading, .idle:
                 Rectangle()
                     .fill(.background)
@@ -131,7 +133,7 @@ struct CompanyProfileView: View {
                                 .foregroundColor(.gray)
                         }
                         .task {
-                            switch viewModel.loadingState {
+                            switch loadingState {
                             case .loading:
                                 break
                             case .fetched:
@@ -139,7 +141,7 @@ struct CompanyProfileView: View {
                             case .error:
                                 break
                             case .idle:
-                                await viewModel.loadCompanyProfile()
+                                await loadCompanyProfile()
                             }
                         }
                     }
@@ -247,11 +249,12 @@ struct CompanyProfileView: View {
                             }
                             .offset(y: -50)
                         case .activity:
-                            ActivityFeedScrollView(
-                                shouldShowCategoryFilter: false,
-                                viewModel: viewModel.activityFeedViewModel
-                            )
-                            .offset(y: Constants.ScrollViewOffset)
+                            EmptyView()
+//                            ActivityFeedScrollView(
+//                                shouldShowCategoryFilter: false,
+//                                viewModel: Co
+//                            )
+//                            .offset(y: Constants.ScrollViewOffset)
                         }
                     }
                     .background()
@@ -304,6 +307,22 @@ struct CompanyProfileView: View {
         } else if abs(scrollViewOffset) < Constants.HeaderViewHeight - Constants.NavigationBarHeight, showNavigationBar {
             withAnimation(.easeInOut(duration: 0.2)) {
                 showNavigationBar.toggle()
+            }
+        }
+    }
+
+    private func loadCompanyProfile() async {
+        loadingState = .loading
+        do {
+            let companyResponse = try await companyProfileViewService.getCompnayInfo(companyID: companyID)
+            loadingState = .fetched(companyResponse.companyObject)
+        } catch {
+            let nsError = error as NSError
+            if nsError.domain == NSURLErrorDomain,
+               nsError.code == NSURLErrorCancelled {
+                //Handle cancellation
+            } else {
+                loadingState = .error(error)
             }
         }
     }

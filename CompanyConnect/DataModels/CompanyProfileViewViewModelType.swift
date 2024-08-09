@@ -28,8 +28,8 @@ enum CompanyProfileLoadingState: Equatable {
 }
 
 protocol CompanyProfileViewViewModelType {
-    var companyID: String { get set }
-    var loadingState: CompanyProfileLoadingState { get set }
+//    var companyID: String { get set }
+//    var loadingState: CompanyProfileLoadingState { get set }
     var activityFeedViewModel: ActivityFeedViewViewModelType { get set }
     var companyProfileViewService: CompanyProfileViewServiceType { get set }
     func loadCompanyProfile() async

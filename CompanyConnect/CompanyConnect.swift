@@ -12,7 +12,6 @@ import TipKit
 struct CompanyConnect: App {
 
     private let dependencyGraph: DependencyGraphType
-    private let navigationCoordinator: NavigationCoordinator
 
     #if DEBUG
     private let stubsHandler = OHHTTPStubsHandler()
@@ -32,13 +31,12 @@ struct CompanyConnect: App {
                 TweakWindowView()
             }
         }
-        .environmentObject(navigationCoordinator)
 
     }
 
     init() {
 
-        let contents: (dependancyGraph: DependencyGraphType, navigationCoordinator: NavigationCoordinator) = {
+        let dependancyGraph: DependencyGraphType = {
             let configEnvString: String
             do {
                 configEnvString = try Configuration.value(for: ConfiKeys.APPLICATION_ENVIRONMENT.rawValue)
@@ -49,21 +47,20 @@ struct CompanyConnect: App {
             if let enviorment = ApplicationEnviorment(rawValue: configEnvString) {
                 switch enviorment {
                 case .production:
-                    return (DependencyGraph(), NavigationCoordinator())
+                    return DependencyGraph()
                 case .offline:
-                    return (OfflineDependencyGraph(), OfflineNavigationCoordinator())
+                    return OfflineDependencyGraph()
                 case .integrated:
-                    return (IntegratedDependencyGraph(), DevNavigationCoordinator())
+                    return IntegratedDependencyGraph()
                 case .development:
-                    return (DevlopmentDependencyGraph(), DevNavigationCoordinator())
+                    return DevlopmentDependencyGraph()
                 }
             } else {
                 fatalError("Could not crate DependencyGraph from Config.")
             }
         }()
 
-        self.navigationCoordinator = contents.navigationCoordinator
-        self.dependencyGraph = contents.dependancyGraph
+        self.dependencyGraph = dependancyGraph
 
     #if DEBUG
         stubsHandler.setupStubs()
@@ -79,7 +76,6 @@ struct CompanyConnect: App {
 struct MainView: View {
 
     let dependencyGraph: DependencyGraphType
-    @EnvironmentObject var coordinator: NavigationCoordinator
 
     enum TabViewData: String {
         case feed = "Feed"
@@ -99,28 +95,19 @@ struct MainView: View {
     }
 
     var body: some View {
-        NavigationStack(path: $coordinator.path) {
-            TabView {
-                ActivityFeedTabView(viewModel: dependencyGraph.activityFeedViewModel).tabItem {
-                    Label(TabViewData.feed.rawValue, systemImage: TabViewData.feed.systemImageName)
-                }
-                .navigationDestination(for: Page.self) { page in
-                    switch page {
-                    case .companyProfileView(let id):
-                        CompanyProfileView(viewModel: DevCompanyProfileViewViewModel())
-                    }
-                }
+        TabView {
+            ActivityFeedTabView(viewModel: dependencyGraph.activityFeedViewModel).tabItem {
+                Label(TabViewData.feed.rawValue, systemImage: TabViewData.feed.systemImageName)
+            }
 
-                MapTabView(viewModel: dependencyGraph.mapViewViewModel).tabItem {
-                    Label(TabViewData.map.rawValue, systemImage: TabViewData.map.systemImageName)
-                }
+            MapTabView(viewModel: dependencyGraph.mapViewViewModel).tabItem {
+                Label(TabViewData.map.rawValue, systemImage: TabViewData.map.systemImageName)
+            }
 
-                DonationsView(viewModel: dependencyGraph.donationsViewViewModel).tabItem {
-                    Label(TabViewData.donations.rawValue, systemImage: TabViewData.donations.systemImageName)
-                }
+            DonationsView(viewModel: dependencyGraph.donationsViewViewModel).tabItem {
+                Label(TabViewData.donations.rawValue, systemImage: TabViewData.donations.systemImageName)
             }
         }
-        .environmentObject(coordinator)
     }
 }
 
