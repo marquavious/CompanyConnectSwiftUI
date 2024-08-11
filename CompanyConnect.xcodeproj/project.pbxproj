@@ -46,6 +46,10 @@
 		C023F3BB2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C023F3B92C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift */; };
 		C023F3BC2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C023F3B92C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift */; };
 		C023F3BD2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C023F3B92C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift */; };
+		C02FF0DF2C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */; };
+		C02FF0E02C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */; };
+		C02FF0E12C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */; };
+		C02FF0E22C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */; };
 		C032F70D2C5460A900473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70C2C5460A900473328 /* OHHTTPStubs */; };
 		C032F70F2C5460A900473328 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70E2C5460A900473328 /* OHHTTPStubsSwift */; };
 		C032F7112C54612000473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F7102C54612000473328 /* OHHTTPStubs */; };
@@ -285,6 +289,7 @@
 		C0219F892C4CFE9100979B2E /* CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompanyConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0219F8D2C4D020200979B2E /* (OFFLINE) CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(OFFLINE) CompanyConnect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C023F3B92C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakWindowUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHandlerType.swift; sourceTree = "<group>"; };
 		C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OHHTTPStubsHandler.swift; sourceTree = "<group>"; };
 		C032F7182C5467FD00473328 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
 		C032F71D2C546FB000473328 /* TweakWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakWindowView.swift; sourceTree = "<group>"; };
@@ -592,6 +597,7 @@
 				C0CC8D932C4CEEC40083E6C6 /* User.swift */,
 				C07E5A4F2C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift */,
 				C07E5A552C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift */,
+				C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -845,6 +851,7 @@
 				C0128D622C65C830008EB561 /* HTTPDownloaderTwo.swift in Sources */,
 				C07E5A592C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */,
 				C047FE662C59DC26008A6E36 /* CompanyConnectUnitTests.swift in Sources */,
+				C02FF0E22C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */,
 				C07E5A532C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -887,6 +894,7 @@
 				C0CC8DB32C4CF0F80083E6C6 /* CompanyHGrid.swift in Sources */,
 				C032F7222C54700200473328 /* InternetSpeedTweak.swift in Sources */,
 				C0CC8DB42C4CF0F80083E6C6 /* CompanyListView.swift in Sources */,
+				C02FF0DF2C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */,
 				C0CC8DB52C4CF0F80083E6C6 /* CompanyVGrid.swift in Sources */,
 				C01ACA6E2C53197800A77B5E /* HTTPDataDownloader.swift in Sources */,
 				C0CC8DB62C4CF0F80083E6C6 /* MapAnnotationView.swift in Sources */,
@@ -983,6 +991,7 @@
 				C0CC8E6A2C4CF44D0083E6C6 /* DonationCellView.swift in Sources */,
 				C0CC8E102C4CF4330083E6C6 /* DependencyGraph.swift in Sources */,
 				C0CC8E112C4CF4330083E6C6 /* TweetGenerator.swift in Sources */,
+				C02FF0E02C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */,
 				C0CC8E122C4CF4330083E6C6 /* Configuration.swift in Sources */,
 				C0FDF0F32C589F6E009501F2 /* LoadingState.swift in Sources */,
 				C0CC8E132C4CF4330083E6C6 /* Project.swift in Sources */,
@@ -1060,6 +1069,7 @@
 				C0CC8E6B2C4CF44E0083E6C6 /* DonationCellView.swift in Sources */,
 				C0CC8E2E2C4CF4350083E6C6 /* DependencyGraph.swift in Sources */,
 				C0CC8E2F2C4CF4350083E6C6 /* TweetGenerator.swift in Sources */,
+				C02FF0E12C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */,
 				C0CC8E302C4CF4350083E6C6 /* Configuration.swift in Sources */,
 				C0FDF0F42C589F6E009501F2 /* LoadingState.swift in Sources */,
 				C0CC8E312C4CF4350083E6C6 /* Project.swift in Sources */,
