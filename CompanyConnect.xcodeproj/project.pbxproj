@@ -50,6 +50,10 @@
 		C02FF0E02C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */; };
 		C02FF0E12C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */; };
 		C02FF0E22C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */; };
+		C02FF0E42C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */; };
+		C02FF0E52C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */; };
+		C02FF0E62C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */; };
+		C02FF0E72C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */; };
 		C032F70D2C5460A900473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70C2C5460A900473328 /* OHHTTPStubs */; };
 		C032F70F2C5460A900473328 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70E2C5460A900473328 /* OHHTTPStubsSwift */; };
 		C032F7112C54612000473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F7102C54612000473328 /* OHHTTPStubs */; };
@@ -290,6 +294,7 @@
 		C0219F8D2C4D020200979B2E /* (OFFLINE) CompanyConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(OFFLINE) CompanyConnect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C023F3B92C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakWindowUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHandlerType.swift; sourceTree = "<group>"; };
+		C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPostsServiceType.swift; sourceTree = "<group>"; };
 		C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OHHTTPStubsHandler.swift; sourceTree = "<group>"; };
 		C032F7182C5467FD00473328 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
 		C032F71D2C546FB000473328 /* TweakWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakWindowView.swift; sourceTree = "<group>"; };
@@ -598,6 +603,7 @@
 				C07E5A4F2C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift */,
 				C07E5A552C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift */,
 				C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */,
+				C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -852,6 +858,7 @@
 				C07E5A592C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */,
 				C047FE662C59DC26008A6E36 /* CompanyConnectUnitTests.swift in Sources */,
 				C02FF0E22C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */,
+				C02FF0E72C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
 				C07E5A532C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -916,6 +923,7 @@
 				C01ACA492C50961600A77B5E /* MapViewJSONResponse.swift in Sources */,
 				C0CC8DF62C4CF4320083E6C6 /* BriefHistoryImageObject.swift in Sources */,
 				C0CC8DF72C4CF4320083E6C6 /* Donation.swift in Sources */,
+				C02FF0E42C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
 				C0D6B1AC2C5710BA00777D49 /* CCTweakManager.swift in Sources */,
 				C07E5A562C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */,
 				C0CC8DF82C4CF4320083E6C6 /* ActvityPost.swift in Sources */,
@@ -989,6 +997,7 @@
 				C0CC8E702C4CF4510083E6C6 /* ProjectsScrollerView.swift in Sources */,
 				C0CC8E0F2C4CF4330083E6C6 /* CategoryObject.swift in Sources */,
 				C0CC8E6A2C4CF44D0083E6C6 /* DonationCellView.swift in Sources */,
+				C02FF0E52C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
 				C0CC8E102C4CF4330083E6C6 /* DependencyGraph.swift in Sources */,
 				C0CC8E112C4CF4330083E6C6 /* TweetGenerator.swift in Sources */,
 				C02FF0E02C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */,
@@ -1067,6 +1076,7 @@
 				C0CC8E752C4CF4520083E6C6 /* ProjectsScrollerView.swift in Sources */,
 				C0CC8E2D2C4CF4350083E6C6 /* CategoryObject.swift in Sources */,
 				C0CC8E6B2C4CF44E0083E6C6 /* DonationCellView.swift in Sources */,
+				C02FF0E62C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
 				C0CC8E2E2C4CF4350083E6C6 /* DependencyGraph.swift in Sources */,
 				C0CC8E2F2C4CF4350083E6C6 /* TweetGenerator.swift in Sources */,
 				C02FF0E12C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */,
