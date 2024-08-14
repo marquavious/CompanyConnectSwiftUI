@@ -105,20 +105,17 @@ struct CompanyProfileView: View {
     @State var showActivityFeed: Bool = true
     @State private var currentTab: ProfileTabs = .about
     @State var showNavigationBar: Bool = false
-    @State var loadingState: CompanyProfileLoadingState = .idle
+    var viewModel: CompanyProfileViewViewModelType
 
-    var companyID: String
-    var companyProfileViewService: CompanyProfileViewServiceType = OfflineCompanyProfileViewService()
-
-    init(companyID: String) {
-        self.companyID = companyID
+    init(viewModel: CompanyProfileViewViewModelType) {
+        self.viewModel = viewModel
         UIPageControl.appearance().currentPageIndicatorTintColor = .gray
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
     }
 
     var body: some View {
         Group {
-            switch loadingState {
+            switch viewModel.loadingState {
             case .loading, .idle:
                 Rectangle()
                     .fill(.background)
@@ -133,16 +130,7 @@ struct CompanyProfileView: View {
                                 .foregroundColor(.gray)
                         }
                         .task {
-                            switch loadingState {
-                            case .loading:
-                                break
-                            case .fetched:
-                                break
-                            case .error:
-                                break
-                            case .idle:
-                                await loadCompanyProfile()
-                            }
+                            await loadCompanyProfile()
                         }
                     }
             case .fetched(let company):
@@ -252,7 +240,7 @@ struct CompanyProfileView: View {
                             EmptyView()
 //                            ActivityFeedScrollView(
 //                                shouldShowCategoryFilter: false,
-//                                viewModel: Co
+//                                viewModel: Com
 //                            )
 //                            .offset(y: Constants.ScrollViewOffset)
                         }
@@ -261,34 +249,45 @@ struct CompanyProfileView: View {
                 }
                 .navigationBarBackButtonHidden(true)
                 .overlay(alignment: .topLeading) {
-                    BlurView()
-                        .ignoresSafeArea()
-                        .frame(
-                            width: UIScreen.main.bounds.width,
-                            height: Constants.NavigationBarHeight
-                        )
-                        .opacity(showNavigationBar ? 1 : 0)
-                        .overlay(alignment: .center) {
-                            Text(company.orginizationName)
-                                .foregroundStyle(.white)
-                                .fontWeight(.semibold)
-                                .opacity(showNavigationBar ? 1 : 0)
-                        }
-                        .overlay(alignment: .leading) {
-                            Image(systemName: "chevron.left")
-                                .frame(width: 20,height: 20)
-                                .padding(8)
-                                .foregroundColor(.white)
-                                .background(
-                                    .background
-                                        .opacity(showNavigationBar ? 0 : 0.5)
+                    ZStack {
+                            BlurView()
+                                .ignoresSafeArea()
+                                .frame(
+                                    width: UIScreen.main.bounds.width,
+                                    height: Constants.NavigationBarHeight
                                 )
-                                .environment(\.colorScheme, .dark)
-                                .clipShape(Circle())
-                                .onTapGesture { dismiss() }
-                                .padding([.horizontal])
-                                .allowsHitTesting(true)
+                                .opacity(showNavigationBar ? 1 : 0)
+                                .overlay(alignment: .center) {
+                                    Text(company.orginizationName)
+                                        .foregroundStyle(.white)
+                                        .fontWeight(.semibold)
+                                        .opacity(showNavigationBar ? 1 : 0)
+                                }
+
+                        ZStack {
+                            Rectangle().fill(Color.black.opacity(0.0001))
+                                .frame(
+                                    width: UIScreen.main.bounds.width,
+                                    height: Constants.NavigationBarHeight
+                                )
+                            HStack {
+                                Image(systemName: "chevron.left")
+                                    .frame(width: 20,height: 20)
+                                    .padding(8)
+                                    .foregroundColor(.white)
+                                    .background(
+                                        .background
+                                            .opacity(showNavigationBar ? 0 : 0.5)
+                                    )
+                                    .environment(\.colorScheme, .dark)
+                                    .clipShape(Circle())
+                                    .padding([.horizontal])
+                                    .allowsHitTesting(true)
+                                    .onTapGesture { dismiss() }
+                                Spacer()
+                            }
                         }
+                    }
                 }
 
             case .error:
@@ -312,19 +311,7 @@ struct CompanyProfileView: View {
     }
 
     private func loadCompanyProfile() async {
-        loadingState = .loading
-        do {
-            let companyResponse = try await companyProfileViewService.getCompnayInfo(companyID: companyID)
-            loadingState = .fetched(companyResponse.companyObject)
-        } catch {
-            let nsError = error as NSError
-            if nsError.domain == NSURLErrorDomain,
-               nsError.code == NSURLErrorCancelled {
-                //Handle cancellation
-            } else {
-                loadingState = .error(error)
-            }
-        }
+        await viewModel.loadCompanyProfile()
     }
 
 }

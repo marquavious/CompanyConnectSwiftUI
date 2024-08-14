@@ -28,15 +28,15 @@ enum CompanyProfileLoadingState: Equatable {
 }
 
 protocol CompanyProfileViewViewModelType {
-//    var companyID: String { get set }
-//    var loadingState: CompanyProfileLoadingState { get set }
+    var companyID: String { get set }
+    var loadingState: CompanyProfileLoadingState { get set }
     var activityFeedViewModel: ActivityFeedViewViewModelType { get set }
     var companyProfileViewService: CompanyProfileViewServiceType { get set }
     func loadCompanyProfile() async
 }
 
 @Observable
-class DevCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
+class DevCompanyProfileViewViewModel: CompanyProfileViewViewModelType, ObservableObject {
     var companyID: String
     var activityFeedViewModel: ActivityFeedViewViewModelType
     var companyProfileViewService: CompanyProfileViewServiceType
@@ -84,7 +84,7 @@ class DevCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
 }
 
 @Observable
-class CompanyProfileViewViewModel: CompanyProfileViewViewModelType {
+class CompanyProfileViewViewModel: CompanyProfileViewViewModelType, ObservableObject {
     var companyID: String
     var activityFeedViewModel: ActivityFeedViewViewModelType
     var companyProfileViewService: CompanyProfileViewServiceType
@@ -108,6 +108,7 @@ class CompanyProfileViewViewModel: CompanyProfileViewViewModelType {
             if nsError.domain == NSURLErrorDomain,
                nsError.code == NSURLErrorCancelled {
                 //Handle cancellation
+                loadingState = .error(error)
             } else {
                 loadingState = .error(error)
             }
@@ -117,7 +118,7 @@ class CompanyProfileViewViewModel: CompanyProfileViewViewModelType {
 }
 
 @Observable
-class OfflineCompanyProfileViewViewModel: CompanyProfileViewViewModelType {
+class OfflineCompanyProfileViewViewModel: CompanyProfileViewViewModelType, ObservableObject {
     var companyID: String = "ID"
     var activityFeedViewModel: ActivityFeedViewViewModelType = OfflineActivityFeed()
     var companyProfileViewService: CompanyProfileViewServiceType = OfflineCompanyProfileViewService()
