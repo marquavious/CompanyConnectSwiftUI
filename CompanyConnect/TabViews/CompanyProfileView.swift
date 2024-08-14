@@ -115,6 +115,7 @@ struct CompanyProfileView: View {
 
     var body: some View {
         Group {
+
             switch viewModel.loadingState {
             case .loading, .idle:
                 Rectangle()
@@ -237,12 +238,14 @@ struct CompanyProfileView: View {
                             }
                             .offset(y: -50)
                         case .activity:
-                            EmptyView()
-//                            ActivityFeedScrollView(
-//                                shouldShowCategoryFilter: false,
-//                                viewModel: Com
-//                            )
-//                            .offset(y: Constants.ScrollViewOffset)
+                            ActivityFeedScrollView(
+                                shouldShowCategoryFilter: false,
+                                viewModel: CompanyActivityFeed(
+                                    companyID: viewModel.companyID,
+                                    service: ActivityPostsService()
+                                )
+                            )
+                            .offset(y: Constants.ScrollViewOffset)
                         }
                     }
                     .background()
@@ -264,28 +267,22 @@ struct CompanyProfileView: View {
                                         .opacity(showNavigationBar ? 1 : 0)
                                 }
 
-                        ZStack {
-                            Rectangle().fill(Color.black.opacity(0.0001))
-                                .frame(
-                                    width: UIScreen.main.bounds.width,
-                                    height: Constants.NavigationBarHeight
+                        HStack {
+                            Image(systemName: "chevron.left")
+                                .frame(width: 20,height: 20)
+                                .padding(8)
+                                .foregroundColor(.white)
+                                .background(
+                                    .background
+                                        .opacity(showNavigationBar ? 0 : 0.5)
                                 )
-                            HStack {
-                                Image(systemName: "chevron.left")
-                                    .frame(width: 20,height: 20)
-                                    .padding(8)
-                                    .foregroundColor(.white)
-                                    .background(
-                                        .background
-                                            .opacity(showNavigationBar ? 0 : 0.5)
-                                    )
-                                    .environment(\.colorScheme, .dark)
-                                    .clipShape(Circle())
-                                    .padding([.horizontal])
-                                    .allowsHitTesting(true)
-                                    .onTapGesture { dismiss() }
-                                Spacer()
-                            }
+                                .environment(\.colorScheme, .dark)
+                                .clipShape(Circle())
+                                .padding([.horizontal])
+                                .allowsHitTesting(true)
+                                .onTapGesture { dismiss() }
+                                .background(Rectangle().fill(Color.black.opacity(0.0001)))
+                            Spacer()
                         }
                     }
                 }
