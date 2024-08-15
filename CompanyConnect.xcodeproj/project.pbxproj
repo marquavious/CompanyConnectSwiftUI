@@ -54,6 +54,10 @@
 		C02FF0E52C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */; };
 		C02FF0E62C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */; };
 		C02FF0E72C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */; };
+		C02FF1662C6DA55D00B7EA16 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = C02FF1652C6DA55D00B7EA16 /* Factory */; };
+		C02FF1682C6DA56E00B7EA16 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = C02FF1672C6DA56E00B7EA16 /* Factory */; };
+		C02FF16A2C6DA57700B7EA16 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = C02FF1692C6DA57700B7EA16 /* Factory */; };
+		C02FF16C2C6DA58000B7EA16 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = C02FF16B2C6DA58000B7EA16 /* Factory */; };
 		C032F70D2C5460A900473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70C2C5460A900473328 /* OHHTTPStubs */; };
 		C032F70F2C5460A900473328 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70E2C5460A900473328 /* OHHTTPStubsSwift */; };
 		C032F7112C54612000473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F7102C54612000473328 /* OHHTTPStubs */; };
@@ -376,6 +380,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02FF16C2C6DA58000B7EA16 /* Factory in Frameworks */,
 				C047FE6D2C59DF3C008A6E36 /* OHHTTPStubs in Frameworks */,
 				C047FE6F2C59DF3C008A6E36 /* OHHTTPStubsSwift in Frameworks */,
 			);
@@ -385,6 +390,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02FF1662C6DA55D00B7EA16 /* Factory in Frameworks */,
 				C032F7112C54612000473328 /* OHHTTPStubs in Frameworks */,
 				C032F7132C54612000473328 /* OHHTTPStubsSwift in Frameworks */,
 			);
@@ -394,6 +400,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02FF1682C6DA56E00B7EA16 /* Factory in Frameworks */,
 				C01ACA652C5305FE00A77B5E /* OHHTTPStubs in Frameworks */,
 				C01ACA672C5305FE00A77B5E /* OHHTTPStubsSwift in Frameworks */,
 			);
@@ -403,6 +410,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02FF16A2C6DA57700B7EA16 /* Factory in Frameworks */,
 				C032F70D2C5460A900473328 /* OHHTTPStubs in Frameworks */,
 				C032F70F2C5460A900473328 /* OHHTTPStubsSwift in Frameworks */,
 			);
@@ -679,6 +687,7 @@
 			packageProductDependencies = (
 				C047FE6C2C59DF3C008A6E36 /* OHHTTPStubs */,
 				C047FE6E2C59DF3C008A6E36 /* OHHTTPStubsSwift */,
+				C02FF16B2C6DA58000B7EA16 /* Factory */,
 			);
 			productName = CompanyConnectUnitTests;
 			productReference = C047FE632C59DC26008A6E36 /* CompanyConnectUnitTests.xctest */;
@@ -700,6 +709,7 @@
 			packageProductDependencies = (
 				C032F7102C54612000473328 /* OHHTTPStubs */,
 				C032F7122C54612000473328 /* OHHTTPStubsSwift */,
+				C02FF1652C6DA55D00B7EA16 /* Factory */,
 			);
 			productName = "SwfitUI Connect And Care";
 			productReference = C0219F892C4CFE9100979B2E /* CompanyConnect.app */;
@@ -721,6 +731,7 @@
 			packageProductDependencies = (
 				C01ACA642C5305FE00A77B5E /* OHHTTPStubs */,
 				C01ACA662C5305FE00A77B5E /* OHHTTPStubsSwift */,
+				C02FF1672C6DA56E00B7EA16 /* Factory */,
 			);
 			productName = "SwfitUI Connect And Care";
 			productReference = C0219F8D2C4D020200979B2E /* (OFFLINE) CompanyConnect.app */;
@@ -742,6 +753,7 @@
 			packageProductDependencies = (
 				C032F70C2C5460A900473328 /* OHHTTPStubs */,
 				C032F70E2C5460A900473328 /* OHHTTPStubsSwift */,
+				C02FF1692C6DA57700B7EA16 /* Factory */,
 			);
 			productName = "SwfitUI Connect And Care";
 			productReference = C0219F882C4CFDC200979B2E /* (DEVELOPMENT) CompanyConnect.app */;
@@ -777,6 +789,7 @@
 			mainGroup = C05ADEBC2B0AC29D00F5B5ED;
 			packageReferences = (
 				C01ACA632C5305FE00A77B5E /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
+				C02FF1642C6DA55D00B7EA16 /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			productRefGroup = C05ADEBC2B0AC29D00F5B5ED;
 			projectDirPath = "";
@@ -1514,6 +1527,14 @@
 				minimumVersion = 9.1.0;
 			};
 		};
+		C02FF1642C6DA55D00B7EA16 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1526,6 +1547,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C01ACA632C5305FE00A77B5E /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
 			productName = OHHTTPStubsSwift;
+		};
+		C02FF1652C6DA55D00B7EA16 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C02FF1642C6DA55D00B7EA16 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+		C02FF1672C6DA56E00B7EA16 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C02FF1642C6DA55D00B7EA16 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+		C02FF1692C6DA57700B7EA16 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C02FF1642C6DA55D00B7EA16 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+		C02FF16B2C6DA58000B7EA16 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C02FF1642C6DA55D00B7EA16 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
 		};
 		C032F70C2C5460A900473328 /* OHHTTPStubs */ = {
 			isa = XCSwiftPackageProductDependency;
