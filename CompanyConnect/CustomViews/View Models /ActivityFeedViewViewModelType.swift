@@ -8,17 +8,17 @@
 import Foundation
 
 protocol ActivityFeedViewViewModelType {
-    var loadingState: LoadingState { get }
-    var service: ActivityPostsServiceType { get set }
-    func selctedCategories() ->[Category]
-    func categories() -> [Category]
-    func hasSelectedCategories() -> Bool
-    func presentedPosts() -> [ActvityPost]
-    func resetSelectedCategories()
-    func addToSelectedCategories(category: Category)
-    func removeCategory(category: Category)
-    func handleCategorySelection(_ category: Category)
-    func loadPosts() async
+//    var loadingState: LoadingState { get }
+//    var service: ActivityPostsServiceType { get set }
+//    func presentedPosts() -> [ActvityPost]
+//    func selctedCategories() ->[Category]
+//    func categories() -> [Category]
+//    func hasSelectedCategories() -> Bool
+//    func resetSelectedCategories()
+//    func addToSelectedCategories(category: Category)
+//    func removeCategory(category: Category)
+//    func handleCategorySelection(_ category: Category)
+//    func loadPosts() async
 }
 
 @Observable

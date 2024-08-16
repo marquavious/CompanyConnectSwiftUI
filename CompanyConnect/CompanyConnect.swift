@@ -97,7 +97,7 @@ struct MainView: View {
 
     var body: some View {
         TabView {
-            ActivityFeedTabView(viewModel: dependencyGraph.activityFeedViewModel).tabItem {
+            ActivityFeedTabView().tabItem {
                 Label(TabViewData.feed.rawValue, systemImage: TabViewData.feed.systemImageName)
             }
 

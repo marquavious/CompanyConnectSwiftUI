@@ -20,7 +20,7 @@ struct ActivityFeedScrollView: View {
     @State var shouldShowCategoryFilter: Bool
     @Environment(\.colorScheme) var colorScheme
 
-    var viewModel: ActivityFeedViewViewModelType
+//    var viewModel: ActivityFeedViewViewModelType
     var ngoSelected: ((_ companyID: String) -> Void)?
     private let columns = [GridItem(.flexible())]
     private let activityScrollerTipView = ActivityScrollerTipView()

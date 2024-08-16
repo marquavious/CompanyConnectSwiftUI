@@ -8,9 +8,25 @@
 import SwiftUI
 import TipKit
 
-typealias CompanyID =  String
-
 struct ActivityFeedTabView: View {
+
+    enum LoadingState: Equatable {
+
+        case loading
+        case fetched
+        case error(Error)
+
+        static func == (lhs: LoadingState, rhs: LoadingState) -> Bool {
+            switch (lhs, rhs) {
+            case (.loading, .loading), (.fetched, .fetched):
+                true
+            case let (.error(lhsError), .error(rhsError)):
+                lhsError.localizedDescription == rhsError.localizedDescription
+            default:
+                false
+            }
+        }
+    }
 
     struct Constants {
         static let NavigationTitle = "Recent Updates"
@@ -22,14 +38,14 @@ struct ActivityFeedTabView: View {
     }
 
     @Environment (\.colorScheme) var colorScheme
-    @State private var presentedNgos: [CompanyID] = []
+    @State private var presentedNgos: [String] = []
     @State private var shouldShowFilter: Bool = false
-
-    var viewModel: ActivityFeedViewViewModelType
+    @State private var loadingState: LoadingState
+    @State private var categoryHandler: CategoryHandler = CategoryHandler()
 
     var body: some View {
         NavigationStack(path: $presentedNgos) {
-            switch viewModel.loadingState {
+            switch loadingState {
             case .loading:
                 VStack(spacing: 0) {
                     ProgressView()
@@ -53,11 +69,11 @@ struct ActivityFeedTabView: View {
                 .toolbar {
                     Button(
                         String(),
-                        systemImage: viewModel.hasSelectedCategories() ? Icons.RightToolBarIcon.rawValue : String()
+                        systemImage: categoryHandler.hasSelectedCategories ? Icons.RightToolBarIcon.rawValue : String()
                     ) {
-                        if viewModel.hasSelectedCategories() {
+                        if categoryHandler.hasSelectedCategories {
                             withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
-                                viewModel.resetSelectedCategories()
+                                categoryHandler.resetSelectedCategories()
                             }
                         }
                     }
@@ -68,19 +84,19 @@ struct ActivityFeedTabView: View {
                     .navigationTitle(Constants.NavigationTitle)
             }
         }
-        .task {
-            if viewModel.loadingState != .fetched {
-                await fetchPost()
-            }
-        }
+//        .task {
+//            if loadingState != .fetched {
+//                await fetchPost()
+//            }
+//        }
     }
 
-    private func fetchPost() async {
-        await viewModel.loadPosts()
-    }
+//    private func fetchPost() async {
+//        await viewModel.loadPosts()
+//    }
 }
 
-#Preview {
-    ActivityFeedTabView(viewModel: DevHomeTabActivityFeed(postCount: 5, loadingState: .fetched)
-    )
-}
+//#Preview {
+//    ActivityFeedTabView(viewModel: DevHomeTabActivityFeed(postCount: 5, loadingState: .fetched)
+//    )
+//}

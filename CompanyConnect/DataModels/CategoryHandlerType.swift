@@ -7,18 +7,8 @@
 
 import Foundation
 
-protocol CategoryHandlerType {
-    var categories: [Category] { get set }
-    var selctedCategories: [Category] { get set }
-    var hasSelectedCategories: Bool { get }
-    func resetSelectedCategories()
-    func addToSelectedCategories(category: Category)
-    func removeSelectedCategory(category: Category)
-    func handleCategorySelection(category: Category)
-}
-
-class CategoryHandler: CategoryHandlerType {
-    var categories: [Category] = Category.allCases
+class CategoryHandler {
+    var categories: [Category]
 
     var selctedCategories: [Category] = [Category]()
 
@@ -44,6 +34,10 @@ class CategoryHandler: CategoryHandlerType {
         } else if !selctedCategories.contains(category) {
             addToSelectedCategories(category: category)
         }
+    }
+
+    init(categories: [Category] = Category.allCases) {
+        self.categories = categories
     }
 
 }
