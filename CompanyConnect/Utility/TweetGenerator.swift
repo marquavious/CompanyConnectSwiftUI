@@ -10,9 +10,9 @@ import SwiftUI
 
 struct TweetGenerator {
 
-    static func generateRandomTweets() -> [ActvityPost] {
+    static func generateRandomTweets() -> [ActivityPost] {
 
-        var ackposts = [ActvityPost]()
+        var ackposts = [ActivityPost]()
 
         for _ in (1..<50) {
 
@@ -24,7 +24,7 @@ struct TweetGenerator {
             )
             let tamMember = company.team.randomElement()!
 
-            let post = ActvityPost(
+            let post = ActivityPost(
                 id: UUID().uuidString,
                 caption: StringGenerator.generateRandomActivityString(),
                 imageUrl: "imge_url",
@@ -55,9 +55,9 @@ struct TweetGenerator {
         return ackposts.sorted { $0.date < $1.date }
     }
 
-    static func generateRandomTweetsFrom(company: CompanyObject) -> [ActvityPost] {
+    static func generateRandomTweetsFrom(company: CompanyObject) -> [ActivityPost] {
 
-        var ackposts = [ActvityPost]()
+        var ackposts = [ActivityPost]()
 
         for _ in (1..<50) {
 
@@ -68,7 +68,7 @@ struct TweetGenerator {
                 logoUrl: company.coverImageUrl
             )
 
-            let post = ActvityPost(
+            let post = ActivityPost(
                 id: UUID().uuidString,
                 caption: StringGenerator.generateRandomActivityString(),
                 imageUrl: "imge_url",

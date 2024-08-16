@@ -28,7 +28,7 @@ struct ActivityCellView: View {
         case VisitProfile = "person.crop.circle"
     }
 
-    let activityPost: ActvityPost
+    let activityPost: ActivityPost
     let companySelected: (() -> Void)?
 
     @Environment(\.colorScheme) var colorScheme
@@ -143,5 +143,5 @@ struct ActivityCellView: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    ActivityCellView(activityPost: ActvityPost.createFakeActivityPost(), companySelected: {  })
+    ActivityCellView(activityPost: ActivityPost.createFakeActivityPost(), companySelected: {  })
 }

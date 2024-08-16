@@ -7,6 +7,7 @@
 
 import SwiftUI
 import TipKit
+import Factory
 
 struct ActivityFeedTabView: View {
 
@@ -40,8 +41,12 @@ struct ActivityFeedTabView: View {
     @Environment (\.colorScheme) var colorScheme
     @State private var presentedNgos: [String] = []
     @State private var shouldShowFilter: Bool = false
-    @State private var loadingState: LoadingState
-    @State private var categoryHandler: CategoryHandler = CategoryHandler()
+    @State private var loadingState: LoadingState = .fetched
+//    @State private var categoryHandler: CategoryHandler = CategoryHandler()
+    @State private var filterIsActive: Bool = false
+    @Injected(\.activityServiceType) var service
+    @State var categoryHandler: CategoryHandler = CategoryHandler()
+    @State var posts = [ActivityPost]()
 
     var body: some View {
         NavigationStack(path: $presentedNgos) {
@@ -58,42 +63,54 @@ struct ActivityFeedTabView: View {
             case .fetched:
                 ActivityFeedScrollView(
                     shouldShowCategoryFilter: true,
-                    viewModel: viewModel
-                ){
-                    presentedNgos.append($0)
+                    posts: $posts
+                ){ event in
+                    handleActivityFeedScrollViewEvents(event: event)
                 }
+                .environmentObject(categoryHandler)
                 .navigationDestination(for: String.self) {
                     CompanyProfileView(companyID: $0)
                 }
                 .navigationTitle(Constants.NavigationTitle)
-                .toolbar {
-                    Button(
-                        String(),
-                        systemImage: categoryHandler.hasSelectedCategories ? Icons.RightToolBarIcon.rawValue : String()
-                    ) {
-                        if categoryHandler.hasSelectedCategories {
-                            withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
-                                categoryHandler.resetSelectedCategories()
-                            }
-                        }
-                    }
-                    .tint(colorScheme == .light ? .black : .white)
-                }
             case .error:
                 Text("OH NO LMFAOO :)")
                     .navigationTitle(Constants.NavigationTitle)
             }
         }
-//        .task {
-//            if loadingState != .fetched {
-//                await fetchPost()
+        .task {
+            if loadingState != .fetched {
+                await fetchPost()
+            }
+        }
+
+    }
+
+    private func handleActivityFeedScrollViewEvents(event: ActivityFeedScrollViewEvent) {
+        switch event {
+        case .onCompanySelection(companyID: let companyID):
+            print(companyID)
+        case .onSelect(categoryHandler: let categoryHandler):
+            print("NO OP")
+        }
+    }
+
+    private func fetchPost() async {
+//
+//        loadingState = .loading
+//        do {
+//            let response = try await service.getPosts()
+//            posts.append(contentsOf: response.activityPosts)
+//            loadingState = .fetched
+//        } catch {
+//            let nsError = error as NSError
+//            if nsError.domain == NSURLErrorDomain,
+//                nsError.code == NSURLErrorCancelled {
+//                //Handle cancellation
+//            } else {
+//                loadingState = .error(error)
 //            }
 //        }
     }
-
-//    private func fetchPost() async {
-//        await viewModel.loadPosts()
-//    }
 }
 
 //#Preview {

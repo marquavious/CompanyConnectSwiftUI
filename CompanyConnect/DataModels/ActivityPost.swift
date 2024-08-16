@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ActvityPost: Codable, Hashable, Identifiable {
+struct ActivityPost: Codable, Hashable, Identifiable {
 
     let id: String
     let caption: String?
@@ -17,7 +17,7 @@ struct ActvityPost: Codable, Hashable, Identifiable {
     let company: CompanyData
     let date: Date
 
-    static func == (lhs: ActvityPost, rhs: ActvityPost) -> Bool {
+    static func == (lhs: ActivityPost, rhs: ActivityPost) -> Bool {
         return lhs.id == rhs.id
     }
 
@@ -26,18 +26,18 @@ struct ActvityPost: Codable, Hashable, Identifiable {
     }
 }
 
-extension ActvityPost {
+extension ActivityPost {
     static func createFakeActivityPost(
         media: Media? = (Bool.random() ? nil : Media.generateRandomMedia()),
         poster: PosterData? = (Bool.random() ? nil : PosterData.generateRandomActvityPostPoster())
-    ) -> ActvityPost {
+    ) -> ActivityPost {
         let company = CompanyObject.createFakeComapnyList().randomElement()!
         let companyPostData = CompanyData(
             id: company.id,
             name: company.orginizationName,
             logoUrl: company.coverImageUrl
         )
-        return ActvityPost(
+        return ActivityPost(
             id: UUID().uuidString,
             caption: StringGenerator.generateRandomActivityString(),
             imageUrl: "imgUrl",
@@ -48,8 +48,8 @@ extension ActvityPost {
         )
     }
 
-    static func createFakeActivityPostForCompany(company: CompanyObject) -> ActvityPost {
-        ActvityPost.createFakeActivityPost(
+    static func createFakeActivityPostForCompany(company: CompanyObject) -> ActivityPost {
+        ActivityPost.createFakeActivityPost(
             media: Bool.random() ? Media.generateRandomMedia() : nil,
             poster:  Bool.random() ? PosterData.generateRandomActvityPostPoster() : nil
         )

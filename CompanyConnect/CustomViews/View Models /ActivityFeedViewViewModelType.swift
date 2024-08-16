@@ -25,7 +25,7 @@ protocol ActivityFeedViewViewModelType {
 class OfflineActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     var loadingState: LoadingState = .loading
     var service: ActivityPostsServiceType = OfflineActivityPostsService()
-    private var _posts = [ActvityPost]()
+    private var _posts = [ActivityPost]()
     private var _selctedCategories = [Category]()
     private var _categories: [Category] = []
 
@@ -58,7 +58,7 @@ class OfflineActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
         !_selctedCategories.isEmpty
     }
     
-    func presentedPosts() -> [ActvityPost] {
+    func presentedPosts() -> [ActivityPost] {
         _posts
     }
     
@@ -90,11 +90,11 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     var service: ActivityPostsServiceType
 
     init(companyID: String, service: ActivityPostsServiceType) {
-        _posts = Array(repeating: ActvityPost.createFakeActivityPost(), count: 50)
+        _posts = Array(repeating: ActivityPost.createFakeActivityPost(), count: 50)
         self.service = service
     }
 
-    private var _posts = [ActvityPost]()
+    private var _posts = [ActivityPost]()
     private var _selctedCategories = [Category]()
     private var _categories: [Category] = []
 
@@ -102,7 +102,7 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
         return !_selctedCategories.isEmpty
     }
 
-    private var _presentedPosts: [ActvityPost] {
+    private var _presentedPosts: [ActivityPost] {
         _posts
     }
 
@@ -112,7 +112,7 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     func loadPosts() async { }
 
-    func posts() -> [ActvityPost] {
+    func posts() -> [ActivityPost] {
         _posts
     }
 
@@ -128,7 +128,7 @@ class CompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
         _hasSelected
     }
 
-    func presentedPosts() -> [ActvityPost] {
+    func presentedPosts() -> [ActivityPost] {
         _presentedPosts
     }
 
@@ -155,7 +155,7 @@ class DevCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     var loadingState: LoadingState = .fetched
     var service: ActivityPostsServiceType = DevActivityPostsService()
 
-    private var _posts = Array(repeating: ActvityPost.createFakeActivityPost(), count: 50)
+    private var _posts = Array(repeating: ActivityPost.createFakeActivityPost(), count: 50)
     private var _selctedCategories = [Category]()
     private var _categories: [Category] = []
 
@@ -163,7 +163,7 @@ class DevCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
         return !_selctedCategories.isEmpty
     }
 
-    private var _presentedPosts: [ActvityPost] {
+    private var _presentedPosts: [ActivityPost] {
         _posts
     }
 
@@ -173,7 +173,7 @@ class DevCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     func loadPosts() async { }
 
-    func posts() -> [ActvityPost] {
+    func posts() -> [ActivityPost] {
         _posts
     }
 
@@ -189,7 +189,7 @@ class DevCompanyActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
         _hasSelected
     }
 
-    func presentedPosts() -> [ActvityPost] {
+    func presentedPosts() -> [ActivityPost] {
         _presentedPosts
     }
 
@@ -226,7 +226,7 @@ extension Encodable {
 class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
     var service: ActivityPostsServiceType = DevActivityPostsService()
 
-    private var _posts = [ActvityPost]()
+    private var _posts = [ActivityPost]()
     private var _selctedCategories = [Category]()
     private var _categories: [Category] = [.community, .healthcare, .environmental, .education, .womensRights, .veterans, .humanRights, .indigenousRights]
     var loadingState: LoadingState
@@ -235,7 +235,7 @@ class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
         self.loadingState = loadingState
         for _ in 0..<postCount {
             _posts.append(
-                ActvityPost.createFakeActivityPost()
+                ActivityPost.createFakeActivityPost()
             )
         }
     }
@@ -244,7 +244,7 @@ class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
         return !_selctedCategories.isEmpty
     }
 
-    private var _presentedPosts: [ActvityPost] {
+    private var _presentedPosts: [ActivityPost] {
         return _posts
 
         /*
@@ -275,7 +275,7 @@ class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
 
     func loadPosts() async { }
 
-    func posts() -> [ActvityPost] {
+    func posts() -> [ActivityPost] {
         return _posts
     }
 
@@ -291,7 +291,7 @@ class DevHomeTabActivityFeed: ActivityFeedViewViewModelType, ObservableObject {
         return _hasSelected
     }
 
-    func presentedPosts() -> [ActvityPost] {
+    func presentedPosts() -> [ActivityPost] {
         return _presentedPosts
     }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CategoryHandler {
+class CategoryHandler: ObservableObject {
     var categories: [Category]
 
     var selctedCategories: [Category] = [Category]()

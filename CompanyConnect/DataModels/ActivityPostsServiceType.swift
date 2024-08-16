@@ -6,6 +6,13 @@
 //
 
 import Foundation
+import Factory
+
+extension Container {
+    var activityServiceType: Factory<ActivityPostsServiceType> {
+        self { ActivityPostsService() }
+    }
+}
 
 protocol ActivityPostsServiceType: HTTPDataDownloader {
     func getPosts() async throws -> ActivityFeedJSONResponse
