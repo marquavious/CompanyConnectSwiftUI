@@ -58,6 +58,10 @@
 		C02FF1682C6DA56E00B7EA16 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = C02FF1672C6DA56E00B7EA16 /* Factory */; };
 		C02FF16A2C6DA57700B7EA16 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = C02FF1692C6DA57700B7EA16 /* Factory */; };
 		C02FF16C2C6DA58000B7EA16 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = C02FF16B2C6DA58000B7EA16 /* Factory */; };
+		C02FF1752C6EEAF700B7EA16 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF1742C6EEAF700B7EA16 /* Container.swift */; };
+		C02FF1762C6EEAF700B7EA16 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF1742C6EEAF700B7EA16 /* Container.swift */; };
+		C02FF1772C6EEAF700B7EA16 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF1742C6EEAF700B7EA16 /* Container.swift */; };
+		C02FF1782C6EEAF700B7EA16 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF1742C6EEAF700B7EA16 /* Container.swift */; };
 		C032F70D2C5460A900473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70C2C5460A900473328 /* OHHTTPStubs */; };
 		C032F70F2C5460A900473328 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70E2C5460A900473328 /* OHHTTPStubsSwift */; };
 		C032F7112C54612000473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F7102C54612000473328 /* OHHTTPStubs */; };
@@ -77,14 +81,10 @@
 		C047FE662C59DC26008A6E36 /* CompanyConnectUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C047FE652C59DC26008A6E36 /* CompanyConnectUnitTests.swift */; };
 		C047FE6D2C59DF3C008A6E36 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C047FE6C2C59DF3C008A6E36 /* OHHTTPStubs */; };
 		C047FE6F2C59DF3C008A6E36 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C047FE6E2C59DF3C008A6E36 /* OHHTTPStubsSwift */; };
-		C07E5A502C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A4F2C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift */; };
-		C07E5A512C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A4F2C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift */; };
-		C07E5A522C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A4F2C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift */; };
-		C07E5A532C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A4F2C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift */; };
-		C07E5A562C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift */; };
-		C07E5A572C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift */; };
-		C07E5A582C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift */; };
-		C07E5A592C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift */; };
+		C07E5A562C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* ProfileServiceType.swift */; };
+		C07E5A572C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* ProfileServiceType.swift */; };
+		C07E5A582C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* ProfileServiceType.swift */; };
+		C07E5A592C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* ProfileServiceType.swift */; };
 		C0B86C6C2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6D2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
 		C0B86C6E2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */; };
@@ -299,14 +299,14 @@
 		C023F3B92C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakWindowUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHandlerType.swift; sourceTree = "<group>"; };
 		C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPostsServiceType.swift; sourceTree = "<group>"; };
+		C02FF1742C6EEAF700B7EA16 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OHHTTPStubsHandler.swift; sourceTree = "<group>"; };
 		C032F7182C5467FD00473328 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
 		C032F71D2C546FB000473328 /* TweakWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakWindowView.swift; sourceTree = "<group>"; };
 		C032F7212C54700200473328 /* InternetSpeedTweak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetSpeedTweak.swift; sourceTree = "<group>"; };
 		C047FE632C59DC26008A6E36 /* CompanyConnectUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompanyConnectUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C047FE652C59DC26008A6E36 /* CompanyConnectUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyConnectUnitTests.swift; sourceTree = "<group>"; };
-		C07E5A4F2C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileViewViewModelType.swift; sourceTree = "<group>"; };
-		C07E5A552C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileViewServiceType.swift; sourceTree = "<group>"; };
+		C07E5A552C5E3E430019DCF4 /* ProfileServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceType.swift; sourceTree = "<group>"; };
 		C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(PROD) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0B86C6F2C4D055700C853C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0B86C702C4D1F8E00C853C0 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
@@ -454,6 +454,14 @@
 				C0FDF0ED2C5791D8009501F2 /* CCTweaks.swift */,
 			);
 			path = Tweaks;
+			sourceTree = "<group>";
+		};
+		C02FF1732C6EEAD900B7EA16 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				C02FF1742C6EEAF700B7EA16 /* Container.swift */,
+			);
+			path = Container;
 			sourceTree = "<group>";
 		};
 		C032F71C2C546F9700473328 /* Utility */ = {
@@ -608,8 +616,7 @@
 				C0CC8D902C4CEEC40083E6C6 /* StringGenerator.swift */,
 				C0CC8D912C4CEEC40083E6C6 /* TeamMember.swift */,
 				C0CC8D932C4CEEC40083E6C6 /* User.swift */,
-				C07E5A4F2C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift */,
-				C07E5A552C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift */,
+				C07E5A552C5E3E430019DCF4 /* ProfileServiceType.swift */,
 				C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */,
 				C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */,
 			);
@@ -652,6 +659,7 @@
 		C0CC8DA32C4CEEC40083E6C6 /* CompanyConnect */ = {
 			isa = PBXGroup;
 			children = (
+				C02FF1732C6EEAD900B7EA16 /* Container */,
 				C0CC8DD82C4CF1930083E6C6 /* CompanyConnect.swift */,
 				C032F71C2C546F9700473328 /* Utility */,
 				C01ACA682C530D7B00A77B5E /* Networking */,
@@ -868,11 +876,11 @@
 			files = (
 				C023F3BD2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */,
 				C0128D622C65C830008EB561 /* HTTPDownloaderTwo.swift in Sources */,
-				C07E5A592C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */,
+				C07E5A592C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */,
 				C047FE662C59DC26008A6E36 /* CompanyConnectUnitTests.swift in Sources */,
 				C02FF0E22C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */,
+				C02FF1782C6EEAF700B7EA16 /* Container.swift in Sources */,
 				C02FF0E72C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
-				C07E5A532C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -932,13 +940,13 @@
 				C0CC8DF42C4CF4320083E6C6 /* Configuration.swift in Sources */,
 				C0B86C712C4D1F8E00C853C0 /* Data+Ext.swift in Sources */,
 				C0CC8DF52C4CF4320083E6C6 /* Project.swift in Sources */,
-				C07E5A502C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */,
 				C01ACA492C50961600A77B5E /* MapViewJSONResponse.swift in Sources */,
 				C0CC8DF62C4CF4320083E6C6 /* BriefHistoryImageObject.swift in Sources */,
 				C0CC8DF72C4CF4320083E6C6 /* Donation.swift in Sources */,
 				C02FF0E42C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
+				C02FF1752C6EEAF700B7EA16 /* Container.swift in Sources */,
 				C0D6B1AC2C5710BA00777D49 /* CCTweakManager.swift in Sources */,
-				C07E5A562C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */,
+				C07E5A562C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */,
 				C0CC8DF82C4CF4320083E6C6 /* ActvityPost.swift in Sources */,
 				C0FDF0EE2C5791D8009501F2 /* CCTweaks.swift in Sources */,
 				C0CC8DF92C4CF4320083E6C6 /* BriefHistoryObject.swift in Sources */,
@@ -964,7 +972,6 @@
 				C0CC8E082C4CF4330083E6C6 /* ApplicationEnviorment.swift in Sources */,
 				C01ACA5D2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift in Sources */,
 				C0CC8E092C4CF4330083E6C6 /* Media.swift in Sources */,
-				C07E5A512C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */,
 				C01ACA6F2C53197800A77B5E /* HTTPDataDownloader.swift in Sources */,
 				C0128D602C65C830008EB561 /* HTTPDownloaderTwo.swift in Sources */,
 				C032F71A2C5467FD00473328 /* UIDevice+Ext.swift in Sources */,
@@ -985,7 +992,7 @@
 				C0CC8E5F2C4CF44A0083E6C6 /* CompanyVGrid.swift in Sources */,
 				C0CC8E602C4CF44A0083E6C6 /* CompanyCardView.swift in Sources */,
 				C0CC8E612C4CF44A0083E6C6 /* MapControlPanelView.swift in Sources */,
-				C07E5A572C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */,
+				C07E5A572C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */,
 				C0CC8E842C4CF4770083E6C6 /* ActivityFeedTabView.swift in Sources */,
 				C0CC8E852C4CF4770083E6C6 /* MapTabView.swift in Sources */,
 				C0CC8E862C4CF4770083E6C6 /* CompanyProfileView.swift in Sources */,
@@ -999,6 +1006,7 @@
 				C0CC8E0D2C4CF4330083E6C6 /* User.swift in Sources */,
 				C0CC8E6C2C4CF4510083E6C6 /* CompanyProfileMapView.swift in Sources */,
 				C0CC8E6D2C4CF4510083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,
+				C02FF1762C6EEAF700B7EA16 /* Container.swift in Sources */,
 				C032F7162C54617500473328 /* OHHTTPStubsHandler.swift in Sources */,
 				C0FDF0EF2C5791D8009501F2 /* CCTweaks.swift in Sources */,
 				C023F3BB2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */,
@@ -1043,7 +1051,6 @@
 				C0CC8E262C4CF4350083E6C6 /* ApplicationEnviorment.swift in Sources */,
 				C01ACA5E2C50BF2A00A77B5E /* DonationsViewJSONResponse.swift in Sources */,
 				C0CC8E272C4CF4350083E6C6 /* Media.swift in Sources */,
-				C07E5A522C5E3E160019DCF4 /* CompanyProfileViewViewModelType.swift in Sources */,
 				C01ACA702C53197800A77B5E /* HTTPDataDownloader.swift in Sources */,
 				C0128D612C65C830008EB561 /* HTTPDownloaderTwo.swift in Sources */,
 				C032F71B2C5467FD00473328 /* UIDevice+Ext.swift in Sources */,
@@ -1064,7 +1071,7 @@
 				C0CC8E662C4CF44B0083E6C6 /* CompanyVGrid.swift in Sources */,
 				C0CC8E672C4CF44B0083E6C6 /* CompanyCardView.swift in Sources */,
 				C0CC8E682C4CF44B0083E6C6 /* MapControlPanelView.swift in Sources */,
-				C07E5A582C5E3E430019DCF4 /* CompanyProfileViewServiceType.swift in Sources */,
+				C07E5A582C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */,
 				C0CC8E882C4CF4770083E6C6 /* ActivityFeedTabView.swift in Sources */,
 				C0CC8E892C4CF4770083E6C6 /* MapTabView.swift in Sources */,
 				C0CC8E8A2C4CF4770083E6C6 /* CompanyProfileView.swift in Sources */,
@@ -1078,6 +1085,7 @@
 				C0CC8E2B2C4CF4350083E6C6 /* User.swift in Sources */,
 				C0CC8E712C4CF4520083E6C6 /* CompanyProfileMapView.swift in Sources */,
 				C0CC8E722C4CF4520083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,
+				C02FF1772C6EEAF700B7EA16 /* Container.swift in Sources */,
 				C032F7172C54617500473328 /* OHHTTPStubsHandler.swift in Sources */,
 				C0FDF0F02C5791D8009501F2 /* CCTweaks.swift in Sources */,
 				C023F3BC2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */,

@@ -7,8 +7,28 @@
 
 import SwiftUI
 import MapKit
+import Factory
 
 struct CompanyProfileView: View {
+
+    enum LoadingState: Equatable {
+
+        case idle
+        case loading
+        case fetched(CompanyObject)
+        case error(Error)
+
+        static func == (lhs: LoadingState, rhs: LoadingState) -> Bool {
+            switch (lhs, rhs) {
+            case (.loading, .loading), (.fetched, .fetched):
+                true
+            case let (.error(lhsError), .error(rhsError)):
+                lhsError.localizedDescription == rhsError.localizedDescription
+            default:
+                false
+            }
+        }
+    }
 
     struct Constants {
         static let HeaderViewHeight: CGFloat = 200.0
@@ -50,15 +70,15 @@ struct CompanyProfileView: View {
         var mediaPlacement: MediaLocation {
             switch self {
             case .missionStatement:
-                .bottom
+                    .bottom
             case .ourTeam:
-                .bottom
+                    .bottom
             case .briefHistory:
-                .bottom
+                    .bottom
             case .locations:
-                .middle
+                    .middle
             case .projects:
-                .middle
+                    .middle
             }
         }
 
@@ -105,18 +125,20 @@ struct CompanyProfileView: View {
     @State var showActivityFeed: Bool = true
     @State private var currentTab: ProfileTabs = .about
     @State var showNavigationBar: Bool = false
-    var viewModel: CompanyProfileViewViewModelType
+    @State var loadingState: LoadingState = .idle
+    @Injected(\.profileServiceType) var service
 
-    init(viewModel: CompanyProfileViewViewModelType) {
-        self.viewModel = viewModel
+    var companyID: String
+
+    init(companyID: String) {
+        self.companyID = companyID
         UIPageControl.appearance().currentPageIndicatorTintColor = .gray
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
     }
 
     var body: some View {
         Group {
-
-            switch viewModel.loadingState {
+            switch loadingState {
             case .loading, .idle:
                 Rectangle()
                     .fill(.background)
@@ -150,7 +172,7 @@ struct CompanyProfileView: View {
                                     height: max(proxy.frame(in: .global).minY + Constants.HeaderViewHeight, 0)
                                 )
                                 .ignoresSafeArea()
-                            
+
                         } placeholder: {
                             Color.gray
                                 .offset(y: -proxy.frame(in: .global).minY)
@@ -163,7 +185,7 @@ struct CompanyProfileView: View {
                     }
                     .frame(height: Constants.HeaderViewHeight)
                     .ignoresSafeArea()
-                    
+
                     VStack(spacing: .zero) {
                         VStack(spacing: 8) {
                             HStack {
@@ -176,7 +198,7 @@ struct CompanyProfileView: View {
                                             height: 75
                                         )
                                         .clipShape(Circle())
-                                    
+
                                 } placeholder: {
                                     Color.gray
                                         .clipShape(Circle())
@@ -186,9 +208,9 @@ struct CompanyProfileView: View {
                                     height: 75
                                 )
                                 .overlay(Circle().stroke(.background, lineWidth: 3))
-                                
+
                                 Spacer()
-                                
+
                                 Text("DONATE")
                                     .font(.system(size: 15))
                                     .fontWeight(.semibold)
@@ -209,7 +231,7 @@ struct CompanyProfileView: View {
                                     .font(.title2)
                                     .bold()
                                 Text("Current Projects: **\(company.projects.count)**")
-                                
+
                                 Text(company.bio)
                                     .font(.subheadline)
                             }
@@ -219,12 +241,12 @@ struct CompanyProfileView: View {
                             }
                             .pickerStyle(.segmented)
                             .padding([.vertical], 8)
-                            
+
                             Divider()
                         }
                         .padding([.horizontal, .vertical], 16)
                         .offset(y: Constants.ScrollViewOffset)
-                        
+
                         switch currentTab {
                         case .about:
                             ForEach(AboutSection.allCases) { section in
@@ -238,14 +260,15 @@ struct CompanyProfileView: View {
                             }
                             .offset(y: -50)
                         case .activity:
-                            ActivityFeedScrollView(
-                                shouldShowCategoryFilter: false,
-                                viewModel: CompanyActivityFeed(
-                                    companyID: viewModel.companyID,
-                                    service: ActivityPostsService()
-                                )
-                            )
-                            .offset(y: Constants.ScrollViewOffset)
+                            Rectangle()
+                            //                            ActivityFeedScrollView(
+                            //                                shouldShowCategoryFilter: false,
+                            //                                viewModel: CompanyActivityFeed(
+                            //                                    companyID: viewModel.companyID,
+                            //                                    service: ActivityPostsService()
+                            //                                )
+                            //                            )
+                            //                            .offset(y: Constants.ScrollViewOffset)
                         }
                     }
                     .background()
@@ -253,19 +276,19 @@ struct CompanyProfileView: View {
                 .navigationBarBackButtonHidden(true)
                 .overlay(alignment: .topLeading) {
                     ZStack {
-                            BlurView()
-                                .ignoresSafeArea()
-                                .frame(
-                                    width: UIScreen.main.bounds.width,
-                                    height: Constants.NavigationBarHeight
-                                )
-                                .opacity(showNavigationBar ? 1 : 0)
-                                .overlay(alignment: .center) {
-                                    Text(company.orginizationName)
-                                        .foregroundStyle(.white)
-                                        .fontWeight(.semibold)
-                                        .opacity(showNavigationBar ? 1 : 0)
-                                }
+                        BlurView()
+                            .ignoresSafeArea()
+                            .frame(
+                                width: UIScreen.main.bounds.width,
+                                height: Constants.NavigationBarHeight
+                            )
+                            .opacity(showNavigationBar ? 1 : 0)
+                            .overlay(alignment: .center) {
+                                Text(company.orginizationName)
+                                    .foregroundStyle(.white)
+                                    .fontWeight(.semibold)
+                                    .opacity(showNavigationBar ? 1 : 0)
+                            }
 
                         HStack {
                             Image(systemName: "chevron.left")
@@ -308,9 +331,20 @@ struct CompanyProfileView: View {
     }
 
     private func loadCompanyProfile() async {
-        await viewModel.loadCompanyProfile()
+        loadingState = .loading
+        do {
+            let companyResponse = try await service.getCompnayInfo(companyID: companyID)
+            loadingState = .fetched(companyResponse.companyObject)
+        } catch {
+            let nsError = error as NSError
+            if nsError.domain == NSURLErrorDomain,
+               nsError.code == NSURLErrorCancelled {
+                //Handle cancellation
+            } else {
+                loadingState = .error(error)
+            }
+        }
     }
-
 }
 
 //#Preview {

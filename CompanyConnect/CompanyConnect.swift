@@ -7,6 +7,7 @@
 
 import SwiftUI
 import TipKit
+import Factory
 
 @main
 struct CompanyConnect: App {
@@ -100,7 +101,7 @@ struct MainView: View {
                 Label(TabViewData.feed.rawValue, systemImage: TabViewData.feed.systemImageName)
             }
 
-            MapTabView(viewModel: dependencyGraph.mapViewViewModel).tabItem {
+            MapTabView().tabItem {
                 Label(TabViewData.map.rawValue, systemImage: TabViewData.map.systemImageName)
             }
 

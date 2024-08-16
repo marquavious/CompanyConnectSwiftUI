@@ -124,6 +124,7 @@ class DevMapViewViewModel: MapViewViewModelType, ObservableObject {
 
     func loadMapData() async { 
         mapData = MapData(companyObjects: CompanyObject.createFakeComapnyList())
+        loadingState = .fetched
     }
 
     func allCompanies() -> [CompanyObject] {

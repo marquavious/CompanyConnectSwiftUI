@@ -6,13 +6,20 @@
 //
 
 import Foundation
+import Factory
 
-protocol CompanyProfileViewServiceType: HTTPDataDownloader {
+extension Container {
+    var profileServiceType: Factory<ProfileServiceType> {
+        self { CompanyProfileViewService() }
+    }
+}
+
+protocol ProfileServiceType: HTTPDataDownloader {
     func getCompnayInfo(companyID: String) async throws -> CompanyProfileViewJSONResponse
 }
 
 @Observable
-class CompanyProfileViewService: CompanyProfileViewServiceType {
+class CompanyProfileViewService: ProfileServiceType {
     @MainActor
     func getCompnayInfo(companyID: String) async throws -> CompanyProfileViewJSONResponse {
         return CompanyProfileViewJSONResponse(companyObject: CompanyObject.createFakeCompanyObject()) // CHANGE
@@ -20,7 +27,7 @@ class CompanyProfileViewService: CompanyProfileViewServiceType {
 }
 
 @Observable
-class DevCompanyProfileViewService: CompanyProfileViewServiceType {
+class DevCompanyProfileViewService: ProfileServiceType {
     @MainActor
     func getCompnayInfo(companyID: String) async throws -> CompanyProfileViewJSONResponse {
         return CompanyProfileViewJSONResponse(companyObject: CompanyObject.createFakeCompanyObject())
@@ -28,7 +35,7 @@ class DevCompanyProfileViewService: CompanyProfileViewServiceType {
 }
 
 @Observable
-class OfflineCompanyProfileViewService: CompanyProfileViewServiceType {
+class OfflineCompanyProfileViewService: ProfileServiceType {
     @MainActor
     func getCompnayInfo(companyID: String) async throws -> CompanyProfileViewJSONResponse {
         return try await getData(as: CompanyProfileViewJSONResponse.self, from: URLBuilder.companyProfile(companyID: companyID).url)

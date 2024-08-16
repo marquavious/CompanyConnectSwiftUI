@@ -8,6 +8,7 @@
 import SwiftUI
 import MapKit
 import TipKit
+import Factory
 
 struct MapTabView: View {
 
@@ -15,7 +16,9 @@ struct MapTabView: View {
     @State private var shouldLockMap: Bool = true
     @State private var selectedCompanies = [CompanyObject]()
 
-    var viewModel: MapViewViewModelType
+//    var viewModel: MapViewViewModelType
+
+    @Injected(\.mapViewModel) private var viewModel
 
     var body: some View {
         NavigationStack(path: $selectedCompanies) {
@@ -76,10 +79,10 @@ struct MapTabView: View {
 
 }
 
-#Preview {
-    MapTabView(
-        viewModel: DevMapViewViewModel(loadingState: .error(DevError.error)))
-}
+//#Preview {
+//    MapTabView(
+//        viewModel: DevMapViewViewModel(loadingState: .error(DevError.error)))
+//}
 
 enum DevError: Error {
     case error

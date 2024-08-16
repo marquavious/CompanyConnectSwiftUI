@@ -53,6 +53,6 @@ struct CompanyListView: View {
 
 }
 
-#Preview {
-    MapTabView(viewModel: DevMapViewViewModel())
-}
+//#Preview {
+//    MapTabView(viewModel: DevMapViewViewModel())
+//}

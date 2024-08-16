@@ -37,6 +37,6 @@ struct BaseMapView: View {
 
 }
 
-#Preview {
-    MapTabView(viewModel: DevMapViewViewModel())
-}
+//#Preview {
+//    MapTabView(viewModel: DevMapViewViewModel())
+//}

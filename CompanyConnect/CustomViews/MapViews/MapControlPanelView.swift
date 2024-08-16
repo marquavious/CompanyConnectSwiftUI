@@ -72,6 +72,6 @@ struct MapControlPanelView: View {
 
 }
 
-#Preview {
-    MapTabView(viewModel: DevMapViewViewModel())
-}
+//#Preview {
+//    MapTabView(viewModel: DevMapViewViewModel())
+//}
