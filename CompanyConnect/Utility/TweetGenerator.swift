@@ -20,7 +20,8 @@ struct TweetGenerator {
             let companyPostData = CompanyData(
                 id: company.id,
                 name: company.orginizationName,
-                logoUrl: company.coverImageUrl
+                logoUrl: company.coverImageUrl,
+                category: company.category
             )
             let tamMember = company.team.randomElement()!
 
@@ -65,7 +66,8 @@ struct TweetGenerator {
             let companyPostData = CompanyData(
                 id: company.id,
                 name: company.orginizationName,
-                logoUrl: company.coverImageUrl
+                logoUrl: company.coverImageUrl,
+                category: company.category
             )
 
             let post = ActivityPost(

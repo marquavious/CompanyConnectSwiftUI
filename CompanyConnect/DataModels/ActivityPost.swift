@@ -35,7 +35,8 @@ extension ActivityPost {
         let companyPostData = CompanyData(
             id: company.id,
             name: company.orginizationName,
-            logoUrl: company.coverImageUrl
+            logoUrl: company.coverImageUrl, 
+            category: company.category
         )
         return ActivityPost(
             id: UUID().uuidString,
@@ -60,6 +61,7 @@ struct CompanyData: Codable {
     let id: String
     let name: String
     let logoUrl: String
+    let category: Category
 }
 
 struct PosterData: Codable {

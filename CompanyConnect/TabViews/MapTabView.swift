@@ -90,7 +90,7 @@ struct MapTabView: View {
         loadingState = .loading
         do {
             let mapViewJSONResponse = try await mapService.getMapData()
-            companyFilter.addCompanies(companies: mapViewJSONResponse.companyObjects)
+            companyFilter.setCompanies(companies: mapViewJSONResponse.companyObjects)
             loadingState = .fetched
         } catch {
             let nsError = error as NSError

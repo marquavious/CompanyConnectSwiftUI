@@ -10,7 +10,7 @@ import Factory
 
 extension Container {
     var activityServiceType: Factory<ActivityPostsServiceType> {
-        self { ActivityPostsService() }
+        self { OfflineActivityPostsService() }
     }
 }
 
@@ -30,7 +30,7 @@ class ActivityPostsService: ActivityPostsServiceType {
 class DevActivityPostsService: ActivityPostsServiceType {
     @MainActor
     func getPosts() async throws -> ActivityFeedJSONResponse {
-        return try await getData(as: ActivityFeedJSONResponse.self, from: URLBuilder.activityFeed.url)
+        ActivityFeedJSONResponse(activityPosts: [ActivityPost.createFakeActivityPost(), ActivityPost.createFakeActivityPost(), ActivityPost.createFakeActivityPost()])
     }
 }
 

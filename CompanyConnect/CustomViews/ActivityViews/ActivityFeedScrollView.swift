@@ -10,12 +10,6 @@ import SwiftUI
 import TipKit
 import Factory
 
-
-enum ActivityFeedScrollViewEvent {
-    case onCompanySelection(companyID: String)
-    case onSelect(categoryHandler: CategoryFilter)
-}
-
 struct ActivityFeedScrollView: View {
 
     struct Constants {
@@ -30,13 +24,12 @@ struct ActivityFeedScrollView: View {
 
     @State var shouldShowCategoryFilter: Bool
     @Environment(\.colorScheme) var colorScheme
-    @Binding var posts: [ActivityPost]
-    @EnvironmentObject var categoryHandler: CategoryFilter
+    @EnvironmentObject var activityPostsFilter: ActivityPostsFilter
 
     private let columns = [GridItem(.flexible())]
     private let activityScrollerTipView = ActivityScrollerTipView()
 
-    var scrollViewEvent: (ActivityFeedScrollViewEvent) -> Void
+    var onCompanySelection: (String) -> Void
 
     var body: some View {
 
@@ -47,9 +40,9 @@ struct ActivityFeedScrollView: View {
             ) {
                 Section {
                     TipView(activityScrollerTipView).padding([.horizontal], Constants.TipViewPadding)
-                    ForEach(posts) { activityPost in
+                    ForEach(activityPostsFilter.filteredPosts) { activityPost in
                         ActivityCellView(activityPost: activityPost) {
-                            scrollViewEvent(.onCompanySelection(companyID: activityPost.company.id))
+                            onCompanySelection(activityPost.id)
                         }
 
                         Divider()
@@ -58,12 +51,11 @@ struct ActivityFeedScrollView: View {
                     if shouldShowCategoryFilter {
                         VStack(spacing: .zero) {
                             ActvitiyFeedFilterView() { category in
-                                withAnimation {
-
-                                    categoryHandler.handleCategorySelection(category: category)
+                                withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
+                                    activityPostsFilter.categoryFilter.handleCategorySelection(category: category)
                                 }
                             }
-                            .environmentObject(categoryHandler)
+                            .environmentObject(activityPostsFilter.categoryFilter)
                             .frame(minHeight: Constants.ActvitiyFeedFilterViewHight)
 
                             Divider()
@@ -75,11 +67,11 @@ struct ActivityFeedScrollView: View {
         .toolbar {
             Button(
                 String(),
-                systemImage: categoryHandler.hasSelectedCategories ? Icons.RightToolBarIcon.rawValue : String()
+                systemImage: activityPostsFilter.categoryFilter.hasSelectedCategories ? Icons.RightToolBarIcon.rawValue : String()
             ) {
-                if categoryHandler.hasSelectedCategories {
+                if activityPostsFilter.categoryFilter.hasSelectedCategories {
                     withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
-                        categoryHandler.resetSelectedCategories()
+                        activityPostsFilter.categoryFilter.resetSelectedCategories()
                     }
                 }
             }

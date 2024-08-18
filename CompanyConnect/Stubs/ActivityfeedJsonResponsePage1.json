@@ -8,7 +8,8 @@
       "company": {
         "id": "company_id",
         "name":"Company Name",
-        "logo_url": "img_url"
+        "logo_url": "img_url",
+        "category" : "indigenous_rights"
       },
       "media" : {
           "photo" : {
@@ -29,7 +30,8 @@
       "company": {
         "id": "company_id",
         "name":"Company Name",
-        "logo_url": "img_url"
+        "logo_url": "img_url",
+        "category" : "human_rights"
       }
     },
     {
@@ -40,7 +42,8 @@
       "company": {
         "id": "company_id",
         "name":"Company Name",
-        "logo_url": "img_url"
+        "logo_url": "img_url",
+        "category" : "veterans"
       },
       "media": {
           "photo_carousel" : {
@@ -69,7 +72,8 @@
       "company": {
         "id": "company_id",
         "name":"Company Name",
-        "logo_url": "img_url"
+        "logo_url": "img_url",
+        "category" : "womens_rights"
       }
     },
     {
@@ -85,7 +89,8 @@
       "company": {
         "id": "company_id",
         "name":"Company Name",
-        "logo_url": "img_url"
+        "logo_url": "img_url",
+        "category" : "womens_rights"
       },
       "media" : {
           "photo" : {
@@ -101,7 +106,8 @@
       "company": {
         "id": "company_id",
         "name":"Company Name",
-        "logo_url": "img_url"
+        "logo_url": "img_url",
+        "category" : "education"
       }
     },
     {
@@ -111,7 +117,8 @@
       "company": {
         "id": "company_id",
         "name":"Company Name",
-        "logo_url": "img_url"
+        "logo_url": "img_url",
+        "category" : "environmental"
       },
       "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt?"
     },
@@ -123,7 +130,8 @@
       "company": {
         "id": "company_id",
         "name":"Company Name",
-        "logo_url": "img_url"
+        "logo_url": "img_url",
+        "category" : "community"
       },
       "media": {
           "photo_carousel" : {
@@ -157,7 +165,8 @@
       "company": {
         "id": "company_id",
         "name":"Company Name",
-        "logo_url": "img_url"
+        "logo_url": "img_url",
+        "category" : "environmental"
       },
       "media" : {
           "photo" : {
@@ -170,7 +179,8 @@
       "company": {
         "id": "company_id",
         "name":"Company Name",
-        "logo_url": "img_url"
+        "logo_url": "img_url",
+        "category" : "healthcare"
       },
       "id": "4D7B4BE7-26CE-4D46-B9F9-8A7A54A91055",
       "date": "2024-07-24T04:03:48Z",

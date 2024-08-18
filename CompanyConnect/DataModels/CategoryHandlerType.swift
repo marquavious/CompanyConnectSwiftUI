@@ -47,38 +47,71 @@ class CategoryFilter: ObservableObject {
 
 }
 
+@Observable
 class ActivityPostsFilter: ObservableObject {
-    var categoryFilter: CategoryFilter
 
-    init(categoryFilter: CategoryFilter) {
+    private (set) var allPosts: [ActivityPost]
+    private (set) var categoryFilter: CategoryFilter
+
+    var filteredPosts: [ActivityPost] {
+        if !categoryFilter.hasSelectedCategories {
+            return allPosts
+        }
+
+        var tempArray = [ActivityPost]()
+        for category in categoryFilter.selctedCategories {
+
+            for post in allPosts {
+                if post.company.category == category {
+                    tempArray.append(post)
+                }
+            }
+        }
+
+        return tempArray.sorted { post1, post2 in
+            post1.date < post2.date
+        }
+    }
+
+    func setPosts(posts: [ActivityPost]) {
+        allPosts = posts
+    }
+
+    init(posts: [ActivityPost] = [], categoryFilter: CategoryFilter = CategoryFilter()) {
         self.categoryFilter = categoryFilter
+        self.allPosts = posts
     }
 }
 
+@Observable
 class CompanyFilter: ObservableObject {
 
     private (set) var allCompanies: [CompanyObject]
-
-    var categoryFilter: CategoryFilter
+    private (set) var categoryFilter: CategoryFilter
 
     var filteredCompanies: [CompanyObject] {
-        allCompanies // For Now
-    }
+        if !categoryFilter.hasSelectedCategories {
+            return allCompanies
+        }
 
-    var allCategories: [Category] {
-        categoryFilter.categories
-    }
+        var tempArray = [CompanyObject]()
+        for category in categoryFilter.selctedCategories {
+            for company in allCompanies {
+                if company.category == category {
+                    tempArray.append(company)
+                }
+            }
+        }
 
-    var selectedCategories: [Category] {
-        categoryFilter.selctedCategories
+        return tempArray
     }
 
     func addCompany(company: CompanyObject) {
         allCompanies.append(company)
     }
 
-    func addCompanies(companies: [CompanyObject]) {
-        allCompanies.append(contentsOf: companies)
+    func setCompanies(companies: [CompanyObject]) {
+        allCompanies = companies
     }
 
     init(comapnies: [CompanyObject] = [], categoryFilter: CategoryFilter = CategoryFilter()) {

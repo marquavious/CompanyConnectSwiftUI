@@ -41,10 +41,9 @@ struct ActivityFeedTabView: View {
     @Environment (\.colorScheme) var colorScheme
     @State private var presentedNgos: [String] = []
     @State private var shouldShowFilter: Bool = false
-    @State private var loadingState: LoadingState = .fetched
+    @State private var loadingState: LoadingState = .loading
     @State private var filterIsActive: Bool = false
-    @State var categoryHandler: CategoryFilter = CategoryFilter()
-    @State var posts = [ActivityPost]()
+    @StateObject var postsFilter: ActivityPostsFilter = ActivityPostsFilter()
 
     @Injected(\.activityServiceType) var service
 
@@ -60,14 +59,18 @@ struct ActivityFeedTabView: View {
                         .foregroundColor(.gray)
                 }
                 .navigationTitle(Constants.NavigationTitle)
+                .task {
+                    if loadingState != .fetched {
+                        await fetchPost()
+                    }
+                }
             case .fetched:
                 ActivityFeedScrollView(
-                    shouldShowCategoryFilter: true,
-                    posts: $posts
-                ){ event in
-                    handleActivityFeedScrollViewEvents(event: event)
+                    shouldShowCategoryFilter: true
+                ){
+                    presentedNgos.append($0)
                 }
-                .environmentObject(categoryHandler)
+                .environmentObject(postsFilter)
                 .navigationDestination(for: String.self) {
                     CompanyProfileView(companyID: $0)
                 }
@@ -77,39 +80,23 @@ struct ActivityFeedTabView: View {
                     .navigationTitle(Constants.NavigationTitle)
             }
         }
-        .task {
-            if loadingState != .fetched {
-                await fetchPost()
-            }
-        }
-
-    }
-
-    private func handleActivityFeedScrollViewEvents(event: ActivityFeedScrollViewEvent) {
-        switch event {
-        case .onCompanySelection(companyID: let companyID):
-            print(companyID)
-        case .onSelect:
-            print("NO OP")
-        }
     }
 
     private func fetchPost() async {
-//
-//        loadingState = .loading
-//        do {
-//            let response = try await service.getPosts()
-//            posts.append(contentsOf: response.activityPosts)
-//            loadingState = .fetched
-//        } catch {
-//            let nsError = error as NSError
-//            if nsError.domain == NSURLErrorDomain,
-//                nsError.code == NSURLErrorCancelled {
-//                //Handle cancellation
-//            } else {
-//                loadingState = .error(error)
-//            }
-//        }
+        loadingState = .loading
+        do {
+            let response = try await service.getPosts()
+            postsFilter.setPosts(posts: response.activityPosts)
+            loadingState = .fetched
+        } catch {
+            let nsError = error as NSError
+            if nsError.domain == NSURLErrorDomain,
+               nsError.code == NSURLErrorCancelled {
+                //Handle cancellation
+            } else {
+                loadingState = .error(error)
+            }
+        }
     }
 }
 
