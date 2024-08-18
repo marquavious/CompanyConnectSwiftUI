@@ -132,7 +132,6 @@
 		C0CC8DEE2C4CF4320083E6C6 /* CompanyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D892C4CEEC40083E6C6 /* CompanyObject.swift */; };
 		C0CC8DEF2C4CF4320083E6C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D932C4CEEC40083E6C6 /* User.swift */; };
 		C0CC8DF12C4CF4320083E6C6 /* CategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D882C4CEEC40083E6C6 /* CategoryObject.swift */; };
-		C0CC8DF22C4CF4320083E6C6 /* DependencyGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8B2C4CEEC40083E6C6 /* DependencyGraph.swift */; };
 		C0CC8DF32C4CF4320083E6C6 /* TweetGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D922C4CEEC40083E6C6 /* TweetGenerator.swift */; };
 		C0CC8DF42C4CF4320083E6C6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8A2C4CEEC40083E6C6 /* Configuration.swift */; };
 		C0CC8DF52C4CF4320083E6C6 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8F2C4CEEC40083E6C6 /* Project.swift */; };
@@ -147,7 +146,6 @@
 		C0CC8E0C2C4CF4330083E6C6 /* CompanyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D892C4CEEC40083E6C6 /* CompanyObject.swift */; };
 		C0CC8E0D2C4CF4330083E6C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D932C4CEEC40083E6C6 /* User.swift */; };
 		C0CC8E0F2C4CF4330083E6C6 /* CategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D882C4CEEC40083E6C6 /* CategoryObject.swift */; };
-		C0CC8E102C4CF4330083E6C6 /* DependencyGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8B2C4CEEC40083E6C6 /* DependencyGraph.swift */; };
 		C0CC8E112C4CF4330083E6C6 /* TweetGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D922C4CEEC40083E6C6 /* TweetGenerator.swift */; };
 		C0CC8E122C4CF4330083E6C6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8A2C4CEEC40083E6C6 /* Configuration.swift */; };
 		C0CC8E132C4CF4330083E6C6 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8F2C4CEEC40083E6C6 /* Project.swift */; };
@@ -162,7 +160,6 @@
 		C0CC8E2A2C4CF4350083E6C6 /* CompanyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D892C4CEEC40083E6C6 /* CompanyObject.swift */; };
 		C0CC8E2B2C4CF4350083E6C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D932C4CEEC40083E6C6 /* User.swift */; };
 		C0CC8E2D2C4CF4350083E6C6 /* CategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D882C4CEEC40083E6C6 /* CategoryObject.swift */; };
-		C0CC8E2E2C4CF4350083E6C6 /* DependencyGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8B2C4CEEC40083E6C6 /* DependencyGraph.swift */; };
 		C0CC8E2F2C4CF4350083E6C6 /* TweetGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D922C4CEEC40083E6C6 /* TweetGenerator.swift */; };
 		C0CC8E302C4CF4350083E6C6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8A2C4CEEC40083E6C6 /* Configuration.swift */; };
 		C0CC8E312C4CF4350083E6C6 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D8F2C4CEEC40083E6C6 /* Project.swift */; };
@@ -343,7 +340,6 @@
 		C0CC8D882C4CEEC40083E6C6 /* CategoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryObject.swift; sourceTree = "<group>"; };
 		C0CC8D892C4CEEC40083E6C6 /* CompanyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyObject.swift; sourceTree = "<group>"; };
 		C0CC8D8A2C4CEEC40083E6C6 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		C0CC8D8B2C4CEEC40083E6C6 /* DependencyGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyGraph.swift; sourceTree = "<group>"; };
 		C0CC8D8C2C4CEEC40083E6C6 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
 		C0CC8D8E2C4CEEC40083E6C6 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		C0CC8D8F2C4CEEC40083E6C6 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -603,7 +599,6 @@
 				C0CC8D882C4CEEC40083E6C6 /* CategoryObject.swift */,
 				C0CC8D892C4CEEC40083E6C6 /* CompanyObject.swift */,
 				C0CC8D8A2C4CEEC40083E6C6 /* Configuration.swift */,
-				C0CC8D8B2C4CEEC40083E6C6 /* DependencyGraph.swift */,
 				C0CC8D8C2C4CEEC40083E6C6 /* Donation.swift */,
 				C0CC8D8E2C4CEEC40083E6C6 /* Media.swift */,
 				C0CC8D8F2C4CEEC40083E6C6 /* Project.swift */,
@@ -927,7 +922,6 @@
 				C0CC8DEE2C4CF4320083E6C6 /* CompanyObject.swift in Sources */,
 				C0CC8DEF2C4CF4320083E6C6 /* User.swift in Sources */,
 				C0CC8DF12C4CF4320083E6C6 /* CategoryObject.swift in Sources */,
-				C0CC8DF22C4CF4320083E6C6 /* DependencyGraph.swift in Sources */,
 				C0B86C752C4E00DE00C853C0 /* DonationsViewViewModel.swift in Sources */,
 				C0CC8DF32C4CF4320083E6C6 /* TweetGenerator.swift in Sources */,
 				C0CC8DF42C4CF4320083E6C6 /* Configuration.swift in Sources */,
@@ -1010,7 +1004,6 @@
 				C0CC8E0F2C4CF4330083E6C6 /* CategoryObject.swift in Sources */,
 				C0CC8E6A2C4CF44D0083E6C6 /* DonationCellView.swift in Sources */,
 				C02FF0E52C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
-				C0CC8E102C4CF4330083E6C6 /* DependencyGraph.swift in Sources */,
 				C0CC8E112C4CF4330083E6C6 /* TweetGenerator.swift in Sources */,
 				C02FF0E02C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */,
 				C0CC8E122C4CF4330083E6C6 /* Configuration.swift in Sources */,
@@ -1088,7 +1081,6 @@
 				C0CC8E2D2C4CF4350083E6C6 /* CategoryObject.swift in Sources */,
 				C0CC8E6B2C4CF44E0083E6C6 /* DonationCellView.swift in Sources */,
 				C02FF0E62C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
-				C0CC8E2E2C4CF4350083E6C6 /* DependencyGraph.swift in Sources */,
 				C0CC8E2F2C4CF4350083E6C6 /* TweetGenerator.swift in Sources */,
 				C02FF0E12C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */,
 				C0CC8E302C4CF4350083E6C6 /* Configuration.swift in Sources */,
