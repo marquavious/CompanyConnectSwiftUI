@@ -71,8 +71,8 @@ struct MapTabView: View {
                     }
                 }
                 .environmentObject(companyFilter)
-                .navigationDestination(for: CompanyObject.self) { _ in
-                    // CompanyProfileView(viewModel: CompanyProfileViewViewModel(company: $0), companyID: <#String#>)
+                .navigationDestination(for: CompanyObject.self) {
+                    CompanyProfileView(companyObject: $0)
                 }
             case .error:
                 // Handle Error

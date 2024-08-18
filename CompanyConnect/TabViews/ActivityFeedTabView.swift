@@ -42,11 +42,11 @@ struct ActivityFeedTabView: View {
     @State private var presentedNgos: [String] = []
     @State private var shouldShowFilter: Bool = false
     @State private var loadingState: LoadingState = .fetched
-//    @State private var categoryHandler: CategoryHandler = CategoryHandler()
     @State private var filterIsActive: Bool = false
-    @Injected(\.activityServiceType) var service
     @State var categoryHandler: CategoryFilter = CategoryFilter()
     @State var posts = [ActivityPost]()
+
+    @Injected(\.activityServiceType) var service
 
     var body: some View {
         NavigationStack(path: $presentedNgos) {
@@ -89,7 +89,7 @@ struct ActivityFeedTabView: View {
         switch event {
         case .onCompanySelection(companyID: let companyID):
             print(companyID)
-        case .onSelect(categoryHandler: let categoryHandler):
+        case .onSelect:
             print("NO OP")
         }
     }

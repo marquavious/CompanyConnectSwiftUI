@@ -7,8 +7,27 @@
 
 import SwiftUI
 import Charts
+import Factory
 
 struct DonationsView: View {
+
+    enum LoadingState: Equatable {
+
+        case loading
+        case fetched
+        case error(Error)
+
+        static func == (lhs: LoadingState, rhs: LoadingState) -> Bool {
+            switch (lhs, rhs) {
+            case (.loading, .loading), (.fetched, .fetched):
+                true
+            case let (.error(lhsError), .error(rhsError)):
+                lhsError.localizedDescription == rhsError.localizedDescription
+            default:
+                false
+            }
+        }
+    }
 
     struct Constants {
         static let ContentPadding = EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0)
@@ -21,12 +40,15 @@ struct DonationsView: View {
     }
 
     @Environment (\.colorScheme) var colorScheme
+    @State var loadingState: LoadingState = .loading
+    @State var pastDonations = [Donation]()
+    @State var scheduledDonations = [Donation]()
 
-    let viewModel: DonationsViewViewModelType
+    @Injected(\.donationsViewService) var service
 
     var body: some View {
         NavigationView {
-            switch viewModel.loadingState {
+            switch loadingState {
             case .loading:
                 VStack(spacing: 0) {
                     ProgressView()
@@ -39,12 +61,12 @@ struct DonationsView: View {
             case .fetched:
                 List {
                     Section {
-                        ForEach(viewModel.pastDonations) {
+                        ForEach(pastDonations) {
                             DonationCellView(donation: $0)
                         }
                     }
                     Section {
-                        ForEach(viewModel.scheduledDonations, id: \.id) {
+                        ForEach(scheduledDonations) {
                             DonationCellView(donation: $0)
                         }
                     }
@@ -53,7 +75,6 @@ struct DonationsView: View {
                         .font(.title3)
                         .padding([.vertical])
                 } footer: {
-                    // - TODO: Replace Fake Text with Text Generators
                     Text(StringGenerator.generateShortString())
                         .font(.caption)
                         .padding([.vertical])
@@ -72,24 +93,32 @@ struct DonationsView: View {
                     }
                     .tint(colorScheme == .light ? .black:.white)
                 }
-            case .error(let error):
+            case .error:
                 // Handle Error
                 Text("OOOPS :)")
                     .navigationTitle(Constants.NavigationTitle)
             }
         }
         .task {
-            if viewModel.loadingState != .fetched {
-                await viewModel.loadDonationsData()
+            if loadingState != .fetched {
+                await fetchDonations()
             }
         }
     }
 
     private func fetchDonations() async {
-        await viewModel.loadDonationsData()
+        loadingState = .loading
+        do {
+            let donationsData = try await service.getDonationsData(forUserID: "")
+            pastDonations = donationsData.pastDonations
+            scheduledDonations = donationsData.scheduledDonations
+            loadingState = .fetched
+        } catch {
+            loadingState = .error(error)
+        }
     }
 }
 
 #Preview {
-    DonationsView(viewModel: DevDonationsViewViewModel(loadingState: .fetched))
+    DonationsView()
 }

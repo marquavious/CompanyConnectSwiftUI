@@ -125,15 +125,21 @@ struct CompanyProfileView: View {
     @State var showActivityFeed: Bool = true
     @State private var currentTab: ProfileTabs = .about
     @State var showNavigationBar: Bool = false
-    @State var loadingState: LoadingState = .idle
+    @State var loadingState: LoadingState
     @Injected(\.profileServiceType) var service
 
-    var companyID: String
+    private var companyID: String
 
     init(companyID: String) {
         self.companyID = companyID
-        UIPageControl.appearance().currentPageIndicatorTintColor = .gray
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
+        loadingState = .idle
+        adjustPageIndicatorTintColor()
+    }
+
+    init(companyObject: CompanyObject) {
+        self.companyID = companyObject.id
+        loadingState = .fetched(companyObject)
+        adjustPageIndicatorTintColor()
     }
 
     var body: some View {
@@ -157,7 +163,6 @@ struct CompanyProfileView: View {
                         }
                     }
             case .fetched(let company):
-
                 ScrollViewOffset(onOffsetChange: { (offset) in
                     handleNavigationBarAnimation(scrollViewOffset: offset)
                 }) {
@@ -345,8 +350,13 @@ struct CompanyProfileView: View {
             }
         }
     }
+
+    private func adjustPageIndicatorTintColor() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = .gray
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
+    }
 }
 
-//#Preview {
-//    CompanyProfileView()
-//}
+#Preview {
+    CompanyProfileView(companyObject: CompanyObject.createFakeCompanyObject())
+}

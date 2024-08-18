@@ -62,5 +62,5 @@ struct DonationCellView: View {
 }
 
 #Preview {
-    DonationsView(viewModel: DevDonationsViewViewModel())
+    DonationsView()
 }

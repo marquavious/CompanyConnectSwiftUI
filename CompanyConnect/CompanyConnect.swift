@@ -12,8 +12,6 @@ import Factory
 @main
 struct CompanyConnect: App {
 
-    private let dependencyGraph: DependencyGraphType
-
     #if DEBUG
     private let stubsHandler = OHHTTPStubsHandler()
     #endif
@@ -22,9 +20,7 @@ struct CompanyConnect: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView(
-                dependencyGraph: dependencyGraph
-            )
+            MainView()
             .onShake {
                 showingSheet.toggle()
             }
@@ -32,11 +28,10 @@ struct CompanyConnect: App {
                 TweakWindowView()
             }
         }
-
     }
 
     init() {
-
+        /* Set up Factory here
         let dependancyGraph: DependencyGraphType = {
             let configEnvString: String
             do {
@@ -62,6 +57,7 @@ struct CompanyConnect: App {
         }()
 
         self.dependencyGraph = dependancyGraph
+        */
 
     #if DEBUG
         stubsHandler.setupStubs()
@@ -75,8 +71,6 @@ struct CompanyConnect: App {
 }
 
 struct MainView: View {
-
-    let dependencyGraph: DependencyGraphType
 
     enum TabViewData: String {
         case feed = "Feed"
@@ -105,7 +99,7 @@ struct MainView: View {
                 Label(TabViewData.map.rawValue, systemImage: TabViewData.map.systemImageName)
             }
 
-            DonationsView(viewModel: dependencyGraph.donationsViewViewModel).tabItem {
+            DonationsView().tabItem {
                 Label(TabViewData.donations.rawValue, systemImage: TabViewData.donations.systemImageName)
             }
         }
