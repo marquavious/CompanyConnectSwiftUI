@@ -20,7 +20,7 @@ struct CompanyHGrid: View {
     @Environment(\.colorScheme) var colorScheme
     @Binding var shouldShowListView: Bool
 
-    var onTapAction: ((CompanyObject) -> Void)
+    var onTapAction: ((Company) -> Void)
     private let hRowColumns = [GridItem(.flexible())]
 
     var body: some View {
@@ -44,6 +44,6 @@ struct CompanyHGrid: View {
 
 }
 
-//#Preview {
-//    MapTabView(viewModel: DevMapViewViewModel())
-//}
+#Preview {
+    MapTabView()
+}

@@ -1,5 +1,5 @@
 //
-//  CategoryObject.swift
+//  Category.swift
 //  CompanyConnect
 //
 //  Created by Marquavious Draggon on 12/11/23.

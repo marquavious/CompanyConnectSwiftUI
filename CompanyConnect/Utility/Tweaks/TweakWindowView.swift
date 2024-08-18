@@ -13,16 +13,14 @@ struct TweakWindowView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                TweakWindowUIViewControllerRepresentable()
-            }
-            .edgesIgnoringSafeArea(.bottom)
-            .navigationTitle("CC Tweaks")
-            .toolbar {
-                Button("Close") {
-                    dismiss()
+            TweakWindowUIViewControllerRepresentable()
+                .edgesIgnoringSafeArea(.bottom)
+                .navigationTitle("CC Tweaks")
+                .toolbar {
+                    Button("Close") {
+                        dismiss()
+                    }
                 }
-            }
         }
     }
 }

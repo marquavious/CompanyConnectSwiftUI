@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct RoundButtonView: View {
+struct ActivityFeedCategoryButtonView: View {
 
     struct Constants {
         static let Padding: CGFloat = 16

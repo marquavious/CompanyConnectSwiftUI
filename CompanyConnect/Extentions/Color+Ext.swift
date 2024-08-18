@@ -8,7 +8,6 @@
 import SwiftUI
 
 extension Color {
-
     static func random() -> Color {
         return Color(
             red: Double.random(in: 0...1),
@@ -16,5 +15,4 @@ extension Color {
             blue: Double.random(in: 0...1)
         )
     }
-
 }

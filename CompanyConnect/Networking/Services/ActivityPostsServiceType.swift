@@ -10,7 +10,14 @@ import Factory
 
 extension Container {
     var activityServiceType: Factory<ActivityPostsServiceType> {
-        self { OfflineActivityPostsService() }
+        switch AppConfig.shared.enviorment {
+        case .production:
+            self { ActivityPostsService() }
+        case .offline:
+            self { OfflineActivityPostsService() }
+        case .development:
+            self { DevActivityPostsService() }
+        }
     }
 }
 
@@ -35,12 +42,12 @@ class ActivityPostsService: ActivityPostsServiceType {
 class DevActivityPostsService: ActivityPostsServiceType {
     @MainActor
     func getPosts() async throws -> ActivityFeedJSONResponse {
-        ActivityFeedJSONResponse(activityPosts: [ActivityPost.createFakeActivityPost(), ActivityPost.createFakeActivityPost(), ActivityPost.createFakeActivityPost()])
+        ActivityFeedJSONResponse(activityPosts: [Post.createFakeActivityPost(), Post.createFakeActivityPost(), Post.createFakeActivityPost()])
     }
 
     func getPostsFromCompanyWithID(_ id: String) async throws -> ActivityFeedJSONResponse {
         ActivityFeedJSONResponse(
-            activityPosts: [ActivityPost.createFakeActivityPostForCompany(company: CompanyObject.createFakeCompanyObject())]
+            activityPosts: [Post.createFakeActivityPostForCompany(company: Company.createFakeCompanyObject())]
         )
     }
 }

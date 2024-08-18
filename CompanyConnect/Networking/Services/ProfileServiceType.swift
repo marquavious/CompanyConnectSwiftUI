@@ -10,7 +10,14 @@ import Factory
 
 extension Container {
     var profileServiceType: Factory<ProfileServiceType> {
-        self { CompanyProfileViewService() }
+        switch AppConfig.shared.enviorment {
+        case .production:
+            self { CompanyProfileViewService() }
+        case .offline:
+            self { OfflineCompanyProfileViewService() }
+        case .development:
+            self { DevCompanyProfileViewService() }
+        }
     }
 }
 
@@ -22,7 +29,7 @@ protocol ProfileServiceType: HTTPDataDownloader {
 class CompanyProfileViewService: ProfileServiceType {
     @MainActor
     func getCompnayInfo(companyID: String) async throws -> CompanyProfileViewJSONResponse {
-        return CompanyProfileViewJSONResponse(companyObject: CompanyObject.createFakeCompanyObject()) // CHANGE
+        return CompanyProfileViewJSONResponse(companyObject: Company.createFakeCompanyObject()) // CHANGE
     }
 }
 
@@ -30,7 +37,7 @@ class CompanyProfileViewService: ProfileServiceType {
 class DevCompanyProfileViewService: ProfileServiceType {
     @MainActor
     func getCompnayInfo(companyID: String) async throws -> CompanyProfileViewJSONResponse {
-        return CompanyProfileViewJSONResponse(companyObject: CompanyObject.createFakeCompanyObject())
+        return CompanyProfileViewJSONResponse(companyObject: Company.createFakeCompanyObject())
     }
 }
 

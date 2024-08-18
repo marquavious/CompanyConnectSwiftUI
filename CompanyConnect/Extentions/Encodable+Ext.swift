@@ -18,3 +18,16 @@ extension Encodable {
         throw DecodingError.typeMismatch(type(of: object), context)
     }
 }
+
+
+extension Encodable {
+    
+    var prettyPrintedJSONString: String? {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        encoder.dateEncodingStrategy = .iso8601
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        guard let data = try? encoder.encode(self) else { return nil }
+        return String(data: data, encoding: .utf8) ?? nil
+    }
+}

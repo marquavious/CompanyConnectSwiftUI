@@ -19,5 +19,4 @@ struct Triangle: Shape {
 
         return path
     }
-
 }

@@ -60,7 +60,6 @@ class OHHTTPStubsHandler: NSObject {
         }
 
     }
-
 }
 
 enum OHHTTPStubsHandlerError: Error {

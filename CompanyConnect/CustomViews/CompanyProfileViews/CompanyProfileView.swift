@@ -23,7 +23,7 @@ struct CompanyProfileView: View {
     @State private var loadingState: LoadingState
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) var colorScheme
-    @StateObject private var activityPostsManager = ActivityPostsManager()
+    @StateObject private var activityPostsManager = PostsManager()
 
     @Injected(\.profileServiceType) var profileService
     @Injected(\.activityServiceType) var activityService
@@ -36,7 +36,7 @@ struct CompanyProfileView: View {
         adjustPageIndicatorTintColor()
     }
 
-    init(companyObject: CompanyObject) {
+    init(companyObject: Company) {
         self.companyID = companyObject.id
         loadingState = .fetched(companyObject)
         adjustPageIndicatorTintColor()
@@ -259,7 +259,7 @@ extension CompanyProfileView {
 
         case idle
         case loading
-        case fetched(CompanyObject)
+        case fetched(Company)
         case error(Error)
 
         static func == (lhs: LoadingState, rhs: LoadingState) -> Bool {
@@ -320,7 +320,7 @@ extension CompanyProfileView {
             }
         }
 
-        func descriptionText(company: CompanyObject) -> String? {
+        func descriptionText(company: Company) -> String? {
             switch self {
             case .missionStatement:
                 company.missionStatement
@@ -336,7 +336,7 @@ extension CompanyProfileView {
         }
 
         @ViewBuilder
-        func view(compnay: CompanyObject) -> some View {
+        func view(compnay: Company) -> some View {
             switch self {
             case .missionStatement:
                 // For some reason EmptyView() Buggs out the insets
@@ -360,5 +360,5 @@ extension CompanyProfileView {
 }
 
 #Preview {
-    CompanyProfileView(companyObject: CompanyObject.createFakeCompanyObject())
+    CompanyProfileView(companyObject: Company.createFakeCompanyObject())
 }

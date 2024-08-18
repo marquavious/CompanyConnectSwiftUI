@@ -32,7 +32,6 @@ extension HTTPDataDownloader {
             throw HTTPDataDownloaderError.DecodeingError(error: error.localizedDescription)
         }
     }
-
 }
 
 enum HTTPDataDownloaderError: Error {

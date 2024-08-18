@@ -13,7 +13,7 @@ extension Coordinates {
     }
 }
 
-struct CompanyObject: Codable, Identifiable, Hashable {
+struct Company: Codable, Identifiable, Hashable {
     let id: String
     let orginizationName: String
     let coordinates: Coordinates
@@ -22,7 +22,7 @@ struct CompanyObject: Codable, Identifiable, Hashable {
     let missionStatement: String
     let bio: String
     var team: [TeamMember]
-    let briefHistoryObject: BriefHistoryObject
+    let briefHistoryObject: BriefHistory
     var projects: [Project]
     let logoImageUrl: String
 
@@ -30,14 +30,14 @@ struct CompanyObject: Codable, Identifiable, Hashable {
         return hasher.combine(id)
     }
 
-    public static func == (lhs: CompanyObject, rhs: CompanyObject) -> Bool {
+    public static func == (lhs: Company, rhs: Company) -> Bool {
         return lhs.id == rhs.id
     }
 }
 
-extension CompanyObject {
-    static func createFakeCompanyObject() -> CompanyObject {
-        CompanyObject(
+extension Company {
+    static func createFakeCompanyObject() -> Company {
+        Company(
             id: UUID().uuidString,
             orginizationName: "Company Inc",
             coordinates: Coordinates(
@@ -49,15 +49,15 @@ extension CompanyObject {
             missionStatement: "Mission Statement",
             bio: StringGenerator.generateShortString(),
             team: TeamMember.generateRandomTeamList(),
-            briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+            briefHistoryObject: BriefHistory.createFakeBriefHistoryObject(),
             projects: Project.generateFakeProjectList(),
             logoImageUrl: "imageUrl"
         )
     }
 
-    static func createFakeComapnyList() -> [CompanyObject] {
+    static func createFakeComapnyList() -> [Company] {
         [
-            CompanyObject(
+            Company(
                 id: UUID().uuidString,
                 orginizationName: "Cars for Kids",
                 coordinates: Coordinates(
@@ -68,11 +68,11 @@ extension CompanyObject {
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
-                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                briefHistoryObject: BriefHistory.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageUrl: "imageUrl"
             ),
-            CompanyObject(
+            Company(
                 id: UUID().uuidString,
                 orginizationName: "A.D.F.R.A",
                 coordinates: Coordinates(
@@ -83,11 +83,11 @@ extension CompanyObject {
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
-                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                briefHistoryObject: BriefHistory.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageUrl: "imageUrl"
             ),
-            CompanyObject(
+            Company(
                 id: UUID().uuidString,
                 orginizationName: "Ever Green",
                 coordinates: Coordinates(
@@ -98,11 +98,11 @@ extension CompanyObject {
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
-                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                briefHistoryObject: BriefHistory.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageUrl: "imageUrl"
             ),
-            CompanyObject(
+            Company(
                 id: UUID().uuidString,
                 orginizationName: "EDU Global",
                 coordinates: Coordinates(
@@ -113,11 +113,11 @@ extension CompanyObject {
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
-                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                briefHistoryObject: BriefHistory.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageUrl: "imageUrl"
             ),
-            CompanyObject(
+            Company(
                 id: UUID().uuidString,
                 orginizationName: "True Vison",
                 coordinates: Coordinates(
@@ -128,11 +128,11 @@ extension CompanyObject {
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
-                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                briefHistoryObject: BriefHistory.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageUrl: "imageUrl"
             ),
-            CompanyObject(
+            Company(
                 id: UUID().uuidString,
                 orginizationName: "S.A.O.M",
                 coordinates: Coordinates(
@@ -143,11 +143,11 @@ extension CompanyObject {
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
-                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                briefHistoryObject: BriefHistory.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageUrl: "imageUrl"
             ),
-            CompanyObject(
+            Company(
                 id: UUID().uuidString,
                 orginizationName: "People4All",
                 coordinates: Coordinates(
@@ -158,11 +158,11 @@ extension CompanyObject {
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
-                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                briefHistoryObject: BriefHistory.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageUrl: "imageUrl"
             ),
-            CompanyObject(
+            Company(
                 id: UUID().uuidString,
                 orginizationName: "VENTRA",
                 coordinates: Coordinates(
@@ -173,11 +173,11 @@ extension CompanyObject {
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
-                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                briefHistoryObject: BriefHistory.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageUrl: "imageUrl"
             ),
-            CompanyObject(
+            Company(
                 id: UUID().uuidString,
                 orginizationName: "Blue Aid",
                 coordinates: Coordinates(
@@ -188,11 +188,11 @@ extension CompanyObject {
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
-                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                briefHistoryObject: BriefHistory.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageUrl: "imageUrl"
             ),
-            CompanyObject(
+            Company(
                 id: UUID().uuidString,
                 orginizationName: "Tree Vision",
                 coordinates: Coordinates(
@@ -203,11 +203,11 @@ extension CompanyObject {
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
-                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                briefHistoryObject: BriefHistory.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageUrl: "imageUrl"
             ),
-            CompanyObject(
+            Company(
                 id: UUID().uuidString,
                 orginizationName: "Mantra",
                 coordinates: Coordinates(
@@ -218,12 +218,12 @@ extension CompanyObject {
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
-                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                briefHistoryObject: BriefHistory.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageUrl: "imageUrl"
 
             ),
-            CompanyObject(
+            Company(
                 id: UUID().uuidString,
                 orginizationName: "G.H.G",
                 coordinates: Coordinates(
@@ -234,7 +234,7 @@ extension CompanyObject {
                 missionStatement: StringGenerator.generateShortString(),
                 bio: StringGenerator.generateShortString(),
                 team: TeamMember.generateRandomTeamList(),
-                briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject(),
+                briefHistoryObject: BriefHistory.createFakeBriefHistoryObject(),
                 projects: Project.generateFakeProjectList(),
                 logoImageUrl: "imageUrl"
             )

@@ -44,7 +44,7 @@ struct DonationsView: View {
     @State var pastDonations = [Donation]()
     @State var scheduledDonations = [Donation]()
 
-    @Injected(\.donationsViewService) var service
+    @Injected(\.donationsService) var service
 
     var body: some View {
         NavigationView {

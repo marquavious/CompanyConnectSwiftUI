@@ -8,5 +8,5 @@
 import Foundation
 
 struct CompanyProfileViewJSONResponse: Codable {
-    let companyObject: CompanyObject
+    let companyObject: Company
 }

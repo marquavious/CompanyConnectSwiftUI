@@ -31,34 +31,6 @@ struct CompanyConnect: App {
     }
 
     init() {
-        /* Set up Factory here
-        let dependancyGraph: DependencyGraphType = {
-            let configEnvString: String
-            do {
-                configEnvString = try Configuration.value(for: ConfiKeys.APPLICATION_ENVIRONMENT.rawValue)
-            } catch {
-                fatalError("Could not load APPLICATION_ENVIRONMENT variable")
-            }
-
-            if let enviorment = ApplicationEnviorment(rawValue: configEnvString) {
-                switch enviorment {
-                case .production:
-                    return DependencyGraph()
-                case .offline:
-                    return OfflineDependencyGraph()
-                case .integrated:
-                    return IntegratedDependencyGraph()
-                case .development:
-                    return DevlopmentDependencyGraph()
-                }
-            } else {
-                fatalError("Could not crate DependencyGraph from Config.")
-            }
-        }()
-
-        self.dependencyGraph = dependancyGraph
-        */
-
     #if DEBUG
         stubsHandler.setupStubs()
     #endif
@@ -106,6 +78,6 @@ struct MainView: View {
     }
 }
 
-//#Preview {
-//    MainView(dependencyGraph: DevlopmentDependencyGraph(), coordinator: DevNavigationCoordinator())
-//}
+#Preview {
+    MainView()
+}

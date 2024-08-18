@@ -16,7 +16,7 @@ struct BriefHistoryPhotoScrollerView: View {
         static let CaptionPadding: CGFloat = 8
     }
 
-    let briefHistoryObject: BriefHistoryObject
+    let briefHistoryObject: BriefHistory
 
     var body: some View {
         TabView {
@@ -53,5 +53,5 @@ struct BriefHistoryPhotoScrollerView: View {
 }
 
 #Preview {
-    BriefHistoryPhotoScrollerView(briefHistoryObject: BriefHistoryObject.createFakeBriefHistoryObject())
+    BriefHistoryPhotoScrollerView(briefHistoryObject: BriefHistory.createFakeBriefHistoryObject())
 }

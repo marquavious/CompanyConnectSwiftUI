@@ -17,9 +17,9 @@ struct CompanyListView: View {
     }
 
     @Binding var shouldShowListView: Bool
-    @EnvironmentObject var companyFilter: CompanyFilter
+    @EnvironmentObject var companyFilter: CompanyManager
 
-    var didSelectCompany: (CompanyObject) -> Void
+    var didSelectCompany: (Company) -> Void
 
     var body: some View {
         ZStack {
@@ -50,6 +50,6 @@ struct CompanyListView: View {
 
 }
 
-//#Preview {
-//    MapTabView(viewModel: DevMapViewViewModel())
-//}
+#Preview {
+    MapTabView()
+}

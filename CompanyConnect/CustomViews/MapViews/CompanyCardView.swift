@@ -16,9 +16,9 @@ struct CompanyCardView: View {
     }
 
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var companyFilter: CompanyFilter
+    @EnvironmentObject var companyFilter: CompanyManager
 
-    var onTapAction: ((CompanyObject) -> Void)
+    var onTapAction: ((Company) -> Void)
     let cellSize: CGSize
 
     var body: some View {

@@ -18,7 +18,7 @@ struct CompanyVGrid: View {
 
     @Binding var shouldShowListView: Bool
 
-    var onTapAction: ((CompanyObject) -> Void)
+    var onTapAction: ((Company) -> Void)
     private let vGridColumns = [GridItem(.flexible())]
 
     var body: some View {
@@ -39,6 +39,6 @@ struct CompanyVGrid: View {
 
 }
 
-//#Preview {
-//    MapTabView(shouldShowListView: true, viewModel: DevMapViewViewModel())
-//}
+#Preview {
+    MapTabView()
+}

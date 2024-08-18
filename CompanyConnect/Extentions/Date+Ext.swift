@@ -22,7 +22,6 @@ extension Date {
         let dateString = dateFormatter.string(from: date)
         return dateString
     }
-
 }
 
 extension Date {

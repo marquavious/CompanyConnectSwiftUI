@@ -16,7 +16,6 @@ extension View {
             for: nil
         )
     }
-
 }
 
 extension View {

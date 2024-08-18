@@ -32,9 +32,9 @@ struct MapTabView: View {
 
     @State var shouldShowListView: Bool = false
     @State private var shouldLockMap: Bool = true
-    @State private var selectedCompanies = [CompanyObject]()
+    @State private var selectedCompanies = [Company]()
     @State private var loadingState: LoadingState = .loading
-    @StateObject var companyFilter: CompanyFilter = CompanyFilter()
+    @StateObject var companyFilter: CompanyManager = CompanyManager()
     @Injected(\.mapService) private var mapService
 
     var body: some View {
@@ -71,7 +71,7 @@ struct MapTabView: View {
                     }
                 }
                 .environmentObject(companyFilter)
-                .navigationDestination(for: CompanyObject.self) {
+                .navigationDestination(for: Company.self) {
                     CompanyProfileView(companyObject: $0)
                 }
             case .error:

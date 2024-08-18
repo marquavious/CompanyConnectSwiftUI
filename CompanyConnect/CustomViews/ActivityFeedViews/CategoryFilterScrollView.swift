@@ -15,7 +15,7 @@ struct CategoryFilterScrollView: View {
         static let edgeInsets = EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
     }
 
-    @EnvironmentObject var categoryFilter: CategoryFilter
+    @EnvironmentObject var categoryFilter: CategoryManager
     private let gridRows = [GridItem(.flexible())]
 
     var body: some View {
@@ -23,7 +23,7 @@ struct CategoryFilterScrollView: View {
             LazyHGrid(rows: gridRows) {
                 ForEach(categoryFilter.categories) { category in
                     ZStack {
-                        RoundButtonView(
+                        ActivityFeedCategoryButtonView(
                             text: category.name,
                             color: category.color,
                             isHighlighted: categoryFilter.selectedCategoriesConatins(category)

@@ -1,5 +1,5 @@
 //
-//  ActivityViewCell.swift
+//  PostCellView.swift
 //  CompanyConnect
 //
 //  Created by Marquavious Draggon on 7/16/24.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct ActivityCellView: View {
+struct PostCellView: View {
 
     struct Constants {
         static let ActivityCellProfilePictureSize: CGSize = CGSize(width: 40, height: 40)
@@ -28,7 +28,7 @@ struct ActivityCellView: View {
         case VisitProfile = "person.crop.circle"
     }
 
-    let activityPost: ActivityPost
+    let activityPost: Post
     let companySelected: (() -> Void)?
 
     @Environment(\.colorScheme) var colorScheme
@@ -143,5 +143,5 @@ struct ActivityCellView: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    ActivityCellView(activityPost: ActivityPost.createFakeActivityPost(), companySelected: {  })
+    PostCellView(activityPost: Post.createFakeActivityPost(), companySelected: {  })
 }

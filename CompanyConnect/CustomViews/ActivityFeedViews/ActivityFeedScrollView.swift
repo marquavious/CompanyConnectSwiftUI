@@ -24,7 +24,7 @@ struct ActivityFeedScrollView: View {
 
     @State var shouldShowCategoryFilter: Bool
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var activityPostsManager: ActivityPostsManager
+    @EnvironmentObject var activityPostsManager: PostsManager
 
     private let columns = [GridItem(.flexible())]
     private let activityScrollerTipView = ActivityScrollerTipView()
@@ -41,7 +41,7 @@ struct ActivityFeedScrollView: View {
                 Section {
                     TipView(activityScrollerTipView).padding([.horizontal], Constants.TipViewPadding)
                     ForEach(activityPostsManager.filteredPosts) { activityPost in
-                        ActivityCellView(activityPost: activityPost) {
+                        PostCellView(activityPost: activityPost) {
                             onCompanySelection?(activityPost.id)
                         }
 
@@ -81,6 +81,6 @@ struct ActivityFeedScrollView: View {
 
 }
 
-//#Preview {
-//    ActivityFeedTabView(coordinator: DevNavigationCoordinator(), viewModel: DevHomeTabActivityFeed())
-//}
+#Preview {
+    ActivityFeedTabView()
+}

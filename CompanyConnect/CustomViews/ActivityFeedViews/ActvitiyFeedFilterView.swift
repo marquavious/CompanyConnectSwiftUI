@@ -15,7 +15,7 @@ struct ActvitiyFeedFilterView: View {
     }
 
     private let rows = [GridItem(.flexible())]
-    @EnvironmentObject var categoryHandler: CategoryFilter
+    @EnvironmentObject var categoryHandler: CategoryManager
 
     var onTapAction: ((Category) -> Void)
 
@@ -26,7 +26,7 @@ struct ActvitiyFeedFilterView: View {
         ) {
             LazyHGrid(rows: rows) {
                 ForEach(categoryHandler.categories) { category in
-                    RoundButtonView(
+                    ActivityFeedCategoryButtonView(
                         text: category.name,
                         color: category.color,
                         isHighlighted: categoryHandler.selctedCategories.contains(category)
@@ -42,6 +42,6 @@ struct ActvitiyFeedFilterView: View {
 
 }
 
-//#Preview {
-//    ActivityFeedTabView(coordinator: DevNavigationCoordinator(), viewModel: DevHomeTabActivityFeed())
-//}
+#Preview {
+    ActivityFeedTabView()
+}

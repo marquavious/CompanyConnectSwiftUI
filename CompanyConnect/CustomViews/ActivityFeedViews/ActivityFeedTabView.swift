@@ -12,7 +12,6 @@ import Factory
 struct ActivityFeedTabView: View {
 
     enum LoadingState: Equatable {
-
         case loading
         case fetched
         case error(Error)
@@ -43,7 +42,7 @@ struct ActivityFeedTabView: View {
     @State private var shouldShowFilter: Bool = false
     @State private var loadingState: LoadingState = .loading
     @State private var filterIsActive: Bool = false
-    @StateObject var postsFilter: ActivityPostsManager = ActivityPostsManager()
+    @StateObject var postsFilter: PostsManager = PostsManager()
 
     @Injected(\.activityServiceType) var service
 
@@ -100,7 +99,6 @@ struct ActivityFeedTabView: View {
     }
 }
 
-//#Preview {
-//    ActivityFeedTabView(viewModel: DevHomeTabActivityFeed(postCount: 5, loadingState: .fetched)
-//    )
-//}
+#Preview {
+    ActivityFeedTabView()
+}

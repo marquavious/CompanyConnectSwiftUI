@@ -26,7 +26,7 @@ struct MapControlPanelView: View {
     }
 
     @Binding var shouldShowListView: Bool
-    @EnvironmentObject var companyFilter: CompanyFilter
+    @EnvironmentObject var companyFilter: CompanyManager
 
     private let mapTipView = MapTipView()
 
@@ -72,6 +72,6 @@ struct MapControlPanelView: View {
 
 }
 
-//#Preview {
-//    MapTabView(viewModel: DevMapViewViewModel())
-//}
+#Preview {
+    MapTabView()
+}

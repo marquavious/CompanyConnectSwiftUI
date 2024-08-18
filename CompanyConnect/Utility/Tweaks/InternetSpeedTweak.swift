@@ -10,8 +10,6 @@ import OHHTTPStubs
 
 enum InternetSpeedTweak: Int, Tweakable {
 
-    typealias T = TimeInterval
-
     case simulateSlowInternetConnection = 0
     case simulateNormlInternetSpeed
     case simulateFastInternetConnection

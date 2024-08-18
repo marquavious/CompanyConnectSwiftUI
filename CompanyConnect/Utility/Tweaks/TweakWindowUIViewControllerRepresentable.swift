@@ -21,7 +21,7 @@ struct TweakWindowUIViewControllerRepresentable: UIViewControllerRepresentable {
 
 }
 
-class UIViewControllerTweakWindow: UIViewController {
+final class UIViewControllerTweakWindow: UIViewController {
 
     struct Constants {
         static let pickerHeight: CGFloat = 260

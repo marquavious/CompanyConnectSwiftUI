@@ -8,5 +8,5 @@
 import Foundation
 
 struct MapViewJSONResponse: Codable {
-    let companyObjects: [CompanyObject]
+    let companyObjects: [Company]
 }
