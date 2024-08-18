@@ -15,14 +15,14 @@ struct CompanyCardView: View {
         static let LogoImageViewSize: CGSize = CGSize(width: 40, height: 40)
     }
 
-    var viewModel: MapViewViewModelType
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var companyFilter: CompanyFilter
 
     var onTapAction: ((CompanyObject) -> Void)
     let cellSize: CGSize
 
     var body: some View {
-        ForEach(viewModel.presentedCompanies()) { company in
+        ForEach(companyFilter.filteredCompanies) { company in
             ZStack {
                 let backgroundColor = colorScheme == .light ?  Color.white : Color.gray.opacity(0.3)
 

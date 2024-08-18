@@ -7,17 +7,22 @@
 
 import Foundation
 
-class CategoryHandler: ObservableObject {
+@Observable
+class CategoryFilter: ObservableObject {
     var categories: [Category]
 
     var selctedCategories: [Category] = [Category]()
 
     var hasSelectedCategories: Bool  {
-        selctedCategories.isEmpty
+        !selctedCategories.isEmpty
     }
 
     func resetSelectedCategories() {
         selctedCategories = []
+    }
+
+    func selectedCategoriesConatins(_ category: Category) -> Bool {
+        selctedCategories.contains(category)
     }
 
     func addToSelectedCategories(category: Category) {
@@ -40,4 +45,44 @@ class CategoryHandler: ObservableObject {
         self.categories = categories
     }
 
+}
+
+class ActivityPostsFilter: ObservableObject {
+    var categoryFilter: CategoryFilter
+
+    init(categoryFilter: CategoryFilter) {
+        self.categoryFilter = categoryFilter
+    }
+}
+
+class CompanyFilter: ObservableObject {
+
+    private (set) var allCompanies: [CompanyObject]
+
+    var categoryFilter: CategoryFilter
+
+    var filteredCompanies: [CompanyObject] {
+        allCompanies // For Now
+    }
+
+    var allCategories: [Category] {
+        categoryFilter.categories
+    }
+
+    var selectedCategories: [Category] {
+        categoryFilter.selctedCategories
+    }
+
+    func addCompany(company: CompanyObject) {
+        allCompanies.append(company)
+    }
+
+    func addCompanies(companies: [CompanyObject]) {
+        allCompanies.append(contentsOf: companies)
+    }
+
+    init(comapnies: [CompanyObject] = [], categoryFilter: CategoryFilter = CategoryFilter()) {
+        self.categoryFilter = categoryFilter
+        self.allCompanies = comapnies
+    }
 }

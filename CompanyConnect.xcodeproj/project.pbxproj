@@ -58,10 +58,6 @@
 		C02FF1682C6DA56E00B7EA16 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = C02FF1672C6DA56E00B7EA16 /* Factory */; };
 		C02FF16A2C6DA57700B7EA16 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = C02FF1692C6DA57700B7EA16 /* Factory */; };
 		C02FF16C2C6DA58000B7EA16 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = C02FF16B2C6DA58000B7EA16 /* Factory */; };
-		C02FF1752C6EEAF700B7EA16 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF1742C6EEAF700B7EA16 /* Container.swift */; };
-		C02FF1762C6EEAF700B7EA16 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF1742C6EEAF700B7EA16 /* Container.swift */; };
-		C02FF1772C6EEAF700B7EA16 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF1742C6EEAF700B7EA16 /* Container.swift */; };
-		C02FF1782C6EEAF700B7EA16 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02FF1742C6EEAF700B7EA16 /* Container.swift */; };
 		C032F70D2C5460A900473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70C2C5460A900473328 /* OHHTTPStubs */; };
 		C032F70F2C5460A900473328 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70E2C5460A900473328 /* OHHTTPStubsSwift */; };
 		C032F7112C54612000473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F7102C54612000473328 /* OHHTTPStubs */; };
@@ -177,21 +173,21 @@
 		C0CC8E362C4CF4420083E6C6 /* CategoryFilterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7E2C4CEEC40083E6C6 /* CategoryFilterScrollView.swift */; };
 		C0CC8E372C4CF4420083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7A2C4CEEC40083E6C6 /* ActivityFeedViewViewModelType.swift */; };
 		C0CC8E382C4CF4420083E6C6 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D812C4CEEC40083E6C6 /* ScrollViewOffset.swift */; };
-		C0CC8E392C4CF4420083E6C6 /* MapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7B2C4CEEC40083E6C6 /* MapViewViewModel.swift */; };
+		C0CC8E392C4CF4420083E6C6 /* MapServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7B2C4CEEC40083E6C6 /* MapServiceType.swift */; };
 		C0CC8E3A2C4CF4420083E6C6 /* RoundButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D802C4CEEC40083E6C6 /* RoundButtonView.swift */; };
 		C0CC8E3B2C4CF4420083E6C6 /* TipViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D822C4CEEC40083E6C6 /* TipViews.swift */; };
 		C0CC8E3D2C4CF4420083E6C6 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7D2C4CEEC40083E6C6 /* BlurView.swift */; };
 		C0CC8E452C4CF4440083E6C6 /* CategoryFilterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7E2C4CEEC40083E6C6 /* CategoryFilterScrollView.swift */; };
 		C0CC8E462C4CF4440083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7A2C4CEEC40083E6C6 /* ActivityFeedViewViewModelType.swift */; };
 		C0CC8E472C4CF4440083E6C6 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D812C4CEEC40083E6C6 /* ScrollViewOffset.swift */; };
-		C0CC8E482C4CF4440083E6C6 /* MapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7B2C4CEEC40083E6C6 /* MapViewViewModel.swift */; };
+		C0CC8E482C4CF4440083E6C6 /* MapServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7B2C4CEEC40083E6C6 /* MapServiceType.swift */; };
 		C0CC8E492C4CF4440083E6C6 /* RoundButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D802C4CEEC40083E6C6 /* RoundButtonView.swift */; };
 		C0CC8E4A2C4CF4440083E6C6 /* TipViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D822C4CEEC40083E6C6 /* TipViews.swift */; };
 		C0CC8E4C2C4CF4440083E6C6 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7D2C4CEEC40083E6C6 /* BlurView.swift */; };
 		C0CC8E542C4CF4450083E6C6 /* CategoryFilterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7E2C4CEEC40083E6C6 /* CategoryFilterScrollView.swift */; };
 		C0CC8E552C4CF4450083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7A2C4CEEC40083E6C6 /* ActivityFeedViewViewModelType.swift */; };
 		C0CC8E562C4CF4450083E6C6 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D812C4CEEC40083E6C6 /* ScrollViewOffset.swift */; };
-		C0CC8E572C4CF4450083E6C6 /* MapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7B2C4CEEC40083E6C6 /* MapViewViewModel.swift */; };
+		C0CC8E572C4CF4450083E6C6 /* MapServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7B2C4CEEC40083E6C6 /* MapServiceType.swift */; };
 		C0CC8E582C4CF4450083E6C6 /* RoundButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D802C4CEEC40083E6C6 /* RoundButtonView.swift */; };
 		C0CC8E592C4CF4450083E6C6 /* TipViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D822C4CEEC40083E6C6 /* TipViews.swift */; };
 		C0CC8E5B2C4CF4450083E6C6 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D7D2C4CEEC40083E6C6 /* BlurView.swift */; };
@@ -299,7 +295,6 @@
 		C023F3B92C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakWindowUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		C02FF0DE2C686D6200B7EA16 /* CategoryHandlerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHandlerType.swift; sourceTree = "<group>"; };
 		C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPostsServiceType.swift; sourceTree = "<group>"; };
-		C02FF1742C6EEAF700B7EA16 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OHHTTPStubsHandler.swift; sourceTree = "<group>"; };
 		C032F7182C5467FD00473328 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
 		C032F71D2C546FB000473328 /* TweakWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakWindowView.swift; sourceTree = "<group>"; };
@@ -335,7 +330,7 @@
 		C0CC8D772C4CEEC40083E6C6 /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
 		C0CC8D782C4CEEC40083E6C6 /* MapControlPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControlPanelView.swift; sourceTree = "<group>"; };
 		C0CC8D7A2C4CEEC40083E6C6 /* ActivityFeedViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedViewViewModelType.swift; sourceTree = "<group>"; };
-		C0CC8D7B2C4CEEC40083E6C6 /* MapViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewViewModel.swift; sourceTree = "<group>"; };
+		C0CC8D7B2C4CEEC40083E6C6 /* MapServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapServiceType.swift; sourceTree = "<group>"; };
 		C0CC8D7D2C4CEEC40083E6C6 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		C0CC8D7E2C4CEEC40083E6C6 /* CategoryFilterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterScrollView.swift; sourceTree = "<group>"; };
 		C0CC8D802C4CEEC40083E6C6 /* RoundButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButtonView.swift; sourceTree = "<group>"; };
@@ -459,7 +454,6 @@
 		C02FF1732C6EEAD900B7EA16 /* Container */ = {
 			isa = PBXGroup;
 			children = (
-				C02FF1742C6EEAF700B7EA16 /* Container.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -576,7 +570,7 @@
 			isa = PBXGroup;
 			children = (
 				C0CC8D7A2C4CEEC40083E6C6 /* ActivityFeedViewViewModelType.swift */,
-				C0CC8D7B2C4CEEC40083E6C6 /* MapViewViewModel.swift */,
+				C0CC8D7B2C4CEEC40083E6C6 /* MapServiceType.swift */,
 				C0B86C742C4E00DE00C853C0 /* DonationsViewViewModel.swift */,
 			);
 			path = "View Models ";
@@ -879,7 +873,6 @@
 				C07E5A592C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */,
 				C047FE662C59DC26008A6E36 /* CompanyConnectUnitTests.swift in Sources */,
 				C02FF0E22C686D6200B7EA16 /* CategoryHandlerType.swift in Sources */,
-				C02FF1782C6EEAF700B7EA16 /* Container.swift in Sources */,
 				C02FF0E72C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -908,7 +901,7 @@
 				C0CC8E372C4CF4420083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */,
 				C0CC8E382C4CF4420083E6C6 /* ScrollViewOffset.swift in Sources */,
 				C0128D5F2C65C830008EB561 /* HTTPDownloaderTwo.swift in Sources */,
-				C0CC8E392C4CF4420083E6C6 /* MapViewViewModel.swift in Sources */,
+				C0CC8E392C4CF4420083E6C6 /* MapServiceType.swift in Sources */,
 				C0CC8E3A2C4CF4420083E6C6 /* RoundButtonView.swift in Sources */,
 				C0CC8E3B2C4CF4420083E6C6 /* TipViews.swift in Sources */,
 				C0FDF0F22C589F6E009501F2 /* LoadingState.swift in Sources */,
@@ -944,7 +937,6 @@
 				C0CC8DF62C4CF4320083E6C6 /* BriefHistoryImageObject.swift in Sources */,
 				C0CC8DF72C4CF4320083E6C6 /* Donation.swift in Sources */,
 				C02FF0E42C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
-				C02FF1752C6EEAF700B7EA16 /* Container.swift in Sources */,
 				C0D6B1AC2C5710BA00777D49 /* CCTweakManager.swift in Sources */,
 				C07E5A562C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */,
 				C0CC8DF82C4CF4320083E6C6 /* ActivityPost.swift in Sources */,
@@ -984,7 +976,7 @@
 				C01ACA512C50A69F00A77B5E /* MapViewJSONResponse.swift in Sources */,
 				C0CC8E462C4CF4440083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */,
 				C0CC8E472C4CF4440083E6C6 /* ScrollViewOffset.swift in Sources */,
-				C0CC8E482C4CF4440083E6C6 /* MapViewViewModel.swift in Sources */,
+				C0CC8E482C4CF4440083E6C6 /* MapServiceType.swift in Sources */,
 				C0CC8E5C2C4CF44A0083E6C6 /* BaseMapView.swift in Sources */,
 				C0B86C762C4E019F00C853C0 /* DonationsViewViewModel.swift in Sources */,
 				C0CC8E5D2C4CF44A0083E6C6 /* CompanyHGrid.swift in Sources */,
@@ -1006,7 +998,6 @@
 				C0CC8E0D2C4CF4330083E6C6 /* User.swift in Sources */,
 				C0CC8E6C2C4CF4510083E6C6 /* CompanyProfileMapView.swift in Sources */,
 				C0CC8E6D2C4CF4510083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,
-				C02FF1762C6EEAF700B7EA16 /* Container.swift in Sources */,
 				C032F7162C54617500473328 /* OHHTTPStubsHandler.swift in Sources */,
 				C0FDF0EF2C5791D8009501F2 /* CCTweaks.swift in Sources */,
 				C023F3BB2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */,
@@ -1063,7 +1054,7 @@
 				C01ACA4E2C50A69E00A77B5E /* MapViewJSONResponse.swift in Sources */,
 				C0CC8E552C4CF4450083E6C6 /* ActivityFeedViewViewModelType.swift in Sources */,
 				C0CC8E562C4CF4450083E6C6 /* ScrollViewOffset.swift in Sources */,
-				C0CC8E572C4CF4450083E6C6 /* MapViewViewModel.swift in Sources */,
+				C0CC8E572C4CF4450083E6C6 /* MapServiceType.swift in Sources */,
 				C0CC8E632C4CF44B0083E6C6 /* BaseMapView.swift in Sources */,
 				C0B86C772C4E01A200C853C0 /* DonationsViewViewModel.swift in Sources */,
 				C0CC8E642C4CF44B0083E6C6 /* CompanyHGrid.swift in Sources */,
@@ -1085,7 +1076,6 @@
 				C0CC8E2B2C4CF4350083E6C6 /* User.swift in Sources */,
 				C0CC8E712C4CF4520083E6C6 /* CompanyProfileMapView.swift in Sources */,
 				C0CC8E722C4CF4520083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,
-				C02FF1772C6EEAF700B7EA16 /* Container.swift in Sources */,
 				C032F7172C54617500473328 /* OHHTTPStubsHandler.swift in Sources */,
 				C0FDF0F02C5791D8009501F2 /* CCTweaks.swift in Sources */,
 				C023F3BC2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */,

@@ -13,7 +13,7 @@ import Factory
 
 enum ActivityFeedScrollViewEvent {
     case onCompanySelection(companyID: String)
-    case onSelect(categoryHandler: CategoryHandler)
+    case onSelect(categoryHandler: CategoryFilter)
 }
 
 struct ActivityFeedScrollView: View {
@@ -31,7 +31,7 @@ struct ActivityFeedScrollView: View {
     @State var shouldShowCategoryFilter: Bool
     @Environment(\.colorScheme) var colorScheme
     @Binding var posts: [ActivityPost]
-    @EnvironmentObject var categoryHandler: CategoryHandler
+    @EnvironmentObject var categoryHandler: CategoryFilter
 
     private let columns = [GridItem(.flexible())]
     private let activityScrollerTipView = ActivityScrollerTipView()
@@ -59,7 +59,7 @@ struct ActivityFeedScrollView: View {
                         VStack(spacing: .zero) {
                             ActvitiyFeedFilterView() { category in
                                 withAnimation {
-                                    
+
                                     categoryHandler.handleCategorySelection(category: category)
                                 }
                             }

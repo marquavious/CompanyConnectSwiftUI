@@ -12,17 +12,34 @@ import Factory
 
 struct MapTabView: View {
 
+    enum LoadingState: Equatable {
+
+        case loading
+        case fetched
+        case error(Error)
+
+        static func == (lhs: LoadingState, rhs: LoadingState) -> Bool {
+            switch (lhs, rhs) {
+            case (.loading, .loading), (.fetched, .fetched):
+                true
+            case let (.error(lhsError), .error(rhsError)):
+                lhsError.localizedDescription == rhsError.localizedDescription
+            default:
+                false
+            }
+        }
+    }
+
     @State var shouldShowListView: Bool = false
     @State private var shouldLockMap: Bool = true
     @State private var selectedCompanies = [CompanyObject]()
-
-//    var viewModel: MapViewViewModelType
-
-    @Injected(\.mapViewModel) private var viewModel
+    @State private var loadingState: LoadingState = .loading
+    @StateObject var companyFilter: CompanyFilter = CompanyFilter()
+    @Injected(\.mapService) private var mapService
 
     var body: some View {
         NavigationStack(path: $selectedCompanies) {
-            switch viewModel.loadingState {
+            switch loadingState {
             case .loading:
                 Map().overlay(alignment: .center) {
                     Rectangle()
@@ -39,25 +56,21 @@ struct MapTabView: View {
                 }
             case .fetched:
                 ZStack {
-                    BaseMapView(viewModel: viewModel) {
+                    BaseMapView() {
                         selectedCompanies.append($0)
                     }
 
                     VStack(spacing: .zero) {
                         Spacer()
-                        MapControlPanelView(
-                            shouldShowListView: $shouldShowListView,
-                            viewModel: viewModel
-                        )
+                        MapControlPanelView(shouldShowListView: $shouldShowListView)
 
-                        CompanyListView(
-                            shouldShowListView: $shouldShowListView,
-                            viewModel: viewModel)
+                        CompanyListView(shouldShowListView: $shouldShowListView)
                         {
                             selectedCompanies.append($0)
                         }
                     }
                 }
+                .environmentObject(companyFilter)
                 .navigationDestination(for: CompanyObject.self) { _ in
                     // CompanyProfileView(viewModel: CompanyProfileViewViewModel(company: $0), companyID: <#String#>)
                 }
@@ -67,23 +80,28 @@ struct MapTabView: View {
             }
         }
         .task {
-            if viewModel.loadingState != .fetched {
-                await fetchMapData()
+            if loadingState != .fetched {
+                await loadMapData()
             }
         }
     }
 
-    private func fetchMapData() async {
-        await viewModel.loadMapData()
+    private func loadMapData() async {
+        loadingState = .loading
+        do {
+            let mapViewJSONResponse = try await mapService.getMapData()
+            companyFilter.addCompanies(companies: mapViewJSONResponse.companyObjects)
+            loadingState = .fetched
+        } catch {
+            let nsError = error as NSError
+            if nsError.domain == NSURLErrorDomain,
+                nsError.code == NSURLErrorCancelled {
+                //Handle cancellation
+            } else {
+                //Handle failure
+                loadingState = .error(error)
+            }
+        }
     }
 
-}
-
-//#Preview {
-//    MapTabView(
-//        viewModel: DevMapViewViewModel(loadingState: .error(DevError.error)))
-//}
-
-enum DevError: Error {
-    case error
 }

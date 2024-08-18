@@ -45,7 +45,7 @@ struct ActivityFeedTabView: View {
 //    @State private var categoryHandler: CategoryHandler = CategoryHandler()
     @State private var filterIsActive: Bool = false
     @Injected(\.activityServiceType) var service
-    @State var categoryHandler: CategoryHandler = CategoryHandler()
+    @State var categoryHandler: CategoryFilter = CategoryFilter()
     @State var posts = [ActivityPost]()
 
     var body: some View {

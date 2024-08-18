@@ -15,7 +15,7 @@ struct ActvitiyFeedFilterView: View {
     }
 
     private let rows = [GridItem(.flexible())]
-    @EnvironmentObject var categoryHandler: CategoryHandler
+    @EnvironmentObject var categoryHandler: CategoryFilter
 
     var onTapAction: ((Category) -> Void)
 

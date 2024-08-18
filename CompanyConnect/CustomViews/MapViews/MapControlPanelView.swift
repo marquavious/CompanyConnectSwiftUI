@@ -26,7 +26,7 @@ struct MapControlPanelView: View {
     }
 
     @Binding var shouldShowListView: Bool
-    var viewModel: MapViewViewModelType
+    @EnvironmentObject var companyFilter: CompanyFilter
 
     private let mapTipView = MapTipView()
 
@@ -52,10 +52,10 @@ struct MapControlPanelView: View {
 
             Image(systemName: Icons.clearMapSelection.rawValue)
                 .frame(
-                    width: viewModel.hasSelectedCategories() ? Constants.ButtonSize.width : .zero,
-                    height: viewModel.hasSelectedCategories() ? Constants.ButtonSize.height : .zero
+                    width: companyFilter.categoryFilter.hasSelectedCategories ? Constants.ButtonSize.width : .zero,
+                    height: companyFilter.categoryFilter.hasSelectedCategories ? Constants.ButtonSize.height : .zero
                 )
-                .padding(viewModel.hasSelectedCategories() ? Constants.ButtonPadding : .zero)
+                .padding(companyFilter.categoryFilter.hasSelectedCategories ? Constants.ButtonPadding : .zero)
                 .foregroundColor(.white)
                 .background(.regularMaterial)
                 .environment(\.colorScheme, .dark)
@@ -63,7 +63,7 @@ struct MapControlPanelView: View {
                 .transition(.scale)
                 .onTapGesture {
                     withAnimation(.easeInOut(duration: 0.2)) {
-                        viewModel.resetSelectedCategories()
+                        companyFilter.categoryFilter.resetSelectedCategories()
                     }
                 }
         }
