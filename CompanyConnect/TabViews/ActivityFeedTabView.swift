@@ -43,7 +43,7 @@ struct ActivityFeedTabView: View {
     @State private var shouldShowFilter: Bool = false
     @State private var loadingState: LoadingState = .loading
     @State private var filterIsActive: Bool = false
-    @StateObject var postsFilter: ActivityPostsFilter = ActivityPostsFilter()
+    @StateObject var postsFilter: ActivityPostsManager = ActivityPostsManager()
 
     @Injected(\.activityServiceType) var service
 

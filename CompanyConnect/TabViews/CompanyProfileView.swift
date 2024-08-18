@@ -11,122 +11,22 @@ import Factory
 
 struct CompanyProfileView: View {
 
-    enum LoadingState: Equatable {
-
-        case idle
-        case loading
-        case fetched(CompanyObject)
-        case error(Error)
-
-        static func == (lhs: LoadingState, rhs: LoadingState) -> Bool {
-            switch (lhs, rhs) {
-            case (.loading, .loading), (.fetched, .fetched):
-                true
-            case let (.error(lhsError), .error(rhsError)):
-                lhsError.localizedDescription == rhsError.localizedDescription
-            default:
-                false
-            }
-        }
-    }
-
     struct Constants {
         static let HeaderViewHeight: CGFloat = 200.0
         static let NavigationBarHeight: CGFloat = 50
         static let ScrollViewOffset: CGFloat = -50
     }
 
-    enum ProfileTabs: Int, CaseIterable {
-        case about, activity
-    }
-
-    enum AboutSection: Int, CaseIterable, Identifiable {
-
-        case missionStatement
-        case ourTeam
-        case briefHistory
-        case locations
-        case projects
-
-        var id: String {
-            return title
-        }
-
-        var title: String {
-            switch self {
-            case .missionStatement:
-                "Mission Statement"
-            case .ourTeam:
-                "Our Team"
-            case .briefHistory:
-                "Brief History"
-            case .locations:
-                "Location"
-            case .projects:
-                "Projects"
-            }
-        }
-
-        var mediaPlacement: MediaLocation {
-            switch self {
-            case .missionStatement:
-                    .bottom
-            case .ourTeam:
-                    .bottom
-            case .briefHistory:
-                    .bottom
-            case .locations:
-                    .middle
-            case .projects:
-                    .middle
-            }
-        }
-
-        func descriptionText(company: CompanyObject) -> String? {
-            switch self {
-            case .missionStatement:
-                company.missionStatement
-            case .ourTeam:
-                nil
-            case .briefHistory:
-                company.briefHistoryObject.history
-            case .locations:
-                company.missionStatement
-            case .projects:
-                nil
-            }
-        }
-
-        @ViewBuilder
-        func view(compnay: CompanyObject) -> some View {
-            switch self {
-            case .missionStatement:
-                // For some reason EmptyView() Buggs out the insets
-                // So we go with this instead
-                Divider().frame(height: .zero).opacity(.zero)
-            case .ourTeam:
-                OurTeamPhotoScrollerView(teamMembers: compnay.team)
-            case .briefHistory:
-                BriefHistoryPhotoScrollerView(briefHistoryObject: compnay.briefHistoryObject)
-            case .locations:
-                CompanyProfileMapView(
-                    coordinate: compnay.coordinates,
-                    annotaionUrl: compnay.logoImageUrl,
-                    annotaionName: compnay.orginizationName
-                )
-            case .projects:
-                ProjectsScrollerView(projects: compnay.projects)
-            }
-        }
-    }
-
+    @State private var showActivityFeed: Bool = true
+    @State private var currentTab: ProfileTabs = .about
+    @State private var showNavigationBar: Bool = false
+    @State private var loadingState: LoadingState
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) var colorScheme
-    @State var showActivityFeed: Bool = true
-    @State private var currentTab: ProfileTabs = .about
-    @State var showNavigationBar: Bool = false
-    @State var loadingState: LoadingState
-    @Injected(\.profileServiceType) var service
+    @StateObject private var activityPostsManager = ActivityPostsManager()
+
+    @Injected(\.profileServiceType) var profileService
+    @Injected(\.activityServiceType) var activityService
 
     private var companyID: String
 
@@ -265,15 +165,9 @@ struct CompanyProfileView: View {
                             }
                             .offset(y: -50)
                         case .activity:
-                            Rectangle()
-                            //                            ActivityFeedScrollView(
-                            //                                shouldShowCategoryFilter: false,
-                            //                                viewModel: CompanyActivityFeed(
-                            //                                    companyID: viewModel.companyID,
-                            //                                    service: ActivityPostsService()
-                            //                                )
-                            //                            )
-                            //                            .offset(y: Constants.ScrollViewOffset)
+                            ActivityFeedScrollView(shouldShowCategoryFilter: false)
+                                .environmentObject(activityPostsManager)
+                                .offset(y: Constants.ScrollViewOffset)
                         }
                     }
                     .background()
@@ -338,8 +232,11 @@ struct CompanyProfileView: View {
     private func loadCompanyProfile() async {
         loadingState = .loading
         do {
-            let companyResponse = try await service.getCompnayInfo(companyID: companyID)
+            let companyResponse = try await profileService.getCompnayInfo(companyID: companyID)
             loadingState = .fetched(companyResponse.companyObject)
+
+            let response = try await activityService.getPostsFromCompanyWithID(companyID)
+            activityPostsManager.setPosts(posts: response.activityPosts)
         } catch {
             let nsError = error as NSError
             if nsError.domain == NSURLErrorDomain,
@@ -354,6 +251,111 @@ struct CompanyProfileView: View {
     private func adjustPageIndicatorTintColor() {
         UIPageControl.appearance().currentPageIndicatorTintColor = .gray
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
+    }
+}
+
+extension CompanyProfileView {
+    enum LoadingState: Equatable {
+
+        case idle
+        case loading
+        case fetched(CompanyObject)
+        case error(Error)
+
+        static func == (lhs: LoadingState, rhs: LoadingState) -> Bool {
+            switch (lhs, rhs) {
+            case (.loading, .loading), (.fetched, .fetched):
+                true
+            case let (.error(lhsError), .error(rhsError)):
+                lhsError.localizedDescription == rhsError.localizedDescription
+            default:
+                false
+            }
+        }
+    }
+
+    enum ProfileTabs: Int, CaseIterable {
+        case about, activity
+    }
+
+    enum AboutSection: Int, CaseIterable, Identifiable {
+
+        case missionStatement
+        case ourTeam
+        case briefHistory
+        case locations
+        case projects
+
+        var id: String {
+            return title
+        }
+
+        var title: String {
+            switch self {
+            case .missionStatement:
+                "Mission Statement"
+            case .ourTeam:
+                "Our Team"
+            case .briefHistory:
+                "Brief History"
+            case .locations:
+                "Location"
+            case .projects:
+                "Projects"
+            }
+        }
+
+        var mediaPlacement: MediaLocation {
+            switch self {
+            case .missionStatement:
+                    .bottom
+            case .ourTeam:
+                    .bottom
+            case .briefHistory:
+                    .bottom
+            case .locations:
+                    .middle
+            case .projects:
+                    .middle
+            }
+        }
+
+        func descriptionText(company: CompanyObject) -> String? {
+            switch self {
+            case .missionStatement:
+                company.missionStatement
+            case .ourTeam:
+                nil
+            case .briefHistory:
+                company.briefHistoryObject.history
+            case .locations:
+                company.missionStatement
+            case .projects:
+                nil
+            }
+        }
+
+        @ViewBuilder
+        func view(compnay: CompanyObject) -> some View {
+            switch self {
+            case .missionStatement:
+                // For some reason EmptyView() Buggs out the insets
+                // So we go with this instead
+                Divider().frame(height: .zero).opacity(.zero)
+            case .ourTeam:
+                OurTeamPhotoScrollerView(teamMembers: compnay.team)
+            case .briefHistory:
+                BriefHistoryPhotoScrollerView(briefHistoryObject: compnay.briefHistoryObject)
+            case .locations:
+                CompanyProfileMapView(
+                    coordinate: compnay.coordinates,
+                    annotaionUrl: compnay.logoImageUrl,
+                    annotaionName: compnay.orginizationName
+                )
+            case .projects:
+                ProjectsScrollerView(projects: compnay.projects)
+            }
+        }
     }
 }
 

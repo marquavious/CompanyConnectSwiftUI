@@ -12,6 +12,7 @@ enum URLBuilder {
     case mapdata
     case donations(userID: String)
     case companyProfile(companyID: String)
+    case companyFeed(companyID: String)
 
     public var url: URL {
         urlBuilder()
@@ -35,6 +36,8 @@ enum URLBuilder {
             "/donations"
         case .companyProfile:
             "/company_profile"
+        case .companyFeed:
+            "/company_feed"
         }
     }
 
@@ -45,6 +48,10 @@ enum URLBuilder {
                 URLQueryItem(name: "user_id", value: userID)
             ]
         case .companyProfile(companyID: let companyID):
+            [
+                URLQueryItem(name: "company_id", value: companyID)
+            ]
+        case .companyFeed(companyID: let companyID):
             [
                 URLQueryItem(name: "company_id", value: companyID)
             ]

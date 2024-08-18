@@ -48,7 +48,7 @@ class CategoryFilter: ObservableObject {
 }
 
 @Observable
-class ActivityPostsFilter: ObservableObject {
+class ActivityPostsManager: ObservableObject {
 
     private (set) var allPosts: [ActivityPost]
     private (set) var categoryFilter: CategoryFilter

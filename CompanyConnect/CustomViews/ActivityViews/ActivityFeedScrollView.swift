@@ -24,12 +24,12 @@ struct ActivityFeedScrollView: View {
 
     @State var shouldShowCategoryFilter: Bool
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var activityPostsFilter: ActivityPostsFilter
+    @EnvironmentObject var activityPostsManager: ActivityPostsManager
 
     private let columns = [GridItem(.flexible())]
     private let activityScrollerTipView = ActivityScrollerTipView()
 
-    var onCompanySelection: (String) -> Void
+    var onCompanySelection: ((String) -> Void)?
 
     var body: some View {
 
@@ -40,9 +40,9 @@ struct ActivityFeedScrollView: View {
             ) {
                 Section {
                     TipView(activityScrollerTipView).padding([.horizontal], Constants.TipViewPadding)
-                    ForEach(activityPostsFilter.filteredPosts) { activityPost in
+                    ForEach(activityPostsManager.filteredPosts) { activityPost in
                         ActivityCellView(activityPost: activityPost) {
-                            onCompanySelection(activityPost.id)
+                            onCompanySelection?(activityPost.id)
                         }
 
                         Divider()
@@ -52,10 +52,10 @@ struct ActivityFeedScrollView: View {
                         VStack(spacing: .zero) {
                             ActvitiyFeedFilterView() { category in
                                 withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
-                                    activityPostsFilter.categoryFilter.handleCategorySelection(category: category)
+                                    activityPostsManager.categoryFilter.handleCategorySelection(category: category)
                                 }
                             }
-                            .environmentObject(activityPostsFilter.categoryFilter)
+                            .environmentObject(activityPostsManager.categoryFilter)
                             .frame(minHeight: Constants.ActvitiyFeedFilterViewHight)
 
                             Divider()
@@ -67,11 +67,11 @@ struct ActivityFeedScrollView: View {
         .toolbar {
             Button(
                 String(),
-                systemImage: activityPostsFilter.categoryFilter.hasSelectedCategories ? Icons.RightToolBarIcon.rawValue : String()
+                systemImage: activityPostsManager.categoryFilter.hasSelectedCategories ? Icons.RightToolBarIcon.rawValue : String()
             ) {
-                if activityPostsFilter.categoryFilter.hasSelectedCategories {
+                if activityPostsManager.categoryFilter.hasSelectedCategories {
                     withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
-                        activityPostsFilter.categoryFilter.resetSelectedCategories()
+                        activityPostsManager.categoryFilter.resetSelectedCategories()
                     }
                 }
             }
