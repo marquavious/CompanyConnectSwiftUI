@@ -84,7 +84,6 @@ struct DonationProgessView: View {
         }
         .frame(height: Constants.DonationProgessView)
     }
-
 }
 
 #Preview() {

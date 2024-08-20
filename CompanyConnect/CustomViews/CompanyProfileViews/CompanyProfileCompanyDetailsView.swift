@@ -36,20 +36,24 @@ struct CompanyProfileCompanyDetailsView: View {
 
                 Spacer()
 
-                Text("DONATE")
-                    .font(.system(size: 15))
-                    .fontWeight(.semibold)
-                    .padding([.vertical], 6)
-                    .padding([.horizontal], 16)
-                    .foregroundColor(.white)
-                    .background(.regularMaterial.opacity(0.1))
-                    .background(.red)
-                    .environment(\.colorScheme, .dark)
-                    .clipShape(
-                        RoundedRectangle(cornerRadius: 8)
-                    )
-                // I don't like the way this offset is hard coded, but I will be fixed
-                    .offset(y: 25)
+                Button {
+                    // Donaation Flow
+                } label: {
+                    Text("DONATE")
+                        .font(.system(size: 15))
+                        .fontWeight(.semibold)
+                        .padding([.vertical], 6)
+                        .padding([.horizontal], 16)
+                        .foregroundColor(.white)
+                        .background(.regularMaterial.opacity(0.1))
+                        .background(.red)
+                        .environment(\.colorScheme, .dark)
+                        .clipShape(
+                            RoundedRectangle(cornerRadius: 8)
+                        )
+                    // I don't like the way this offset is hard coded, but I will be fixed
+                        .offset(y: 25)
+                }
             }
 
             VStack(alignment: .leading, spacing: 8) {

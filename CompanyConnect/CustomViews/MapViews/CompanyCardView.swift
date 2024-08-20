@@ -18,8 +18,8 @@ struct CompanyCardView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var companyFilter: CompanyManager
 
-    var onTapAction: ((Company) -> Void)
     let cellSize: CGSize
+    var onTapAction: ((Company) -> Void)
 
     var body: some View {
         ForEach(companyFilter.filteredCompanies) { company in
@@ -46,7 +46,6 @@ struct CompanyCardView: View {
                             photoSize: Constants.LogoImageViewBackgroundSize
                         )
                     }
-
 
                     VStack(alignment: .leading, spacing: 2) {
                         Text(company.orginizationName)
@@ -79,5 +78,4 @@ struct CompanyCardView: View {
             }
         }
     }
-
 }

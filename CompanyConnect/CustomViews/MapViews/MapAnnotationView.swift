@@ -49,7 +49,6 @@ struct MapAnnotationView: View {
             }
         }
     }
-
 }
 
 #Preview(traits: .sizeThatFitsLayout) {

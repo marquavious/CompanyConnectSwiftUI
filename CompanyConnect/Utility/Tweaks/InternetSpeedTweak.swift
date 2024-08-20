@@ -70,5 +70,4 @@ enum InternetSpeedTweak: Int, Tweakable {
             OHHTTPStubsDownloadSpeedWifi
         }
     }
-
 }

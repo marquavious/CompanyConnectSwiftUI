@@ -27,8 +27,8 @@ struct CompanyHGrid: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: hRowColumns) {
                 CompanyCardView(
-                    onTapAction: onTapAction,
-                    cellSize: Constants.cellSize
+                    cellSize: Constants.cellSize,
+                    onTapAction: onTapAction
                 )
                 .frame(
                     maxWidth: Constants.cellSize.width,

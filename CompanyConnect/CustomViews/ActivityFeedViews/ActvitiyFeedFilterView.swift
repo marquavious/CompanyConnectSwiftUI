@@ -14,9 +14,9 @@ struct ActvitiyFeedFilterView: View {
         static let contentMargins: EdgeInsets = EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
     }
 
-    private let rows = [GridItem(.flexible())]
     @EnvironmentObject var categoryHandler: CategoryManager
 
+    private let rows = [GridItem(.flexible())]
     var onTapAction: ((Category) -> Void)
 
     var body: some View {
@@ -39,7 +39,6 @@ struct ActvitiyFeedFilterView: View {
         .background(.background)
         .contentMargins([.horizontal, .vertical], Constants.contentMargins)
     }
-
 }
 
 #Preview {

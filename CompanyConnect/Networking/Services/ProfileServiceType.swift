@@ -29,7 +29,7 @@ protocol ProfileServiceType: HTTPDataDownloader {
 class CompanyProfileViewService: ProfileServiceType {
     @MainActor
     func getCompnayInfo(companyID: String) async throws -> CompanyProfileViewJSONResponse {
-        return CompanyProfileViewJSONResponse(companyObject: Company.createFakeCompanyObject()) // CHANGE
+        return try await getData(as: CompanyProfileViewJSONResponse.self, from: URLBuilder.companyProfile(companyID: companyID).url)
     }
 }
 

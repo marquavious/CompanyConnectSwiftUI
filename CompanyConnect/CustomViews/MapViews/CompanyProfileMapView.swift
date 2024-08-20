@@ -34,7 +34,6 @@ struct CompanyProfileMapView: View {
         .padding([.leading, .trailing, .bottom])
         .mapStyle(.hybrid)
     }
-
 }
 
 #Preview {

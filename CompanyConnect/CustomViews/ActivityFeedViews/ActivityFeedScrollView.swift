@@ -52,10 +52,10 @@ struct ActivityFeedScrollView: View {
                         VStack(spacing: .zero) {
                             ActvitiyFeedFilterView() { category in
                                 withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
-                                    activityPostsManager.categoryFilter.handleCategorySelection(category: category)
+                                    activityPostsManager.categoryManager.handleCategorySelection(category: category)
                                 }
                             }
-                            .environmentObject(activityPostsManager.categoryFilter)
+                            .environmentObject(activityPostsManager.categoryManager)
                             .frame(minHeight: Constants.ActvitiyFeedFilterViewHight)
 
                             Divider()
@@ -67,18 +67,17 @@ struct ActivityFeedScrollView: View {
         .toolbar {
             Button(
                 String(),
-                systemImage: activityPostsManager.categoryFilter.hasSelectedCategories ? Icons.RightToolBarIcon.rawValue : String()
+                systemImage: activityPostsManager.categoryManager.hasSelectedCategories ? Icons.RightToolBarIcon.rawValue : String()
             ) {
-                if activityPostsManager.categoryFilter.hasSelectedCategories {
+                if activityPostsManager.categoryManager.hasSelectedCategories {
                     withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
-                        activityPostsManager.categoryFilter.resetSelectedCategories()
+                        activityPostsManager.categoryManager.resetSelectedCategories()
                     }
                 }
             }
             .tint(colorScheme == .light ? .black : .white)
         }
     }
-
 }
 
 #Preview {

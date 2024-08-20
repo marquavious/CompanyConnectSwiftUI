@@ -18,6 +18,7 @@ class CompanyManager: ObservableObject {
             return allCompanies
         }
 
+        // TODO: - Optimize
         var tempArray = [Company]()
         for category in categoryFilter.selctedCategories {
             for company in allCompanies {

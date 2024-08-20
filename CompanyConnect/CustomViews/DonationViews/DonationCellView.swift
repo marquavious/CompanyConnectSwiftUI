@@ -58,7 +58,6 @@ struct DonationCellView: View {
             }
         }
     }
-
 }
 
 #Preview {

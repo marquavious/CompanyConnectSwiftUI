@@ -25,8 +25,8 @@ struct CompanyVGrid: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(columns: vGridColumns) {
                 CompanyCardView(
-                    onTapAction: onTapAction,
-                    cellSize: Constants.cellSize
+                    cellSize: Constants.cellSize,
+                    onTapAction: onTapAction
                 )
                 .frame(maxHeight: Constants.cellSize.height)
             }
@@ -36,7 +36,6 @@ struct CompanyVGrid: View {
         .contentMargins([.bottom], Constants.bottomContentMarginPadding)
         .opacity(shouldShowListView ? 1 : 0)
     }
-
 }
 
 #Preview {

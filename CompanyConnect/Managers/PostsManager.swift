@@ -9,17 +9,17 @@ import Foundation
 
 @Observable
 class PostsManager: ObservableObject {
-
     private (set) var allPosts: [Post]
-    private (set) var categoryFilter: CategoryManager
+    private (set) var categoryManager: CategoryManager
 
     var filteredPosts: [Post] {
-        if !categoryFilter.hasSelectedCategories {
+        if !categoryManager.hasSelectedCategories {
             return allPosts
         }
 
+        // TODO: - Optimize
         var tempArray = [Post]()
-        for category in categoryFilter.selctedCategories {
+        for category in categoryManager.selctedCategories {
 
             for post in allPosts {
                 if post.company.category == category {
@@ -37,8 +37,8 @@ class PostsManager: ObservableObject {
         allPosts = posts
     }
 
-    init(posts: [Post] = [], categoryFilter: CategoryManager = CategoryManager()) {
-        self.categoryFilter = categoryFilter
+    init(posts: [Post] = [], categoryManager: CategoryManager = CategoryManager()) {
+        self.categoryManager = categoryManager
         self.allPosts = posts
     }
 }

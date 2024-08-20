@@ -215,3 +215,7 @@ extension UIViewControllerTweakWindow: UIPickerViewDelegate, UIPickerViewDataSou
         selectedTweak?.options[String(row)]
     }
 }
+
+#Preview {
+    TweakWindowView()
+}

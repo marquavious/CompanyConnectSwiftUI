@@ -40,9 +40,11 @@ struct ActivityFeedCategoryButtonView: View {
         .cornerRadius(8)
         .shadow(radius: colorScheme == .light ? 1 : 0)
         .onTapGesture {
-            withAnimation(.easeInOut(duration: 0.1)) {
-                onTapAction()
-            }
+            onTapAction()
         }
     }
+}
+
+#Preview {
+    ActivityFeedTabView()
 }

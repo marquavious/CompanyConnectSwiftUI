@@ -25,26 +25,24 @@ struct MediaView: View {
     }
 
     @ViewBuilder
+    private func createImageView(photoUrl: String) -> some View {
+        AsyncImage(url: URL(string: photoUrl)) { image in
+            image
+                .resizable()
+                .scaledToFill()
+        } placeholder: {
+            Color.gray
+        }
+        .clipShape(RoundedRectangle(cornerRadius: Constants.MediaViewCornerRadius))
+        .shadow(radius: colorScheme == .light ? 1 : 0)
+    }
+
+    @ViewBuilder
     func viewForMedia(_ media: Media) -> some View {
         switch media {
-        case .photo(let photo):
-            AsyncImage(url: URL(string: photo)) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: Constants.MediaViewFrameHeight)
-                    .clipShape(RoundedRectangle(cornerRadius: Constants.MediaViewCornerRadius))
-                    .shadow(radius: colorScheme == .light ? 1 : 0)
-            } placeholder: {
-                Color.gray
-            }
-            .frame(
-                height:  Constants.MediaViewFrameHeight
-            )
-            .scaledToFill()
-            .frame(height: Constants.MediaViewFrameHeight)
-            .clipShape(RoundedRectangle(cornerRadius: Constants.MediaViewCornerRadius))
-            .shadow(radius: colorScheme == .light ? 1 : 0)
+        case .photo(let photoUrl):
+            createImageView(photoUrl: photoUrl)
+                .frame(height: Constants.MediaViewFrameHeight)
 
         case .photoCarousel(let imageData):
             let imageData = imageData.sorted { dataOne, dataTwo in
@@ -58,43 +56,13 @@ struct MediaView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: rows) {
                         ForEach(imageData, id: \.self) { imageData in
-                            AsyncImage(url: URL(string: imageData.imageUrl)) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: proxySize.width,
-                                             height: proxySize.height,
-                                             alignment: .center
-                                    )
-                                    .clipShape(RoundedRectangle(cornerRadius: Constants.MediaViewCornerRadius))
-                                    .shadow(radius: colorScheme == .light ? 1 : 0)
-                                    .scrollTargetLayout()
-                            } placeholder: {
-                                Color.gray
-                                    .frame(width: proxySize.width,
-                                         height: proxySize.height,
-                                         alignment: .center
-                                )
-                                .clipShape(RoundedRectangle(cornerRadius: Constants.MediaViewCornerRadius))
-                                .shadow(radius: colorScheme == .light ? 1 : 0)
-                                .scrollTargetLayout()
-                            }
-                            .frame(
-                                height:  Constants.MediaViewFrameHeight
-                            )
-                            .frame(width: proxySize.width,
-                                     height: proxySize.height,
-                                     alignment: .center
-                            )
-                            .clipShape(RoundedRectangle(cornerRadius: Constants.MediaViewCornerRadius))
-                            .shadow(radius: colorScheme == .light ? 1 : 0)
-                            .scrollTargetLayout()
+                            createImageView(photoUrl: imageData.imageUrl)
+                                .frame(width: proxySize.width,
+                                       height: proxySize.height,
+                                       alignment: .center)
                         }
-                        .scrollTargetLayout()
                     }
                     .scrollTargetLayout()
-
-
                 }
                 .scrollClipDisabled()
                 .scrollTargetBehavior(.viewAligned)
@@ -102,7 +70,6 @@ struct MediaView: View {
             .frame(height: Constants.MediaViewFrameHeight)
 
         case .donationProgress(let donationProgress, let donationTotal):
-
             DonationProgessView(
                 donationProgress: donationProgress,
                 donationTotal: donationTotal
@@ -110,9 +77,9 @@ struct MediaView: View {
             .padding(.trailing, Constants.DonationProgessViewTrailingPadding)
         }
     }
-
 }
 
 #Preview {
     ActivityFeedTabView()
 }
+

@@ -145,3 +145,7 @@ struct PostCellView: View {
 #Preview(traits: .sizeThatFitsLayout) {
     PostCellView(activityPost: Post.createFakeActivityPost(), companySelected: {  })
 }
+
+#Preview {
+    ActivityFeedTabView()
+}

@@ -39,5 +39,8 @@ struct CategoryFilterScrollView: View {
         }
         .contentMargins(.horizontal, Constants.Padding)
     }
+}
 
+#Preview {
+    ActivityFeedTabView()
 }

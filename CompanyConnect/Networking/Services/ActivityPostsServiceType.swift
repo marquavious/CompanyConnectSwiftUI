@@ -33,6 +33,7 @@ class ActivityPostsService: ActivityPostsServiceType {
         return try await getData(as: ActivityFeedJSONResponse.self, from: URLBuilder.activityFeed.url)
     }
 
+    @MainActor
     func getPostsFromCompanyWithID(_ id: String) async throws -> ActivityFeedJSONResponse {
         return try await getData(as: ActivityFeedJSONResponse.self, from: URLBuilder.companyFeed(companyID: id).url)
     }
@@ -45,6 +46,7 @@ class DevActivityPostsService: ActivityPostsServiceType {
         ActivityFeedJSONResponse(activityPosts: [Post.createFakeActivityPost(), Post.createFakeActivityPost(), Post.createFakeActivityPost()])
     }
 
+    @MainActor
     func getPostsFromCompanyWithID(_ id: String) async throws -> ActivityFeedJSONResponse {
         ActivityFeedJSONResponse(
             activityPosts: [Post.createFakeActivityPostForCompany(company: Company.createFakeCompanyObject())]
@@ -59,6 +61,7 @@ class OfflineActivityPostsService: ActivityPostsServiceType {
         return try await getData(as: ActivityFeedJSONResponse.self, from: URLBuilder.activityFeed.url)
     }
 
+    @MainActor
     func getPostsFromCompanyWithID(_ id: String) async throws -> ActivityFeedJSONResponse {
         return try await getData(as: ActivityFeedJSONResponse.self, from: URLBuilder.companyFeed(companyID: id).url)
     }

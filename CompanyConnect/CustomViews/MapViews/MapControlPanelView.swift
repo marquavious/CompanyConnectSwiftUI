@@ -69,7 +69,6 @@ struct MapControlPanelView: View {
         }
         .padding(Constants.Padding)
     }
-
 }
 
 #Preview {

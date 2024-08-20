@@ -7,13 +7,12 @@
 
 import Foundation
 
-// https://designcode.io/swiftui-advanced-handbook-configuration-files-in-xcode
-
 enum ConfiKeys: String {
     case APPLICATION_ENVIRONMENT = "APPLICATION_ENVIRONMENT"
     case BASE_URL = "BASE_URL"
 }
 
+// https://designcode.io/swiftui-advanced-handbook-configuration-files-in-xcode
 enum Configuration {
 
     enum Error: Swift.Error {

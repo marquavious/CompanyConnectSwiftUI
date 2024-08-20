@@ -1,5 +1,5 @@
 //
-//  CategoryFilter.swift
+//  CategoryManager.swift
 //  CompanyConnect
 //
 //  Created by Marquavious Draggon on 8/10/24.
@@ -9,9 +9,8 @@ import Foundation
 
 @Observable
 class CategoryManager: ObservableObject {
-    var categories: [Category]
-
-    var selctedCategories: [Category] = [Category]()
+    private (set) var categories: [Category]
+    private (set) var selctedCategories = [Category]()
 
     var hasSelectedCategories: Bool  {
         !selctedCategories.isEmpty
@@ -44,5 +43,4 @@ class CategoryManager: ObservableObject {
     init(categories: [Category] = Category.allCases) {
         self.categories = categories
     }
-
 }
