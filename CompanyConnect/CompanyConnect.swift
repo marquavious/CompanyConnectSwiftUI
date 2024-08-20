@@ -44,10 +44,12 @@ struct CompanyConnect: App {
 
 struct MainView: View {
 
-    enum TabViewData: String {
+    enum TabViewData: String, CaseIterable, Identifiable {
         case feed = "Feed"
         case map = "Map"
         case donations = "Donations"
+
+        var id: String { rawValue }
 
         var systemImageName: String {
             switch self {
@@ -59,21 +61,29 @@ struct MainView: View {
                 "dollarsign.circle"
             }
         }
+
+        @ViewBuilder
+        func tabView() -> some View {
+            switch self {
+            case .feed:
+                ActivityFeedTabView().tabItem {
+                    Label(rawValue, systemImage: systemImageName)
+                }
+            case .map:
+                MapTabView().tabItem {
+                    Label(rawValue, systemImage: systemImageName)
+                }
+            case .donations:
+                DonationsView().tabItem {
+                    Label(rawValue, systemImage: systemImageName)
+                }
+            }
+        }
     }
 
     var body: some View {
         TabView {
-            ActivityFeedTabView().tabItem {
-                Label(TabViewData.feed.rawValue, systemImage: TabViewData.feed.systemImageName)
-            }
-
-            MapTabView().tabItem {
-                Label(TabViewData.map.rawValue, systemImage: TabViewData.map.systemImageName)
-            }
-
-            DonationsView().tabItem {
-                Label(TabViewData.donations.rawValue, systemImage: TabViewData.donations.systemImageName)
-            }
+            ForEach(TabViewData.allCases) { $0.tabView() }
         }
     }
 }

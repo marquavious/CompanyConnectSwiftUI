@@ -51,7 +51,7 @@ struct CompanyProfileCompanyDetailsView: View {
                         .clipShape(
                             RoundedRectangle(cornerRadius: 8)
                         )
-                    // I don't like the way this offset is hard coded, but I will be fixed
+                    // I don't like the way this offset is hard coded, but It will be fixed
                         .offset(y: 25)
                 }
             }

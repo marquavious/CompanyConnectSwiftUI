@@ -65,7 +65,6 @@ struct OurTeamPhotoScrollerView: View {
         }
         .contentMargins(.horizontal, Constants.HorizonalContentPadding)
     }
-
 }
 
 #Preview {
