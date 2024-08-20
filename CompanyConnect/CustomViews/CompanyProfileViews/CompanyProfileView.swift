@@ -15,16 +15,17 @@ struct CompanyProfileView: View {
         static let HeaderViewHeight: CGFloat = 200.0
         static let NavigationBarHeight: CGFloat = 50
         static let ScrollViewOffset: CGFloat = -50
+        static let CompanyProfilePictureSize: CGSize = CGSize(width: 75, height: 75)
     }
 
     @State private var showActivityFeed: Bool = true
     @State private var currentTab: ProfileTabs = .about
     @State private var showNavigationBar: Bool = false
     @State private var loadingState: LoadingState
-    @Environment(\.dismiss) private var dismiss
-    @Environment(\.colorScheme) var colorScheme
     @StateObject private var activityPostsManager = PostsManager()
 
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.colorScheme) var colorScheme
     @Injected(\.profileServiceType) var profileService
     @Injected(\.activityServiceType) var activityService
 
@@ -32,7 +33,7 @@ struct CompanyProfileView: View {
 
     init(companyID: String) {
         self.companyID = companyID
-        loadingState = .idle
+        loadingState = .loading
         adjustPageIndicatorTintColor()
     }
 
@@ -45,112 +46,28 @@ struct CompanyProfileView: View {
     var body: some View {
         Group {
             switch loadingState {
-            case .loading, .idle:
-                Rectangle()
-                    .fill(.background)
-                    .opacity(0.3)
-                    .ignoresSafeArea()
-                    .opacity(0.9).overlay {
-                        VStack(spacing: 0) {
-                            ProgressView()
-                                .progressViewStyle(CircularProgressViewStyle())
-                                .frame(width: 50, height: 50)
-                            Text("Loading Comapny Data...")
-                                .foregroundColor(.gray)
-                        }
-                        .task {
-                            await loadCompanyProfile()
-                        }
-                    }
+            case .loading:
+                BasicLoadingView(
+                    titleString: "Loading Company Data...",
+                    background: Color.white
+                )
+                .task {
+                    await loadCompanyProfileData()
+                }
             case .fetched(let company):
                 ScrollViewOffset(onOffsetChange: { (offset) in
                     handleNavigationBarAnimation(scrollViewOffset: offset)
                 }) {
-                    GeometryReader { proxy in
-                        AsyncImage(url: URL(string: company.coverImageUrl)) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .offset(y: -proxy.frame(in: .global).minY)
-                                .frame(
-                                    width: UIScreen.main.bounds.width,
-                                    height: max(proxy.frame(in: .global).minY + Constants.HeaderViewHeight, 0)
-                                )
-                                .ignoresSafeArea()
-
-                        } placeholder: {
-                            Color.gray
-                                .offset(y: -proxy.frame(in: .global).minY)
-                                .frame(
-                                    width: UIScreen.main.bounds.width,
-                                    height: max(proxy.frame(in: .global).minY + Constants.HeaderViewHeight, 0)
-                                )
-                                .ignoresSafeArea()
-                        }
-                    }
-                    .frame(height: Constants.HeaderViewHeight)
-                    .ignoresSafeArea()
+                    StretchyHeaderURLView(
+                        headerViewHeight: Constants.HeaderViewHeight,
+                        url: company.coverImageUrl
+                    )
 
                     VStack(spacing: .zero) {
-                        VStack(spacing: 8) {
-                            HStack {
-                                AsyncImage(url: URL(string: company.logoImageUrl)) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(
-                                            width: 75,
-                                            height: 75
-                                        )
-                                        .clipShape(Circle())
-
-                                } placeholder: {
-                                    Color.gray
-                                        .clipShape(Circle())
-                                }
-                                .frame(
-                                    width: 75,
-                                    height: 75
-                                )
-                                .overlay(Circle().stroke(.background, lineWidth: 3))
-
-                                Spacer()
-
-                                Text("DONATE")
-                                    .font(.system(size: 15))
-                                    .fontWeight(.semibold)
-                                    .padding([.vertical], 6)
-                                    .padding([.horizontal], 8)
-                                    .foregroundColor(.white)
-                                    .background(.regularMaterial.opacity(0.1))
-                                    .background(.red)
-                                    .environment(\.colorScheme, .dark)
-                                    .clipShape(
-                                        RoundedRectangle(cornerRadius: 8)
-                                    )
-                                    .padding([.trailing], 8)
-                                    .offset(y: 20)
-                            }
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text(company.orginizationName)
-                                    .font(.title2)
-                                    .bold()
-                                Text("Current Projects: **\(company.projects.count)**")
-
-                                Text(company.bio)
-                                    .font(.subheadline)
-                            }
-                            Picker("", selection: $currentTab) {
-                                Text("ABOUT").tag(CompanyProfileView.ProfileTabs.about)
-                                Text("RECENT ACTIVITY").tag(CompanyProfileView.ProfileTabs.activity)
-                            }
-                            .pickerStyle(.segmented)
-                            .padding([.vertical], 8)
-
-                            Divider()
-                        }
-                        .padding([.horizontal, .vertical], 16)
-                        .offset(y: Constants.ScrollViewOffset)
+                        CompanyProfileCompanyDetailsView(
+                            company: company,
+                            currentTab: $currentTab
+                        )
 
                         switch currentTab {
                         case .about:
@@ -160,60 +77,63 @@ struct CompanyProfileView: View {
                                     text: section.descriptionText(company: company),
                                     mediaLocation: section.mediaPlacement
                                 ) {
-                                    section.view(compnay: company)
+                                    section.mediaView(company: company)
                                 }
                             }
-                            .offset(y: -50)
-                        case .activity:
-                            ActivityFeedScrollView(shouldShowCategoryFilter: false)
-                                .environmentObject(activityPostsManager)
-                                .offset(y: Constants.ScrollViewOffset)
+                        case .recentActivity:
+                            ZStack {
+                                ProgressView() // TODO: - The logic isn't right for this to be showing when needed.
+                                ActivityFeedScrollView(shouldShowCategoryFilter: false)
+                                    .environmentObject(activityPostsManager)
+                                    .frame(minHeight: UIScreen.main.bounds.height / 2)
+                                    .task {
+                                        await loadRecentActivity()
+                                    }
+                            }
                         }
                     }
-                    .background()
+                    .offset(y: Constants.ScrollViewOffset)
                 }
                 .navigationBarBackButtonHidden(true)
                 .overlay(alignment: .topLeading) {
-                    ZStack {
-                        BlurView()
-                            .ignoresSafeArea()
-                            .frame(
-                                width: UIScreen.main.bounds.width,
-                                height: Constants.NavigationBarHeight
-                            )
-                            .opacity(showNavigationBar ? 1 : 0)
-                            .overlay(alignment: .center) {
-                                Text(company.orginizationName)
-                                    .foregroundStyle(.white)
-                                    .fontWeight(.semibold)
-                                    .opacity(showNavigationBar ? 1 : 0)
-                            }
-
-                        HStack {
-                            Image(systemName: "chevron.left")
-                                .frame(width: 20,height: 20)
-                                .padding(8)
-                                .foregroundColor(.white)
-                                .background(
-                                    .background
-                                        .opacity(showNavigationBar ? 0 : 0.5)
-                                )
-                                .environment(\.colorScheme, .dark)
-                                .clipShape(Circle())
-                                .padding([.horizontal])
-                                .allowsHitTesting(true)
-                                .onTapGesture { dismiss() }
-                                .background(Rectangle().fill(Color.black.opacity(0.0001)))
-                            Spacer()
-                        }
-                    }
+                    DarkThemedNavBarView(
+                        title: company.orginizationName,
+                        showNavigationBar: $showNavigationBar
+                    )
                 }
 
-            case .error:
-                Text("OH NO LMFAOO :)")
+            case .error(let error):
+                BasicErrorView(
+                    errorString: error.localizedDescription,
+                    background: Color.white,
+                    retryAction: { Task { await loadCompanyProfileData() } }
+                )
             }
         }
         .navigationBarHidden(true)
+    }
+
+    private func loadCompanyProfileData() async {
+        loadingState = .loading
+        do {
+            let response = try await profileService.getCompnayInfo(companyID: companyID)
+            loadingState = .fetched(response.companyObject)
+        } catch {
+            handleError(error: error)
+        }
+    }
+
+    private func loadRecentActivity() async {
+        do {
+            let response = try await activityService.getPostsFromCompanyWithID(companyID)
+            activityPostsManager.setPosts(posts: response.activityPosts)
+        } catch {
+            handleError(error: error)
+        }
+    }
+
+    private func handleError(error: Error) {
+        loadingState = .error(error)
 
     }
 
@@ -229,133 +149,9 @@ struct CompanyProfileView: View {
         }
     }
 
-    private func loadCompanyProfile() async {
-        loadingState = .loading
-        do {
-            let companyResponse = try await profileService.getCompnayInfo(companyID: companyID)
-            loadingState = .fetched(companyResponse.companyObject)
-
-            let response = try await activityService.getPostsFromCompanyWithID(companyID)
-            activityPostsManager.setPosts(posts: response.activityPosts)
-        } catch {
-            let nsError = error as NSError
-            if nsError.domain == NSURLErrorDomain,
-               nsError.code == NSURLErrorCancelled {
-                //Handle cancellation
-            } else {
-                loadingState = .error(error)
-            }
-        }
-    }
-
     private func adjustPageIndicatorTintColor() {
         UIPageControl.appearance().currentPageIndicatorTintColor = .gray
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
-    }
-}
-
-extension CompanyProfileView {
-    enum LoadingState: Equatable {
-
-        case idle
-        case loading
-        case fetched(Company)
-        case error(Error)
-
-        static func == (lhs: LoadingState, rhs: LoadingState) -> Bool {
-            switch (lhs, rhs) {
-            case (.loading, .loading), (.fetched, .fetched):
-                true
-            case let (.error(lhsError), .error(rhsError)):
-                lhsError.localizedDescription == rhsError.localizedDescription
-            default:
-                false
-            }
-        }
-    }
-
-    enum ProfileTabs: Int, CaseIterable {
-        case about, activity
-    }
-
-    enum AboutSection: Int, CaseIterable, Identifiable {
-
-        case missionStatement
-        case ourTeam
-        case briefHistory
-        case locations
-        case projects
-
-        var id: String {
-            return title
-        }
-
-        var title: String {
-            switch self {
-            case .missionStatement:
-                "Mission Statement"
-            case .ourTeam:
-                "Our Team"
-            case .briefHistory:
-                "Brief History"
-            case .locations:
-                "Location"
-            case .projects:
-                "Projects"
-            }
-        }
-
-        var mediaPlacement: MediaLocation {
-            switch self {
-            case .missionStatement:
-                    .bottom
-            case .ourTeam:
-                    .bottom
-            case .briefHistory:
-                    .bottom
-            case .locations:
-                    .middle
-            case .projects:
-                    .middle
-            }
-        }
-
-        func descriptionText(company: Company) -> String? {
-            switch self {
-            case .missionStatement:
-                company.missionStatement
-            case .ourTeam:
-                nil
-            case .briefHistory:
-                company.briefHistoryObject.history
-            case .locations:
-                company.missionStatement
-            case .projects:
-                nil
-            }
-        }
-
-        @ViewBuilder
-        func view(compnay: Company) -> some View {
-            switch self {
-            case .missionStatement:
-                // For some reason EmptyView() Buggs out the insets
-                // So we go with this instead
-                Divider().frame(height: .zero).opacity(.zero)
-            case .ourTeam:
-                OurTeamPhotoScrollerView(teamMembers: compnay.team)
-            case .briefHistory:
-                BriefHistoryPhotoScrollerView(briefHistoryObject: compnay.briefHistoryObject)
-            case .locations:
-                CompanyProfileMapView(
-                    coordinate: compnay.coordinates,
-                    annotaionUrl: compnay.logoImageUrl,
-                    annotaionName: compnay.orginizationName
-                )
-            case .projects:
-                ProjectsScrollerView(projects: compnay.projects)
-            }
-        }
     }
 }
 

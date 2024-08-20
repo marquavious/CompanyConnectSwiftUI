@@ -47,6 +47,7 @@ struct OurTeamPhotoScrollerView: View {
                                 .font(.subheadline)
                                 .bold()
                             Text(member.position)
+                                .lineLimit(1)
                                 .font(.caption)
                                 .multilineTextAlignment(.center)
                                 .italic()

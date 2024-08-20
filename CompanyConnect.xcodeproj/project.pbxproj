@@ -73,6 +73,30 @@
 		C047FE662C59DC26008A6E36 /* CompanyConnectUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C047FE652C59DC26008A6E36 /* CompanyConnectUnitTests.swift */; };
 		C047FE6D2C59DF3C008A6E36 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C047FE6C2C59DF3C008A6E36 /* OHHTTPStubs */; };
 		C047FE6F2C59DF3C008A6E36 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C047FE6E2C59DF3C008A6E36 /* OHHTTPStubsSwift */; };
+		C0756EDA2C742E8C00601856 /* BasicErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756ED92C742E8C00601856 /* BasicErrorView.swift */; };
+		C0756EDB2C742E8C00601856 /* BasicErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756ED92C742E8C00601856 /* BasicErrorView.swift */; };
+		C0756EDC2C742E8C00601856 /* BasicErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756ED92C742E8C00601856 /* BasicErrorView.swift */; };
+		C0756EDD2C742E8C00601856 /* BasicErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756ED92C742E8C00601856 /* BasicErrorView.swift */; };
+		C0756EDF2C742EE000601856 /* DarkThemedNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EDE2C742EE000601856 /* DarkThemedNavBarView.swift */; };
+		C0756EE02C742EE000601856 /* DarkThemedNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EDE2C742EE000601856 /* DarkThemedNavBarView.swift */; };
+		C0756EE12C742EE000601856 /* DarkThemedNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EDE2C742EE000601856 /* DarkThemedNavBarView.swift */; };
+		C0756EE22C742EE000601856 /* DarkThemedNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EDE2C742EE000601856 /* DarkThemedNavBarView.swift */; };
+		C0756EE42C742F0200601856 /* StretchyHeaderURLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EE32C742F0200601856 /* StretchyHeaderURLView.swift */; };
+		C0756EE52C742F0200601856 /* StretchyHeaderURLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EE32C742F0200601856 /* StretchyHeaderURLView.swift */; };
+		C0756EE62C742F0200601856 /* StretchyHeaderURLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EE32C742F0200601856 /* StretchyHeaderURLView.swift */; };
+		C0756EE72C742F0200601856 /* StretchyHeaderURLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EE32C742F0200601856 /* StretchyHeaderURLView.swift */; };
+		C0756EE92C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EE82C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift */; };
+		C0756EEA2C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EE82C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift */; };
+		C0756EEB2C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EE82C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift */; };
+		C0756EEC2C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EE82C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift */; };
+		C0756EEE2C742FDD00601856 /* BasicLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EED2C742FDD00601856 /* BasicLoadingView.swift */; };
+		C0756EEF2C742FDD00601856 /* BasicLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EED2C742FDD00601856 /* BasicLoadingView.swift */; };
+		C0756EF02C742FDD00601856 /* BasicLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EED2C742FDD00601856 /* BasicLoadingView.swift */; };
+		C0756EF12C742FDD00601856 /* BasicLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EED2C742FDD00601856 /* BasicLoadingView.swift */; };
+		C0756EF32C74336400601856 /* CompanyProfileView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EF22C74336400601856 /* CompanyProfileView+Ext.swift */; };
+		C0756EF42C74336400601856 /* CompanyProfileView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EF22C74336400601856 /* CompanyProfileView+Ext.swift */; };
+		C0756EF52C74336400601856 /* CompanyProfileView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EF22C74336400601856 /* CompanyProfileView+Ext.swift */; };
+		C0756EF62C74336400601856 /* CompanyProfileView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0756EF22C74336400601856 /* CompanyProfileView+Ext.swift */; };
 		C07E5A562C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* ProfileServiceType.swift */; };
 		C07E5A572C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* ProfileServiceType.swift */; };
 		C07E5A582C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E5A552C5E3E430019DCF4 /* ProfileServiceType.swift */; };
@@ -293,6 +317,12 @@
 		C032F7212C54700200473328 /* InternetSpeedTweak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetSpeedTweak.swift; sourceTree = "<group>"; };
 		C047FE632C59DC26008A6E36 /* CompanyConnectUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompanyConnectUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C047FE652C59DC26008A6E36 /* CompanyConnectUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyConnectUnitTests.swift; sourceTree = "<group>"; };
+		C0756ED92C742E8C00601856 /* BasicErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicErrorView.swift; sourceTree = "<group>"; };
+		C0756EDE2C742EE000601856 /* DarkThemedNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkThemedNavBarView.swift; sourceTree = "<group>"; };
+		C0756EE32C742F0200601856 /* StretchyHeaderURLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyHeaderURLView.swift; sourceTree = "<group>"; };
+		C0756EE82C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileCompanyDetailsView.swift; sourceTree = "<group>"; };
+		C0756EED2C742FDD00601856 /* BasicLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicLoadingView.swift; sourceTree = "<group>"; };
+		C0756EF22C74336400601856 /* CompanyProfileView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyProfileView+Ext.swift"; sourceTree = "<group>"; };
 		C07E5A552C5E3E430019DCF4 /* ProfileServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceType.swift; sourceTree = "<group>"; };
 		C0B86C6B2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(PROD) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0B86C6F2C4D055700C853C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -530,7 +560,11 @@
 				C0CC8D6C2C4CEEC40083E6C6 /* CompanyProfileTextView.swift */,
 				C0CC8D6D2C4CEEC40083E6C6 /* OurTeamPhotoScrollerView.swift */,
 				C0CC8D9E2C4CEEC40083E6C6 /* CompanyProfileView.swift */,
+				C0756EF22C74336400601856 /* CompanyProfileView+Ext.swift */,
 				C0CC8D6E2C4CEEC40083E6C6 /* ProjectsScrollerView.swift */,
+				C0756EDE2C742EE000601856 /* DarkThemedNavBarView.swift */,
+				C0756EE32C742F0200601856 /* StretchyHeaderURLView.swift */,
+				C0756EE82C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift */,
 			);
 			path = CompanyProfileViews;
 			sourceTree = "<group>";
@@ -547,6 +581,8 @@
 		C0CC8D792C4CEEC40083E6C6 /* MapViews */ = {
 			isa = PBXGroup;
 			children = (
+				C0756ED92C742E8C00601856 /* BasicErrorView.swift */,
+				C0756EED2C742FDD00601856 /* BasicLoadingView.swift */,
 				C0CC8D722C4CEEC40083E6C6 /* BaseMapView.swift */,
 				C0CC8D732C4CEEC40083E6C6 /* CompanyCardView.swift */,
 				C0CC8D742C4CEEC40083E6C6 /* CompanyHGrid.swift */,
@@ -854,7 +890,13 @@
 				C047FE662C59DC26008A6E36 /* CompanyConnectUnitTests.swift in Sources */,
 				C0D810412C71C5DE00209B68 /* PostsManager.swift in Sources */,
 				C02FF0E22C686D6200B7EA16 /* CategoryManager.swift in Sources */,
+				C0756EDD2C742E8C00601856 /* BasicErrorView.swift in Sources */,
+				C0756EF62C74336400601856 /* CompanyProfileView+Ext.swift in Sources */,
 				C02FF0E72C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
+				C0756EEC2C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift in Sources */,
+				C0756EE22C742EE000601856 /* DarkThemedNavBarView.swift in Sources */,
+				C0756EF12C742FDD00601856 /* BasicLoadingView.swift in Sources */,
+				C0756EE72C742F0200601856 /* StretchyHeaderURLView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -866,12 +908,14 @@
 				C032F7152C54617500473328 /* OHHTTPStubsHandler.swift in Sources */,
 				C0CC8DA52C4CF0F80083E6C6 /* Triangle.swift in Sources */,
 				C0CC8DA62C4CF0F80083E6C6 /* PostCellView.swift in Sources */,
+				C0756EE92C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift in Sources */,
 				C0CC8DA72C4CF0F80083E6C6 /* ActivityFeedScrollView.swift in Sources */,
 				C0CC8DA82C4CF0F80083E6C6 /* ActvitiyFeedFilterView.swift in Sources */,
 				C0CC8DA92C4CF0F80083E6C6 /* DonationProgessView.swift in Sources */,
 				C0CC8DAA2C4CF0F80083E6C6 /* MediaView.swift in Sources */,
 				C0CC8DAB2C4CF0F80083E6C6 /* BriefHistoryPhotoScrollerView.swift in Sources */,
 				C0CC8DAC2C4CF0F80083E6C6 /* CompanyProfileMapView.swift in Sources */,
+				C0756EDA2C742E8C00601856 /* BasicErrorView.swift in Sources */,
 				C01ACA472C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift in Sources */,
 				C0CC8DAD2C4CF0F80083E6C6 /* CompanyProfileTextView.swift in Sources */,
 				C0CC8DAE2C4CF0F80083E6C6 /* OurTeamPhotoScrollerView.swift in Sources */,
@@ -902,7 +946,9 @@
 				C0CC8DEB2C4CF4320083E6C6 /* Media.swift in Sources */,
 				C0CC8DEC2C4CF4320083E6C6 /* StringGenerator.swift in Sources */,
 				C0CC8DED2C4CF4320083E6C6 /* TeamMember.swift in Sources */,
+				C0756EDF2C742EE000601856 /* DarkThemedNavBarView.swift in Sources */,
 				C0CC8DEE2C4CF4320083E6C6 /* Company.swift in Sources */,
+				C0756EE42C742F0200601856 /* StretchyHeaderURLView.swift in Sources */,
 				C0CC8DF12C4CF4320083E6C6 /* Category.swift in Sources */,
 				C0B86C752C4E00DE00C853C0 /* DonationServiceType.swift in Sources */,
 				C0CC8DF32C4CF4320083E6C6 /* TweetGenerator.swift in Sources */,
@@ -912,6 +958,7 @@
 				C01ACA492C50961600A77B5E /* MapViewJSONResponse.swift in Sources */,
 				C0CC8DF62C4CF4320083E6C6 /* BriefHistoryImage.swift in Sources */,
 				C0CC8DF72C4CF4320083E6C6 /* Donation.swift in Sources */,
+				C0756EEE2C742FDD00601856 /* BasicLoadingView.swift in Sources */,
 				C02FF0E42C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
 				C0D6B1AC2C5710BA00777D49 /* CCTweakManager.swift in Sources */,
 				C07E5A562C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */,
@@ -922,6 +969,7 @@
 				C0CC8DD02C4CF0F80083E6C6 /* Color+Ext.swift in Sources */,
 				C032F7192C5467FD00473328 /* UIDevice+Ext.swift in Sources */,
 				C0B86C732C4D362600C853C0 /* Encodable+Ext.swift in Sources */,
+				C0756EF32C74336400601856 /* CompanyProfileView+Ext.swift in Sources */,
 				C0CC8DD12C4CF0F80083E6C6 /* Date+Ext.swift in Sources */,
 				C0D6B1B02C57116C00777D49 /* Tweakable.swift in Sources */,
 				C0CC8DD32C4CF0F80083E6C6 /* View+Ext.swift in Sources */,
@@ -945,6 +993,7 @@
 				C0D810442C71C61800209B68 /* CompanyManager.swift in Sources */,
 				C032F71A2C5467FD00473328 /* UIDevice+Ext.swift in Sources */,
 				C0CC8E0A2C4CF4330083E6C6 /* StringGenerator.swift in Sources */,
+				C0756EEF2C742FDD00601856 /* BasicLoadingView.swift in Sources */,
 				C0CC8E0B2C4CF4330083E6C6 /* TeamMember.swift in Sources */,
 				C0D8104A2C71C82600209B68 /* AppConfig.swift in Sources */,
 				C0CC8E0C2C4CF4330083E6C6 /* Company.swift in Sources */,
@@ -977,7 +1026,10 @@
 				C032F7162C54617500473328 /* OHHTTPStubsHandler.swift in Sources */,
 				C0FDF0EF2C5791D8009501F2 /* CCTweaks.swift in Sources */,
 				C0D8103F2C71C5DE00209B68 /* PostsManager.swift in Sources */,
+				C0756EF42C74336400601856 /* CompanyProfileView+Ext.swift in Sources */,
+				C0756EE02C742EE000601856 /* DarkThemedNavBarView.swift in Sources */,
 				C023F3BB2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */,
+				C0756EE52C742F0200601856 /* StretchyHeaderURLView.swift in Sources */,
 				C0CC8E6E2C4CF4510083E6C6 /* BriefHistoryPhotoScrollerView.swift in Sources */,
 				C01ACA6B2C530D9B00A77B5E /* URLBuilder.swift in Sources */,
 				C0CC8E802C4CF45A0083E6C6 /* CurvedRect.swift in Sources */,
@@ -993,6 +1045,7 @@
 				C0CC8E132C4CF4330083E6C6 /* Project.swift in Sources */,
 				C0CC8E142C4CF4330083E6C6 /* BriefHistoryImage.swift in Sources */,
 				C0CC8E152C4CF4330083E6C6 /* Donation.swift in Sources */,
+				C0756EEA2C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift in Sources */,
 				C0D6B1AD2C5710BA00777D49 /* CCTweakManager.swift in Sources */,
 				C0CC8E762C4CF4570083E6C6 /* PostCellView.swift in Sources */,
 				C0CC8E8C2C4CF48E0083E6C6 /* View+Ext.swift in Sources */,
@@ -1002,6 +1055,7 @@
 				C0CC8E772C4CF4570083E6C6 /* ActivityFeedScrollView.swift in Sources */,
 				C0CC8E782C4CF4570083E6C6 /* ActvitiyFeedFilterView.swift in Sources */,
 				C0CC8E792C4CF4570083E6C6 /* DonationProgessView.swift in Sources */,
+				C0756EDB2C742E8C00601856 /* BasicErrorView.swift in Sources */,
 				C0CC8E7A2C4CF4570083E6C6 /* MediaView.swift in Sources */,
 				C0CC8E162C4CF4330083E6C6 /* Post.swift in Sources */,
 				C0CC8E172C4CF4330083E6C6 /* BriefHistory.swift in Sources */,
@@ -1020,6 +1074,7 @@
 				C0D810452C71C61800209B68 /* CompanyManager.swift in Sources */,
 				C032F71B2C5467FD00473328 /* UIDevice+Ext.swift in Sources */,
 				C0CC8E282C4CF4350083E6C6 /* StringGenerator.swift in Sources */,
+				C0756EF02C742FDD00601856 /* BasicLoadingView.swift in Sources */,
 				C0CC8E292C4CF4350083E6C6 /* TeamMember.swift in Sources */,
 				C0D8104B2C71C82600209B68 /* AppConfig.swift in Sources */,
 				C0CC8E2A2C4CF4350083E6C6 /* Company.swift in Sources */,
@@ -1052,7 +1107,10 @@
 				C032F7172C54617500473328 /* OHHTTPStubsHandler.swift in Sources */,
 				C0FDF0F02C5791D8009501F2 /* CCTweaks.swift in Sources */,
 				C0D810402C71C5DE00209B68 /* PostsManager.swift in Sources */,
+				C0756EF52C74336400601856 /* CompanyProfileView+Ext.swift in Sources */,
+				C0756EE12C742EE000601856 /* DarkThemedNavBarView.swift in Sources */,
 				C023F3BC2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */,
+				C0756EE62C742F0200601856 /* StretchyHeaderURLView.swift in Sources */,
 				C0CC8E732C4CF4520083E6C6 /* BriefHistoryPhotoScrollerView.swift in Sources */,
 				C01ACA6C2C530D9B00A77B5E /* URLBuilder.swift in Sources */,
 				C0CC8E822C4CF45B0083E6C6 /* CurvedRect.swift in Sources */,
@@ -1068,6 +1126,7 @@
 				C0CC8E312C4CF4350083E6C6 /* Project.swift in Sources */,
 				C0CC8E322C4CF4350083E6C6 /* BriefHistoryImage.swift in Sources */,
 				C0CC8E332C4CF4350083E6C6 /* Donation.swift in Sources */,
+				C0756EEB2C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift in Sources */,
 				C0D6B1AE2C5710BA00777D49 /* CCTweakManager.swift in Sources */,
 				C0CC8E7B2C4CF4570083E6C6 /* PostCellView.swift in Sources */,
 				C0CC8E902C4CF48F0083E6C6 /* View+Ext.swift in Sources */,
@@ -1077,6 +1136,7 @@
 				C0CC8E7C2C4CF4570083E6C6 /* ActivityFeedScrollView.swift in Sources */,
 				C0CC8E7D2C4CF4570083E6C6 /* ActvitiyFeedFilterView.swift in Sources */,
 				C0CC8E7E2C4CF4570083E6C6 /* DonationProgessView.swift in Sources */,
+				C0756EDC2C742E8C00601856 /* BasicErrorView.swift in Sources */,
 				C0CC8E7F2C4CF4570083E6C6 /* MediaView.swift in Sources */,
 				C0CC8E342C4CF4350083E6C6 /* Post.swift in Sources */,
 				C0CC8E352C4CF4350083E6C6 /* BriefHistory.swift in Sources */,
