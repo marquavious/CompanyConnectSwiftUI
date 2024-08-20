@@ -1,10 +1,10 @@
 {
-    "company_object" {
+    "company_object" : {
         "logo_image_url" : "imageUrl",
         "category" : "environmental",
         "cover_image_url" : "imageUrl",
         "mission_statement" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "coordinate" : {
+        "coordinates" : {
             "latitude" : 30.053881,
             "longitude" : 31.238474
         },
@@ -75,7 +75,7 @@
             },
             {
                 "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "status" : "inProgress",
+                "status" : "in_progress",
                 "image_url" : "imageUrl",
                 "id" : "63486371-E5B6-4600-8BBA-075B03EFDDF1",
                 "name" : "Project 2"

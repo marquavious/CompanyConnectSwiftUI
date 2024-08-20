@@ -85,7 +85,7 @@ struct CompanyProfileView: View {
                                 ProgressView() // TODO: - The logic isn't right for this to be showing when needed.
                                 ActivityFeedScrollView(shouldShowCategoryFilter: false)
                                     .environmentObject(activityPostsManager)
-                                    .frame(minHeight: UIScreen.main.bounds.height / 2)
+                                    .frame(minHeight: UIScreen.main.bounds.height / 3)
                                     .task {
                                         await loadRecentActivity()
                                     }
