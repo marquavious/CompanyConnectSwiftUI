@@ -49,6 +49,29 @@ class CompanyManager: ObservableObject {
         CacheDateManager.shared.clearUpdateLastUpdatedDate(key: .companyObjectsLastUpdatedDate)
     }
 
+    func loadCompanyFromCache(id: String) -> Company? {
+        if
+            let company = allCompanies.first(where: { $0.id == id }),
+            !CacheDateManager.shared.compnayObjectsHaveExpired {
+            return company
+        }
+
+        guard
+            let modelContext = modelContext else { return nil}
+
+        let companyDescriptor = FetchDescriptor<Company>(
+            predicate: #Predicate { $0.id == id },
+            sortBy: []
+        )
+
+        do {
+            let company = try modelContext.fetch(companyDescriptor).first
+            return company
+        } catch {
+            return nil
+        }
+    }
+
     func saveCompaniesToCache(companies: [Company]) throws {
         guard let modelContext = modelContext else { return }
         do {

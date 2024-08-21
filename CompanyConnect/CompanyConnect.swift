@@ -19,19 +19,18 @@ struct CompanyConnect: App {
 
     @State private var showingSheet = false
 
-
     @StateObject var companyManager: CompanyManager = CompanyManager()
 
     var body: some Scene {
         WindowGroup {
             MainView()
                 .environmentObject(companyManager)
-            .onShake {
-                showingSheet.toggle()
-            }
-            .sheet(isPresented: $showingSheet) {
-                TweakWindowView()
-            }
+                .onShake {
+                    showingSheet.toggle()
+                }
+                .sheet(isPresented: $showingSheet) {
+                    TweakWindowView()
+                }
         }
     }
 

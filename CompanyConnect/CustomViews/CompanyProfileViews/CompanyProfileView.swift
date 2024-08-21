@@ -26,6 +26,8 @@ struct CompanyProfileView: View {
 
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var companyManager: CompanyManager
+
     @Injected(\.profileServiceType) var profileService
     @Injected(\.activityServiceType) var activityService
 
@@ -115,11 +117,15 @@ struct CompanyProfileView: View {
 
     private func loadCompanyProfileData() async {
         loadingState = .loading
-        do {
-            let response = try await profileService.getCompnayInfo(companyID: companyID)
-            loadingState = .fetched(response.companyObject)
-        } catch {
-            handleError(error: error)
+        if let cahchedCompany = companyManager.loadCompanyFromCache(id: companyID) {
+            loadingState = .fetched(cahchedCompany)
+        } else {
+            do {
+                let response = try await profileService.getCompnayInfo(companyID: companyID)
+                loadingState = .fetched(response.companyObject)
+            } catch {
+                handleError(error: error)
+            }
         }
     }
 

@@ -12,9 +12,6 @@ import Factory
 import SwiftData
 
 struct MapTabView: View {
-
-    @Environment(\.modelContext) var context
-
     @State var shouldShowListView: Bool = false
     @State private var shouldLockMap: Bool = true
     @State private var navigationPath = [Company]()
