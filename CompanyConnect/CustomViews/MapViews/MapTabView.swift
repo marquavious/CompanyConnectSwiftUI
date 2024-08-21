@@ -19,11 +19,10 @@ struct MapTabView: View {
     @State private var shouldLockMap: Bool = true
     @State private var navigationPath = [Company]()
     @State private var loadingState: LoadingState = .loading
-    @StateObject var companyFilter: CompanyManager = CompanyManager()
+
+    @EnvironmentObject var companyManager: CompanyManager
 
     @Injected(\.mapService) private var mapService
-
-    @Query() var cachedCompanies: [Company]
 
     var body: some View {
         NavigationStack(path: $navigationPath) {
@@ -50,7 +49,7 @@ struct MapTabView: View {
                         }
                     }
                 }
-                .environmentObject(companyFilter)
+                .environmentObject(companyManager)
                 .navigationDestination(for: Company.self) {
                     CompanyProfileView(companyObject: $0)
                 }
@@ -67,21 +66,17 @@ struct MapTabView: View {
 
     private func loadMapData() async {
         loadingState = .loading
-        let dataHasExpired = false
 
-        if !dataHasExpired, !cachedCompanies.isEmpty {
-            companyFilter.setCompanies(companies: cachedCompanies)
+        guard companyManager.shouldLoadCompanies else {
+            // Data is already loaded
             loadingState = .fetched
             return
         }
 
         do {
             let mapViewJSONResponse = try await mapService.getMapData()
-            companyFilter.setCompanies(companies: mapViewJSONResponse.companyObjects)
+            try companyManager.saveCompaniesToCache(companies: mapViewJSONResponse.companyObjects)
             loadingState = .fetched
-
-            mapViewJSONResponse.companyObjects.forEach { context.insert($0) }
-            try context.save()
         } catch {
             let nsError = error as NSError
             if nsError.domain == NSURLErrorDomain,

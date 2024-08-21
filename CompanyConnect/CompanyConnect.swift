@@ -19,9 +19,13 @@ struct CompanyConnect: App {
 
     @State private var showingSheet = false
 
+
+    @StateObject var companyManager: CompanyManager = CompanyManager()
+
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(companyManager)
             .onShake {
                 showingSheet.toggle()
             }
@@ -86,7 +90,6 @@ struct MainView: View {
         TabView {
             ForEach(TabViewData.allCases) { $0.tabView() }
         }
-        .modelContainer(for: Company.self)
     }
 }
 

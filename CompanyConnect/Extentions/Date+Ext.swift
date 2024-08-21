@@ -16,6 +16,12 @@ extension Date {
 }
 
 extension Date {
+    var daysAgo: Int {
+        return Calendar.current.dateComponents([.day], from: self, to: Date()).day!
+    }
+}
+
+extension Date {
     static func parseDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "M/d/yy"
