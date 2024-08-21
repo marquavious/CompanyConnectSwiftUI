@@ -1,6 +1,7 @@
 import Foundation
 import MapKit
 import SwiftUI
+import SwiftData
 
 struct Coordinates: Codable {
     public var latitude: CLLocationDegrees
@@ -13,7 +14,23 @@ extension Coordinates {
     }
 }
 
-struct Company: Codable, Identifiable, Hashable {
+@Model
+class Company: Codable, Identifiable, Hashable {
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case orginizationName
+        case coordinates
+        case category
+        case coverImageUrl
+        case missionStatement
+        case bio
+        case team
+        case briefHistoryObject
+        case projects
+        case logoImageUrl
+    }
+
     let id: String
     let orginizationName: String
     let coordinates: Coordinates
@@ -32,6 +49,63 @@ struct Company: Codable, Identifiable, Hashable {
 
     public static func == (lhs: Company, rhs: Company) -> Bool {
         return lhs.id == rhs.id
+    }
+
+    // All INITS BELOW ARE BECUASE OF SWIFT DATA AND @MODEL
+    init(
+        id: String,
+         orginizationName: String,
+         coordinates: Coordinates,
+         category: Category,
+         coverImageUrl: String,
+         missionStatement: String,
+         bio: String,
+         team: [TeamMember],
+         briefHistoryObject: BriefHistory,
+         projects: [Project],
+         logoImageUrl: String
+    ) {
+        self.id = id
+        self.orginizationName = orginizationName
+        self.coordinates = coordinates
+        self.category = category
+        self.coverImageUrl = coverImageUrl
+        self.missionStatement = missionStatement
+        self.bio = bio
+        self.team = team
+        self.briefHistoryObject = briefHistoryObject
+        self.projects = projects
+        self.logoImageUrl = logoImageUrl
+    }
+
+    required init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
+        orginizationName = try container.decode(String.self, forKey: .orginizationName)
+        coordinates = try container.decode(Coordinates.self, forKey: .coordinates)
+        category = try container.decode(Category.self, forKey: .category)
+        coverImageUrl = try container.decode(String.self, forKey: .coverImageUrl)
+        missionStatement = try container.decode(String.self, forKey: .missionStatement)
+        bio = try container.decode(String.self, forKey: .bio)
+        team = try container.decode([TeamMember].self, forKey: .team)
+        briefHistoryObject = try container.decode(BriefHistory.self, forKey: .briefHistoryObject)
+        projects = try container.decode([Project].self, forKey: .projects)
+        logoImageUrl = try container.decode(String.self, forKey: .logoImageUrl)
+    }
+
+    func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(orginizationName, forKey: .orginizationName)
+        try container.encode(coordinates, forKey: .coordinates)
+        try container.encode(category, forKey: .category)
+        try container.encode(coverImageUrl, forKey: .coverImageUrl)
+        try container.encode(missionStatement, forKey: .missionStatement)
+        try container.encode(bio, forKey: .bio)
+        try container.encode(team, forKey: .team)
+        try container.encode(briefHistoryObject, forKey: .briefHistoryObject)
+        try container.encode(projects, forKey: .projects)
+        try container.encode(logoImageUrl, forKey: .logoImageUrl)
     }
 }
 

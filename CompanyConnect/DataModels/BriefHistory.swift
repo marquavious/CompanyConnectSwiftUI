@@ -8,7 +8,6 @@
 import Foundation
 
 struct BriefHistory: Codable {
-
     let history: String
     let imageObjects: [BriefHistoryImage]
 }

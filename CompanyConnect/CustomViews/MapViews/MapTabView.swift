@@ -9,8 +9,11 @@ import SwiftUI
 import MapKit
 import TipKit
 import Factory
+import SwiftData
 
 struct MapTabView: View {
+
+    @Environment(\.modelContext) var context
 
     @State var shouldShowListView: Bool = false
     @State private var shouldLockMap: Bool = true
@@ -19,6 +22,8 @@ struct MapTabView: View {
     @StateObject var companyFilter: CompanyManager = CompanyManager()
 
     @Injected(\.mapService) private var mapService
+
+    @Query() var cachedCompanies: [Company]
 
     var body: some View {
         NavigationStack(path: $navigationPath) {
@@ -62,10 +67,21 @@ struct MapTabView: View {
 
     private func loadMapData() async {
         loadingState = .loading
+        let dataHasExpired = false
+
+        if !dataHasExpired, !cachedCompanies.isEmpty {
+            companyFilter.setCompanies(companies: cachedCompanies)
+            loadingState = .fetched
+            return
+        }
+
         do {
             let mapViewJSONResponse = try await mapService.getMapData()
             companyFilter.setCompanies(companies: mapViewJSONResponse.companyObjects)
             loadingState = .fetched
+
+            mapViewJSONResponse.companyObjects.forEach { context.insert($0) }
+            try context.save()
         } catch {
             let nsError = error as NSError
             if nsError.domain == NSURLErrorDomain,

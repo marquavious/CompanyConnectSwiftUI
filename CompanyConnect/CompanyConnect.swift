@@ -8,6 +8,7 @@
 import SwiftUI
 import TipKit
 import Factory
+import SwiftData
 
 @main
 struct CompanyConnect: App {
@@ -85,6 +86,7 @@ struct MainView: View {
         TabView {
             ForEach(TabViewData.allCases) { $0.tabView() }
         }
+        .modelContainer(for: Company.self)
     }
 }
 

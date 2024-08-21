@@ -32,8 +32,7 @@ struct CompanyCardView: View {
                 HStack(alignment: .top) {
                     let photoSize = CGSize(width: cellSize.width / 3, height: cellSize.height)
                     AsyncImage(url: URL(string: company.coverImageUrl)) { image in
-                        image
-                            .resizable()
+                        image.resizable()
                     } placeholder: {
                         Color.gray
                     }
