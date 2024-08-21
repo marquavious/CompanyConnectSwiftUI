@@ -61,6 +61,13 @@ class CompanyManager: ObservableObject {
         }
     }
 
+    func deleteCompaniesFromChache() {
+        guard let modelContext = modelContext else { return }
+        allCompanies.forEach { modelContext.delete($0)}
+        invalidateChache()
+        loadCompanies()
+    }
+
     private func loadCompanies() {
         guard let modelContext = modelContext else { return }
 

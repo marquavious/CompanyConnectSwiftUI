@@ -74,6 +74,7 @@ struct MapTabView: View {
         }
 
         do {
+            companyManager.deleteCompaniesFromChache()
             let mapViewJSONResponse = try await mapService.getMapData()
             try companyManager.saveCompaniesToCache(companies: mapViewJSONResponse.companyObjects)
             loadingState = .fetched
