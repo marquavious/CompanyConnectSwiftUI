@@ -26,8 +26,6 @@ struct ActivityFeedTabView: View {
     @Environment (\.colorScheme) var colorScheme
     @StateObject var postsFilter: PostsManager = PostsManager()
 
-    @EnvironmentObject var companyManager: CompanyManager
-
     @Injected(\.activityServiceType) var service
 
     var body: some View {

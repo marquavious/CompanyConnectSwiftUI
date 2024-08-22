@@ -117,15 +117,11 @@ struct CompanyProfileView: View {
 
     private func loadCompanyProfileData() async {
         loadingState = .loading
-        if let cahchedCompany = companyManager.loadCompanyFromCache(id: companyID) {
-            loadingState = .fetched(cahchedCompany)
-        } else {
-            do {
-                let response = try await profileService.getCompnayInfo(companyID: companyID)
-                loadingState = .fetched(response.companyObject)
-            } catch {
-                handleError(error: error)
-            }
+        do {
+            let response = try await profileService.getCompnayInfo(companyID: companyID)
+            loadingState = .fetched(response.companyObject)
+        } catch {
+            handleError(error: error)
         }
     }
 

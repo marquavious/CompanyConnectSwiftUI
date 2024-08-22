@@ -14,7 +14,7 @@ extension Coordinates {
     }
 }
 
-@Model
+//@Model
 class Company: Codable, Identifiable, Hashable {
 
     enum CodingKeys: String, CodingKey {

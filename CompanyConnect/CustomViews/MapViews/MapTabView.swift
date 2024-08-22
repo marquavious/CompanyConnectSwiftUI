@@ -64,16 +64,9 @@ struct MapTabView: View {
     private func loadMapData() async {
         loadingState = .loading
 
-        guard companyManager.shouldLoadCompanies else {
-            // Data is already loaded
-            loadingState = .fetched
-            return
-        }
-
         do {
-            companyManager.deleteCompaniesFromChache()
             let mapViewJSONResponse = try await mapService.getMapData()
-            try companyManager.saveCompaniesToCache(companies: mapViewJSONResponse.companyObjects)
+            companyManager.setCompanies(companies: mapViewJSONResponse.companyObjects)
             loadingState = .fetched
         } catch {
             let nsError = error as NSError

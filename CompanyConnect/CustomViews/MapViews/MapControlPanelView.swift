@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Factory
 
 struct MapControlPanelView: View {
 
@@ -26,7 +27,7 @@ struct MapControlPanelView: View {
     }
 
     @Binding var shouldShowListView: Bool
-    @EnvironmentObject var companyFilter: CompanyManager
+    @EnvironmentObject var companyManager: CompanyManager
 
     private let mapTipView = MapTipView()
 
@@ -52,10 +53,10 @@ struct MapControlPanelView: View {
 
             Image(systemName: Icons.clearMapSelection.rawValue)
                 .frame(
-                    width: companyFilter.categoryFilter.hasSelectedCategories ? Constants.ButtonSize.width : .zero,
-                    height: companyFilter.categoryFilter.hasSelectedCategories ? Constants.ButtonSize.height : .zero
+                    width: companyManager.categoryFilter.hasSelectedCategories ? Constants.ButtonSize.width : .zero,
+                    height: companyManager.categoryFilter.hasSelectedCategories ? Constants.ButtonSize.height : .zero
                 )
-                .padding(companyFilter.categoryFilter.hasSelectedCategories ? Constants.ButtonPadding : .zero)
+                .padding(companyManager.categoryFilter.hasSelectedCategories ? Constants.ButtonPadding : .zero)
                 .foregroundColor(.white)
                 .background(.regularMaterial)
                 .environment(\.colorScheme, .dark)
@@ -63,7 +64,7 @@ struct MapControlPanelView: View {
                 .transition(.scale)
                 .onTapGesture {
                     withAnimation(.easeInOut(duration: 0.2)) {
-                        companyFilter.categoryFilter.resetSelectedCategories()
+                        companyManager.categoryFilter.resetSelectedCategories()
                     }
                 }
         }

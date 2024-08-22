@@ -8,7 +8,7 @@
 import Foundation
 
 class CacheDateManager {
-    enum Keys: String {
+    enum Keys: String, CaseIterable {
         case companyObjectsLastUpdatedDate = "company_objects_last_updated_date_key"
     }
 
