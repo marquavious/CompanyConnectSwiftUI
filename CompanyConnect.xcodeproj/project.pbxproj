@@ -75,6 +75,10 @@
 		C03008BA2C782F98001A4338 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03008B82C782F98001A4338 /* AppDelegate.swift */; };
 		C03008BB2C782F98001A4338 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03008B82C782F98001A4338 /* AppDelegate.swift */; };
 		C03008BC2C782F98001A4338 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03008B82C782F98001A4338 /* AppDelegate.swift */; };
+		C03008BE2C7833DA001A4338 /* FirebaseDataStoreRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03008BD2C7833DA001A4338 /* FirebaseDataStoreRoute.swift */; };
+		C03008BF2C7833DA001A4338 /* FirebaseDataStoreRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03008BD2C7833DA001A4338 /* FirebaseDataStoreRoute.swift */; };
+		C03008C02C7833DA001A4338 /* FirebaseDataStoreRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03008BD2C7833DA001A4338 /* FirebaseDataStoreRoute.swift */; };
+		C03008C12C7833DA001A4338 /* FirebaseDataStoreRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03008BD2C7833DA001A4338 /* FirebaseDataStoreRoute.swift */; };
 		C032F70D2C5460A900473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70C2C5460A900473328 /* OHHTTPStubs */; };
 		C032F70F2C5460A900473328 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70E2C5460A900473328 /* OHHTTPStubsSwift */; };
 		C032F7112C54612000473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F7102C54612000473328 /* OHHTTPStubs */; };
@@ -349,6 +353,7 @@
 		C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPostsServiceType.swift; sourceTree = "<group>"; };
 		C03008B32C782F11001A4338 /* DevError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevError.swift; sourceTree = "<group>"; };
 		C03008B82C782F98001A4338 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C03008BD2C7833DA001A4338 /* FirebaseDataStoreRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataStoreRoute.swift; sourceTree = "<group>"; };
 		C032F7142C54617500473328 /* OHHTTPStubsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OHHTTPStubsHandler.swift; sourceTree = "<group>"; };
 		C032F7182C5467FD00473328 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
 		C032F71D2C546FB000473328 /* TweakWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakWindowView.swift; sourceTree = "<group>"; };
@@ -721,6 +726,7 @@
 			children = (
 				C07E5A552C5E3E430019DCF4 /* ProfileServiceType.swift */,
 				C0CC8D7B2C4CEEC40083E6C6 /* MapServiceType.swift */,
+				C03008BD2C7833DA001A4338 /* FirebaseDataStoreRoute.swift */,
 				C0B86C742C4E00DE00C853C0 /* DonationServiceType.swift */,
 				C02FF0E32C69B97100B7EA16 /* ActivityPostsServiceType.swift */,
 			);
@@ -949,6 +955,7 @@
 				C0D810462C71C61800209B68 /* CompanyManager.swift in Sources */,
 				C0756EFB2C74409700601856 /* ActivityFeedTabView+Loading.swift in Sources */,
 				C03008B72C782F11001A4338 /* DevError.swift in Sources */,
+				C03008C12C7833DA001A4338 /* FirebaseDataStoreRoute.swift in Sources */,
 				C0D8104C2C71C82600209B68 /* AppConfig.swift in Sources */,
 				C023F3BD2C63174A0066B741 /* TweakWindowUIViewControllerRepresentable.swift in Sources */,
 				C07E5A592C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */,
@@ -1047,6 +1054,7 @@
 				C0B86C732C4D362600C853C0 /* Encodable+Ext.swift in Sources */,
 				C0756EF32C74336400601856 /* CompanyProfileView+Ext.swift in Sources */,
 				C0CC8DD12C4CF0F80083E6C6 /* Date+Ext.swift in Sources */,
+				C03008BE2C7833DA001A4338 /* FirebaseDataStoreRoute.swift in Sources */,
 				C0D6B1B02C57116C00777D49 /* Tweakable.swift in Sources */,
 				C0CC8DD32C4CF0F80083E6C6 /* View+Ext.swift in Sources */,
 				C0D810432C71C61800209B68 /* CompanyManager.swift in Sources */,
@@ -1128,6 +1136,7 @@
 				C0CC8E142C4CF4330083E6C6 /* BriefHistoryImage.swift in Sources */,
 				C0CC8E152C4CF4330083E6C6 /* Donation.swift in Sources */,
 				C0756EEA2C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift in Sources */,
+				C03008BF2C7833DA001A4338 /* FirebaseDataStoreRoute.swift in Sources */,
 				C0D6B1AD2C5710BA00777D49 /* CCTweakManager.swift in Sources */,
 				C0CC8E762C4CF4570083E6C6 /* PostCellView.swift in Sources */,
 				C0CC8E8C2C4CF48E0083E6C6 /* View+Ext.swift in Sources */,
@@ -1215,6 +1224,7 @@
 				C0CC8E322C4CF4350083E6C6 /* BriefHistoryImage.swift in Sources */,
 				C0CC8E332C4CF4350083E6C6 /* Donation.swift in Sources */,
 				C0756EEB2C742F2B00601856 /* CompanyProfileCompanyDetailsView.swift in Sources */,
+				C03008C02C7833DA001A4338 /* FirebaseDataStoreRoute.swift in Sources */,
 				C0D6B1AE2C5710BA00777D49 /* CCTweakManager.swift in Sources */,
 				C0CC8E7B2C4CF4570083E6C6 /* PostCellView.swift in Sources */,
 				C0CC8E902C4CF48F0083E6C6 /* View+Ext.swift in Sources */,
