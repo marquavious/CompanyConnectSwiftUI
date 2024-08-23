@@ -66,6 +66,7 @@ struct DonationsView: View {
         loadingState = .loading
         do {
             let donationsData = try await service.getDonationsData(forUserID: "This will get changed with firebase")
+            let donationsData = try await service.getDonationsData(forUserID: "test_user_UUID")
             loadingState = .fetched(past: donationsData.pastDonations, scheduled:  donationsData.scheduledDonations)
         } catch {
             loadingState = .error(error)

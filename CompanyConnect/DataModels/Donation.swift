@@ -88,11 +88,12 @@ struct Donation: Codable, Identifiable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
         try container.encode(amountInCents, forKey: .amountInCents)
-        try container.encode(date, forKey: .date)
         try container.encode(paymentMethod, forKey: .paymentMethod)
         try container.encode(amountInCents, forKey: .orginizationName)
         try container.encode(category, forKey: .category)
         try container.encode(comapnyLogoUrl, forKey: .comapnyLogoUrl)
+        let dateString = date.ISO8601Format()
+        try container.encode(dateString, forKey: .date)
     }
 }
 

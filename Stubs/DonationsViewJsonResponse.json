@@ -5,7 +5,7 @@
             "id": "9F0B313F-1267-4234-953A-4FB6BA8936B0",
             "date": "2024-07-15T04:57:05Z",
             "payment_method": "apple_pay",
-            "orginizationName": "Orginization Name",
+            "orginization_name": "Orginization Name",
             "category": "healthcare",
             "comapny_logo_url": "img_url"
         },
@@ -14,7 +14,7 @@
             "id": "979340C2-A9BB-405B-B8EB-B76E0DE0B5BD",
             "payment_method": "apple_pay",
             "amount_in_cents": 73.99484384817568,
-            "orginizationName": "Orginization Name",
+            "orginization_name": "Orginization Name",
             "category": "healthcare",
             "comapny_logo_url": "img_url"
         },
@@ -23,7 +23,7 @@
             "payment_method": "apple_pay",
             "date": "2024-07-17T04:57:05Z",
             "id": "0ED5F5B5-9EFE-45C3-9889-F737A482297E",
-            "orginizationName": "Orginization Name",
+            "orginization_name": "Orginization Name",
             "category": "healthcare",
             "comapny_logo_url": "img_url"
         },
@@ -32,7 +32,7 @@
             "payment_method": "apple_pay",
             "amount_in_cents": 12.991976198329368,
             "id": "F8575F90-0B8D-433E-91CA-8F2318142E4C",
-            "orginizationName": "Orginization Name",
+            "orginization_name": "Orginization Name",
             "category": "healthcare",
             "comapny_logo_url": "img_url"
         },
@@ -41,7 +41,7 @@
             "date": "2024-07-19T04:57:05Z",
             "payment_method": "apple_pay",
             "id": "B051C746-0C80-4E6B-8565-0771230687EA",
-            "orginizationName": "Orginization Name",
+            "orginization_name": "Orginization Name",
             "category": "healthcare",
             "comapny_logo_url": "img_url"
         },
@@ -50,7 +50,7 @@
             "payment_method": "apple_pay",
             "amount_in_cents": 372.5685433397841,
             "date": "2024-07-20T04:57:05Z",
-            "orginizationName": "Orginization Name",
+            "orginization_name": "Orginization Name",
             "category": "healthcare",
             "comapny_logo_url": "img_url"
         }
@@ -61,7 +61,7 @@
             "payment_method": "apple_pay",
             "id": "8E456C34-63D0-4D31-8295-FDC510AB60E6",
             "amount_in_cents": 170.17165734086376,
-            "orginizationName": "Orginization Name",
+            "orginization_name": "Orginization Name",
             "category": "healthcare",
             "comapny_logo_url": "img_url"
         },
@@ -70,7 +70,7 @@
             "date": "2024-07-25T04:57:05Z",
             "payment_method": "apple_pay",
             "id": "83F6E547-46E5-4DE2-84B7-6996E66AEEAA",
-            "orginizationName": "Orginization Name",
+            "orginization_name": "Orginization Name",
             "category": "healthcare",
             "comapny_logo_url": "img_url"
         },
@@ -79,7 +79,7 @@
             "amount_in_cents": 136.4814042278218,
             "date": "2024-07-30T04:57:05Z",
             "payment_method": "apple_pay",      
-            "orginizationName": "Orginization Name",
+            "orginization_name": "Orginization Name",
             "category": "healthcare",
             "comapny_logo_url": "img_url"
         },
@@ -88,7 +88,7 @@
             "id": "6786BD71-F925-48F7-89BA-47D7A4C89BDA",
             "payment_method": "apple_pay",
             "amount_in_cents": 311.3818211620438,
-            "orginizationName": "Orginization Name",
+            "orginization_name": "Orginization Name",
             "category": "healthcare",
             "comapny_logo_url": "img_url"
         },
@@ -97,7 +97,7 @@
             "id": "B8572202-E14F-422A-97E5-DE2870D748D7",
             "date": "2024-08-01T04:57:05Z",
             "amount_in_cents": 96.6447652542497,
-            "orginizationName": "Orginization Name",
+            "orginization_name": "Orginization Name",
             "category": "healthcare",
             "comapny_logo_url": "img_url"
         },
@@ -106,7 +106,7 @@
             "date": "2024-08-03T04:57:05Z",
             "amount_in_cents": 99.89612657881742,
             "id": "704BA271-FD3B-41EC-9771-776E150CECBC",
-            "orginizationName": "Orginization Name",
+            "orginization_name": "Orginization Name",
             "category": "healthcare",
             "comapny_logo_url": "img_url"
         }

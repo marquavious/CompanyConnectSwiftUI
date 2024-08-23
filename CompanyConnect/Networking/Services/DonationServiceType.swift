@@ -7,12 +7,14 @@
 
 import Foundation
 import Factory
+import Firebase
+import FirebaseFirestore
 
 extension Container {
     var donationsService: Factory<DonationServiceType> {
         switch AppConfig.shared.enviorment {
         case .production:
-            self { DonationsService() }
+            self { FirebaseDonationsService() }
         case .offline:
             self { OfflineDonationsService() }
         case .development:
@@ -26,9 +28,39 @@ protocol DonationServiceType: HTTPDataDownloader {
 }
 
 @Observable
-class DonationsService: DonationServiceType, ObservableObject {
+class FirebaseDonationsService: DonationServiceType, ObservableObject {
     func getDonationsData(forUserID id: String) async throws -> DonationsViewJSONResponse {
-        return try await getData(as: DonationsViewJSONResponse.self, from: URLBuilder.donations(userID: id).url)
+        do {
+            /* This would be used if we were using the real time database. Un-comment to do so
+            // let snapshot = try await Database.database().reference().child("company_objects").child("company_objects").getData()
+            // let cleanArray = try snapshot.data(as: [Company?].self).compactMap { $0 }
+            // data(as: [Company?].self).compactMap { $0 }
+            */
+
+            let pastSnapshot = try await Firestore
+                .firestore()
+                .collection(FirebaseDataStoreRoute.pastDonations.route)
+                .document(id)
+                .collection("donations")
+                .getDocuments()
+
+            let pastDonationsArray = try pastSnapshot.documents.compactMap { document in
+                try document.data(as: Donation.self)
+            }
+
+            let scheduledSnapshot = try await Firestore
+                .firestore()
+                .collection(FirebaseDataStoreRoute.scheduledDonations.route)
+                .document(id)
+                .collection("donations")
+                .getDocuments()
+
+            let scheduledDonationsArray = try scheduledSnapshot.documents.compactMap { document in
+                try document.data(as: Donation.self)
+            }
+
+            return DonationsViewJSONResponse(pastDonations: pastDonationsArray, scheduledDonations: scheduledDonationsArray)
+        }
     }
 }
 

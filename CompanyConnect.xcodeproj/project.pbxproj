@@ -79,6 +79,7 @@
 		C03008BF2C7833DA001A4338 /* FirebaseDataStoreRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03008BD2C7833DA001A4338 /* FirebaseDataStoreRoute.swift */; };
 		C03008C02C7833DA001A4338 /* FirebaseDataStoreRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03008BD2C7833DA001A4338 /* FirebaseDataStoreRoute.swift */; };
 		C03008C12C7833DA001A4338 /* FirebaseDataStoreRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03008BD2C7833DA001A4338 /* FirebaseDataStoreRoute.swift */; };
+		C03008C32C784B76001A4338 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C03008C22C784B76001A4338 /* FirebaseFirestore */; };
 		C032F70D2C5460A900473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70C2C5460A900473328 /* OHHTTPStubs */; };
 		C032F70F2C5460A900473328 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C032F70E2C5460A900473328 /* OHHTTPStubsSwift */; };
 		C032F7112C54612000473328 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C032F7102C54612000473328 /* OHHTTPStubs */; };
@@ -478,6 +479,7 @@
 				C02FF16A2C6DA57700B7EA16 /* Factory in Frameworks */,
 				C032F70D2C5460A900473328 /* OHHTTPStubs in Frameworks */,
 				C02753AA2C76DC8900B50C4D /* FirebaseDatabase in Frameworks */,
+				C03008C32C784B76001A4338 /* FirebaseFirestore in Frameworks */,
 				C032F70F2C5460A900473328 /* OHHTTPStubsSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -835,6 +837,7 @@
 				C032F70E2C5460A900473328 /* OHHTTPStubsSwift */,
 				C02FF1692C6DA57700B7EA16 /* Factory */,
 				C02753A92C76DC8900B50C4D /* FirebaseDatabase */,
+				C03008C22C784B76001A4338 /* FirebaseFirestore */,
 			);
 			productName = "SwfitUI Connect And Care";
 			productReference = C0219F882C4CFDC200979B2E /* (DEVELOPMENT) CompanyConnect.app */;
@@ -1728,6 +1731,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C02FF1642C6DA55D00B7EA16 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
+		};
+		C03008C22C784B76001A4338 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C02753A42C76DC5500B50C4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 		C032F70C2C5460A900473328 /* OHHTTPStubs */ = {
 			isa = XCSwiftPackageProductDependency;
