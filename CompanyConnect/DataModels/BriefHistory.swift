@@ -10,6 +10,11 @@ import Foundation
 struct BriefHistory: Codable {
     let history: String
     let imageObjects: [BriefHistoryImage]
+
+    enum CodingKeys: String, CodingKey {
+        case history
+        case imageObjects = "image_objects"
+    }
 }
 
 extension BriefHistory {

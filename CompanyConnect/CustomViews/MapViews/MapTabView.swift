@@ -10,6 +10,7 @@ import MapKit
 import TipKit
 import Factory
 import SwiftData
+import FirebaseFirestore
 
 struct MapTabView: View {
     @State var shouldShowListView: Bool = false
@@ -63,7 +64,6 @@ struct MapTabView: View {
 
     private func loadMapData() async {
         loadingState = .loading
-
         do {
             let mapViewJSONResponse = try await mapService.getMapData()
             companyManager.setCompanies(companies: mapViewJSONResponse.companyObjects)
@@ -82,8 +82,4 @@ struct MapTabView: View {
 
 #Preview {
     MapTabView()
-}
-
-enum DevError: Error {
-    case error
 }

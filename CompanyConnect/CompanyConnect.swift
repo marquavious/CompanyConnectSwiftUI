@@ -13,13 +13,14 @@ import SwiftData
 @main
 struct CompanyConnect: App {
 
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     #if DEBUG
     private let stubsHandler = OHHTTPStubsHandler()
     #endif
 
     @State private var showingSheet = false
     @StateObject var companyManager: CompanyManager = CompanyManager()
-
 
     var body: some Scene {
         WindowGroup {

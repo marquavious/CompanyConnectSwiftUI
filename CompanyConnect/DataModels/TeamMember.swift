@@ -13,6 +13,13 @@ struct TeamMember: Codable {
     let name: String
     let position: String
     let imageUrl: String
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case position
+        case imageUrl = "image_url"
+    }
 }
 
 extension TeamMember {

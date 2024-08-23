@@ -45,6 +45,14 @@ struct Project: Codable, Hashable, Identifiable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case description
+        case status
+        case imageUrl = "image_url"
+    }
 }
 
 extension Project {

@@ -1,12 +1,14 @@
 import Foundation
 import SwiftUI
 import Factory
+import Firebase
+import FirebaseFirestore
 
 extension Container {
     var mapService: Factory<MapServiceType> {
         switch AppConfig.shared.enviorment {
         case .production:
-            self { MapService() }
+            self { FirebaseMapService() }
         case .offline:
             self { OfflineMapService() }
         case .development:
@@ -20,9 +22,19 @@ protocol MapServiceType: HTTPDataDownloader {
 }
 
 @Observable
-class MapService: MapServiceType {
+class FirebaseMapService: MapServiceType {
     func getMapData() async throws -> MapViewJSONResponse {
-        return try await getData(as: MapViewJSONResponse.self, from: URLBuilder.mapdata.url)
+        do {
+            // let snapshot = try await Database.database().reference().child("company_objects").child("company_objects").getData()
+            // let cleanArray = try snapshot.data(as: [Company?].self).compactMap { $0 }
+            // data(as: [Company?].self).compactMap { $0 }
+
+            let snapshot = try await Firestore.firestore().collection("test_company_objects").getDocuments()
+            let cleanArray = try snapshot.documents.compactMap { document in
+                try document.data(as: Company.self)
+            }
+            return MapViewJSONResponse(companyObjects: cleanArray)
+        }
     }
 }
 

@@ -11,6 +11,11 @@ import SwiftUI
 struct BriefHistoryImage: Codable {
     let caption: String
     let imageUrl: String
+
+    enum CodingKeys: String, CodingKey {
+        case caption
+        case imageUrl = "image_url"
+    }
 }
 
 extension BriefHistoryImage {

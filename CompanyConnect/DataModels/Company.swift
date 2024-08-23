@@ -2,6 +2,7 @@ import Foundation
 import MapKit
 import SwiftUI
 import SwiftData
+import FirebaseFirestore
 
 struct Coordinates: Codable {
     public var latitude: CLLocationDegrees
@@ -19,16 +20,16 @@ class Company: Codable, Identifiable, Hashable {
 
     enum CodingKeys: String, CodingKey {
         case id
-        case orginizationName
+        case orginizationName = "orginization_name"
         case coordinates
         case category
-        case coverImageUrl
-        case missionStatement
+        case coverImageUrl = "cover_image_url"
+        case missionStatement = "mission_statement"
         case bio
         case team
-        case briefHistoryObject
+        case briefHistoryObject = "brief_history_object"
         case projects
-        case logoImageUrl
+        case logoImageUrl = "logo_image_url"
     }
 
     let id: String
