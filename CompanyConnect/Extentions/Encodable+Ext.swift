@@ -19,7 +19,6 @@ extension Encodable {
     }
 }
 
-
 extension Encodable {
     
     var prettyPrintedJSONString: String? {

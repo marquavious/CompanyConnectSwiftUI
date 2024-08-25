@@ -84,7 +84,6 @@ struct ProjectsScrollerView: View {
         .frame(minHeight: Constants.MinTabViewHeight, alignment: .top)
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
     }
-
 }
 
 #Preview {
