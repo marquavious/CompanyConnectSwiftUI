@@ -11,6 +11,7 @@ enum FirebaseDataStoreRoute {
     case companyObjects
     case pastDonations
     case scheduledDonations
+    case activityPosts
 
     var route: String {
         switch self {
@@ -20,6 +21,8 @@ enum FirebaseDataStoreRoute {
             return "test_past_donations"
         case .scheduledDonations:
             return "test_scheduled_donations"
+        case .activityPosts:
+            return "test_activity_posts"
         }
     }
 }

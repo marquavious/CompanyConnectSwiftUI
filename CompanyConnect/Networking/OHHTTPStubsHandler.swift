@@ -16,7 +16,7 @@ class OHHTTPStubsHandler: NSObject {
     func setupStubs() {
         stub(condition: isPath("/activity_feed")) { [weak self]  _ in
             guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.memoryError)}
-            let stubPath = OHPathForFile("ActivityfeedJsonResponsePage1.json", type(of: self))
+            let stubPath = OHPathForFile("ActivityfeedJsonResponsePage.json", type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
                 .responseTime(
                     internetResponseTime
@@ -58,7 +58,6 @@ class OHHTTPStubsHandler: NSObject {
                     internetResponseTime
                 )
         }
-
     }
 }
 

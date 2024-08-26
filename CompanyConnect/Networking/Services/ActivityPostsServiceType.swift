@@ -7,12 +7,13 @@
 
 import Foundation
 import Factory
+import FirebaseFirestore
 
 extension Container {
     var activityServiceType: Factory<ActivityPostsServiceType> {
         switch AppConfig.shared.enviorment {
         case .production:
-            self { ActivityPostsService() }
+            self { FirebaseActivityPostsService() }
         case .offline:
             self { OfflineActivityPostsService() }
         case .development:
@@ -27,10 +28,19 @@ protocol ActivityPostsServiceType: HTTPDataDownloader {
 }
 
 @Observable
-class ActivityPostsService: ActivityPostsServiceType {
+class FirebaseActivityPostsService: ActivityPostsServiceType {
     @MainActor
     func getPosts() async throws -> ActivityFeedJSONResponse {
-        return try await getData(as: ActivityFeedJSONResponse.self, from: URLBuilder.activityFeed.url)
+        let snapshot = try await Firestore
+            .firestore()
+            .collection(FirebaseDataStoreRoute.activityPosts.route)
+            .getDocuments()
+
+        let flattenedArray = try snapshot.documents.compactMap { document in
+            try document.data(as: Post.self)
+        }
+
+        return ActivityFeedJSONResponse(activityPosts: flattenedArray)
     }
 
     @MainActor
@@ -66,3 +76,13 @@ class OfflineActivityPostsService: ActivityPostsServiceType {
         return try await getData(as: ActivityFeedJSONResponse.self, from: URLBuilder.companyFeed(companyID: id).url)
     }
 }
+
+/* Example to set data
+for post in response.activityPosts {
+    try Firestore
+        .firestore()
+        .collection(FirebaseDataStoreRoute.activityPosts.route)
+        .document(post.id)
+        .setData(from: post)
+}
+*/
