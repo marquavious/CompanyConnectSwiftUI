@@ -14,7 +14,7 @@ class OHHTTPStubsHandler: NSObject {
     private let internetResponseTime: TimeInterval = CCTweakManager.shared.retreiveTweakValue(tweak: .internetSpeed).value as! TimeInterval
 
     func setupStubs() {
-        stub(condition: isPath("/activity_feed")) { [weak self]  _ in
+        stub(condition: isPath("/activity_feed") && containsQueryParams(["page" : "1"])) { [weak self]  _ in
             guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.memoryError)}
             let stubPath = OHPathForFile("ActivityfeedJsonResponse_page_1.json", type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
@@ -23,7 +23,7 @@ class OHHTTPStubsHandler: NSObject {
                 )
         }
 
-        stub(condition: isPath("/activity_feed")) { [weak self]  _ in
+        stub(condition: isPath("/activity_feed") && containsQueryParams(["page" : "2"])) { [weak self]  _ in
             guard let self else { return HTTPStubsResponse (error: OHHTTPStubsHandlerError.memoryError)}
             let stubPath = OHPathForFile("ActivityfeedJsonResponse_page_2.json", type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
