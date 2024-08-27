@@ -8,6 +8,7 @@
 import SwiftUI
 import TipKit
 import Factory
+import FirebaseFirestore
 
 struct ActivityFeedTabView: View {
     struct Constants {
@@ -41,14 +42,14 @@ struct ActivityFeedTabView: View {
                     }
                     .task {
                         if loadingState != .fetched {
-                            await fetchPosts()
+                            await fetchPosts(forPagination: false)
                         }
                     }
                 case .fetched:
-                    ActivityFeedScrollView(
-                        shouldShowCategoryFilter: true
-                    ){
-                        presentedNgos.append($0)
+                    ActivityFeedScrollView(shouldShowCategoryFilter: true) { id in
+                        presentedNgos.append(id)
+                    } reachedEndOfScrollview: {
+                        Task { await fetchPosts(forPagination: true) }
                     }
                     .environmentObject(postsFilter)
                     .navigationDestination(for: String.self) {
@@ -58,7 +59,7 @@ struct ActivityFeedTabView: View {
                     BasicErrorView(
                         errorString: error.localizedDescription,
                         background: Color.white,
-                        retryAction: { Task { await fetchPosts() } }
+                        retryAction: { Task { await fetchPosts(forPagination: false) } }
                     )
                 }
             }
@@ -66,11 +67,13 @@ struct ActivityFeedTabView: View {
         }
     }
 
-    private func fetchPosts() async {
-        loadingState = .loading
+    private func fetchPosts(forPagination: Bool) async {
+        if !forPagination {
+            loadingState = .loading
+        }
         do {
             let response = try await service.getPosts()
-            postsFilter.setPosts(posts: response.activityPosts)
+            postsFilter.appendPosts(posts: response.activityPosts)
             loadingState = .fetched
         } catch {
             let nsError = error as NSError

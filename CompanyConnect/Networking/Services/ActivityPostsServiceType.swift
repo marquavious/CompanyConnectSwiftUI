@@ -29,12 +29,37 @@ protocol ActivityPostsServiceType: HTTPDataDownloader {
 
 @Observable
 class FirebaseActivityPostsService: ActivityPostsServiceType {
+
+    var previousQuery: DocumentSnapshot?
+
+    let fetchLimit: Int
+
+    init(fetchLimit: Int = 5 /*Hard coded For Now*/) {
+        self.fetchLimit = fetchLimit
+    }
+
     @MainActor
     func getPosts() async throws -> ActivityFeedJSONResponse {
-        let snapshot = try await Firestore
-            .firestore()
-            .collection(FirebaseDataStoreRoute.activityPosts.route)
-            .getDocuments()
+
+        let snapshot: QuerySnapshot
+
+        if let previousQuery {
+            snapshot = try await Firestore
+                .firestore()
+                .collection(FirebaseDataStoreRoute.activityPosts.route)
+                .order(by: "date", descending: true)
+                .limit(to: fetchLimit)
+                .start(afterDocument: previousQuery)
+                .getDocuments()
+            self.previousQuery = snapshot.documents.last
+        } else  {
+            snapshot = try await Firestore
+                .firestore()
+                .collection(FirebaseDataStoreRoute.activityPosts.route)
+                .order(by: "date", descending: true)
+                .limit(to: fetchLimit)
+                .getDocuments()
+        }
 
         let flattenedArray = try snapshot.documents.compactMap { document in
             try document.data(as: Post.self)
@@ -51,7 +76,8 @@ class FirebaseActivityPostsService: ActivityPostsServiceType {
 
 @Observable
 class DevActivityPostsService: ActivityPostsServiceType {
-    @MainActor
+
+    @MainActor // No pagination needed
     func getPosts() async throws -> ActivityFeedJSONResponse {
         ActivityFeedJSONResponse(activityPosts: [Post.createFakeActivityPost(), Post.createFakeActivityPost(), Post.createFakeActivityPost()])
     }
@@ -66,9 +92,14 @@ class DevActivityPostsService: ActivityPostsServiceType {
 
 @Observable
 class OfflineActivityPostsService: ActivityPostsServiceType {
+
+    var page: Int = 1
+
     @MainActor
     func getPosts() async throws -> ActivityFeedJSONResponse {
-        return try await getData(as: ActivityFeedJSONResponse.self, from: URLBuilder.activityFeed.url)
+        let response = try await getData(as: ActivityFeedJSONResponse.self, from: URLBuilder.activityFeed(page: page).url)
+        page += 1
+        return response
     }
 
     @MainActor

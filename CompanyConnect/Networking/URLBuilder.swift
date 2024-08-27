@@ -8,7 +8,7 @@
 import Foundation
 
 enum URLBuilder {
-    case activityFeed
+    case activityFeed(page: Int)
     case mapdata
     case donations(userID: String)
     case companyProfile(companyID: String)
@@ -43,6 +43,10 @@ enum URLBuilder {
 
     private var queryItems: [URLQueryItem]? {
         switch self {
+        case .activityFeed(page: let page):
+            [
+                URLQueryItem(name: "page", value: String(page))
+            ]
         case .donations(userID: let userID):
             [
                 URLQueryItem(name: "user_id", value: userID)

@@ -33,8 +33,19 @@ class PostsManager: ObservableObject {
         }
     }
 
+    /**
+     Sets all posts in the manager.
+
+      - Warning: This function will replace ALL current posts. If you
+     want to append, use `appendPosts(posts: [Post])`
+     instead.
+    */
     func setPosts(posts: [Post]) {
         allPosts = posts
+    }
+
+    func appendPosts(posts: [Post]) {
+        allPosts.append(contentsOf: posts)
     }
 
     init(posts: [Post] = [], categoryManager: CategoryManager = CategoryManager()) {

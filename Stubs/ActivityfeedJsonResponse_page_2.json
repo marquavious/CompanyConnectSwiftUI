@@ -1,0 +1,191 @@
+{
+  "activity_posts": [
+    {
+      "image_url": "imgUrl",
+      "id": "986903BE-0B8E-4A90-9FCB-CC02F6BA77BC",
+      "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. #NGO",
+      "date": "2024-07-24T03:53:45Z",
+      "company": {
+        "id": "company_id",
+        "name":"Company Name",
+        "logo_url": "img_url",
+        "category" : "indigenous_rights"
+      },
+      "media" : {
+          "photo" : {
+              "photo_url": "img"
+          }
+      }
+    },
+    {
+      "poster": {
+        "id": "ADB6C190-DA25-44F1-8291-3D35B69CAF98",
+        "name": "John Doe",
+        "image_url": "imageUrl"
+      },
+      "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua... 🏡",
+      "date": "2024-07-24T03:57:04Z",
+      "id": "1C3440A9-BAD8-4754-9009-67A2CFD4F2DF",
+      "image_url": "imgUrl",
+      "company": {
+        "id": "company_id",
+        "name":"Company Name",
+        "logo_url": "img_url",
+        "category" : "human_rights"
+      }
+    },
+    {
+      "id": "15115969-3207-406F-B411-8DA691C967F2",
+      "image_url": "imgUrl",
+      "caption": "Lorem ipsum! 🌾",
+      "date": "2024-07-24T04:13:54Z",
+      "company": {
+        "id": "company_id",
+        "name":"Company Name",
+        "logo_url": "img_url",
+        "category" : "veterans"
+      },
+      "media": {
+          "photo_carousel" : {
+              "carousel": [
+                  {
+                  "index" : 0,
+                  "image_url": "img_url"
+                  },
+                  {
+                  "index" : 1,
+                  "image_url": "img_url"
+                  },
+                  {
+                  "index" : 2,
+                  "image_url": "img_url"
+                  }
+              ]
+          }
+      }
+    },
+    {
+      "image_url": "imgUrl",
+      "id": "137B2881-FCA6-4B4E-8EAE-14A8167F034A",
+      "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+      "date": "2024-07-24T03:52:52Z",
+      "company": {
+        "id": "company_id",
+        "name":"Company Name",
+        "logo_url": "img_url",
+        "category" : "womens_rights"
+      }
+    },
+    {
+      "poster": {
+        "image_url": "imageUrl",
+        "id": "0FDB83F0-90CD-4CEC-8071-A2EFE77ABF5B",
+        "name": "John Doe"
+      },
+      "date": "2024-07-24T03:56:33Z",
+      "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing?",
+      "id": "3133FE8B-4BD6-4E02-955C-7DDD0522B00C",
+      "image_url": "imgUrl",
+      "company": {
+        "id": "company_id",
+        "name":"Company Name",
+        "logo_url": "img_url",
+        "category" : "womens_rights"
+      },
+      "media" : {
+          "photo" : {
+              "photo_url": "img"
+          }
+      }
+    },
+    {
+      "id": "C9FC35FE-073D-46C9-873A-4755F6860A30",
+      "caption": "Lorem ipsum. 🌎",
+      "image_url": "imgUrl",
+      "date": "2024-07-24T04:12:20Z",
+      "company": {
+        "id": "company_id",
+        "name":"Company Name",
+        "logo_url": "img_url",
+        "category" : "education"
+      }
+    },
+    {
+      "image_url": "imgUrl",
+      "date": "2024-07-24T04:16:14Z",
+      "id": "33FC68AD-4703-4955-92BD-8653E91213AD",
+      "company": {
+        "id": "company_id",
+        "name":"Company Name",
+        "logo_url": "img_url",
+        "category" : "environmental"
+      },
+      "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt?"
+    },
+    {
+      "id": "6389A29D-3FF2-4F1F-BB50-A5CB0476F7E9",
+      "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+      "image_url": "imgUrl",
+      "date": "2024-07-24T03:52:22Z",
+      "company": {
+        "id": "company_id",
+        "name":"Company Name",
+        "logo_url": "img_url",
+        "category" : "community"
+      },
+      "media": {
+          "photo_carousel" : {
+              "carousel": [
+                  {
+                  "index" : 0,
+                  "image_url": "img_url"
+                  },
+                  {
+                  "index" : 1,
+                  "image_url": "img_url"
+                  },
+                  {
+                  "index" : 2,
+                  "image_url": "img_url"
+                  }
+              ]
+          }
+      }
+    },
+    {
+      "caption": "Lorem ipsum!",
+      "image_url": "imgUrl",
+      "poster": {
+        "image_url": "imageUrl",
+        "id": "2FD01972-4D18-4BE7-AC41-2D9F00C83CB6",
+        "name": "John Doe"
+      },
+      "id": "96479D12-B476-4814-9AE2-1CDD54689136",
+      "date": "2024-07-24T03:57:00Z",
+      "company": {
+        "id": "company_id",
+        "name":"Company Name",
+        "logo_url": "img_url",
+        "category" : "environmental"
+      },
+      "media" : {
+          "photo" : {
+              "photo_url": "img"
+          }
+      }
+    },
+    {
+      "image_url": "imgUrl",
+      "company": {
+        "id": "company_id",
+        "name":"Company Name",
+        "logo_url": "img_url",
+        "category" : "healthcare"
+      },
+      "id": "4D7B4BE7-26CE-4D46-B9F9-8A7A54A91055",
+      "date": "2024-07-24T04:03:48Z",
+      "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."
+    }
+  ]
+}
+

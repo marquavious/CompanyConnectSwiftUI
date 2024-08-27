@@ -150,6 +150,12 @@
 		C0B86C752C4E00DE00C853C0 /* DonationServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B86C742C4E00DE00C853C0 /* DonationServiceType.swift */; };
 		C0B86C762C4E019F00C853C0 /* DonationServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B86C742C4E00DE00C853C0 /* DonationServiceType.swift */; };
 		C0B86C772C4E01A200C853C0 /* DonationServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B86C742C4E00DE00C853C0 /* DonationServiceType.swift */; };
+		C0BB5FD42C7D54A6001B56FA /* ActivityfeedJsonResponse_page_1.json in Resources */ = {isa = PBXBuildFile; fileRef = C0BB5FD22C7D54A6001B56FA /* ActivityfeedJsonResponse_page_1.json */; };
+		C0BB5FD52C7D54A6001B56FA /* ActivityfeedJsonResponse_page_1.json in Resources */ = {isa = PBXBuildFile; fileRef = C0BB5FD22C7D54A6001B56FA /* ActivityfeedJsonResponse_page_1.json */; };
+		C0BB5FD62C7D54A6001B56FA /* ActivityfeedJsonResponse_page_1.json in Resources */ = {isa = PBXBuildFile; fileRef = C0BB5FD22C7D54A6001B56FA /* ActivityfeedJsonResponse_page_1.json */; };
+		C0BB5FD72C7D54A6001B56FA /* ActivityfeedJsonResponse_page_2.json in Resources */ = {isa = PBXBuildFile; fileRef = C0BB5FD32C7D54A6001B56FA /* ActivityfeedJsonResponse_page_2.json */; };
+		C0BB5FD82C7D54A6001B56FA /* ActivityfeedJsonResponse_page_2.json in Resources */ = {isa = PBXBuildFile; fileRef = C0BB5FD32C7D54A6001B56FA /* ActivityfeedJsonResponse_page_2.json */; };
+		C0BB5FD92C7D54A6001B56FA /* ActivityfeedJsonResponse_page_2.json in Resources */ = {isa = PBXBuildFile; fileRef = C0BB5FD32C7D54A6001B56FA /* ActivityfeedJsonResponse_page_2.json */; };
 		C0CC8DA42C4CF0F80083E6C6 /* CurvedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D612C4CEEC40083E6C6 /* CurvedRect.swift */; };
 		C0CC8DA52C4CF0F80083E6C6 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D622C4CEEC40083E6C6 /* Triangle.swift */; };
 		C0CC8DA62C4CF0F80083E6C6 /* PostCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC8D642C4CEEC40083E6C6 /* PostCellView.swift */; };
@@ -294,9 +300,6 @@
 		C0CC8E9B2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0CC8E9A2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist */; };
 		C0CC8E9C2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0CC8E9A2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist */; };
 		C0CC8E9D2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0CC8E9A2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist */; };
-		C0D40F442C58DAC100250129 /* ActivityfeedJsonResponsePage.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D40F3D2C58DAC100250129 /* ActivityfeedJsonResponsePage.json */; };
-		C0D40F452C58DAC100250129 /* ActivityfeedJsonResponsePage.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D40F3D2C58DAC100250129 /* ActivityfeedJsonResponsePage.json */; };
-		C0D40F462C58DAC100250129 /* ActivityfeedJsonResponsePage.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D40F3D2C58DAC100250129 /* ActivityfeedJsonResponsePage.json */; };
 		C0D6B1AC2C5710BA00777D49 /* CCTweakManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6B1AB2C5710BA00777D49 /* CCTweakManager.swift */; };
 		C0D6B1AD2C5710BA00777D49 /* CCTweakManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6B1AB2C5710BA00777D49 /* CCTweakManager.swift */; };
 		C0D6B1AE2C5710BA00777D49 /* CCTweakManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6B1AB2C5710BA00777D49 /* CCTweakManager.swift */; };
@@ -372,6 +375,8 @@
 		C0B86C6F2C4D055700C853C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0B86C722C4D362600C853C0 /* Encodable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Ext.swift"; sourceTree = "<group>"; };
 		C0B86C742C4E00DE00C853C0 /* DonationServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationServiceType.swift; sourceTree = "<group>"; };
+		C0BB5FD22C7D54A6001B56FA /* ActivityfeedJsonResponse_page_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityfeedJsonResponse_page_1.json; sourceTree = "<group>"; };
+		C0BB5FD32C7D54A6001B56FA /* ActivityfeedJsonResponse_page_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityfeedJsonResponse_page_2.json; sourceTree = "<group>"; };
 		C0CC8D5D2C4CEEC40083E6C6 /* (DEVELOPMENT) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(DEVELOPMENT) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0CC8D5E2C4CEEC40083E6C6 /* (OFFLINE) Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "(OFFLINE) Configuration.xcconfig"; sourceTree = "<group>"; };
 		C0CC8D612C4CEEC40083E6C6 /* CurvedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedRect.swift; sourceTree = "<group>"; };
@@ -422,7 +427,6 @@
 		C0CC8DD82C4CF1930083E6C6 /* CompanyConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyConnect.swift; sourceTree = "<group>"; };
 		C0CC8E962C4CF9BE0083E6C6 /* (DEVELOPMENT) CompanyConnect-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "(DEVELOPMENT) CompanyConnect-Info.plist"; sourceTree = "<group>"; };
 		C0CC8E9A2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "(OFFLINE) CompnayConnect-Info.plist"; sourceTree = "<group>"; };
-		C0D40F3D2C58DAC100250129 /* ActivityfeedJsonResponsePage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivityfeedJsonResponsePage.json; sourceTree = "<group>"; };
 		C0D6B1AB2C5710BA00777D49 /* CCTweakManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTweakManager.swift; sourceTree = "<group>"; };
 		C0D6B1AF2C57116C00777D49 /* Tweakable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweakable.swift; sourceTree = "<group>"; };
 		C0D8103D2C71C5DE00209B68 /* PostsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsManager.swift; sourceTree = "<group>"; };
@@ -487,7 +491,8 @@
 				C01ACA5F2C50C2A900A77B5E /* DonationsViewJsonResponse.json */,
 				C01ACA572C50BDB300A77B5E /* MapViewJsonResponse.json */,
 				C01ACA592C50BE8000A77B5E /* CompanyProfileViewResponse.json */,
-				C0D40F3D2C58DAC100250129 /* ActivityfeedJsonResponsePage.json */,
+				C0BB5FD22C7D54A6001B56FA /* ActivityfeedJsonResponse_page_1.json */,
+				C0BB5FD32C7D54A6001B56FA /* ActivityfeedJsonResponse_page_2.json */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -896,9 +901,10 @@
 				C0CC8DE12C4CF3560083E6C6 /* Preview Assets.xcassets in Resources */,
 				C01ACA5A2C50BE8100A77B5E /* CompanyProfileViewResponse.json in Resources */,
 				C01ACA582C50BDB300A77B5E /* MapViewJsonResponse.json in Resources */,
+				C0BB5FD72C7D54A6001B56FA /* ActivityfeedJsonResponse_page_2.json in Resources */,
 				C0CC8E9B2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */,
-				C0D40F442C58DAC100250129 /* ActivityfeedJsonResponsePage.json in Resources */,
 				C0B86C6C2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */,
+				C0BB5FD42C7D54A6001B56FA /* ActivityfeedJsonResponse_page_1.json in Resources */,
 				C01ACA602C50C2A900A77B5E /* DonationsViewJsonResponse.json in Resources */,
 				C02753992C76D77700B50C4D /* GoogleService-Info.plist in Resources */,
 				C0CC8DDE2C4CF3370083E6C6 /* Assets.xcassets in Resources */,
@@ -913,9 +919,10 @@
 				C0CC8DE22C4CF3560083E6C6 /* Preview Assets.xcassets in Resources */,
 				C0CC8E9C2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */,
 				C0B86C6D2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */,
+				C0BB5FD82C7D54A6001B56FA /* ActivityfeedJsonResponse_page_2.json in Resources */,
 				C01ACA732C533BD900A77B5E /* CompanyProfileViewResponse.json in Resources */,
 				C01ACA742C533BD900A77B5E /* MapViewJsonResponse.json in Resources */,
-				C0D40F452C58DAC100250129 /* ActivityfeedJsonResponsePage.json in Resources */,
+				C0BB5FD52C7D54A6001B56FA /* ActivityfeedJsonResponse_page_1.json in Resources */,
 				C01ACA612C50C2A900A77B5E /* DonationsViewJsonResponse.json in Resources */,
 				C027539A2C76D77700B50C4D /* GoogleService-Info.plist in Resources */,
 				C0CC8DDF2C4CF3370083E6C6 /* Assets.xcassets in Resources */,
@@ -930,9 +937,10 @@
 				C0CC8DE32C4CF3570083E6C6 /* Preview Assets.xcassets in Resources */,
 				C0CC8E9D2C4CF9D00083E6C6 /* (OFFLINE) CompnayConnect-Info.plist in Resources */,
 				C0B86C6E2C4D04BC00C853C0 /* (PROD) Configuration.xcconfig in Resources */,
+				C0BB5FD92C7D54A6001B56FA /* ActivityfeedJsonResponse_page_2.json in Resources */,
 				C01ACA752C533BD900A77B5E /* CompanyProfileViewResponse.json in Resources */,
 				C01ACA762C533BD900A77B5E /* MapViewJsonResponse.json in Resources */,
-				C0D40F462C58DAC100250129 /* ActivityfeedJsonResponsePage.json in Resources */,
+				C0BB5FD62C7D54A6001B56FA /* ActivityfeedJsonResponse_page_1.json in Resources */,
 				C01ACA622C50C2A900A77B5E /* DonationsViewJsonResponse.json in Resources */,
 				C027539B2C76D77700B50C4D /* GoogleService-Info.plist in Resources */,
 				C0CC8DE02C4CF3370083E6C6 /* Assets.xcassets in Resources */,

@@ -30,6 +30,7 @@ struct ActivityFeedScrollView: View {
     private let activityScrollerTipView = ActivityScrollerTipView()
 
     var onCompanySelection: ((String) -> Void)?
+    var reachedEndOfScrollview: (() -> Void)?
 
     var body: some View {
 
@@ -40,9 +41,13 @@ struct ActivityFeedScrollView: View {
             ) {
                 Section {
                     TipView(activityScrollerTipView).padding([.horizontal], Constants.TipViewPadding)
-                    ForEach(activityPostsManager.filteredPosts) { activityPost in
-                        PostCellView(activityPost: activityPost) {
-                            onCompanySelection?(activityPost.id)
+                    ForEach(0..<activityPostsManager.filteredPosts.count, id: \.self) { i in
+                        PostCellView(activityPost: activityPostsManager.filteredPosts[i]) {
+                            onCompanySelection?(activityPostsManager.filteredPosts[i].id)
+                        }.onAppear {
+                            if i+1 == activityPostsManager.filteredPosts.count {
+                                reachedEndOfScrollview?()
+                            }
                         }
 
                         Divider()
