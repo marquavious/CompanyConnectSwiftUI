@@ -49,7 +49,9 @@ struct ActivityFeedTabView: View {
                     ActivityFeedScrollView(shouldShowCategoryFilter: true) { id in
                         presentedNgos.append(id)
                     } reachedEndOfScrollview: {
-                        Task { await fetchPosts(forPagination: true) }
+                        if !postsFilter.categoryManager.hasSelectedCategories {
+                            Task { await fetchPosts(forPagination: true) }
+                        }
                     }
                     .environmentObject(postsFilter)
                     .navigationDestination(for: String.self) {

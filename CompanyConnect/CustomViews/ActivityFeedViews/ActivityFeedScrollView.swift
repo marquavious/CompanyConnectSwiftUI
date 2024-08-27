@@ -41,16 +41,25 @@ struct ActivityFeedScrollView: View {
             ) {
                 Section {
                     TipView(activityScrollerTipView).padding([.horizontal], Constants.TipViewPadding)
-                    ForEach(0..<activityPostsManager.filteredPosts.count, id: \.self) { i in
-                        PostCellView(activityPost: activityPostsManager.filteredPosts[i]) {
-                            onCompanySelection?(activityPostsManager.filteredPosts[i].id)
-                        }.onAppear {
-                            if i+1 == activityPostsManager.filteredPosts.count {
-                                reachedEndOfScrollview?()
-                            }
+                    ForEach(0..<activityPostsManager.filteredPosts.count, id: \.self) { index in
+                        PostCellView(activityPost: activityPostsManager.filteredPosts[index]) {
+                            onCompanySelection?(activityPostsManager.filteredPosts[index].id)
                         }
 
                         Divider()
+
+                        // TODO: - FIX THIS LOGIC WITH CATEGORY SEARCH
+                        if index+1 == activityPostsManager.filteredPosts.count {
+                            Rectangle()
+                                .fill(.background)
+                                .frame(width: UIScreen.main.bounds.width, height: 100)
+                                .overlay {
+                                    ProgressView()
+                                }
+                                .onAppear {
+                                    reachedEndOfScrollview?()
+                                }
+                        }
                     }
                 } header: {
                     if shouldShowCategoryFilter {
