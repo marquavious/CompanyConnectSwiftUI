@@ -35,6 +35,7 @@ struct CompanyVGrid: View {
         .frame(maxHeight: shouldShowListView ? .infinity : .zero)
         .contentMargins([.bottom], Constants.bottomContentMarginPadding)
         .opacity(shouldShowListView ? 1 : 0)
+        .animation(.easeInOut, value: shouldShowListView)
     }
 }
 

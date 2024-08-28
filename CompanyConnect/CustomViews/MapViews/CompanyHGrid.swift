@@ -40,6 +40,7 @@ struct CompanyHGrid: View {
         .contentMargins(.horizontal, Constants.contentMarginHorizontalPadding)
         .frame(maxHeight: shouldShowListView ? .zero : Constants.maxHeight)
         .opacity(shouldShowListView ? 0 : 1)
+        .animation(.easeInOut, value: shouldShowListView)
     }
 }
 

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0075B6C2C7EAE0E0042230A /* DonationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0075B6B2C7EAE0E0042230A /* DonationChartView.swift */; };
+		C0075B6D2C7EAE0E0042230A /* DonationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0075B6B2C7EAE0E0042230A /* DonationChartView.swift */; };
+		C0075B6E2C7EAE0E0042230A /* DonationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0075B6B2C7EAE0E0042230A /* DonationChartView.swift */; };
+		C0075B6F2C7EAE0E0042230A /* DonationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0075B6B2C7EAE0E0042230A /* DonationChartView.swift */; };
 		C01ACA472C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA462C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift */; };
 		C01ACA492C50961600A77B5E /* MapViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA482C50961600A77B5E /* MapViewJSONResponse.swift */; };
 		C01ACA4B2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01ACA4A2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift */; };
@@ -334,6 +338,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C0075B6B2C7EAE0E0042230A /* DonationChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationChartView.swift; sourceTree = "<group>"; };
 		C01ACA462C50960F00A77B5E /* CompanyProfileViewJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileViewJSONResponse.swift; sourceTree = "<group>"; };
 		C01ACA482C50961600A77B5E /* MapViewJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewJSONResponse.swift; sourceTree = "<group>"; };
 		C01ACA4A2C50961E00A77B5E /* ActivityFeedViewJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedViewJSONResponse.swift; sourceTree = "<group>"; };
@@ -546,6 +551,7 @@
 		C05ADEBC2B0AC29D00F5B5ED = {
 			isa = PBXGroup;
 			children = (
+				C0075B6B2C7EAE0E0042230A /* DonationChartView.swift */,
 				C02753982C76D77700B50C4D /* GoogleService-Info.plist */,
 				C0CC8DA32C4CEEC40083E6C6 /* CompanyConnect */,
 				C0CC8D602C4CEEC40083E6C6 /* Config */,
@@ -955,6 +961,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0075B6F2C7EAE0E0042230A /* DonationChartView.swift in Sources */,
 				C0D810462C71C61800209B68 /* CompanyManager.swift in Sources */,
 				C0756EFB2C74409700601856 /* ActivityFeedTabView+Loading.swift in Sources */,
 				C03008B72C782F11001A4338 /* DevError.swift in Sources */,
@@ -1042,6 +1049,7 @@
 				C0CC8DF62C4CF4320083E6C6 /* BriefHistoryImage.swift in Sources */,
 				C0CC8DF72C4CF4320083E6C6 /* Donation.swift in Sources */,
 				C0756EEE2C742FDD00601856 /* BasicLoadingView.swift in Sources */,
+				C0075B6C2C7EAE0E0042230A /* DonationChartView.swift in Sources */,
 				C02FF0E42C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
 				C0D6B1AC2C5710BA00777D49 /* CCTweakManager.swift in Sources */,
 				C07E5A562C5E3E430019DCF4 /* ProfileServiceType.swift in Sources */,
@@ -1129,6 +1137,7 @@
 				C0CC8E6F2C4CF4510083E6C6 /* CompanyProfileTextView.swift in Sources */,
 				C0CC8E702C4CF4510083E6C6 /* ProjectsScrollerView.swift in Sources */,
 				C0CC8E0F2C4CF4330083E6C6 /* Category.swift in Sources */,
+				C0075B6D2C7EAE0E0042230A /* DonationChartView.swift in Sources */,
 				C0CC8E6A2C4CF44D0083E6C6 /* DonationCellView.swift in Sources */,
 				C02FF0E52C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
 				C02FF0E02C686D6200B7EA16 /* CategoryManager.swift in Sources */,
@@ -1216,6 +1225,7 @@
 				C0CC8E742C4CF4520083E6C6 /* CompanyProfileTextView.swift in Sources */,
 				C0CC8E752C4CF4520083E6C6 /* ProjectsScrollerView.swift in Sources */,
 				C0CC8E2D2C4CF4350083E6C6 /* Category.swift in Sources */,
+				C0075B6E2C7EAE0E0042230A /* DonationChartView.swift in Sources */,
 				C0CC8E6B2C4CF44E0083E6C6 /* DonationCellView.swift in Sources */,
 				C02FF0E62C69B97100B7EA16 /* ActivityPostsServiceType.swift in Sources */,
 				C02FF0E12C686D6200B7EA16 /* CategoryManager.swift in Sources */,

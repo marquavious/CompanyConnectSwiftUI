@@ -82,4 +82,5 @@ struct MapTabView: View {
 
 #Preview {
     MapTabView()
+        .environmentObject(CompanyManager())
 }

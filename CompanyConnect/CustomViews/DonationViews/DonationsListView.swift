@@ -20,9 +20,22 @@ struct DonationsListView: View {
     var body: some View {
         List {
             Section {
+                DonationChartView(donations: pastDonations)
+                    .frame(height: UIScreen.main.bounds.width)
+            }
+            header: {
+            Text("Categories")
+                .font(.title3)
+            }
+            Section {
                 ForEach(pastDonations) {
                     DonationCellView(donation: $0)
                 }
+            }
+            header: {
+                Text("Past Donations")
+                    .font(.title3)
+                    .padding([.vertical])
             }
             Section {
                 ForEach(scheduledDonations) {
@@ -30,14 +43,14 @@ struct DonationsListView: View {
                 }
             }
         header: {
-            Text("Scheduled")
+            Text("Scheduled Donations")
                 .font(.title3)
                 .padding([.vertical])
         } footer: {
             Text(StringGenerator.generateShortString())
                 .font(.caption)
                 .padding([.vertical])
-        }
+            }
         }
         .contentMargins([.top], Constants.ContentPadding)
         .scrollIndicators(.hidden)

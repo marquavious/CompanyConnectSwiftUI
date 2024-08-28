@@ -20,6 +20,7 @@ struct BriefHistoryPhotoScrollerView: View {
 
     var body: some View {
         TabView {
+            // TODO: - UPdate BriefHistoryImage to be identifiable so we can key off of ID.
             ForEach(briefHistoryObject.imageObjects, id: \.imageUrl) { object in
                 VStack {
                     AsyncImage(url: URL(string: object.imageUrl)) { image in

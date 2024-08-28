@@ -70,7 +70,7 @@ class FirebaseActivityPostsService: ActivityPostsServiceType {
 
     @MainActor
     func getPostsFromCompanyWithID(_ id: String) async throws -> ActivityFeedJSONResponse {
-        return try await getData(as: ActivityFeedJSONResponse.self, from: URLBuilder.companyFeed(companyID: id).url)
+        return ActivityFeedJSONResponse(activityPosts: []) // For now
     }
 }
 

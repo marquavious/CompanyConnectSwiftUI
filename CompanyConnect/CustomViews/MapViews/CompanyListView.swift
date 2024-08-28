@@ -46,9 +46,11 @@ struct CompanyListView: View {
         }
         .frame(maxHeight: shouldShowListView ? .infinity : Constants.maxHeight)
         .background(.regularMaterial)
+        .animation(.easeInOut, value: shouldShowListView)
     }
 }
 
 #Preview {
     MapTabView()
+        .environmentObject(CompanyManager())
 }

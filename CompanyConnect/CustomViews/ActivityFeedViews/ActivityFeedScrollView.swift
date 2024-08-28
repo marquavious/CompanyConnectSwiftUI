@@ -49,7 +49,8 @@ struct ActivityFeedScrollView: View {
                         Divider()
 
                         // TODO: - FIX THIS LOGIC WITH CATEGORY SEARCH
-                        if index+1 == activityPostsManager.filteredPosts.count {
+                        if index+1 == activityPostsManager.filteredPosts.count,
+                            !activityPostsManager.categoryManager.hasSelectedCategories {
                             Rectangle()
                                 .fill(.background)
                                 .frame(width: UIScreen.main.bounds.width, height: 100)
