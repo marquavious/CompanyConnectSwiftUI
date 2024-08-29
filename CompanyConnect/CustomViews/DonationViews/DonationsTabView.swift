@@ -21,6 +21,7 @@ struct DonationsView: View {
     }
 
     @State var loadingState: LoadingState = .loading
+    @State var privacyStateEnabled: Bool = false
     @Environment (\.colorScheme) var colorScheme
 
     @Injected(\.donationsService) var service
@@ -39,8 +40,8 @@ struct DonationsView: View {
                 case .fetched(let pastDonations, let scheduledDonations):
                     DonationsListView(
                         pastDonations: pastDonations,
-                        scheduledDonations: scheduledDonations
-                    )
+                        scheduledDonations: scheduledDonations,
+                        privacyStateEnabled: $privacyStateEnabled)
                 case .error(let error):
                     BasicErrorView(
                         errorString: error.localizedDescription,
@@ -51,9 +52,11 @@ struct DonationsView: View {
             .toolbar {
                 Button(
                     String(),
-                    systemImage: Icons.RightToolbar.rawValue
+                    systemImage: privacyStateEnabled ? "eye.slash.circle" :  "eye.circle"
                 ) {
-                    // - TODO: Add donation flow
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        privacyStateEnabled.toggle()
+                    }
                 }
                 .tint(colorScheme == .light ? .black:.white)
             }

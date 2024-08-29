@@ -16,44 +16,54 @@ struct DonationsListView: View {
 
     @State var pastDonations: [Donation]
     @State var scheduledDonations: [Donation]
+    @Binding var privacyStateEnabled: Bool
 
     var body: some View {
         List {
             Section {
-                DonationChartView(donations: pastDonations)
+                DonationChartView(donations: createChartData(),
+                                  privacyStateEnabled: $privacyStateEnabled)
                     .frame(height: UIScreen.main.bounds.width)
-            }
-            header: {
-            Text("Categories")
-                .font(.title3)
-            }
-            Section {
                 ForEach(pastDonations) {
-                    DonationCellView(donation: $0)
+                    DonationCellView(donation: $0,
+                                     privacyStateEnabled: $privacyStateEnabled)
                 }
             }
             header: {
                 Text("Past Donations")
                     .font(.title3)
-                    .padding([.vertical])
             }
             Section {
                 ForEach(scheduledDonations) {
-                    DonationCellView(donation: $0)
+                    DonationCellView(donation: $0, 
+                                     privacyStateEnabled: $privacyStateEnabled)
                 }
             }
         header: {
             Text("Scheduled Donations")
                 .font(.title3)
-                .padding([.vertical])
         } footer: {
             Text(StringGenerator.generateShortString())
                 .font(.caption)
                 .padding([.vertical])
             }
         }
-        .contentMargins([.top], Constants.ContentPadding)
         .scrollIndicators(.hidden)
+    }
+
+    func createChartData() -> [DonationChartDataPoint] {
+        var categoryDictionary = [String: DonationChartDataPoint]()
+        for donation in pastDonations { // Only past donations for now
+            if let catecory = categoryDictionary[donation.category.id] {
+                catecory.addAmount(donation.amountInCents)
+            } else {
+                categoryDictionary[donation.category.id] = DonationChartDataPoint(
+                    category: donation.category,
+                    amountDonated: donation.amountInCents
+                )
+            }
+        }
+        return categoryDictionary.values.map { $0 }.sorted{ $0.amountDonated > $1.amountDonated }
     }
 }
 

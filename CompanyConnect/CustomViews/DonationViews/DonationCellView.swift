@@ -17,6 +17,8 @@ struct DonationCellView: View {
 
     let donation: Donation
 
+    @Binding var privacyStateEnabled: Bool
+
     var body: some View {
         HStack {
             AsyncImage(url: URL(string: donation.comapnyLogoUrl)) { image in
@@ -52,9 +54,9 @@ struct DonationCellView: View {
             Spacer()
 
             VStack(alignment: .trailing) {
-                Text(donation.displayAmount())
+                Text(privacyStateEnabled ?  "$ ---": donation.displayAmount())
                     .bold()
-                Text(donation.paymentMethod.displayName)
+                Text(privacyStateEnabled ?  "": donation.paymentMethod.displayName)
             }
         }
     }
