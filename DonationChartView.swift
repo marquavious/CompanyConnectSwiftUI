@@ -41,15 +41,21 @@ struct DonationChartView: View {
                     )
                     .foregroundStyle(product.category.color)
                     .annotation(position: .overlay) {
-                        VStack {
-                            Text("\(product.category.name)")
-                            if !privacyStateEnabled {
-                                Text("$\(String(format: "%.0f", product.amountDonated))")
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(Color.white.opacity(0.7))
+                            .frame(maxWidth: 100, maxHeight: 30)
+                            .overlay {
+                            VStack {
+                                Text("\(product.category.name)")
+                                if !privacyStateEnabled {
+                                    Text("$\(String(format: "%.0f", product.amountDonated))")
+                                }
                             }
+                            .font(.system(size: 10))
+                            .fontWeight(.bold)
+                            .foregroundColor(product.category.color)
+                            .multilineTextAlignment(.center)
                         }
-                        .font(.system(size: 10))
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
                     }
                 }
                 .pickerStyle(.segmented)
