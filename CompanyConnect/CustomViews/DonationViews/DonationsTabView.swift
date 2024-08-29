@@ -22,6 +22,7 @@ struct DonationsView: View {
 
     @State var loadingState: LoadingState = .loading
     @State var privacyStateEnabled: Bool = true
+    @State var showPieChart: Bool = true
     @Environment (\.colorScheme) var colorScheme
 
     @Injected(\.donationsService) var service
@@ -41,7 +42,9 @@ struct DonationsView: View {
                     DonationsListView(
                         pastDonations: pastDonations,
                         scheduledDonations: scheduledDonations,
-                        privacyStateEnabled: $privacyStateEnabled)
+                        privacyStateEnabled: $privacyStateEnabled,
+                        showPieChart: $showPieChart
+                    )
                 case .error(let error):
                     BasicErrorView(
                         errorString: error.localizedDescription,
@@ -50,6 +53,17 @@ struct DonationsView: View {
                 }
             }
             .toolbar {
+
+                Button(
+                    String(),
+                    systemImage: showPieChart ? "chart.pie.fill" : "chart.pie"
+                ) {
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        showPieChart.toggle()
+                    }
+                }
+                .tint(colorScheme == .light ? .black:.white)
+
                 Button(
                     String(),
                     systemImage: privacyStateEnabled ? "eye.slash.circle" :  "eye.circle"

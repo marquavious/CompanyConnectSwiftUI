@@ -17,13 +17,16 @@ struct DonationsListView: View {
     @State var pastDonations: [Donation]
     @State var scheduledDonations: [Donation]
     @Binding var privacyStateEnabled: Bool
+    @Binding var showPieChart: Bool
 
     var body: some View {
         List {
             Section {
-                DonationChartView(donations: createChartData(),
-                                  privacyStateEnabled: $privacyStateEnabled)
+                if showPieChart {
+                    DonationChartView(donations: createChartData(),
+                                      privacyStateEnabled: $privacyStateEnabled)
                     .frame(height: UIScreen.main.bounds.width)
+                }
                 ForEach(pastDonations) {
                     DonationCellView(donation: $0,
                                      privacyStateEnabled: $privacyStateEnabled)
