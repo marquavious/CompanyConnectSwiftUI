@@ -23,7 +23,7 @@ struct DonationChartView: View {
     }
 
     @State var donations: [DonationChartDataPoint]
-    @State private var currentTab: ChartTabs = .bar
+    @State private var currentTab: ChartTabs = .pie
     @Binding var privacyStateEnabled: Bool
 
     var body: some View {

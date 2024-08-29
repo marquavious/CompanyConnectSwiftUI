@@ -21,7 +21,7 @@ struct DonationsView: View {
     }
 
     @State var loadingState: LoadingState = .loading
-    @State var privacyStateEnabled: Bool = false
+    @State var privacyStateEnabled: Bool = true
     @Environment (\.colorScheme) var colorScheme
 
     @Injected(\.donationsService) var service
