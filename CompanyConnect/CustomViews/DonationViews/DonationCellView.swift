@@ -46,6 +46,7 @@ struct DonationCellView: View {
                     .padding([.vertical, .horizontal], Constants.CategoryNamePadding)
                     .foregroundColor(.white)
                     .background(donation.category.color)
+                    .lineLimit(1)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
 
                 Text(donation.orginizationName)
