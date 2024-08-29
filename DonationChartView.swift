@@ -69,12 +69,17 @@ struct DonationChartView: View {
                         )
                         .foregroundStyle(product.category.color)
                         .annotation(position: .overlay) {
-                            Text("$\(String(format: "%.0f", product.amountDonated))")
-                                .font(.system(size: 10))
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                                .rotationEffect(.degrees(-90))
-                                .opacity(privacyStateEnabled ? 0 : 1)
+                            Rectangle() // Container
+                                .fill(.clear)
+                                .overlay {
+                                    Text("$\(String(format: "%.0f", product.amountDonated))")
+                                        .font(.system(size: 10))
+                                        .fontWeight(.bold)
+                                        .lineLimit(1)
+                                        .foregroundColor(.white)
+                                        .rotationEffect(.degrees(-90))
+                                        .opacity(privacyStateEnabled ? 0 : 1)
+                                }
                         }
                     }
                 }

@@ -22,7 +22,7 @@ struct DonationsView: View {
 
     @State var loadingState: LoadingState = .loading
     @State var privacyStateEnabled: Bool = true
-    @State var showPieChart: Bool = true
+    @State var showPieChart: Bool = false
     @Environment (\.colorScheme) var colorScheme
 
     @Injected(\.donationsService) var service

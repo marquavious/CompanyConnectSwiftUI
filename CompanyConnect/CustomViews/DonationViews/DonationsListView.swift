@@ -32,10 +32,6 @@ struct DonationsListView: View {
                                      privacyStateEnabled: $privacyStateEnabled)
                 }
             }
-            header: {
-                Text("Past Donations")
-                    .font(.title3)
-            }
             Section {
                 ForEach(scheduledDonations) {
                     DonationCellView(donation: $0, 
