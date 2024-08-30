@@ -74,4 +74,5 @@ struct MapControlPanelView: View {
 
 #Preview {
     MapTabView()
+        .environmentObject(CompanyManager())
 }

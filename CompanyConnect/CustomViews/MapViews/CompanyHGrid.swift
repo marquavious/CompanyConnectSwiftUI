@@ -17,7 +17,6 @@ struct CompanyHGrid: View {
         static let bottomContentMarginPadding: CGFloat = 8
     }
 
-    @Environment(\.colorScheme) var colorScheme
     @Binding var shouldShowListView: Bool
 
     var onTapAction: ((Company) -> Void)
@@ -46,4 +45,5 @@ struct CompanyHGrid: View {
 
 #Preview {
     MapTabView()
+        .environmentObject(CompanyManager())
 }

@@ -37,14 +37,10 @@ struct MapTabView: View {
                     BaseMapView() {
                         navigationPath.append($0)
                     }
-
-                    VStack(spacing: .zero) {
-                        Spacer()
-                        MapControlPanelView(shouldShowListView: $shouldShowListView)
-
-                        CompanyListView(shouldShowListView: $shouldShowListView) {
-                            navigationPath.append($0)
-                        }
+                }
+                .overlay(alignment: .bottom) {
+                    CompanyListView(shouldShowListView: $shouldShowListView) {
+                        navigationPath.append($0)
                     }
                 }
                 .environmentObject(companyManager)

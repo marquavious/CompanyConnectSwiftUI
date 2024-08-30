@@ -21,7 +21,7 @@ struct MapAnnotationView: View {
         ZStack {
             VStack(spacing: 1) {
                 Circle()
-                    .fill(Color.white.opacity(0.7))
+                    .fill(.regularMaterial)
                     .frame(
                         width: Constants.AnnotationSize.width,
                         height: Constants.AnnotationSize.height
@@ -43,7 +43,7 @@ struct MapAnnotationView: View {
 
                     }
                 Triangle()
-                    .fill(Color.white.opacity(0.7))
+                    .fill(.regularMaterial)
                     .frame(width: 15, height: 10)
                     .rotationEffect(.degrees(180))
             }
@@ -51,6 +51,7 @@ struct MapAnnotationView: View {
     }
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
-    MapAnnotationView(annotaionUrl: "img_url")
+#Preview {
+    MapTabView()
+        .environmentObject(CompanyManager())
 }

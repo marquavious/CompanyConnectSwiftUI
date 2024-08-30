@@ -12,7 +12,7 @@ struct CategoryFilterScrollView: View {
 
     struct Constants {
         static let Padding: CGFloat = 8
-        static let edgeInsets = EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0)
+        static let edgeInsets = EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0)
     }
 
     @EnvironmentObject var categoryFilter: CategoryManager
