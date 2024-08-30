@@ -11,7 +11,7 @@ import SwiftUI
 struct CompanyListView: View {
 
     struct Constants {
-        static let maxHeight: CGFloat = 285
+        static let maxHeight: CGFloat = 270
         static let verticalGridPadding: CGFloat = 16
         static let categoryFilterScrollViewHeight: CGFloat = 42
     }
@@ -31,12 +31,12 @@ struct CompanyListView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 8)
                             .fill(colorScheme == .light ? .white : .gray.opacity(0.3))
+                            .shadow(radius: colorScheme == .light ? 1 : 0)
                         HStack {
                             Image(systemName: "magnifyingglass")
                                 .foregroundColor(.gray.opacity(0.6))
                             TextField("Search Companies", text: $searchText)
                         }
-                        .shadow(radius: colorScheme == .light ? 1 : 0)
                         .padding([.horizontal], 8)
                     }.padding([.vertical], 8)
 
@@ -84,12 +84,11 @@ struct CompanyListView: View {
                 }
                 .frame(maxHeight: 50)
                 .padding([.horizontal], 8)
+                .padding([.vertical], 4)
 
                 CategoryFilterScrollView()
                     .environmentObject(companyFilter.categoryFilter)
                     .frame(maxHeight: Constants.categoryFilterScrollViewHeight)
-
-                Divider()
 
                 CompanyHGrid(
                     shouldShowListView: $shouldShowListView
