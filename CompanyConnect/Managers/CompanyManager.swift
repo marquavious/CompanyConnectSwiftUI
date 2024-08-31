@@ -16,6 +16,27 @@ class CompanyManager: ObservableObject {
     private (set) var categoryFilter: CategoryManager
 
     var filteredCompanies: [Company] {
+        filteredArray()
+    }
+
+    func searchTerm(term: String?) {
+        guard let term, !term.isEmpty else { return }
+    }
+
+    func addCompany(company: Company) {
+        allCompanies.append(company)
+    }
+
+    func setCompanies(companies: [Company]) {
+        allCompanies = companies
+    }
+
+    init(comapnies: [Company] = [], categoryFilter: CategoryManager = CategoryManager()) {
+        self.categoryFilter = categoryFilter
+        self.allCompanies = comapnies
+    }
+
+    private func filteredArray() -> [Company] {
         if !categoryFilter.hasSelectedCategories {
             return allCompanies
         }
@@ -30,19 +51,6 @@ class CompanyManager: ObservableObject {
         }
 
         return tempArray
-    }
-
-    func addCompany(company: Company) {
-        allCompanies.append(company)
-    }
-
-    func setCompanies(companies: [Company]) {
-        allCompanies = companies
-    }
-
-    init(comapnies: [Company] = [], categoryFilter: CategoryManager = CategoryManager()) {
-        self.categoryFilter = categoryFilter
-        self.allCompanies = comapnies
     }
 }
 

@@ -31,7 +31,7 @@ class CategoryManager: ObservableObject {
     func removeSelectedCategory(category: Category) {
         selctedCategories.removeAll(where: { $0 == category })
     }
-
+    
     func handleCategorySelection(category: Category) {
         if selctedCategories.contains(category) {
             removeSelectedCategory(category: category)

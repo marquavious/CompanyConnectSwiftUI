@@ -17,6 +17,7 @@ struct CompanyVGrid: View {
     }
 
     @Binding var shouldShowListView: Bool
+    @Binding var inSearchModw: Bool
 
     var onTapAction: ((Company) -> Void)
     private let vGridColumns = [GridItem(.flexible())]
@@ -32,10 +33,10 @@ struct CompanyVGrid: View {
             }
             .padding(Constants.edgeInsets)
         }
-        .frame(maxHeight: shouldShowListView ? .infinity : .zero)
+        .frame(maxHeight: (shouldShowListView || inSearchModw) ? .infinity : .zero)
         .contentMargins([.bottom], Constants.bottomContentMarginPadding)
-        .opacity(shouldShowListView ? 1 : 0)
-        .animation(.easeInOut, value: shouldShowListView)
+        .opacity((shouldShowListView || inSearchModw) ? 1 : 0)
+        .animation(.easeInOut, value: (shouldShowListView || inSearchModw))
     }
 }
 

@@ -16,10 +16,17 @@ struct CompanyListView: View {
         static let categoryFilterScrollViewHeight: CGFloat = 42
     }
 
+    enum Field: Int, Hashable {
+        case search
+    }
+
     @Binding var shouldShowListView: Bool
     @EnvironmentObject var companyFilter: CompanyManager
+    @State private var isEditing = false
 
     @State private var searchText: String = ""
+    @FocusState private var focusField: Field?
+    @State var isFocused: Bool = false
     @Environment(\.colorScheme) var colorScheme
 
     var didSelectCompany: (Company) -> Void
@@ -36,8 +43,32 @@ struct CompanyListView: View {
                             Image(systemName: "magnifyingglass")
                                 .foregroundColor(.gray.opacity(0.6))
                             TextField("Search Companies", text: $searchText)
+                                .toolbar {
+                                    ToolbarItemGroup (placement: .keyboard) {
+                                        Button {
+                                            searchText = ""
+                                            isEditing = false
+                                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                        } label: {
+                                            Text("RUN")
+                                        }
+                                    }
+                                }
+                                .overlay(
+                                    Image (systemName: "xmark.circle.fill")
+                                        .padding ()
+                                        .offset(x: 10)
+                                        .foregroundColor(.gray.opacity(0.6))
+                                        .opacity(searchText.isEmpty ? 0.0 : 1.0)
+                                        .onTapGesture {
+                                            searchText = ""
+                                            isEditing = false
+                                        }, alignment: .trailing)
                         }
                         .padding([.horizontal], 8)
+                        .onTapGesture {
+                            isEditing = true
+                        }
                     }.padding([.vertical], 8)
 
                     if companyFilter.categoryFilter.hasSelectedCategories {
@@ -64,23 +95,42 @@ struct CompanyListView: View {
                         .buttonStyle(PlainButtonStyle())
                     }
 
-                    Button {
-                        withAnimation(.easeInOut(duration: 0.2)) {
-                            shouldShowListView.toggle()
+                    if !isEditing {
+
+                        Button {
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                if shouldShowListView == true, isEditing == true {
+                                    isEditing = false
+                                } else if shouldShowListView == true, isEditing == false {
+                                    shouldShowListView = false
+                                    isEditing = false
+                                } else if shouldShowListView == false {
+                                    shouldShowListView = true
+                                    isEditing = false
+                                }
+                            }
+                            searchText = ""
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        } label: {
+                            Rectangle()
+                                .fill(colorScheme == .light ? .white : .clear)
+                                .frame(width: 34, height: 34)
+                                .background(colorScheme == .light ? .white : .gray.opacity(0.3))
+                                .cornerRadius(8)
+                                .shadow(radius: colorScheme == .light ? 1 : 0)
                         }
-                    } label: {
-                       Rectangle()
-                            .fill(colorScheme == .light ? .white : .clear)
-                        .frame(width: 34, height: 34)
-                        .background(colorScheme == .light ? .white : .gray.opacity(0.3))
-                        .cornerRadius(8)
-                        .shadow(radius: colorScheme == .light ? 1 : 0)
+                        .overlay {
+                            if isEditing {
+                                Image(systemName: "x.circle")
+                                    .imageScale(.large)
+                            } else {
+                                Image(systemName: (shouldShowListView || isEditing) ?  "globe.americas" : "list.bullet")
+                                    .imageScale(.large)
+                            }
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
-                    .overlay {
-                        Image(systemName: shouldShowListView ?  "globe.americas" : "list.bullet")
-                            .imageScale(.large)
-                    }
-                    .buttonStyle(PlainButtonStyle())
+
                 }
                 .frame(maxHeight: 50)
                 .padding([.horizontal], 8)
@@ -91,22 +141,24 @@ struct CompanyListView: View {
                     .frame(maxHeight: Constants.categoryFilterScrollViewHeight)
 
                 CompanyHGrid(
-                    shouldShowListView: $shouldShowListView
+                    shouldShowListView: $shouldShowListView, 
+                    inSearchModw: $isEditing
                 ){
                     didSelectCompany($0)
                 }
 
                 CompanyVGrid(
-                    shouldShowListView: $shouldShowListView
+                    shouldShowListView: $shouldShowListView, 
+                    inSearchModw: $isEditing
                 ){
                     didSelectCompany($0)
                 }
-                .padding(.bottom, shouldShowListView ? .zero : Constants.verticalGridPadding)
+                .padding(.bottom, (shouldShowListView || isEditing) ? .zero : Constants.verticalGridPadding)
             }
         }
-        .frame(maxHeight: shouldShowListView ? .infinity : Constants.maxHeight)
+        .frame(maxHeight: (shouldShowListView || isEditing) ? .infinity : Constants.maxHeight)
         .background(.regularMaterial)
-        .animation(.easeInOut, value: shouldShowListView)
+        .animation(.easeInOut, value: (shouldShowListView || isEditing))
     }
 }
 

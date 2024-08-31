@@ -18,6 +18,7 @@ struct CompanyHGrid: View {
     }
 
     @Binding var shouldShowListView: Bool
+    @Binding var inSearchModw: Bool
 
     var onTapAction: ((Company) -> Void)
     private let hRowColumns = [GridItem(.flexible())]
@@ -37,9 +38,9 @@ struct CompanyHGrid: View {
             .scrollTargetLayout()
         }
         .contentMargins(.horizontal, Constants.contentMarginHorizontalPadding)
-        .frame(maxHeight: shouldShowListView ? .zero : Constants.maxHeight)
-        .opacity(shouldShowListView ? 0 : 1)
-        .animation(.easeInOut, value: shouldShowListView)
+        .frame(maxHeight: (shouldShowListView || inSearchModw) ? .zero : Constants.maxHeight)
+        .opacity((shouldShowListView || inSearchModw) ? 0 : 1)
+        .animation(.easeInOut, value: (shouldShowListView || inSearchModw))
     }
 }
 
