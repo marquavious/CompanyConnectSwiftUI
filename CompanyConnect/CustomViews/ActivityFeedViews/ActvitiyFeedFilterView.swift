@@ -36,7 +36,6 @@ struct ActvitiyFeedFilterView: View {
                 }
             }
         }
-        .background(.background)
         .contentMargins([.horizontal, .vertical], Constants.contentMargins)
     }
 }

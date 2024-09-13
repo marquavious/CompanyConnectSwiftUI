@@ -36,7 +36,6 @@ struct DonationChartView: View {
                             Text(verbatim: product.category.name),
                             product.amountDonated
                         ),
-//                        innerRadius: .ratio(0.6),
                         angularInset: 1
                     )
                     .foregroundStyle(product.category.color)

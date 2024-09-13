@@ -66,6 +66,7 @@ struct ActivityFeedTabView: View {
                 }
             }
             .navigationTitle(Constants.NavigationTitle)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 

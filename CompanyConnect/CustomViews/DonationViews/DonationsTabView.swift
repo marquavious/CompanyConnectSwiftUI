@@ -53,7 +53,6 @@ struct DonationsView: View {
                 }
             }
             .toolbar {
-
                 Button(
                     String(),
                     systemImage: showPieChart ? "chart.pie.fill" : "chart.pie"

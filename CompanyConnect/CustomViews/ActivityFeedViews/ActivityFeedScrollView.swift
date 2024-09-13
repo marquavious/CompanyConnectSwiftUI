@@ -33,64 +33,81 @@ struct ActivityFeedScrollView: View {
     var reachedEndOfScrollview: (() -> Void)?
 
     var body: some View {
-
-        ScrollView(showsIndicators: false) {
-            LazyVGrid(
-                columns: columns,
-                alignment: .leading, pinnedViews: [.sectionHeaders]
-            ) {
-                Section {
-                    TipView(activityScrollerTipView).padding([.horizontal], Constants.TipViewPadding)
-                    ForEach(0..<activityPostsManager.filteredPosts.count, id: \.self) { index in
-                        PostCellView(activityPost: activityPostsManager.filteredPosts[index]) {
-                            onCompanySelection?(activityPostsManager.filteredPosts[index].id)
-                        }
-
-                        Divider()
-
-                        // TODO: - FIX THIS LOGIC WITH CATEGORY SEARCH
-                        if index+1 == activityPostsManager.filteredPosts.count,
-                            !activityPostsManager.categoryManager.hasSelectedCategories {
-                            Rectangle()
-                                .fill(.background)
-                                .frame(width: UIScreen.main.bounds.width, height: 100)
-                                .overlay {
-                                    ProgressView()
-                                }
-                                .onAppear {
-                                    reachedEndOfScrollview?()
-                                }
-                        }
-                    }
-                } header: {
-                    if shouldShowCategoryFilter {
-                        VStack(spacing: .zero) {
-                            ActvitiyFeedFilterView() { category in
-                                withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
-                                    activityPostsManager.categoryManager.handleCategorySelection(category: category)
-                                }
+        ScrollViewReader { proxy in
+            ScrollView(showsIndicators: false) {
+                LazyVGrid(
+                    columns: columns,
+                    alignment: .leading, pinnedViews: [.sectionHeaders]
+                ) {
+                    Section {
+                        TipView(activityScrollerTipView).padding([.horizontal], Constants.TipViewPadding)
+                        EmptyView()
+                            .frame(height: 0)
+                            .id("top_of_scroll_view")
+                        ForEach(0..<activityPostsManager.filteredPosts.count, id: \.self) { index in
+                            let post = activityPostsManager.filteredPosts[index]
+                            PostCellView(activityPost: post) {
+                                onCompanySelection?(post.id)
                             }
-                            .environmentObject(activityPostsManager.categoryManager)
-                            .frame(minHeight: Constants.ActvitiyFeedFilterViewHight)
 
                             Divider()
+
+                            // TODO: - FIX THIS LOGIC WITH CATEGORY SEARCH
+                            if index+1 == activityPostsManager.filteredPosts.count,
+                               !activityPostsManager.categoryManager.hasSelectedCategories {
+                                Rectangle()
+                                    .fill(.background)
+                                    .frame(width: UIScreen.main.bounds.width, height: 100)
+                                    .overlay {
+                                        ProgressView()
+                                    }
+                                    .onAppear {
+                                        reachedEndOfScrollview?()
+                                    }
+                            }
                         }
                     }
                 }
             }
-        }
-        .toolbar {
-            Button(
-                String(),
-                systemImage: activityPostsManager.categoryManager.hasSelectedCategories ? Icons.RightToolBarIcon.rawValue : String()
-            ) {
-                if activityPostsManager.categoryManager.hasSelectedCategories {
-                    withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
-                        activityPostsManager.categoryManager.resetSelectedCategories()
+            .safeAreaInset(edge: .top, spacing: 0) {
+                VStack(spacing: .zero) {
+                    if shouldShowCategoryFilter {
+                        ActvitiyFeedFilterView { category in
+                            withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
+                                activityPostsManager.categoryManager.handleCategorySelection(category: category)
+                            }
+                        }
+                        .environmentObject(activityPostsManager.categoryManager)
+                        .frame(height: Constants.ActvitiyFeedFilterViewHight)
+                        .background(Material.ultraThin)
+                        Divider()
                     }
                 }
             }
-            .tint(colorScheme == .light ? .black : .white)
+            .toolbarBackground(.hidden, for: .navigationBar)
+            .toolbar {
+                if activityPostsManager.categoryManager.hasSelectedCategories {
+                    Button {
+                        withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
+                            activityPostsManager.categoryManager.resetSelectedCategories()
+                        }
+                    } label: {
+                        Text(Image(systemName: "line.3.horizontal.decrease.circle"))
+                            .overlay {
+                                Image(systemName: "line.3.horizontal.decrease.circle")
+                                    .overlay {
+                                        Image(systemName: "line.diagonal")
+                                            .rotationEffect(.degrees(90))
+                                    }
+                            }
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+            }.onChange(of: activityPostsManager.categoryManager.selctedCategories) { _, _ in
+                withAnimation(.easeIn(duration: 0.2)) {
+                    proxy.scrollTo("top_of_scroll_view")
+                }
+            }
         }
     }
 }
