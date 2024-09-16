@@ -69,45 +69,61 @@ struct ActivityFeedScrollView: View {
                     }
                 }
             }
-            .safeAreaInset(edge: .top, spacing: 0) {
-                VStack(spacing: .zero) {
-                    if shouldShowCategoryFilter {
-                        ActvitiyFeedFilterView { category in
-                            withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
-                                activityPostsManager.categoryManager.handleCategorySelection(category: category)
-                            }
-                        }
-                        .environmentObject(activityPostsManager.categoryManager)
-                        .frame(height: Constants.ActvitiyFeedFilterViewHight)
-                        .background(Material.ultraThin)
-                        Divider()
-                    }
-                }
+            .onChange(of: activityPostsManager.categoryManager.selctedCategories) { _, _ in
+                proxy.scrollTo("top_of_scroll_view")
             }
-            .toolbarBackground(.hidden, for: .navigationBar)
-            .toolbar {
-                if activityPostsManager.categoryManager.hasSelectedCategories {
-                    Button {
-                        withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
-                            activityPostsManager.categoryManager.resetSelectedCategories()
-                        }
-                    } label: {
-                        Text(Image(systemName: "line.3.horizontal.decrease.circle"))
-                            .overlay {
-                                Image(systemName: "line.3.horizontal.decrease.circle")
-                                    .overlay {
-                                        Image(systemName: "line.diagonal")
-                                            .rotationEffect(.degrees(90))
-                                    }
-                            }
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                }
-            }.onChange(of: activityPostsManager.categoryManager.selctedCategories) { _, _ in
-                withAnimation(.easeIn(duration: 0.2)) {
-                    proxy.scrollTo("top_of_scroll_view")
-                }
-            }
+//            .safeAreaInset(edge: .top, spacing: 0) {
+//                VStack(spacing: .zero) {
+//                    if shouldShowCategoryFilter {
+//                        ActvitiyFeedFilterView { category in
+//                            withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
+//                                activityPostsManager.categoryManager.handleCategorySelection(category: category)
+//                            }
+//                        }
+//                        .environmentObject(activityPostsManager.categoryManager)
+//                        .frame(height: Constants.ActvitiyFeedFilterViewHight)
+//                        .background(Material.ultraThin)
+//                        Divider()
+//                    }
+//                }
+//            }
+//            .safeAreaInset(edge: .top, spacing: 0) {
+//                VStack(spacing: .zero) {
+//                    if shouldShowCategoryFilter {
+//                        ActvitiyFeedFilterView { category in
+//                            withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
+//                                activityPostsManager.categoryManager.handleCategorySelection(category: category)
+//                            }
+//                        }
+//                        .environmentObject(activityPostsManager.categoryManager)
+//                        .frame(height: Constants.ActvitiyFeedFilterViewHight)
+//                        .background(Material.ultraThin)
+//                        Divider()
+//                    }
+//                }
+//            }
+//            .toolbarBackground(.hidden, for: .navigationBar)
+//            .toolbar {
+//                if activityPostsManager.categoryManager.hasSelectedCategories {
+//                    Button {
+//                        withAnimation(.easeInOut(duration: Constants.AnimationDuration)) {
+//                            activityPostsManager.categoryManager.resetSelectedCategories()
+//                        }
+//                    } label: {
+//                        Text(Image(systemName: "line.3.horizontal.decrease.circle"))
+//                            .overlay {
+//                                Image(systemName: "line.3.horizontal.decrease.circle")
+//                                    .overlay {
+//                                        Image(systemName: "line.diagonal")
+//                                            .rotationEffect(.degrees(90))
+//                                    }
+//                            }
+//                    }
+//                    .buttonStyle(PlainButtonStyle())
+//                }
+//            }.onChange(of: activityPostsManager.categoryManager.selctedCategories) { _, _ in
+//                proxy.scrollTo("top_of_scroll_view")
+//            }
         }
     }
 }
