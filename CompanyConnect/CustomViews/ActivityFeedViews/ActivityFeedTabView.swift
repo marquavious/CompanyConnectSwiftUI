@@ -9,6 +9,23 @@ import SwiftUI
 import TipKit
 import Factory
 import FirebaseFirestore
+import SwiftUIIntrospect
+
+
+@Observable
+class TimelineMarker: ObservableObject {
+    var id: Int = 0
+
+    func setId(id: Int) {
+        self.id = id
+    }
+
+    func setIdIfGreaterThan(id: Int) {
+        if self.id < id {
+            setId(id: id)
+        }
+    }
+}
 
 struct ActivityFeedTabView: View {
     struct Constants {
@@ -51,6 +68,8 @@ struct ActivityFeedTabView: View {
 
     @State var feedMode: FeedMode = .list
 
+    @StateObject var timelineMarker = TimelineMarker()
+
     @Injected(\.activityServiceType) var service
 
     @ToolbarContentBuilder
@@ -91,6 +110,7 @@ struct ActivityFeedTabView: View {
                     Group {
                         switch feedMode {
                         case .list:
+                            ScrollViewReader { proxy in
                             ActivityFeedScrollView(shouldShowCategoryFilter: true) { id in
                                 presentedNgos.append(id)
                             } reachedEndOfScrollview: {
@@ -99,9 +119,17 @@ struct ActivityFeedTabView: View {
                                 }
                             }
                             .environmentObject(postsFilter)
+                            .environmentObject(timelineMarker)
                             .navigationDestination(for: String.self) {
                                 CompanyProfileView(companyID: $0)
+                            }.onAppear {
+                                proxy.scrollTo(timelineMarker.id)
                             }
+                            .onChange(of: postsFilter.categoryManager.selctedCategories) { _, _ in
+                                proxy.scrollTo(0)
+                            }
+                        }
+
                         case .gallery:
                             GalleryView()
                                 .environmentObject(postsFilter)
