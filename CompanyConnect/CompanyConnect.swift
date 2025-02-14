@@ -93,6 +93,55 @@ struct MainView: View {
     }
 }
 
+struct ConfirmationDialogView: View {
+  @State private var showDialog = false
+
+  @State var intColor: Color = .red
+
+  var body: some View {
+    HStack {
+      Button(action: {
+        print("Confirmed")
+      }) {
+        Text("Yes")
+          .frame(maxWidth: .infinity, alignment: .center)
+          .foregroundColor(.white)
+        //        .padding()
+          .padding(7)
+          .background(intColor)
+          .cornerRadius(8)
+//          .frame(maxWidth: .infinity, alignment: .center)
+      }
+//      .frame(maxWidth: .infinity, alignment: .center)
+
+      Button(action: {
+
+      }) {
+        Text("Cancel")
+          .frame(maxWidth: .infinity, alignment: .center)
+          .foregroundColor(intColor)
+          .padding(7)
+          .overlay(
+            RoundedRectangle(cornerRadius: 8)
+              .stroke(intColor, lineWidth: 1)
+          )
+          .frame(maxWidth: .infinity, alignment: .center)
+      }
+      .buttonStyle(.plain)
+//      .frame(maxWidth: .infinity, alignment: .center)
+
+    }
+//    .frame(width: 200, height: 300)
+//    .border(.red, width: 1)
+  }
+}
+//
+//struct ConfirmationDialogView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ConfirmationDialogView()
+//    }
+//}
+
 #Preview {
-    MainView()
+  ConfirmationDialogView()
 }

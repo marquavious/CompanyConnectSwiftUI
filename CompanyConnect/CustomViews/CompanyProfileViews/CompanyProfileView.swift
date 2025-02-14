@@ -14,7 +14,7 @@ struct CompanyProfileView: View {
     struct Constants {
         static let HeaderViewHeight: CGFloat = 200.0
         static let NavigationBarHeight: CGFloat = 50
-        static let ScrollViewOffset: CGFloat = -50
+        static let ScrollViewOffset: CGFloat = -50 
         static let CompanyProfilePictureSize: CGSize = CGSize(width: 75, height: 75)
     }
 
